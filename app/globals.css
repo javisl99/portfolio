@@ -1,0 +1,98 @@
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/space-grotesk";
+@import "tailwindcss";
+
+@source "../app/**/*.{ts,tsx}";
+@source "../components/**/*.{ts,tsx}";
+@source "../content/**/*.{md,mdx}";
+@source "../data/**/*.{ts,tsx}";
+
+@theme inline {
+  --font-sans: "Manrope Variable", sans-serif;
+  --font-display: "Space Grotesk Variable", sans-serif;
+  --color-bg: var(--background);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --shadow-soft: 0 32px 120px -64px rgba(15, 23, 42, 0.42);
+}
+
+:root {
+  --background: #f3f6f8;
+  --surface: #e8f1f2;
+  --line: #d7e1e8;
+  --line-strong: #bcc9d3;
+  --ink: #0f172a;
+  --muted: #556070;
+  --accent: #0f766e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 28rem),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(243, 246, 248, 0.96));
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-position: center;
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 88%);
+}
+
+::selection {
+  background: rgba(15, 118, 110, 0.18);
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.content-shell {
+  position: relative;
+}
+
+.content-shell::before,
+.content-shell::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  filter: blur(56px);
+  opacity: 0.46;
+}
+
+.content-shell::before {
+  top: 12rem;
+  left: -6rem;
+  height: 12rem;
+  width: 12rem;
+  background: rgba(15, 118, 110, 0.12);
+}
+
+.content-shell::after {
+  right: -4rem;
+  bottom: 12rem;
+  height: 14rem;
+  width: 14rem;
+  background: rgba(14, 165, 233, 0.1);
+}
+
