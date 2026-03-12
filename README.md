@@ -16,6 +16,8 @@ npm install
 npm run dev
 ```
 
+`npm run dev` uses Webpack instead of Turbopack to keep local preview stable with the current MDX/content setup.
+
 ## Validation
 
 ```bash
