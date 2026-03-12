@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Javier portfolio icon">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#bg)" />
+  <path d="M22 18h9v22c0 6-3.7 10-10.2 10-2.7 0-5-.6-6.8-1.8l2.4-6.7c1.1.6 2.3 1 3.7 1 1.2 0 2.1-.3 2.8-1 .8-.7 1.1-1.8 1.1-3.5z" fill="#f8fafc" />
+  <path d="M38.8 18h11.8l-9.4 13.4L51 46H39.1l-4.8-8.1L29.8 46H18l10.1-14.6L18.7 18h11.8l3.8 7.2z" fill="#ccfbf1" />
+</svg>
+
