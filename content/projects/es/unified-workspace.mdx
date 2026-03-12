@@ -1,0 +1,51 @@
+---
+title: "Workspace unificado para operaciones de cliente"
+summary: "Replanteamiento de una interfaz fragmentada para que producto, soporte y operaciones trabajaran sobre un mismo flujo con menos cambio de contexto."
+role: "Lead product engineer"
+stack:
+  - "Next.js"
+  - "TypeScript"
+  - "Design System"
+  - "Analytics"
+impact: "Menos navegación redundante, mejor comprensión del estado del cliente y una base más clara para seguir iterando."
+year: "2025"
+featured: true
+locale: "es"
+---
+
+## Contexto
+
+El punto de partida era una experiencia construida por capas. Cada equipo había resuelto su parte con bastante lógica local, pero el resultado global obligaba a cambiar de pantalla, reinterpretar estados y reconstruir mentalmente la historia del cliente.
+
+El problema no era solo visual. También afectaba a la velocidad con la que soporte y operaciones podían tomar decisiones, y hacía más difícil para producto detectar dónde estaban los mayores puntos de fricción.
+
+## Mi contribución
+
+Tomé el trabajo como una combinación de arquitectura de frontend y clarificación de producto:
+
+- ayudé a reducir el flujo a unos pocos estados entendibles,
+- propuse una estructura de información más estable para evitar “parches” por vertical,
+- y conecté esa decisión con una base de componentes reutilizables.
+
+Además, documenté criterios de interfaz para que el siguiente equipo pudiera extender el workspace sin volver a fragmentarlo.
+
+## Decisiones clave
+
+### Un modelo de estado más explícito
+
+Antes de tocar la UI, definimos qué significaba realmente cada estado crítico y qué decisiones tenía que facilitar la interfaz en cada uno.
+
+### Jerarquía visual basada en prioridad operativa
+
+La pantalla principal pasó a ordenar información por urgencia y utilidad, no por origen técnico de los datos.
+
+### Componentes preparados para crecer
+
+Los bloques más repetidos se consolidaron como piezas del sistema, con contratos suficientemente claros para escalar sin duplicidad.
+
+> El mayor valor no estuvo en “rediseñar una pantalla”, sino en convertir una experiencia dispersa en un modelo compartido por varios equipos.
+
+## Resultado
+
+El nuevo workspace hizo más fácil leer el estado de una cuenta, redujo pasos intermedios y dejó una base más robusta para añadir nuevas capacidades sin volver a abrir el problema inicial de consistencia.
+

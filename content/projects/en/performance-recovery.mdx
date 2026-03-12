@@ -1,0 +1,49 @@
+---
+title: "Performance recovery for a public web ecosystem"
+summary: "A stabilization and simplification effort to recover loading speed, structural clarity, and room for future evolution in a high-visibility set of pages."
+role: "Frontend architect"
+stack:
+  - "Next.js"
+  - "Performance"
+  - "Core Web Vitals"
+  - "Observability"
+impact: "Better interaction timing, fewer hard-to-detect regressions, and a safer foundation for continued delivery."
+year: "2023"
+featured: true
+locale: "en"
+---
+
+## Context
+
+The public platform had accumulated complexity over time. New pieces, scripts, and dependencies had been layered in without a clear strategy, affecting both performance and the team's confidence to keep iterating.
+
+The general feeling was that any improvement might break another part of the ecosystem.
+
+## My contribution
+
+Instead of treating the problem only through micro-optimizations, I structured the work in three layers:
+
+1. identify the biggest real cost to the experience,
+2. separate what was urgent from what was important,
+3. and leave enough observability in place to avoid losing visibility again.
+
+That helped the team understand what to change first and which practices needed a more structural rethink.
+
+## Key decisions
+
+### Remove unnecessary load before compensating for it
+
+The first goal was to eliminate or defer low-value dependencies instead of masking the cost with partial solutions.
+
+### Measure with context, not only dashboards
+
+Metrics were connected to meaningful pages, flows, and business touchpoints so the conversation did not stay trapped in technical language.
+
+### Leave a more maintainable base behind
+
+I used the intervention to simplify conventions, improve style hierarchy, and reduce repeated areas of fragility.
+
+## Outcome
+
+The ecosystem regained speed and predictability. More importantly, the team gained a framework for continuing to improve without relying on heroic efforts every time a regression appeared.
+

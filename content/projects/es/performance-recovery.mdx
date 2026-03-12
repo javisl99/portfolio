@@ -1,0 +1,49 @@
+---
+title: "Recuperación de rendimiento en un ecosistema web público"
+summary: "Trabajo de estabilización y simplificación para recuperar velocidad de carga, claridad estructural y margen de evolución en un conjunto de páginas muy expuesto."
+role: "Frontend architect"
+stack:
+  - "Next.js"
+  - "Performance"
+  - "Core Web Vitals"
+  - "Observability"
+impact: "Mejores tiempos de interacción, menos regresiones difíciles de detectar y una base más segura para seguir publicando."
+year: "2023"
+featured: true
+locale: "es"
+---
+
+## Contexto
+
+La plataforma pública había acumulado complejidad de forma progresiva. Nuevas piezas, scripts y dependencias convivían sin una estrategia clara, y eso estaba afectando tanto al rendimiento como a la confianza para iterar.
+
+La sensación general era que cualquier mejora podía romper otra parte del ecosistema.
+
+## Mi contribución
+
+En lugar de atacar el problema solo con microoptimizaciones, estructuré el trabajo en tres capas:
+
+1. identificar el mayor coste real para la experiencia,
+2. separar lo urgente de lo importante,
+3. y dejar mecanismos de observación para no volver a perder visibilidad.
+
+Eso permitió que el equipo entendiera mejor qué cambiar primero y qué prácticas convenía revisar de forma más estructural.
+
+## Decisiones clave
+
+### Reducir carga innecesaria antes que compensarla
+
+El primer objetivo fue eliminar o aplazar dependencias de bajo valor en lugar de maquillar el coste con soluciones parciales.
+
+### Medir con contexto, no solo con dashboards
+
+Las métricas se conectaron con páginas, flujos y puntos de negocio relevantes para que la conversación no quedara encerrada en lo técnico.
+
+### Dejar una base más mantenible
+
+Aproveché la intervención para simplificar convenciones, mejorar jerarquías de estilos y reducir zonas de fragilidad repetida.
+
+## Resultado
+
+El ecosistema recuperó velocidad y previsibilidad. Más importante aún, el equipo ganó un marco para seguir mejorando sin depender de esfuerzos heroicos cada vez que aparecía una regresión.
+

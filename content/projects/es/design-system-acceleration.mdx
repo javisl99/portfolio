@@ -1,0 +1,49 @@
+---
+title: "Aceleración con sistema de diseño compartido"
+summary: "Estructuración de patrones UI y criterios de implementación para mejorar consistencia, velocidad de entrega y calidad percibida entre varios equipos."
+role: "Senior frontend engineer"
+stack:
+  - "React"
+  - "TypeScript"
+  - "Accessibility"
+  - "Design Tokens"
+impact: "Menos duplicidad visual, revisiones más claras y una base reutilizable para evolucionar producto con menos fricción."
+year: "2024"
+featured: true
+locale: "es"
+---
+
+## Contexto
+
+El equipo tenía suficientes componentes para “hacer cosas”, pero no un sistema que ayudara a decidir cuándo reutilizar, cuándo extender y cuándo parar antes de añadir una excepción más.
+
+Eso se traducía en pantallas parecidas resueltas de forma distinta, conversaciones largas en revisión y una sensación creciente de falta de criterio compartido.
+
+## Mi contribución
+
+Mi foco fue unir diseño, implementación y documentación:
+
+- identificar patrones de interacción repetidos,
+- bajar esos patrones a componentes y tokens más consistentes,
+- y dejar reglas claras para que la reutilización no dependiera de recordar conversaciones antiguas.
+
+Trabajé también en ejemplos de uso reales para que la adopción no pareciera una capa abstracta separada del producto.
+
+## Decisiones clave
+
+### Menos componentes, mejores contratos
+
+En lugar de ampliar el catálogo sin fin, prioricé piezas más generales y mejor explicadas, con variantes justificadas por necesidades reales.
+
+### Accesibilidad como criterio del sistema
+
+Estados, foco, contraste y jerarquía dejaron de ser detalles de implementación para convertirse en parte central de la definición de cada patrón.
+
+### Documentación pensada para ahorrar tiempo
+
+La documentación no buscaba ser exhaustiva, sino útil: ejemplos, límites de uso y lenguaje claro sobre cuándo elegir cada solución.
+
+## Resultado
+
+El sistema ayudó a reducir divergencias visuales, facilitó el onboarding técnico y mejoró la velocidad con la que diseño e ingeniería podían converger en soluciones razonables.
+

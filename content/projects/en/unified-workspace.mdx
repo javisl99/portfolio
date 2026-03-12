@@ -1,0 +1,51 @@
+---
+title: "Unified customer workspace"
+summary: "A redesign of a fragmented interface so product, support, and operations could work inside a shared flow with less context switching."
+role: "Lead product engineer"
+stack:
+  - "Next.js"
+  - "TypeScript"
+  - "Design System"
+  - "Analytics"
+impact: "Less redundant navigation, better visibility into customer state, and a clearer foundation for future iterations."
+year: "2025"
+featured: true
+locale: "en"
+---
+
+## Context
+
+The starting point was a layered experience. Each team had solved its own area with reasonable local logic, but the overall result forced people to switch screens, reinterpret states, and mentally rebuild the customer story.
+
+The issue was not only visual. It also affected how quickly support and operations could make decisions, and made it harder for product to spot the biggest friction points.
+
+## My contribution
+
+I approached the work as a mix of frontend architecture and product clarification:
+
+- I helped reduce the flow to a smaller set of understandable states,
+- proposed a more stable information structure to avoid vertical-specific patches,
+- and connected those decisions to a reusable component foundation.
+
+I also documented interface criteria so the next team could extend the workspace without fragmenting it again.
+
+## Key decisions
+
+### A more explicit state model
+
+Before touching the UI, we defined what each critical state actually meant and what decision the interface needed to support in each case.
+
+### Visual hierarchy based on operational priority
+
+The main screen started organizing information by urgency and usefulness instead of by the technical source of the data.
+
+### Components designed for growth
+
+The most repeated blocks were consolidated into system pieces with contracts clear enough to scale without duplication.
+
+> The biggest value was not simply redesigning a screen, but turning a scattered experience into a shared model across teams.
+
+## Outcome
+
+The new workspace made account state easier to read, reduced intermediate steps, and created a stronger base for adding new capabilities without reopening the original consistency problem.
+
