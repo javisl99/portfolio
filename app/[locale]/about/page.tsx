@@ -62,7 +62,7 @@ export default async function AboutPage({
       </PageHero>
 
       <Container className="grid gap-6 pb-14 sm:pb-18 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
-        <section className="rounded-[2rem] border border-line bg-white/82 p-6 shadow-soft sm:p-8">
+        <section className="rounded-[2rem] border border-line bg-panel/90 p-6 shadow-soft sm:p-8">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-accent">{aboutPage.narrativeTitle}</p>
           <div className="grid gap-5">
             {aboutPage.narrative.map((paragraph) => (
@@ -73,7 +73,7 @@ export default async function AboutPage({
           </div>
         </section>
 
-        <section className="rounded-[2rem] border border-line bg-white/82 p-6 shadow-soft sm:p-8">
+        <section className="rounded-[2rem] border border-line bg-panel/90 p-6 shadow-soft sm:p-8">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-accent">{aboutPage.principlesTitle}</p>
           <div className="grid gap-4">
             {aboutPage.principles.map((principle) => (
@@ -104,4 +104,3 @@ export default async function AboutPage({
     </>
   );
 }
-

@@ -12,10 +12,10 @@ interface ButtonLinkProps extends ComponentPropsWithoutRef<"a"> {
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-ink text-white shadow-[0_18px_38px_-22px_rgba(15,23,42,0.6)] hover:-translate-y-0.5 hover:bg-ink/92",
+    "bg-accent text-accent-contrast shadow-soft hover:-translate-y-0.5 hover:brightness-105",
   secondary:
-    "border border-line bg-white/80 text-ink hover:-translate-y-0.5 hover:border-line-strong hover:bg-white",
-  ghost: "text-ink hover:bg-white/70",
+    "border border-line bg-panel/88 text-ink hover:-translate-y-0.5 hover:border-line-strong hover:bg-panel-strong",
+  ghost: "text-ink hover:bg-panel/88",
 };
 
 export function ButtonLink({ className, href, target, rel, variant = "primary", ...props }: ButtonLinkProps) {
@@ -34,4 +34,3 @@ export function ButtonLink({ className, href, target, rel, variant = "primary", 
 
   return <Link className={sharedClassName} href={href} {...props} />;
 }
-

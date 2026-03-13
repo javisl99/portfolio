@@ -23,8 +23,8 @@ export function MainNav({ locale, items }: MainNavProps) {
         return (
           <Link
             className={cn(
-              "rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white/70 hover:text-ink",
-              isActive && "bg-white text-ink shadow-[0_10px_24px_-18px_rgba(15,23,42,0.55)]",
+              "rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-panel hover:text-ink",
+              isActive && "bg-panel-strong text-ink shadow-soft",
             )}
             href={href}
             key={item.href}
@@ -36,4 +36,3 @@ export function MainNav({ locale, items }: MainNavProps) {
     </nav>
   );
 }
-

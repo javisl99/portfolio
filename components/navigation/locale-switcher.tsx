@@ -18,11 +18,10 @@ export function LocaleSwitcher({ locale, label }: LocaleSwitcherProps) {
   return (
     <Link
       aria-label={label}
-      className="inline-flex rounded-full border border-line bg-white/80 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted transition hover:border-line-strong hover:text-ink"
+      className="inline-flex rounded-full border border-line bg-panel/88 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted transition hover:border-line-strong hover:bg-panel-strong hover:text-ink"
       href={alternatePath}
     >
       {alternateLocale.toUpperCase()}
     </Link>
   );
 }
-
