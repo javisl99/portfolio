@@ -12,7 +12,7 @@ export function FocusCardGrid({ locale }: FocusCardGridProps) {
     <div className="grid gap-4 md:grid-cols-3">
       {cards.map((card) => (
         <article
-          className="rounded-[1.75rem] border border-line bg-white/78 p-6 shadow-soft transition duration-300 hover:-translate-y-1"
+          className="rounded-[1.75rem] border border-line bg-panel/88 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:bg-panel-strong"
           key={card.title}
         >
           <h3 className="mb-3 text-lg font-semibold text-ink">{card.title}</h3>
@@ -22,4 +22,3 @@ export function FocusCardGrid({ locale }: FocusCardGridProps) {
     </div>
   );
 }
-

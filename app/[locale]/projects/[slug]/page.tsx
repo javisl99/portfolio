@@ -82,7 +82,7 @@ export default async function ProjectDetailPage({
 
       <Container className="pb-18 sm:pb-24">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
-          <article className="rounded-[2rem] border border-line bg-white/82 p-6 shadow-soft sm:p-8">
+          <article className="rounded-[2rem] border border-line bg-panel/90 p-6 shadow-soft sm:p-8">
             <div className="mb-8 flex flex-wrap gap-2">
               {project.stack.map((item) => (
                 <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted" key={item}>
@@ -94,7 +94,7 @@ export default async function ProjectDetailPage({
           </article>
 
           <aside className="space-y-4">
-            <div className="rounded-[1.75rem] border border-line bg-white/82 p-5 shadow-soft">
+            <div className="rounded-[1.75rem] border border-line bg-panel/90 p-5 shadow-soft">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                 {locale === "es" ? "Contexto" : "Snapshot"}
               </p>
@@ -112,4 +112,3 @@ export default async function ProjectDetailPage({
     </>
   );
 }
-

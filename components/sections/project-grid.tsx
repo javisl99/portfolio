@@ -13,7 +13,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
     <div className="grid gap-4 lg:grid-cols-3">
       {projects.map((project) => (
         <article
-          className="group rounded-[1.9rem] border border-line bg-white/78 p-6 shadow-soft transition duration-300 hover:-translate-y-1"
+          className="group rounded-[1.9rem] border border-line bg-panel/88 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:bg-panel-strong"
           key={`${project.locale}-${project.slug}`}
         >
           <div className="mb-6 flex items-center justify-between gap-3">
@@ -41,4 +41,3 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
     </div>
   );
 }
-

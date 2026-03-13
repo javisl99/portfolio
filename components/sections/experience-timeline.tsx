@@ -8,7 +8,7 @@ export function ExperienceTimeline({ locale, limit }: { locale: Locale; limit?: 
     <div className="grid gap-5">
       {entries.map((entry) => (
         <article
-          className="grid gap-4 rounded-[1.75rem] border border-line bg-white/76 p-6 shadow-soft lg:grid-cols-[12rem_minmax(0,1fr)]"
+          className="grid gap-4 rounded-[1.75rem] border border-line bg-panel/88 p-6 shadow-soft lg:grid-cols-[12rem_minmax(0,1fr)]"
           key={`${entry.company}-${entry.period.en}`}
         >
           <div className="space-y-3">

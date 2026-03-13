@@ -76,7 +76,7 @@ export default async function HomePage({
                 </ButtonLink>
               </div>
             </div>
-            <aside className="rounded-[2rem] border border-line bg-white/82 p-6 shadow-soft">
+            <aside className="rounded-[2rem] border border-line bg-panel/90 p-6 shadow-soft">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-accent">
                 {locale === "es" ? "Resumen rápido" : "Quick overview"}
               </p>

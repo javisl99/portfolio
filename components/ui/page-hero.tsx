@@ -21,10 +21,9 @@ export function PageHero({ eyebrow, title, intro, children, className }: PageHer
             <h1 className="text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">{title}</h1>
             <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">{intro}</p>
           </div>
-          {children ? <div className="rounded-[1.75rem] border border-line bg-white/72 p-5 shadow-soft">{children}</div> : null}
+          {children ? <div className="rounded-[1.75rem] border border-line bg-panel/88 p-5 shadow-soft">{children}</div> : null}
         </div>
       </Container>
     </section>
   );
 }
-
