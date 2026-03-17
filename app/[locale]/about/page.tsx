@@ -55,8 +55,8 @@ export default async function AboutPage({
           <p className="text-2xl font-semibold text-ink">{siteSettings.location}</p>
           <p className="text-sm leading-7 text-muted">
             {locale === "es"
-              ? "Perfil con enfoque en producto, calidad de experiencia y claridad técnica."
-              : "Profile centered on product thinking, experience quality, and technical clarity."}
+              ? "Perfil orientado a SAP Commerce Cloud, consultoría técnica y delivery e-commerce en entornos reales de cliente."
+              : "Profile centered on SAP Commerce Cloud, technical consulting, and e-commerce delivery in real client environments."}
           </p>
         </div>
       </PageHero>

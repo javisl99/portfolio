@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 import { siteSettings } from "@/data/site";
 
-export const alt = "Javier professional portfolio";
+export const alt = "Javier Sánchez Lancha professional portfolio";
 export const size = {
   width: 1200,
   height: 630,
@@ -38,17 +38,17 @@ export default function OpenGraphImage() {
             textTransform: "uppercase",
           }}
         >
-          Bilingual portfolio
+          SAP Commerce Cloud portfolio
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "18px", maxWidth: "840px" }}>
           <div style={{ fontSize: 82, lineHeight: 1.02, fontWeight: 700 }}>{siteSettings.name}</div>
           <div style={{ fontSize: 34, lineHeight: 1.3, color: "#334155" }}>
-            Product-minded software engineer focused on clarity, impact, and dependable delivery.
+            SAP Commerce Cloud Developer focused on incident ownership, evolutive delivery, and real project consulting.
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#475569" }}>
           <span>{siteSettings.location}</span>
-          <span>Next.js / TypeScript / MDX</span>
+          <span>SAP Commerce / Java / Spring</span>
         </div>
       </div>
     ),

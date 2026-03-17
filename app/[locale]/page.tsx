@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ContactPanel } from "@/components/sections/contact-panel";
-import { ExperienceTimeline } from "@/components/sections/experience-timeline";
+import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapshot-grid";
 import { FocusCardGrid } from "@/components/sections/focus-card-grid";
 import { MilestoneGrid } from "@/components/sections/milestone-grid";
 import { ProjectGrid } from "@/components/sections/project-grid";
@@ -94,18 +94,18 @@ export default async function HomePage({
                   <ul className="mt-3 grid gap-2 text-sm leading-7 text-muted">
                     <li>
                       {locale === "es"
-                        ? "Pensamiento de producto y arquitectura frontend"
-                        : "Product thinking and frontend architecture"}
+                        ? "SAP Commerce Cloud con Java, Spring y FlexibleSearch"
+                        : "SAP Commerce Cloud with Java, Spring, and FlexibleSearch"}
                     </li>
                     <li>
                       {locale === "es"
-                        ? "Entrega accesible, estable y con criterio de calidad"
-                        : "Accessible delivery with a strong quality bar"}
+                        ? "Incidental, mantenimiento evolutivo y comunicación técnica con cliente"
+                        : "Incident handling, evolutive maintenance, and technical client communication"}
                     </li>
                     <li>
                       {locale === "es"
-                        ? "Contenido bilingüe, datos tipados y casos en MDX"
-                        : "Bilingual content, typed data, and MDX case studies"}
+                        ? "Checkout, precios, stock e integration objects en proyectos reales"
+                        : "Checkout, pricing, stock, and integration objects in real projects"}
                     </li>
                   </ul>
                 </div>
@@ -131,7 +131,7 @@ export default async function HomePage({
         eyebrow={copy.home.experience.eyebrow}
         title={copy.home.experience.title}
       >
-        <ExperienceTimeline limit={2} locale={locale} />
+        <ExperienceSnapshotGrid locale={locale} />
       </Section>
 
       <Section

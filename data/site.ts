@@ -1,8 +1,8 @@
 import type { Locale } from "@/lib/i18n";
 
 export const siteSettings = {
-  name: "Javier",
-  role: "Product-minded software engineer",
+  name: "Javier Sánchez Lancha",
+  role: "SAP Commerce Cloud Developer",
   email: "hello@yourname.dev",
   linkedin: "https://www.linkedin.com/in/your-profile",
   github: "https://github.com/your-handle",
@@ -88,34 +88,34 @@ export const siteCopy: Record<
       { href: pageSlugs.contact, label: "Contacto" },
     ],
     metadata: {
-      defaultTitle: "Portfolio profesional de Javier",
+      defaultTitle: "Portfolio profesional de Javier Sánchez Lancha",
       defaultDescription:
-        "Portfolio bilingüe orientado a reclutadores: experiencia, hitos, casos y forma de trabajar de un perfil de ingeniería de producto.",
+        "Portfolio bilingüe orientado a reclutadores SAP: experiencia, casos y contexto técnico real de Javier Sánchez Lancha como SAP Commerce Cloud Developer.",
       pages: {
         experience: {
-          title: "Experiencia profesional",
+          title: "Experiencia profesional en SAP Commerce Cloud",
           description:
-            "Trayectoria, contexto, decisiones e impacto en equipos de producto, frontend y plataforma.",
+            "Trayectoria técnica y consultiva en SAP Commerce Cloud a través de Stratesys, Minsait y Accenture.",
         },
         projects: {
-          title: "Casos y proyectos",
+          title: "Casos SAP Commerce Cloud",
           description:
-            "Selección de proyectos contados desde el problema, la contribución técnica y el resultado obtenido.",
+            "Tres casos reales centrados en incidental, evolutivo, customización del estándar e integraciones dentro de SAP Commerce Cloud.",
         },
         about: {
           title: "Sobre mí",
           description:
-            "Cómo pienso, colaboro y convierto ambigüedad en entregas claras, sostenibles y bien explicadas.",
+            "Cómo trabajo como SAP Commerce Cloud Developer: debugging, evolución técnica, comprensión del estándar y comunicación clara con cliente.",
         },
         contact: {
           title: "Contacto",
           description:
-            "Canales directos para conectar, revisar el CV y continuar la conversación profesional.",
+            "Canales directos para conectar y seguir una conversación profesional sobre oportunidades SAP Commerce Cloud.",
         },
         projectDetail: {
-          title: "Caso de estudio",
+          title: "Caso SAP Commerce",
           description:
-            "Detalle de un proyecto con foco en contexto, decisiones, ejecución e impacto.",
+            "Detalle de un proyecto SAP Commerce Cloud con foco en contexto, responsabilidad, decisiones técnicas e impacto profesional.",
         },
       },
     },
@@ -123,118 +123,118 @@ export const siteCopy: Record<
       resume: "Ver CV en PDF",
       email: "Escribir un email",
       linkedin: "Abrir LinkedIn",
-      allProjects: "Ver todos los casos",
+      allProjects: "Ver todos los casos SAP",
       allExperience: "Ver la trayectoria completa",
       about: "Conocer cómo trabajo",
     },
     home: {
       hero: {
-        eyebrow: "Ingeniería de producto con foco en claridad, impacto y ejecución",
-        title: "Construyo experiencias digitales sólidas y explico el porqué detrás de cada decisión.",
+        eyebrow: "SAP Commerce Cloud, Java y consultoría técnica para e-commerce",
+        title: "Desarrollo soluciones sobre SAP Commerce Cloud con foco en soporte, evolutivo e integraciones de negocio.",
         summary:
-          "Este portfolio amplía el CV con contexto: cómo afronto productos complejos, cómo convierto necesidades ambiguas en entregas claras y cómo conecto frontend, plataforma y negocio sin perder calidad.",
+          "Este portfolio amplía mi CV con contexto técnico real: mantenimiento e incidental, customización del estándar SAP Commerce, checkout, precios, stock, integration objects y trabajo directo con cliente en entornos de consultoría.",
         availability:
-          "Disponible para conversaciones sobre roles senior donde importen criterio técnico, colaboración transversal y capacidad de aterrizar producto.",
+          "Abierto a oportunidades SAP Commerce Cloud donde se valore autonomía técnica, conocimiento del estándar, capacidad para resolver incidencias y criterio para participar en evolutivos con impacto real.",
       },
       focusCards: [
         {
-          title: "Narrativa orientada a reclutadores",
-          body: "Cada sección está diseñada para responder rápido quién soy, qué hago y qué tipo de impacto puedo asumir.",
+          title: "Experiencia SAP real",
+          body: "La narrativa está construida a partir de proyectos y clientes reales: BuildingCenter con CaixaBank Tech, Claro Perú y Airbus.",
         },
         {
-          title: "Profundidad sin ruido",
-          body: "Los casos y la experiencia priorizan contexto, decisiones, resultados y señales de seniority frente a listas genéricas de tareas.",
+          title: "Profundidad técnica útil",
+          body: "La web prioriza señales que interesan a recruiting SAP: customizaciones del estándar, checkout, precios, stock, integration objects y soporte productivo.",
         },
         {
-          title: "Base mantenible",
-          body: "El contenido vive en datos tipados y MDX para que actualizar la web sea simple y no dependa de un CMS.",
+          title: "Consultoría con ownership",
+          body: "Además del desarrollo, ya he trabajado con cliente, seguimiento de incidencias y responsabilidad directa sobre el incidental.",
         },
       ],
       experience: {
         eyebrow: "Trayectoria",
-        title: "Experiencia explicada con contexto e impacto",
+        title: "Experiencia SAP reflejada en el CV y preparada para ampliar",
         description:
-          "Una línea de tiempo clara para entender evolución, responsabilidad, entorno técnico y resultados relevantes.",
+          "Un resumen claro de Stratesys, Minsait y Accenture para que recruiting entienda rápido el recorrido del CV antes de entrar en más detalle técnico.",
       },
       milestones: {
         eyebrow: "Hitos",
-        title: "Señales de criterio y seniority",
+        title: "Señales de crecimiento técnico y ownership",
         description:
-          "Logros que muestran no solo ejecución, sino también capacidad para ordenar complejidad, alinear equipos y elevar la calidad.",
+          "Momentos que muestran dominio del estándar, autonomía en soporte e interacción directa con cliente dentro de entornos de consultoría.",
       },
       skills: {
         eyebrow: "Habilidades",
-        title: "Fortalezas que conectan producto y tecnología",
+        title: "Capacidades clave en SAP Commerce Cloud",
         description:
-          "Capacidades agrupadas por áreas de valor, evitando la clásica lista plana de herramientas sin contexto.",
+          "Competencias agrupadas alrededor de SAP Commerce, base back-end, flujos core de e-commerce y trabajo consultivo.",
       },
       projects: {
-        eyebrow: "Casos",
-        title: "Proyectos descritos desde el problema hasta el resultado",
+        eyebrow: "Casos SAP",
+        title: "Casos reales de SAP Commerce Cloud con contexto técnico reconocible",
         description:
-          "Casos escritos en MDX para contar decisiones, tradeoffs, stack y efectos reales de forma más profunda que en un CV.",
+          "Tres casos escritos en MDX para explicar qué se hizo, qué parte de SAP Commerce estaba en juego y qué señal profesional deja cada etapa.",
       },
       contact: {
         eyebrow: "Contacto",
-        title: "La siguiente conversación debería ser fácil",
+        title: "La siguiente conversación debería ser directa y técnica",
         description:
-          "Accesos directos a email, LinkedIn y CV para que el portfolio acompañe la decisión sin crear fricción.",
+          "Email, LinkedIn y CV accesibles para seguir una conversación profesional sobre posiciones SAP Commerce Cloud.",
       },
     },
     pages: {
       experience: {
         eyebrow: "Experiencia profesional",
-        title: "Trayectoria construida alrededor de producto, frontend y plataforma",
+        title: "Trayectoria en SAP Commerce Cloud entre consultoría, soporte y evolutivo",
         intro:
-          "Cada etapa resume contexto, foco, decisiones y señales de impacto. La estructura está pensada para que un reclutador entienda rápido la progresión del perfil y el tipo de problemas que sabe abordar.",
+          "Esta página parte de la experiencia tal y como aparece en mi CV y añade una primera capa de contexto técnico. Sirve para ver de un vistazo las etapas de Stratesys, Minsait y Accenture, dejando la estructura preparada para profundizar más adelante.",
       },
       projects: {
-        eyebrow: "Casos y proyectos",
-        title: "Una selección de trabajo explicada como conversación profesional",
+        eyebrow: "Casos SAP Commerce",
+        title: "Tres casos reales explicados con contexto, rol y decisiones técnicas",
         intro:
-          "Aquí no hay solo capturas o stacks. Cada caso explica qué había que resolver, cuál fue la contribución principal y qué cambió después.",
+          "Aquí no hay proyectos ficticios ni demos genéricas. Cada caso resume qué tipo de proyecto era, qué parte de SAP Commerce tocaba, cuál fue mi papel y por qué esa experiencia aporta señales valiosas para recruiting y evaluación técnica.",
       },
       about: {
         eyebrow: "Sobre mí",
-        title: "Combino criterio técnico con foco en claridad y colaboración",
+        title: "Combino desarrollo SAP Commerce con criterio técnico y comunicación clara",
         intro:
-          "Me interesa trabajar en productos con ambición y complejidad, donde las decisiones técnicas importan tanto como la manera en la que se comunican, se priorizan y se sostienen en el tiempo.",
+          "Me interesa trabajar en proyectos SAP Commerce Cloud donde el trabajo técnico no se limite a implementar tareas, sino también a entender el estándar, diagnosticar incidencias, explicar decisiones y acompañar la evolución del producto con criterio.",
         narrativeTitle: "Cómo enfoco el trabajo",
         narrative: [
-          "Suelo moverme bien en espacios ambiguos: ordenar información, detectar lo importante, bajar riesgos y convertir discusiones abstractas en un plan ejecutable.",
-          "Me siento especialmente cómodo conectando producto, diseño y frontend con una capa suficiente de plataforma y delivery para que las decisiones no se rompan al llegar a producción.",
-          "Valoro los sistemas que hacen más fácil que otros equipos trabajen mejor: componentes consistentes, criterios compartidos, documentación útil y herramientas que reducen fricción.",
+          "Mi trayectoria se ha construido alrededor de SAP Commerce Cloud en contextos reales de consultoría, soporte y desarrollo. Eso me ha dado una base práctica sobre cómo mantener, extender y estabilizar una plataforma que ya está en producción.",
+          "Me interesa especialmente el punto en el que hay que entender bien el estándar antes de personalizar. Creo que una buena solución en SAP Commerce no es la que más cambia, sino la que resuelve el problema sin romper innecesariamente la base de la plataforma.",
+          "También me siento cómodo en el lado más consultivo del trabajo: seguimiento de incidencias, comunicación con cliente, explicación de bloqueos y coordinación para que el contexto técnico no se convierta en ruido.",
         ],
         principlesTitle: "Principios de trabajo",
         principles: [
           {
-            title: "Claridad antes que complejidad aparente",
-            body: "Prefiero soluciones comprensibles, explicables y sostenibles a arquitecturas vistosas que encarecen el mantenimiento.",
+            title: "Entender el estándar antes de extenderlo",
+            body: "Cuanto mejor se conoce el comportamiento base de SAP Commerce, mejores decisiones se toman al personalizar checkout, precios, stock o integraciones.",
           },
           {
-            title: "Producto y tecnología no compiten",
-            body: "Las mejores decisiones suelen aparecer cuando se consideran juntas la experiencia de usuario, el coste técnico y la velocidad futura.",
+            title: "Las incidencias se resuelven con contexto, no solo con parches",
+            body: "Soporte productivo significa diagnosticar bien, comunicar estado, priorizar con criterio y dejar el sistema más entendible después de cada incidencia.",
           },
           {
-            title: "La calidad se diseña desde el principio",
-            body: "Accesibilidad, rendimiento, consistencia visual y observabilidad no deberían ser una fase aparte ni un arreglo al final.",
+            title: "La comunicación técnica también forma parte del delivery",
+            body: "Explicar con claridad qué pasa, qué riesgo existe y qué camino tiene más sentido ayuda tanto al cliente como al equipo a decidir mejor.",
           },
         ],
       },
       contact: {
         eyebrow: "Contacto",
-        title: "Si encaja el contexto, continuamos la conversación",
+        title: "Si buscas un perfil SAP Commerce Cloud con base técnica real, hablemos",
         intro:
-          "La v1 evita formularios para que el contacto sea directo. La idea es reducir fricción y dejar claro cuál es la mejor manera de seguir hablando.",
+          "La web evita formularios a propósito. Prefiero que el siguiente paso sea directo y que la conversación empiece con contexto claro sobre experiencia, stack y tipo de proyecto.",
         availability:
-          "Abierto a explorar oportunidades donde tenga sentido combinar ingeniería, producto y liderazgo técnico cercano a la ejecución.",
+          "Interesado en oportunidades SAP Commerce Cloud donde tengan peso el conocimiento técnico, la capacidad de resolver incidencias complejas y la evolución progresiva de una plataforma viva.",
         note:
-          "Las URLs y datos de contacto incluidos aquí son placeholders fáciles de sustituir por tus datos reales desde los ficheros de contenido.",
+          "Los datos de contacto siguen siendo placeholders fáciles de sustituir, pero la estructura ya está preparada para un portfolio técnico enfocado a recruiting SAP.",
       },
     },
     footer: {
-      note: "Portfolio profesional bilingüe diseñado para complementar el CV con más profundidad, contexto y criterio.",
-      availability: "Base preparada para crecer con más casos, artículos o un CMS si algún día lo necesitas.",
+      note: "Portfolio técnico bilingüe centrado en experiencia real con SAP Commerce Cloud, consultoría y desarrollo e-commerce.",
+      availability: "La base queda preparada para incorporar más adelante proyectos personales y nuevos casos técnicos sin rehacer la estructura.",
       builtWith: "Next.js, TypeScript, Tailwind y MDX.",
     },
   },
@@ -249,34 +249,34 @@ export const siteCopy: Record<
       { href: pageSlugs.contact, label: "Contact" },
     ],
     metadata: {
-      defaultTitle: "Javier's professional portfolio",
+      defaultTitle: "Javier Sánchez Lancha's professional portfolio",
       defaultDescription:
-        "Bilingual portfolio for recruiters: career path, milestones, project case studies, and the way Javier works across product and engineering.",
+        "Bilingual portfolio for SAP recruiters: real experience, case studies, and technical context around Javier Sánchez Lancha as a SAP Commerce Cloud Developer.",
       pages: {
         experience: {
-          title: "Professional experience",
+          title: "Professional experience in SAP Commerce Cloud",
           description:
-            "Career progression, context, decision making, and impact across product, frontend, and platform work.",
+            "Technical and consulting experience in SAP Commerce Cloud across Stratesys, Minsait, and Accenture.",
         },
         projects: {
-          title: "Projects and case studies",
+          title: "SAP Commerce Cloud case studies",
           description:
-            "A selected set of projects explained through problem framing, technical contribution, and outcomes.",
+            "Three real cases focused on incident handling, evolutive delivery, standard customization, and integrations in SAP Commerce Cloud.",
         },
         about: {
           title: "About",
           description:
-            "How I think, collaborate, and turn ambiguity into durable, well-explained delivery.",
+            "How I work as a SAP Commerce Cloud Developer: debugging, platform evolution, standard knowledge, and clear communication with clients.",
         },
         contact: {
           title: "Contact",
           description:
-            "Direct ways to connect, review the resume, and continue the professional conversation.",
+            "Direct ways to connect and continue a professional conversation about SAP Commerce Cloud opportunities.",
         },
         projectDetail: {
-          title: "Case study",
+          title: "SAP Commerce case study",
           description:
-            "A closer look at one project, focused on context, decisions, execution, and impact.",
+            "A SAP Commerce Cloud project explained through context, responsibility, technical decisions, and professional impact.",
         },
       },
     },
@@ -284,120 +284,119 @@ export const siteCopy: Record<
       resume: "Open resume PDF",
       email: "Send an email",
       linkedin: "Open LinkedIn",
-      allProjects: "Browse all case studies",
+      allProjects: "Browse all SAP cases",
       allExperience: "View full experience",
       about: "See how I work",
     },
     home: {
       hero: {
-        eyebrow: "Product engineering focused on clarity, impact, and delivery",
-        title: "I build dependable digital experiences and make the reasoning behind them visible.",
+        eyebrow: "SAP Commerce Cloud, Java, and technical consulting for e-commerce",
+        title: "I build SAP Commerce Cloud solutions focused on support, evolutive work, and business integrations.",
         summary:
-          "This portfolio expands the resume with context: how I approach complex products, how I turn ambiguous needs into clear delivery, and how I connect frontend, platform, and business priorities without losing quality.",
+          "This portfolio expands my resume with real technical context: support and incident handling, SAP Commerce standard customization, checkout, pricing, stock, integration objects, and direct client-facing work inside consulting environments.",
         availability:
-          "Open to conversations about senior roles where technical judgment, cross-functional collaboration, and product-minded execution matter.",
+          "Open to SAP Commerce Cloud opportunities where technical autonomy, platform knowledge, incident ownership, and good judgment on evolutive delivery are valued.",
       },
       focusCards: [
         {
-          title: "Recruiter-friendly narrative",
-          body: "Each section is shaped to answer quickly who I am, what I do, and the kind of impact I can own.",
+          title: "Real SAP experience",
+          body: "The narrative is built around real projects and clients: BuildingCenter with CaixaBank Tech, Claro Perú, and Airbus.",
         },
         {
-          title: "Depth without clutter",
-          body: "Projects and experience focus on context, decisions, outcomes, and senior signals instead of generic task lists.",
+          title: "Useful technical depth",
+          body: "The site prioritizes signals that matter in SAP recruiting: standard customization, checkout, pricing, stock, integration objects, and production support.",
         },
         {
-          title: "Maintainable foundation",
-          body: "Content lives in typed data and MDX so the site stays easy to evolve without adding CMS complexity.",
+          title: "Consulting with ownership",
+          body: "Beyond development, I have already worked directly with clients, incident follow-up, and ownership over the incident stream.",
         },
       ],
       experience: {
         eyebrow: "Career path",
-        title: "Experience explained through context and impact",
+        title: "SAP experience reflected in the CV and ready to expand",
         description:
-          "A clear timeline that shows progression, responsibility, technical environment, and meaningful outcomes.",
+          "A clear snapshot of Stratesys, Minsait, and Accenture so recruiters can understand the CV journey before diving into deeper technical detail.",
       },
       milestones: {
-        eyebrow: "Milestones",
-        title: "Signals of judgment and seniority",
+        eyebrow: "Highlights",
+        title: "Signals of technical growth and ownership",
         description:
-          "Highlights that show more than execution: structuring complexity, aligning teams, and raising the quality bar.",
+          "Moments that show standard knowledge, support autonomy, and direct client interaction inside consulting environments.",
       },
       skills: {
         eyebrow: "Capabilities",
-        title: "Strengths that connect product and technology",
+        title: "Key capabilities in SAP Commerce Cloud",
         description:
-          "Skills grouped by value area, avoiding the usual flat list of tools with no context.",
+          "Skills grouped around SAP Commerce, back-end foundations, core e-commerce flows, and consulting work.",
       },
       projects: {
-        eyebrow: "Case studies",
-        title: "Projects described from problem to result",
+        eyebrow: "SAP cases",
+        title: "Real SAP Commerce Cloud cases with recognizable technical context",
         description:
-          "MDX-based case studies to explain decisions, tradeoffs, stack choices, and outcomes more deeply than a resume can.",
+          "Three case studies explaining what was done, which SAP Commerce area mattered, and what professional signal each stage leaves behind.",
       },
       contact: {
         eyebrow: "Contact",
-        title: "The next conversation should feel easy",
+        title: "The next conversation should be direct and technical",
         description:
-          "Direct access to email, LinkedIn, and the resume so the portfolio supports the decision without adding friction.",
+          "Email, LinkedIn, and resume access to continue a professional conversation about SAP Commerce Cloud roles.",
       },
     },
     pages: {
       experience: {
         eyebrow: "Professional experience",
-        title: "A career built across product, frontend, and platform work",
+        title: "A SAP Commerce Cloud path across consulting, support, and evolutive delivery",
         intro:
-          "Each step summarizes context, focus, decisions, and impact signals. The structure is designed so a recruiter can quickly understand the progression and the kinds of problems this profile is built to solve.",
+          "This page starts from the experience exactly as it appears in my CV and adds an initial layer of technical context. It gives a quick view of the Stratesys, Minsait, and Accenture stages, while leaving the structure ready for deeper expansion later on.",
       },
       projects: {
-        eyebrow: "Projects and case studies",
-        title: "Selected work explained like a professional conversation",
+        eyebrow: "SAP Commerce cases",
+        title: "Three real cases explained through context, role, and technical decisions",
         intro:
-          "This is not just screenshots or a stack list. Each case explains what needed to be solved, what the core contribution was, and what changed afterwards.",
+          "These are not fictional projects or generic demos. Each case explains what kind of project it was, which SAP Commerce area it touched, what my role was, and why that experience matters for recruiting and technical evaluation.",
       },
       about: {
         eyebrow: "About",
-        title: "I combine technical judgment with clarity and collaborative execution",
+        title: "I combine SAP Commerce development with technical judgment and clear communication",
         intro:
-          "I enjoy working on ambitious, complex products where technical decisions matter as much as the way they are communicated, prioritized, and sustained over time.",
+          "I want to work on SAP Commerce Cloud projects where the technical role goes beyond implementing tasks and includes understanding the standard, diagnosing incidents, explaining decisions, and supporting platform evolution with sound judgment.",
         narrativeTitle: "How I approach the work",
         narrative: [
-          "I tend to do well in ambiguous spaces: organizing information, identifying what matters, reducing risk, and turning abstract discussions into something executable.",
-          "I am especially comfortable connecting product, design, and frontend with enough platform and delivery awareness to keep decisions intact all the way to production.",
-          "I value systems that help other teams work better: consistent components, shared decision criteria, useful documentation, and tooling that reduces friction.",
+          "My path has been built around SAP Commerce Cloud in real consulting, support, and delivery contexts. That has given me a practical foundation for maintaining, extending, and stabilizing a platform that is already live.",
+          "I care especially about the point where you need to understand the standard before customizing it. In SAP Commerce, the best solution is rarely the one that changes the most, but the one that solves the problem without unnecessarily breaking the platform baseline.",
+          "I am also comfortable with the consulting side of the work: incident follow-up, client communication, explaining blockers, and keeping technical context understandable instead of turning it into noise.",
         ],
         principlesTitle: "Working principles",
         principles: [
           {
-            title: "Clarity beats performative complexity",
-            body: "I prefer solutions that are understandable, explainable, and durable over architectures that look impressive but are costly to maintain.",
+            title: "Understand the standard before extending it",
+            body: "The better you know the SAP Commerce baseline, the better your decisions will be when customizing checkout, pricing, stock, or integrations.",
           },
           {
-            title: "Product and technology should reinforce each other",
-            body: "The best decisions usually appear when user experience, technical cost, and future delivery speed are considered together.",
+            title: "Incidents should be solved with context, not only patches",
+            body: "Production support means diagnosing well, communicating status, prioritizing with judgment, and leaving the system more understandable after each issue.",
           },
           {
-            title: "Quality is designed in, not bolted on",
-            body: "Accessibility, performance, visual consistency, and observability should not be treated as a separate phase or a late fix.",
+            title: "Technical communication is part of delivery",
+            body: "Explaining what is happening, what the risk is, and which path makes more sense helps both the client and the team make better decisions.",
           },
         ],
       },
       contact: {
         eyebrow: "Contact",
-        title: "If the context makes sense, let's continue the conversation",
+        title: "If you are looking for a SAP Commerce Cloud profile with a real technical base, let's talk",
         intro:
-          "The first version avoids forms on purpose so contact stays direct. The goal is to reduce friction and make the next step obvious.",
+          "The site avoids forms on purpose. I prefer the next step to be direct and to start the conversation with clear context around experience, stack, and project type.",
         availability:
-          "Open to exploring roles where engineering, product thinking, and hands-on technical leadership need to work closely together.",
+          "Interested in SAP Commerce Cloud opportunities where technical depth, the ability to resolve complex incidents, and steady platform evolution all matter.",
         note:
-          "The URLs and contact details used here are starter placeholders that are easy to replace with your real information from the content files.",
+          "Contact details are still easy-to-replace placeholders, but the structure is now prepared for a portfolio aimed at SAP recruiting and technical review.",
       },
     },
     footer: {
-      note: "Bilingual professional portfolio designed to extend the resume with more depth, context, and judgment.",
-      availability: "The foundation is ready to grow into more case studies, articles, or a CMS later if you ever need it.",
+      note: "Bilingual technical portfolio centered on real SAP Commerce Cloud experience, consulting, and e-commerce delivery.",
+      availability: "The foundation is ready to include personal projects and additional technical case studies later without reworking the structure.",
       builtWith: "Built with Next.js, TypeScript, Tailwind, and MDX.",
     },
   },
 };
-

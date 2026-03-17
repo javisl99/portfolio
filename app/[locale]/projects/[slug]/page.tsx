@@ -59,19 +59,41 @@ export default async function ProjectDetailPage({
   }
 
   const copy = siteCopy[locale];
+  const categoryLabel =
+    project.category === "sap-commerce"
+      ? locale === "es"
+        ? "Caso SAP Commerce"
+        : "SAP Commerce case study"
+      : locale === "es"
+        ? "Proyecto personal"
+        : "Personal project";
 
   return (
     <>
       <PageHero
-        eyebrow={locale === "es" ? "Caso de estudio" : "Case study"}
+        eyebrow={categoryLabel}
         intro={project.summary}
         title={project.title}
       >
         <div className="space-y-4">
           <Pill>{project.year}</Pill>
           <div>
+            <p className="text-sm text-muted">{locale === "es" ? "Empresa" : "Employer"}</p>
+            <p className="text-lg font-semibold text-ink">{project.employer}</p>
+          </div>
+          {project.client ? (
+            <div>
+              <p className="text-sm text-muted">{locale === "es" ? "Cliente" : "Client"}</p>
+              <p className="text-lg font-semibold text-ink">{project.client}</p>
+            </div>
+          ) : null}
+          <div>
             <p className="text-sm text-muted">{locale === "es" ? "Rol" : "Role"}</p>
             <p className="text-lg font-semibold text-ink">{project.role}</p>
+          </div>
+          <div>
+            <p className="text-sm text-muted">{locale === "es" ? "Contexto" : "Domain"}</p>
+            <p className="text-sm leading-7 text-ink">{project.domain}</p>
           </div>
           <div>
             <p className="text-sm text-muted">{locale === "es" ? "Impacto" : "Impact"}</p>
@@ -96,7 +118,7 @@ export default async function ProjectDetailPage({
           <aside className="space-y-4">
             <div className="rounded-[1.75rem] border border-line bg-panel/90 p-5 shadow-soft">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                {locale === "es" ? "Contexto" : "Snapshot"}
+                {locale === "es" ? "Resumen" : "Snapshot"}
               </p>
               <p className="text-sm leading-7 text-muted">{project.summary}</p>
             </div>
