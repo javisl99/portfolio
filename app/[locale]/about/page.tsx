@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { ApproachGrid } from "@/components/sections/approach-grid";
 import { ContactPanel } from "@/components/sections/contact-panel";
-import { SkillGrid } from "@/components/sections/skill-grid";
-import { Container } from "@/components/ui/container";
+import { StrengthGrid } from "@/components/sections/strength-grid";
 import { PageHero } from "@/components/ui/page-hero";
 import { Section } from "@/components/ui/section";
-import { siteCopy, siteSettings } from "@/data/site";
+import { siteCopy } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
 import { isLocale, type Locale } from "@/lib/i18n";
 
@@ -28,6 +28,7 @@ export async function generateMetadata({
     locale,
     title: pageMeta.title,
     description: pageMeta.description,
+    keywords: pageMeta.keywords,
     path: "/about",
   });
 }
@@ -51,55 +52,31 @@ export default async function AboutPage({
     <>
       <PageHero eyebrow={aboutPage.eyebrow} intro={aboutPage.intro} title={aboutPage.title}>
         <div className="space-y-3">
-          <p className="text-sm text-muted">{locale === "es" ? "Base" : "Base"}</p>
-          <p className="text-2xl font-semibold text-ink">{siteSettings.location}</p>
-          <p className="text-sm leading-7 text-muted">
-            {locale === "es"
-              ? "Perfil orientado a SAP Commerce Cloud, consultoría técnica y delivery e-commerce en entornos reales de cliente."
-              : "Profile centered on SAP Commerce Cloud, technical consulting, and e-commerce delivery in real client environments."}
-          </p>
+          <p className="text-sm text-muted">{aboutPage.summaryTitle}</p>
+          <p className="text-2xl font-black tracking-tight text-ink">{copy.roleLabel}</p>
+          <p className="text-sm leading-7 text-muted">{aboutPage.summaryBody}</p>
         </div>
       </PageHero>
 
-      <Container className="grid gap-6 pb-14 sm:pb-18 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
-        <section className="rounded-[2rem] border border-line bg-panel/90 p-6 shadow-soft sm:p-8">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-accent">{aboutPage.narrativeTitle}</p>
-          <div className="grid gap-5">
-            {aboutPage.narrative.map((paragraph) => (
-              <p className="text-base leading-8 text-muted" key={paragraph}>
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </section>
-
-        <section className="rounded-[2rem] border border-line bg-panel/90 p-6 shadow-soft sm:p-8">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-accent">{aboutPage.principlesTitle}</p>
-          <div className="grid gap-4">
-            {aboutPage.principles.map((principle) => (
-              <article className="rounded-[1.5rem] bg-surface/65 p-5" key={principle.title}>
-                <h2 className="mb-2 text-lg font-semibold text-ink">{principle.title}</h2>
-                <p className="text-sm leading-7 text-muted">{principle.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      </Container>
-
-      <Section
-        description={copy.home.skills.description}
-        eyebrow={copy.home.skills.eyebrow}
-        title={copy.home.skills.title}
-      >
-        <SkillGrid locale={locale} />
+      <Section description={aboutPage.principlesIntro} eyebrow={aboutPage.eyebrow} title={aboutPage.principlesTitle}>
+        <ApproachGrid items={copy.home.approach.items} locale={locale} />
       </Section>
 
       <Section
-        description={copy.home.contact.description}
-        eyebrow={copy.pages.contact.eyebrow}
-        title={copy.pages.contact.title}
+        description={copy.home.strengths.description}
+        eyebrow={copy.home.strengths.eyebrow}
+        title={locale === "es" ? "Dónde aporto mejor" : "Where I add value best"}
       >
-        <ContactPanel locale={locale} />
+        <StrengthGrid items={copy.home.strengths.items.slice(0, 4)} locale={locale} />
+      </Section>
+
+      <Section description={copy.pages.contact.intro} eyebrow={copy.pages.contact.eyebrow} title={copy.pages.contact.title}>
+        <ContactPanel
+          description={copy.pages.contact.availability}
+          fitBullets={copy.pages.contact.fitBullets}
+          fitTitle={copy.pages.contact.fitTitle}
+          locale={locale}
+        />
       </Section>
     </>
   );

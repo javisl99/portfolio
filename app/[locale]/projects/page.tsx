@@ -27,6 +27,7 @@ export async function generateMetadata({
     locale,
     title: pageMeta.title,
     description: pageMeta.description,
+    keywords: pageMeta.keywords,
     path: "/projects",
   });
 }
@@ -44,33 +45,27 @@ export default async function ProjectsPage({
 
   const locale = rawLocale as Locale;
   const copy = siteCopy[locale];
+  const pageCopy = copy.pages.projects;
   const projects = await getProjects(locale);
 
   return (
     <>
-      <PageHero
-        eyebrow={copy.pages.projects.eyebrow}
-        intro={copy.pages.projects.intro}
-        title={copy.pages.projects.title}
-      >
-        <div className="space-y-3">
-          <p className="text-sm text-muted">{locale === "es" ? "Formato" : "Format"}</p>
-          <p className="text-2xl font-semibold text-ink">
-            {projects.length} {locale === "es" ? "casos SAP Commerce" : "SAP Commerce case studies"}
-          </p>
-          <p className="text-sm leading-7 text-muted">
-            {locale === "es"
-              ? "BuildingCenter, Claro Perú y Airbus contados desde contexto, responsabilidad y foco técnico sobre la plataforma."
-              : "BuildingCenter, Claro Perú, and Airbus explained through context, responsibility, and technical focus on the platform."}
-          </p>
+      <PageHero eyebrow={pageCopy.eyebrow} intro={pageCopy.intro} title={pageCopy.title}>
+        <div className="space-y-4">
+          <p className="text-sm text-muted">{pageCopy.scanTitle}</p>
+          <p className="text-2xl font-black tracking-tight text-ink">{pageCopy.scanBody}</p>
+          <ul className="grid gap-3 text-sm leading-7 text-muted">
+            {pageCopy.scanBullets.map((item) => (
+              <li className="flex gap-3" key={item}>
+                <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </PageHero>
 
-      <Section
-        description={copy.pages.projects.intro}
-        eyebrow={copy.pages.projects.eyebrow}
-        title={copy.pages.projects.title}
-      >
+      <Section description={pageCopy.intro} eyebrow={pageCopy.eyebrow} title={pageCopy.title}>
         <ProjectGrid locale={locale} projects={projects} />
       </Section>
     </>
