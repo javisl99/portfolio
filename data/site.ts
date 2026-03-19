@@ -3,10 +3,10 @@ import type { Locale } from "@/lib/i18n";
 export const siteSettings = {
   name: "Javier Sánchez Lancha",
   role: "SAP Commerce Cloud Developer",
-  email: "hello@yourname.dev",
-  linkedin: "https://www.linkedin.com/in/your-profile",
-  github: "https://github.com/your-handle",
-  location: "Madrid, Spain",
+  email: "javier.sanchez.lancha99@gmail.com",
+  linkedin: "https://www.linkedin.com/in/javiersanchezlancha",
+  github: "https://github.com/javisl99",
+  location: "Sevilla, España",
 };
 
 export const pageSlugs = {

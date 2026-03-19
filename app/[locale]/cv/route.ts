@@ -1,8 +1,7 @@
-import { createResumePdf } from "@/lib/cv";
 import { isLocale } from "@/lib/i18n";
 
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ locale: string }> },
 ) {
   const { locale } = await params;
@@ -11,13 +10,5 @@ export async function GET(
     return new Response("Not found", { status: 404 });
   }
 
-  const pdf = createResumePdf(locale);
-
-  return new Response(pdf, {
-    headers: {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": `inline; filename="javier-resume-${locale}.pdf"`,
-      "Cache-Control": "public, max-age=3600",
-    },
-  });
+  return Response.redirect(new URL("/CV_javierSanchezLancha.pdf", request.url), 307);
 }
