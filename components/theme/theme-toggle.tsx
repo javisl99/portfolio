@@ -4,28 +4,30 @@ import { Moon, Sun } from "lucide-react";
 import { useSyncExternalStore } from "react";
 
 import type { Locale } from "@/lib/i18n";
-import { themeStorageKey, type ThemeMode } from "@/lib/theme";
+import {
+  applyThemeToRoot,
+  defaultTheme,
+  resolveStoredTheme,
+  resolveSystemTheme,
+  resolveThemePreference,
+  systemThemeMediaQuery,
+  themeStorageKey,
+  type ThemeMode,
+} from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 const themeChangeEvent = "portfolio-theme-change";
 
 function resolveTheme(): ThemeMode {
   if (typeof window === "undefined") {
-    return "light";
+    return defaultTheme;
   }
 
-  const savedTheme = window.localStorage.getItem(themeStorageKey);
-
-  if (savedTheme === "light" || savedTheme === "dark") {
-    return savedTheme;
-  }
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return resolveThemePreference();
 }
 
 function applyTheme(theme: ThemeMode, persist = false) {
-  document.documentElement.dataset.theme = theme;
-  document.documentElement.style.colorScheme = theme;
+  applyThemeToRoot(theme);
 
   if (persist) {
     window.localStorage.setItem(themeStorageKey, theme);
@@ -58,7 +60,7 @@ export function ThemeToggle({ locale }: { locale: Locale }) {
       aria-pressed={isDark}
       suppressHydrationWarning
       className={cn(
-        "inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-line bg-panel/90 text-muted transition hover:border-accent/35 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent",
+        "inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-line bg-panel/92 text-muted shadow-soft transition hover:border-accent/35 hover:bg-panel-strong hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent",
       )}
       onClick={handleToggle}
       type="button"
@@ -73,15 +75,14 @@ function subscribeToTheme(onStoreChange: () => void) {
     return () => undefined;
   }
 
-  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  const mediaQuery = window.matchMedia(systemThemeMediaQuery);
 
   function handleSystemChange() {
-    const savedTheme = window.localStorage.getItem(themeStorageKey);
-
-    if (savedTheme === "light" || savedTheme === "dark") {
+    if (resolveStoredTheme()) {
       return;
     }
 
+    applyThemeToRoot(resolveSystemTheme());
     onStoreChange();
   }
 
@@ -108,7 +109,7 @@ function subscribeToTheme(onStoreChange: () => void) {
 
 function getThemeSnapshot(): ThemeMode {
   if (typeof document === "undefined") {
-    return "light";
+    return defaultTheme;
   }
 
   const theme = document.documentElement.dataset.theme;
@@ -121,5 +122,5 @@ function getThemeSnapshot(): ThemeMode {
 }
 
 function getServerThemeSnapshot(): ThemeMode {
-  return "light";
+  return defaultTheme;
 }

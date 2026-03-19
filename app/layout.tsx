@@ -8,7 +8,7 @@ import "./globals.css";
 
 import { siteCopy, siteSettings } from "@/data/site";
 import { buildUrl } from "@/lib/metadata";
-import { themeScript } from "@/lib/theme";
+import { defaultTheme, themeScript } from "@/lib/theme";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f6f8f8" },
-    { media: "(prefers-color-scheme: dark)", color: "#102022" },
+    { media: "(prefers-color-scheme: dark)", color: "#121212" },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html className={inter.variable} lang="en" suppressHydrationWarning>
+    <html className={inter.variable} data-theme={defaultTheme} lang="en" suppressHydrationWarning>
       <body>
         <Script id="theme-script" strategy="beforeInteractive">
           {themeScript}
