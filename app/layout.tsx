@@ -1,5 +1,6 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import Script from "next/script";
 
@@ -9,6 +10,12 @@ import { siteCopy, siteSettings } from "@/data/site";
 import { buildUrl } from "@/lib/metadata";
 import { themeScript } from "@/lib/theme";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(buildUrl()),
   title: {
@@ -16,18 +23,19 @@ export const metadata: Metadata = {
     template: `%s | ${siteSettings.name}`,
   },
   description: siteCopy.es.metadata.defaultDescription,
+  keywords: siteCopy.es.metadata.keywords,
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f3f6f8" },
-    { media: "(prefers-color-scheme: dark)", color: "#08111f" },
+    { media: "(prefers-color-scheme: light)", color: "#f6f8f8" },
+    { media: "(prefers-color-scheme: dark)", color: "#102022" },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html className={inter.variable} lang="en" suppressHydrationWarning>
       <body>
         <Script id="theme-script" strategy="beforeInteractive">
           {themeScript}

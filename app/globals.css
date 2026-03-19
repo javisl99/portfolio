@@ -1,5 +1,3 @@
-@import "@fontsource-variable/manrope";
-@import "@fontsource-variable/space-grotesk";
 @import "tailwindcss";
 
 @source "../app/**/*.{ts,tsx}";
@@ -8,8 +6,8 @@
 @source "../data/**/*.{ts,tsx}";
 
 @theme inline {
-  --font-sans: "Manrope Variable", sans-serif;
-  --font-display: "Space Grotesk Variable", sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-inter), sans-serif;
   --color-bg: var(--background);
   --color-surface: var(--surface);
   --color-line: var(--line);
@@ -24,31 +22,31 @@
 }
 
 :root {
-  --background: #f3f6f8;
-  --surface: #e8f1f2;
-  --line: #d7e1e8;
-  --line-strong: #bcc9d3;
+  --background: #f6f8f8;
+  --surface: #f1f5f9;
+  --line: rgba(226, 232, 240, 0.92);
+  --line-strong: rgba(203, 213, 225, 0.95);
   --ink: #0f172a;
-  --muted: #556070;
-  --accent: #0f766e;
-  --accent-contrast: #f8fafc;
-  --panel: rgba(255, 255, 255, 0.8);
-  --panel-strong: rgba(255, 255, 255, 0.94);
-  --shadow-soft-token: 0 32px 120px -64px rgba(15, 23, 42, 0.42);
+  --muted: #64748b;
+  --accent: #13daec;
+  --accent-contrast: #07131d;
+  --panel: rgba(255, 255, 255, 0.98);
+  --panel-strong: rgba(255, 255, 255, 1);
+  --shadow-soft-token: 0 18px 40px -30px rgba(15, 23, 42, 0.16);
 }
 
 :root[data-theme="dark"] {
-  --background: #08111f;
-  --surface: #0f1b2f;
-  --line: rgba(148, 163, 184, 0.18);
-  --line-strong: rgba(148, 163, 184, 0.34);
-  --ink: #e5eef7;
-  --muted: #96a7bb;
-  --accent: #4fd1c5;
-  --accent-contrast: #06211d;
-  --panel: rgba(8, 17, 31, 0.78);
-  --panel-strong: rgba(15, 27, 47, 0.94);
-  --shadow-soft-token: 0 36px 120px -68px rgba(2, 6, 23, 0.88);
+  --background: #102022;
+  --surface: #1e293b;
+  --line: rgba(51, 65, 85, 0.9);
+  --line-strong: rgba(71, 85, 105, 0.95);
+  --ink: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #13daec;
+  --accent-contrast: #08121b;
+  --panel: rgba(15, 23, 42, 0.55);
+  --panel-strong: rgba(15, 23, 42, 0.72);
+  --shadow-soft-token: 0 24px 60px -32px rgba(2, 6, 23, 0.8);
 }
 
 html {
@@ -57,10 +55,7 @@ html {
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 28rem),
-    radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 24rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(243, 246, 248, 0.96));
+  background: var(--background);
   color: var(--ink);
   font-family: var(--font-sans);
   transition:
@@ -69,37 +64,15 @@ body {
 }
 
 :root[data-theme="dark"] body {
-  background:
-    radial-gradient(circle at top left, rgba(79, 209, 197, 0.16), transparent 24rem),
-    radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 22rem),
-    linear-gradient(180deg, rgba(3, 10, 22, 0.96), rgba(8, 17, 31, 1));
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
-  background-position: center;
-  background-size: 72px 72px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 88%);
-}
-
-:root[data-theme="dark"] body::before {
-  background-image:
-    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background: var(--background);
 }
 
 ::selection {
-  background: rgba(15, 118, 110, 0.18);
+  background: rgba(19, 218, 236, 0.22);
 }
 
 :root[data-theme="dark"] ::selection {
-  background: rgba(79, 209, 197, 0.26);
+  background: rgba(19, 218, 236, 0.28);
 }
 
 a,
@@ -122,25 +95,30 @@ button {
 }
 
 .content-shell::before {
-  top: 12rem;
+  top: 9rem;
   left: -6rem;
-  height: 12rem;
-  width: 12rem;
-  background: rgba(15, 118, 110, 0.12);
+  height: 15rem;
+  width: 15rem;
+  background: rgba(19, 218, 236, 0.06);
 }
 
 .content-shell::after {
-  right: -4rem;
-  bottom: 12rem;
-  height: 14rem;
-  width: 14rem;
-  background: rgba(14, 165, 233, 0.1);
+  right: -6rem;
+  bottom: 6rem;
+  height: 16rem;
+  width: 16rem;
+  background: rgba(15, 23, 42, 0.03);
 }
 
 :root[data-theme="dark"] .content-shell::before {
-  background: rgba(79, 209, 197, 0.16);
+  background: rgba(19, 218, 236, 0.1);
 }
 
 :root[data-theme="dark"] .content-shell::after {
-  background: rgba(56, 189, 248, 0.14);
+  background: rgba(15, 23, 42, 0.14);
+}
+
+.tech-grid-bg {
+  background-image: radial-gradient(circle at 2px 2px, rgba(19, 218, 236, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
 }

@@ -3,32 +3,32 @@ import type { Locale } from "@/lib/i18n";
 export type LocalizedString = Record<Locale, string>;
 export type ProjectCategory = "sap-commerce" | "personal";
 
+export interface CopyCard {
+  title: LocalizedString;
+  body: LocalizedString;
+}
+
+export interface QuickFact {
+  label: LocalizedString;
+  value: LocalizedString;
+}
+
 export interface ExperienceEntry {
   period: LocalizedString;
   company: string;
   role: LocalizedString;
-  cvSummary: LocalizedString;
   client?: string;
-  project?: LocalizedString;
-  engagementType?: LocalizedString;
-  sector: LocalizedString;
-  summary: LocalizedString;
-  achievements: LocalizedString[];
-  technicalFocus: LocalizedString[];
+  project: LocalizedString;
+  projectType: LocalizedString;
+  progression: LocalizedString;
+  overview: LocalizedString;
+  focusAreas: LocalizedString[];
+  context: LocalizedString;
+  problem: LocalizedString;
+  intervention: LocalizedString[];
+  result: LocalizedString;
+  signal: LocalizedString;
   stack: string[];
-  impact: LocalizedString;
-}
-
-export interface Milestone {
-  title: LocalizedString;
-  body: LocalizedString;
-  meta: LocalizedString;
-}
-
-export interface SkillCategory {
-  title: LocalizedString;
-  description: LocalizedString;
-  skills: string[];
 }
 
 export interface ProjectFrontmatter {
@@ -40,7 +40,9 @@ export interface ProjectFrontmatter {
   category: ProjectCategory;
   domain: string;
   stack: string[];
-  impact: string;
+  stakes: string;
+  contribution: string;
+  signal: string;
   year: string;
   featured: boolean;
   locale: Locale;

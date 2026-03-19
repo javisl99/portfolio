@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Javier Sánchez Lancha portfolio icon">
   <defs>
     <linearGradient id="bg" x1="8%" y1="6%" x2="92%" y2="94%">
-      <stop offset="0%" stop-color="#08111f" />
-      <stop offset="55%" stop-color="#0f2741" />
-      <stop offset="100%" stop-color="#0f766e" />
+      <stop offset="0%" stop-color="#102022" />
+      <stop offset="58%" stop-color="#13303a" />
+      <stop offset="100%" stop-color="#13daec" />
     </linearGradient>
     <radialGradient id="glow" cx="76%" cy="18%" r="72%">
-      <stop offset="0%" stop-color="#67e8f9" stop-opacity=".34" />
+      <stop offset="0%" stop-color="#67e8f9" stop-opacity=".32" />
       <stop offset="100%" stop-color="#67e8f9" stop-opacity="0" />
     </radialGradient>
   </defs>

@@ -58,7 +58,7 @@ export function ThemeToggle({ locale }: { locale: Locale }) {
       aria-pressed={isDark}
       suppressHydrationWarning
       className={cn(
-        "inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-line bg-panel/88 text-muted transition hover:border-line-strong hover:bg-panel-strong hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent",
+        "inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-line bg-panel/90 text-muted transition hover:border-accent/35 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent",
       )}
       onClick={handleToggle}
       type="button"
