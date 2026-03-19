@@ -3,47 +3,57 @@ import type { SkillCategory } from "@/data/types";
 export const skillCategories: SkillCategory[] = [
   {
     title: {
-      es: "Ingeniería de producto",
-      en: "Product engineering",
+      es: "Desarrollo SAP Commerce Cloud",
+      en: "SAP Commerce Cloud development",
     },
     description: {
-      es: "Capacidad para conectar necesidades de negocio, experiencia de usuario y decisiones técnicas.",
-      en: "Ability to connect business needs, user experience, and technical decisions.",
+      es: "Trabajo práctico sobre proyectos SAP Commerce reales, desde mantenimiento correctivo hasta participación en evolutivos.",
+      en: "Hands-on work across real SAP Commerce projects, from corrective maintenance to evolutive delivery.",
     },
-    skills: ["Problem framing", "Discovery support", "Tradeoff mapping", "Roadmap translation"],
+    skills: ["SAP Commerce Cloud", "Incident management", "Evolutive delivery", "Standard customization"],
   },
   {
     title: {
-      es: "Arquitectura frontend",
-      en: "Frontend architecture",
+      es: "Base back-end y plataforma",
+      en: "Back-end and platform foundations",
     },
     description: {
-      es: "Sistemas UI, escalabilidad de componentes, consistencia y rendimiento como base de entrega.",
-      en: "UI systems, component scalability, consistency, and performance as delivery foundations.",
+      es: "Tecnologías que sostienen el trabajo diario dentro del ecosistema SAP Commerce y sus extensiones.",
+      en: "Technologies that support day-to-day delivery inside the SAP Commerce ecosystem and its extensions.",
     },
-    skills: ["Next.js", "React", "TypeScript", "Design systems", "Accessibility", "Performance"],
+    skills: ["Java", "Spring", "SQL", "FlexibleSearch", "SAP ABAP", "PostgreSQL"],
   },
   {
     title: {
-      es: "Plataforma y colaboración",
-      en: "Platform and collaboration",
+      es: "Flujos core de e-commerce",
+      en: "Core commerce flows",
     },
     description: {
-      es: "Trabajo efectivo entre diseño, producto, plataforma y stakeholders con distinto nivel técnico.",
-      en: "Effective work across design, product, platform, and stakeholders with different technical depth.",
+      es: "Áreas funcionales en las que ya he trabajado con customizaciones y resolución de problemas reales.",
+      en: "Functional areas where I have already worked on customizations and real production issues.",
     },
-    skills: ["Cross-functional delivery", "Documentation", "Technical leadership", "Quality criteria"],
+    skills: ["Checkout", "Pricing", "Stock", "Integration Objects", "B2B commerce"],
   },
   {
     title: {
-      es: "Entrega sostenible",
-      en: "Sustainable delivery",
+      es: "Soporte, mantenimiento y evolutivo",
+      en: "Support, maintenance, and evolutive work",
     },
     description: {
-      es: "Prácticas que ayudan a entregar con fiabilidad sin hipotecar la velocidad futura.",
-      en: "Practices that help deliver reliably without sacrificing future speed.",
+      es: "Capacidad para moverme bien entre incidencias, diagnóstico técnico, seguimiento y cambios progresivos sobre la plataforma.",
+      en: "Ability to move comfortably between incident resolution, technical diagnosis, follow-up, and incremental platform changes.",
     },
-    skills: ["Incremental rollout", "Operational thinking", "Observability", "Refactoring strategy"],
+    skills: ["Production support", "Debugging", "Root cause analysis", "Requirement follow-up"],
+  },
+  {
+    title: {
+      es: "Consultoría técnica y cliente",
+      en: "Technical consulting and client work",
+    },
+    description: {
+      es: "Experiencia comunicando estado, riesgos y evolución del trabajo técnico en contextos de consultoría.",
+      en: "Experience communicating status, risk, and technical progress in consulting environments.",
+    },
+    skills: ["Client communication", "Incident reporting", "Technical follow-up", "Delivery ownership"],
   },
 ];
-

@@ -12,15 +12,48 @@ export function ExperienceTimeline({ locale, limit }: { locale: Locale; limit?: 
           key={`${entry.company}-${entry.period.en}`}
         >
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">{entry.period[locale]}</p>
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">{entry.period[locale]}</p>
+              {entry.engagementType ? (
+                <span className="rounded-full border border-line px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-muted">
+                  {entry.engagementType[locale]}
+                </span>
+              ) : null}
+            </div>
             <div>
               <h3 className="text-xl font-semibold text-ink">{entry.role[locale]}</h3>
               <p className="text-sm text-muted">{entry.company}</p>
+            </div>
+            <div className="grid gap-2 text-sm leading-6 text-muted">
+              {entry.project ? (
+                <p>
+                  <span className="font-semibold text-ink">{locale === "es" ? "Proyecto:" : "Project:"}</span>{" "}
+                  {entry.project[locale]}
+                </p>
+              ) : null}
+              {entry.client ? (
+                <p>
+                  <span className="font-semibold text-ink">{locale === "es" ? "Cliente:" : "Client:"}</span>{" "}
+                  {entry.client}
+                </p>
+              ) : null}
             </div>
             <p className="text-sm leading-6 text-muted">{entry.sector[locale]}</p>
           </div>
           <div className="space-y-5">
             <p className="text-base leading-7 text-muted">{entry.summary[locale]}</p>
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                {locale === "es" ? "Foco técnico" : "Technical focus"}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {entry.technicalFocus.map((focus) => (
+                  <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-ink" key={focus.en}>
+                    {focus[locale]}
+                  </span>
+                ))}
+              </div>
+            </div>
             <ul className="grid gap-3">
               {entry.achievements.map((achievement) => (
                 <li className="flex gap-3 text-sm leading-7 text-muted" key={achievement.en}>

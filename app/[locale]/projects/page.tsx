@@ -55,11 +55,13 @@ export default async function ProjectsPage({
       >
         <div className="space-y-3">
           <p className="text-sm text-muted">{locale === "es" ? "Formato" : "Format"}</p>
-          <p className="text-2xl font-semibold text-ink">{projects.length} MDX case studies</p>
+          <p className="text-2xl font-semibold text-ink">
+            {projects.length} {locale === "es" ? "casos SAP Commerce" : "SAP Commerce case studies"}
+          </p>
           <p className="text-sm leading-7 text-muted">
             {locale === "es"
-              ? "Pensados para ampliar el CV con contexto, decisiones y resultados."
-              : "Designed to extend the resume with context, decisions, and results."}
+              ? "BuildingCenter, Claro Perú y Airbus contados desde contexto, responsabilidad y foco técnico sobre la plataforma."
+              : "BuildingCenter, Claro Perú, and Airbus explained through context, responsibility, and technical focus on the platform."}
           </p>
         </div>
       </PageHero>
@@ -74,4 +76,3 @@ export default async function ProjectsPage({
     </>
   );
 }
-
