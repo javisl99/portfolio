@@ -17,7 +17,10 @@
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
-  --shadow-soft: 0 32px 120px -64px rgba(15, 23, 42, 0.42);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-panel: var(--panel);
+  --color-panel-strong: var(--panel-strong);
+  --shadow-soft: var(--shadow-soft-token);
 }
 
 :root {
@@ -28,6 +31,24 @@
   --ink: #0f172a;
   --muted: #556070;
   --accent: #0f766e;
+  --accent-contrast: #f8fafc;
+  --panel: rgba(255, 255, 255, 0.8);
+  --panel-strong: rgba(255, 255, 255, 0.94);
+  --shadow-soft-token: 0 32px 120px -64px rgba(15, 23, 42, 0.42);
+}
+
+:root[data-theme="dark"] {
+  --background: #08111f;
+  --surface: #0f1b2f;
+  --line: rgba(148, 163, 184, 0.18);
+  --line-strong: rgba(148, 163, 184, 0.34);
+  --ink: #e5eef7;
+  --muted: #96a7bb;
+  --accent: #4fd1c5;
+  --accent-contrast: #06211d;
+  --panel: rgba(8, 17, 31, 0.78);
+  --panel-strong: rgba(15, 27, 47, 0.94);
+  --shadow-soft-token: 0 36px 120px -68px rgba(2, 6, 23, 0.88);
 }
 
 html {
@@ -42,6 +63,16 @@ body {
     linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(243, 246, 248, 0.96));
   color: var(--ink);
   font-family: var(--font-sans);
+  transition:
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+:root[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at top left, rgba(79, 209, 197, 0.16), transparent 24rem),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 22rem),
+    linear-gradient(180deg, rgba(3, 10, 22, 0.96), rgba(8, 17, 31, 1));
 }
 
 body::before {
@@ -57,8 +88,18 @@ body::before {
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 88%);
 }
 
+:root[data-theme="dark"] body::before {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+}
+
 ::selection {
   background: rgba(15, 118, 110, 0.18);
+}
+
+:root[data-theme="dark"] ::selection {
+  background: rgba(79, 209, 197, 0.26);
 }
 
 a,
@@ -96,3 +137,10 @@ button {
   background: rgba(14, 165, 233, 0.1);
 }
 
+:root[data-theme="dark"] .content-shell::before {
+  background: rgba(79, 209, 197, 0.16);
+}
+
+:root[data-theme="dark"] .content-shell::after {
+  background: rgba(56, 189, 248, 0.14);
+}

@@ -6,7 +6,7 @@ export function ContactPanel({ locale }: { locale: Locale }) {
   const copy = siteCopy[locale];
 
   return (
-    <div className="grid gap-4 rounded-[2rem] border border-line bg-white/80 p-6 shadow-soft lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+    <div className="grid gap-4 rounded-[2rem] border border-line bg-panel/88 p-6 shadow-soft lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
       <div className="space-y-4">
         <p className="text-sm leading-7 text-muted">{copy.pages.contact.availability}</p>
         <ul className="grid gap-2 text-sm text-muted">
@@ -35,4 +35,3 @@ export function ContactPanel({ locale }: { locale: Locale }) {
     </div>
   );
 }
-

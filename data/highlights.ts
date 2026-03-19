@@ -3,45 +3,58 @@ import type { Milestone } from "@/data/types";
 export const milestoneHighlights: Milestone[] = [
   {
     title: {
-      es: "Convertir complejidad en decisiones visibles",
-      en: "Turning complexity into visible decisions",
+      es: "Ownership real del incidental",
+      en: "Real ownership of incident management",
     },
     body: {
-      es: "Cuando un problema mezcla deuda, producto y dependencia entre equipos, mi valor suele estar en estructurarlo y volverlo accionable.",
-      en: "When a problem mixes debt, product pressure, and team dependencies, my value usually comes from structuring it and making it actionable.",
+      es: "En BuildingCenter evolucioné desde resolver incidencias con supervisión a asumir el control completo del incidental y su seguimiento con cliente.",
+      en: "In BuildingCenter I evolved from resolving incidents with supervision to taking full ownership of the incident stream and its client follow-up.",
     },
     meta: {
-      es: "Foco: claridad, priorización y alineación",
-      en: "Focus: clarity, prioritization, and alignment",
+      es: "Foco: soporte productivo y autonomía",
+      en: "Focus: production support and autonomy",
     },
   },
   {
     title: {
-      es: "Subir el listón sin frenar al equipo",
-      en: "Raising the bar without slowing the team down",
+      es: "Customización con criterio sobre el estándar",
+      en: "Customization with sound judgment on top of the standard",
     },
     body: {
-      es: "Accesibilidad, performance y consistencia visual forman parte del trabajo desde el principio, no aparecen como deuda al final.",
-      en: "Accessibility, performance, and visual consistency are part of the work from the start instead of showing up later as clean-up debt.",
+      es: "La etapa en Claro Perú refuerza una señal importante para recruiting SAP: saber tocar checkout, precios, stock e integration objects sin perder el comportamiento base de la plataforma.",
+      en: "The Claro Perú stage reinforces an important signal for SAP recruiting: being able to work on checkout, pricing, stock, and integration objects without losing the platform's baseline behavior.",
     },
     meta: {
-      es: "Foco: calidad integrada en el flujo",
-      en: "Focus: quality embedded in the workflow",
+      es: "Foco: estándar SAP Commerce",
+      en: "Focus: SAP Commerce standard",
     },
   },
   {
     title: {
-      es: "Hacer que otros equipos trabajen mejor",
-      en: "Helping other teams work better",
+      es: "Crecimiento visible desde el inicio",
+      en: "Visible growth from the very beginning",
     },
     body: {
-      es: "Componentes compartidos, documentación útil y decisiones bien explicadas crean un efecto multiplicador más allá del código propio.",
-      en: "Shared components, useful documentation, and well-explained decisions create leverage beyond my own code.",
+      es: "Desde Airbus hasta mi regreso a Stratesys, la progresión es clara: de base back-end en un B2B desde cero a mayor responsabilidad técnica y consultiva en SAP Commerce Cloud.",
+      en: "From Airbus to my return to Stratesys, the progression is clear: from a back-end foundation in a greenfield B2B build to broader technical and consulting responsibility in SAP Commerce Cloud.",
     },
     meta: {
-      es: "Foco: escalabilidad humana y técnica",
-      en: "Focus: human and technical leverage",
+      es: "Foco: evolución profesional",
+      en: "Focus: professional progression",
+    },
+  },
+  {
+    title: {
+      es: "Cliente, contexto y comunicación técnica",
+      en: "Client context and technical communication",
+    },
+    body: {
+      es: "Más allá del código, ya he trabajado explicando estado, bloqueos e impacto de las incidencias directamente al cliente dentro de un entorno de consultoría.",
+      en: "Beyond the code itself, I have already worked by explaining status, blockers, and incident impact directly to the client inside a consulting environment.",
+    },
+    meta: {
+      es: "Foco: consultoría técnica",
+      en: "Focus: technical consulting",
     },
   },
 ];
-

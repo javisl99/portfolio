@@ -59,19 +59,41 @@ export default async function ProjectDetailPage({
   }
 
   const copy = siteCopy[locale];
+  const categoryLabel =
+    project.category === "sap-commerce"
+      ? locale === "es"
+        ? "Caso SAP Commerce"
+        : "SAP Commerce case study"
+      : locale === "es"
+        ? "Proyecto personal"
+        : "Personal project";
 
   return (
     <>
       <PageHero
-        eyebrow={locale === "es" ? "Caso de estudio" : "Case study"}
+        eyebrow={categoryLabel}
         intro={project.summary}
         title={project.title}
       >
         <div className="space-y-4">
           <Pill>{project.year}</Pill>
           <div>
+            <p className="text-sm text-muted">{locale === "es" ? "Empresa" : "Employer"}</p>
+            <p className="text-lg font-semibold text-ink">{project.employer}</p>
+          </div>
+          {project.client ? (
+            <div>
+              <p className="text-sm text-muted">{locale === "es" ? "Cliente" : "Client"}</p>
+              <p className="text-lg font-semibold text-ink">{project.client}</p>
+            </div>
+          ) : null}
+          <div>
             <p className="text-sm text-muted">{locale === "es" ? "Rol" : "Role"}</p>
             <p className="text-lg font-semibold text-ink">{project.role}</p>
+          </div>
+          <div>
+            <p className="text-sm text-muted">{locale === "es" ? "Contexto" : "Domain"}</p>
+            <p className="text-sm leading-7 text-ink">{project.domain}</p>
           </div>
           <div>
             <p className="text-sm text-muted">{locale === "es" ? "Impacto" : "Impact"}</p>
@@ -82,7 +104,7 @@ export default async function ProjectDetailPage({
 
       <Container className="pb-18 sm:pb-24">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
-          <article className="rounded-[2rem] border border-line bg-white/82 p-6 shadow-soft sm:p-8">
+          <article className="rounded-[2rem] border border-line bg-panel/90 p-6 shadow-soft sm:p-8">
             <div className="mb-8 flex flex-wrap gap-2">
               {project.stack.map((item) => (
                 <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted" key={item}>
@@ -94,9 +116,9 @@ export default async function ProjectDetailPage({
           </article>
 
           <aside className="space-y-4">
-            <div className="rounded-[1.75rem] border border-line bg-white/82 p-5 shadow-soft">
+            <div className="rounded-[1.75rem] border border-line bg-panel/90 p-5 shadow-soft">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                {locale === "es" ? "Contexto" : "Snapshot"}
+                {locale === "es" ? "Resumen" : "Snapshot"}
               </p>
               <p className="text-sm leading-7 text-muted">{project.summary}</p>
             </div>
@@ -112,4 +134,3 @@ export default async function ProjectDetailPage({
     </>
   );
 }
-

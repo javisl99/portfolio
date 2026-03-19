@@ -57,7 +57,7 @@ export default async function ContactPage({
 
       <Container className="grid gap-6 pb-18 sm:pb-24 lg:grid-cols-[minmax(0,1fr)_22rem]">
         <ContactPanel locale={locale} />
-        <aside className="rounded-[2rem] border border-line bg-white/82 p-6 shadow-soft">
+        <aside className="rounded-[2rem] border border-line bg-panel/90 p-6 shadow-soft">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-accent">
             {locale === "es" ? "Siguientes pasos" : "Next step"}
           </p>
@@ -83,4 +83,3 @@ export default async function ContactPage({
     </>
   );
 }
-

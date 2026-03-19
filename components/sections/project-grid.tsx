@@ -13,14 +13,21 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
     <div className="grid gap-4 lg:grid-cols-3">
       {projects.map((project) => (
         <article
-          className="group rounded-[1.9rem] border border-line bg-white/78 p-6 shadow-soft transition duration-300 hover:-translate-y-1"
+          className="group rounded-[1.9rem] border border-line bg-panel/88 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:bg-panel-strong"
           key={`${project.locale}-${project.slug}`}
         >
           <div className="mb-6 flex items-center justify-between gap-3">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">{project.year}</p>
-            <span className="rounded-full border border-line px-3 py-1 text-xs text-muted">{project.role}</span>
+            <span className="rounded-full border border-line px-3 py-1 text-xs text-muted">
+              {project.category === "sap-commerce" ? "SAP Commerce" : project.role}
+            </span>
           </div>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+            {project.employer}
+            {project.client ? ` · ${project.client}` : ""}
+          </p>
           <h3 className="mb-3 text-2xl font-semibold tracking-tight text-ink">{project.title}</h3>
+          <p className="mb-3 text-sm font-medium text-ink">{project.domain}</p>
           <p className="mb-4 text-sm leading-7 text-muted">{project.summary}</p>
           <p className="mb-5 text-sm leading-7 text-ink">{project.impact}</p>
           <div className="mb-5 flex flex-wrap gap-2">
@@ -34,11 +41,10 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
             className="inline-flex items-center text-sm font-semibold text-ink transition group-hover:translate-x-1"
             href={localizePath(locale, `/projects/${project.slug}`)}
           >
-            {locale === "es" ? "Abrir caso" : "Open case"}
+            {locale === "es" ? "Abrir caso SAP" : "Open SAP case"}
           </Link>
         </article>
       ))}
     </div>
   );
 }
-

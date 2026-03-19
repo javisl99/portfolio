@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { LocaleSwitcher } from "@/components/navigation/locale-switcher";
 import { MainNav } from "@/components/navigation/main-nav";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { siteCopy, siteSettings } from "@/data/site";
 import { type Locale } from "@/lib/i18n";
 
@@ -25,6 +26,7 @@ export function Header({ locale }: HeaderProps) {
           <MainNav items={copy.navigation} locale={locale} />
         </div>
         <div className="flex items-center gap-3">
+          <ThemeToggle locale={locale} />
           <LocaleSwitcher label={copy.languageSwitch} locale={locale} />
           <ButtonLink className="hidden sm:inline-flex" href={`/${locale}/cv`} target="_blank" variant="secondary">
             {copy.ctas.resume}
