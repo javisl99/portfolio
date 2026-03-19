@@ -4,8 +4,9 @@ import type { ReactNode } from "react";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { MobileBottomNav } from "@/components/navigation/mobile-bottom-nav";
 import { siteCopy } from "@/data/site";
-import { createMetadata, getPersonStructuredData } from "@/lib/metadata";
+import { createMetadata, getPersonStructuredData, getWebsiteStructuredData } from "@/lib/metadata";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -30,6 +31,7 @@ export async function generateMetadata({
     locale,
     title: copy.metadata.defaultTitle,
     description: copy.metadata.defaultDescription,
+    keywords: copy.metadata.keywords,
   });
 }
 
@@ -48,6 +50,7 @@ export default async function LocaleLayout({
 
   const locale = rawLocale as Locale;
   const personStructuredData = getPersonStructuredData(locale);
+  const websiteStructuredData = getWebsiteStructuredData(locale);
 
   return (
     <div className="content-shell">
@@ -57,9 +60,16 @@ export default async function LocaleLayout({
         }}
         type="application/ld+json"
       />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteStructuredData),
+        }}
+        type="application/ld+json"
+      />
       <Header locale={locale} />
-      <main>{children}</main>
+      <main className="pb-24 md:pb-0">{children}</main>
       <Footer locale={locale} />
+      <MobileBottomNav locale={locale} />
     </div>
   );
 }

@@ -28,6 +28,7 @@ export async function generateMetadata({
     locale,
     title: pageMeta.title,
     description: pageMeta.description,
+    keywords: pageMeta.keywords,
     path: "/experience",
   });
 }
@@ -45,52 +46,52 @@ export default async function ExperiencePage({
 
   const locale = rawLocale as Locale;
   const copy = siteCopy[locale];
+  const pageCopy = copy.pages.experience;
 
   return (
     <>
-      <PageHero
-        eyebrow={copy.pages.experience.eyebrow}
-        intro={copy.pages.experience.intro}
-        title={copy.pages.experience.title}
-      >
-        <div className="space-y-3">
-          <p className="text-sm text-muted">{locale === "es" ? "Lectura rápida" : "Fast scan"}</p>
-          <p className="text-2xl font-semibold text-ink">
-            {locale === "es" ? "3 etapas SAP clave" : "3 key SAP stages"}
-          </p>
-          <p className="text-sm leading-7 text-muted">
-            {locale === "es"
-              ? "Stratesys, Minsait y Accenture en proyectos SAP Commerce con soporte, evolutivo, customización del estándar y B2B back-end."
-              : "Stratesys, Minsait, and Accenture across SAP Commerce support, evolutive work, standard customization, and B2B back-end delivery."}
-          </p>
+      <PageHero eyebrow={pageCopy.eyebrow} intro={pageCopy.intro} title={pageCopy.title}>
+        <div className="space-y-4">
+          <p className="text-sm text-muted">{pageCopy.scanTitle}</p>
+          <p className="text-2xl font-black tracking-tight text-ink">{pageCopy.scanBody}</p>
+          <ul className="grid gap-3 text-sm leading-7 text-muted">
+            {pageCopy.scanBullets.map((item) => (
+              <li className="flex gap-3" key={item}>
+                <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </PageHero>
 
       <Section
         actions={
           <ButtonLink href={localizePath(locale, "/projects")} variant="secondary">
-            {copy.ctas.allProjects}
+            {copy.ctas.projects}
           </ButtonLink>
         }
-        description={copy.pages.experience.intro}
-        eyebrow={copy.pages.experience.eyebrow}
-        title={copy.pages.experience.title}
+        description={pageCopy.intro}
+        eyebrow={pageCopy.eyebrow}
+        title={pageCopy.title}
       >
-        <div className="space-y-10">
+        <div className="space-y-12">
           <ExperienceSnapshotGrid locale={locale} />
 
           <div className="border-t border-line pt-10">
             <div className="mb-8 max-w-3xl space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
-                {locale === "es" ? "Ampliación progresiva" : "Progressive expansion"}
+                {locale === "es" ? "Detalle por etapa" : "Stage detail"}
               </p>
-              <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-                {locale === "es" ? "Detalle técnico y contexto por etapa" : "Technical detail and context by stage"}
-              </h3>
+              <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                {locale === "es"
+                  ? "Contexto, reto, intervención y señal profesional"
+                  : "Context, challenge, intervention, and professional signal"}
+              </h2>
               <p className="text-base leading-7 text-muted">
                 {locale === "es"
-                  ? "Este bloque parte del resumen que ya aparece en el CV y añade el contexto técnico que más tarde seguiremos ampliando: foco SAP Commerce, responsabilidad asumida, stack y señales de crecimiento profesional."
-                  : "This block starts from the summary already reflected in the CV and adds the technical context we will expand later on: SAP Commerce focus, ownership level, stack, and professional growth signals."}
+                  ? "Cada etapa está contada para que se vea la evolución: qué tipo de proyecto era, qué parte de SAP Commerce toqué y qué demuestra sobre mi perfil técnico."
+                  : "Each stage is written to show progression: what kind of project it was, which part of SAP Commerce I touched, and what it says about my technical profile."}
               </p>
             </div>
 

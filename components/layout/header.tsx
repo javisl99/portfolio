@@ -1,12 +1,12 @@
 import Link from "next/link";
+import { TerminalSquare } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
-import { LocaleSwitcher } from "@/components/navigation/locale-switcher";
 import { MainNav } from "@/components/navigation/main-nav";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { siteCopy, siteSettings } from "@/data/site";
-import { type Locale } from "@/lib/i18n";
+import { getAlternateLocale, type Locale } from "@/lib/i18n";
 
 interface HeaderProps {
   locale: Locale;
@@ -14,23 +14,34 @@ interface HeaderProps {
 
 export function Header({ locale }: HeaderProps) {
   const copy = siteCopy[locale];
+  const alternateLocale = getAlternateLocale(locale);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/70 bg-bg/80 backdrop-blur-xl">
-      <Container className="flex min-h-18 items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <Link className="inline-flex flex-col text-sm" href={`/${locale}`}>
-            <span className="font-display text-lg font-semibold tracking-tight text-ink">{siteSettings.name}</span>
-            <span className="text-xs tracking-[0.16em] text-muted uppercase">{siteSettings.role}</span>
+    <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur-md">
+      <Container className="flex min-h-20 items-center justify-between gap-4">
+        <div className="flex items-center gap-8">
+          <Link className="hidden items-center gap-3 text-sm md:inline-flex" href={`/${locale}`}>
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-contrast">
+              <TerminalSquare className="h-4 w-4" />
+            </span>
+            <span className="font-display text-lg font-black tracking-tight text-ink">{siteSettings.name}</span>
           </Link>
+          <div className="flex items-center md:hidden">
+            <span className="inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-accent/20 bg-panel">
+              <TerminalSquare className="h-4 w-4 text-accent" />
+            </span>
+            <span className="ml-3 text-base font-bold tracking-tight text-ink">{siteSettings.name}</span>
+          </div>
           <MainNav items={copy.navigation} locale={locale} />
         </div>
-        <div className="flex items-center gap-3">
-          <ThemeToggle locale={locale} />
-          <LocaleSwitcher label={copy.languageSwitch} locale={locale} />
-          <ButtonLink className="hidden sm:inline-flex" href={`/${locale}/cv`} target="_blank" variant="secondary">
-            {copy.ctas.resume}
+        <div className="flex items-center gap-4">
+          <Link className="hidden text-sm font-medium text-muted transition hover:text-accent md:inline-flex" href={`/${alternateLocale}`}>
+            {alternateLocale.toUpperCase()}
+          </Link>
+          <ButtonLink className="hidden md:inline-flex" href={`/${locale}/contact`} variant="primary">
+            {copy.ctas.contact}
           </ButtonLink>
+          <MobileMenu locale={locale} />
         </div>
       </Container>
     </header>
