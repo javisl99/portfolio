@@ -12,7 +12,7 @@ export function ProfileAvatar({ className, iconClassName }: ProfileAvatarProps) 
     <span
       aria-hidden="true"
       className={cn(
-        "inline-flex items-center justify-center rounded-full border-2 border-accent bg-white text-accent shadow-sm dark:bg-slate-900",
+        "inline-flex items-center justify-center rounded-full border-2 border-accent bg-white text-accent shadow-sm",
         className,
       )}
     >

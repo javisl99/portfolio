@@ -35,20 +35,6 @@
   --shadow-soft-token: 0 18px 40px -30px rgba(15, 23, 42, 0.16);
 }
 
-:root[data-theme="dark"] {
-  --background: #102022;
-  --surface: #1e293b;
-  --line: rgba(51, 65, 85, 0.9);
-  --line-strong: rgba(71, 85, 105, 0.95);
-  --ink: #f8fafc;
-  --muted: #94a3b8;
-  --accent: #13daec;
-  --accent-contrast: #08121b;
-  --panel: rgba(15, 23, 42, 0.55);
-  --panel-strong: rgba(15, 23, 42, 0.72);
-  --shadow-soft-token: 0 24px 60px -32px rgba(2, 6, 23, 0.8);
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -58,21 +44,11 @@ body {
   background: var(--background);
   color: var(--ink);
   font-family: var(--font-sans);
-  transition:
-    background-color 220ms ease,
-    color 220ms ease;
-}
-
-:root[data-theme="dark"] body {
-  background: var(--background);
+  transition: background-color 220ms ease, color 220ms ease;
 }
 
 ::selection {
   background: rgba(19, 218, 236, 0.22);
-}
-
-:root[data-theme="dark"] ::selection {
-  background: rgba(19, 218, 236, 0.28);
 }
 
 a,
@@ -108,14 +84,6 @@ button {
   height: 16rem;
   width: 16rem;
   background: rgba(15, 23, 42, 0.03);
-}
-
-:root[data-theme="dark"] .content-shell::before {
-  background: rgba(19, 218, 236, 0.1);
-}
-
-:root[data-theme="dark"] .content-shell::after {
-  background: rgba(15, 23, 42, 0.14);
 }
 
 .tech-grid-bg {
