@@ -34,7 +34,7 @@ export function Header({ locale }: HeaderProps) {
           </div>
           <MainNav items={copy.navigation} locale={locale} />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <Link className="hidden text-sm font-medium text-muted transition hover:text-accent md:inline-flex" href={`/${alternateLocale}`}>
             {alternateLocale.toUpperCase()}
           </Link>
