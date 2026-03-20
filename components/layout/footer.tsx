@@ -21,7 +21,7 @@ export function Footer({ locale }: FooterProps) {
 
   if (isHome) {
     return (
-      <footer className="mt-24 border-t border-line bg-white pb-10 pt-20 dark:bg-slate-900">
+      <footer className="mt-24 border-t border-line bg-white pb-10 pt-20">
         <Container>
           <div className="mb-16 flex flex-col items-center text-center">
             <h2 className="mb-6 max-w-4xl font-display text-4xl font-black tracking-tight text-ink sm:text-5xl">
