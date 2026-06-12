@@ -64,12 +64,7 @@ export default async function ContactPage({
       </PageHero>
 
       <Container className="pb-18 sm:pb-24">
-        <ContactPanel
-          description={pageCopy.availability}
-          fitBullets={pageCopy.fitBullets}
-          fitTitle={pageCopy.fitTitle}
-          locale={locale}
-        />
+        <ContactPanel fitBullets={pageCopy.fitBullets} fitTitle={pageCopy.fitTitle} locale={locale} />
       </Container>
     </>
   );

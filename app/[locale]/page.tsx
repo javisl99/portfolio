@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { AIAssistedSection } from "@/components/sections/ai-assisted-section";
 import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapshot-grid";
 import { HomeHero } from "@/components/sections/home-hero";
 import { ProjectGrid } from "@/components/sections/project-grid";
 import { SkillsSection } from "@/components/sections/skills-section";
-import { StrengthGrid } from "@/components/sections/strength-grid";
 import { ContactPanel } from "@/components/sections/contact-panel";
 import { Section } from "@/components/ui/section";
 import { siteCopy } from "@/data/site";
@@ -56,15 +54,7 @@ export default async function HomePage({
       <HomeHero locale={locale} />
 
       <Section
-        align="center"
-        description={copy.home.strengths.description}
-        eyebrow={copy.home.strengths.eyebrow}
-        title={copy.home.strengths.title}
-      >
-        <StrengthGrid items={copy.home.strengths.items.slice(0, 4)} locale={locale} />
-      </Section>
-
-      <Section
+        id="experience"
         align="center"
         description={copy.home.career.description}
         eyebrow={copy.home.career.eyebrow}
@@ -76,6 +66,8 @@ export default async function HomePage({
       </Section>
 
       <Section
+        id="projects"
+        align="center"
         description={copy.home.projects.description}
         eyebrow={copy.home.projects.eyebrow}
         title={copy.home.projects.title}
@@ -83,15 +75,10 @@ export default async function HomePage({
         <ProjectGrid locale={locale} projects={featuredProjects.slice(0, 2)} />
       </Section>
 
-      <AIAssistedSection
-        description={copy.home.ai.description}
-        eyebrow={copy.home.ai.eyebrow}
-        items={copy.home.ai.items}
-        locale={locale}
-        title={copy.home.ai.title}
-      />
-
       <SkillsSection
+        aiDescription={copy.home.ai.description}
+        aiItems={copy.home.ai.items}
+        aiTitle={copy.home.ai.title}
         categories={copy.home.skills.categories}
         description={copy.home.skills.description}
         eyebrow={copy.home.skills.eyebrow}
@@ -100,16 +87,13 @@ export default async function HomePage({
       />
 
       <Section
+        id="contact"
+        align="center"
         description={copy.home.contact.description}
         eyebrow={copy.home.contact.eyebrow}
         title={copy.home.contact.title}
       >
-        <ContactPanel
-          description={copy.pages.contact.availability}
-          fitBullets={copy.home.contact.fitBullets}
-          fitTitle={copy.home.contact.fitTitle}
-          locale={locale}
-        />
+        <ContactPanel fitBullets={copy.home.contact.fitBullets} fitTitle={copy.home.contact.fitTitle} locale={locale} />
       </Section>
     </>
   );

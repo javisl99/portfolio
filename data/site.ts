@@ -8,7 +8,7 @@ export const siteSettings = {
   linkedin: "https://www.linkedin.com/in/javiersanchezlancha",
   github: "https://github.com/javisl99",
   location: {
-    es: "Sevilla, Espana",
+    es: "Sevilla, España",
     en: "Seville, Spain",
   },
 };
@@ -120,14 +120,14 @@ type SiteLocaleCopy = {
 
 export const siteCopy: Record<Locale, SiteLocaleCopy> = {
   es: {
-    localeName: "Espanol",
+    localeName: "Español",
     languageSwitch: "View in English",
     roleLabel: "Backend Software Engineer",
     navigation: [
       { href: pageSlugs.home, label: "Inicio" },
       { href: pageSlugs.experience, label: "Experiencia" },
       { href: pageSlugs.projects, label: "Proyectos" },
-      { href: pageSlugs.about, label: "Sobre mi" },
+      { href: pageSlugs.about, label: "Sobre mí" },
       { href: pageSlugs.contact, label: "Contacto" },
     ],
     metadata: {
@@ -155,7 +155,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         experience: {
           title: "Experiencia | Backend Software Engineer | Javier Sanchez Lancha",
           description:
-            "Experiencia profesional en backend engineering, Java, Spring, SAP Commerce Cloud y plataformas enterprise con foco en impacto, estabilidad y colaboracion con negocio.",
+            "Experiencia profesional en backend engineering, Java, Spring, SAP Commerce Cloud y plataformas enterprise con foco en impacto, estabilidad y colaboración con negocio.",
           keywords: [
             "Backend Software Engineer experience",
             "Java Spring experience",
@@ -166,7 +166,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         projects: {
           title: "Proyectos | Enterprise Platforms & Java Backend",
           description:
-            "Proyectos y casos reales explicados desde el problema, la solucion, el stack tecnico y el impacto sobre plataformas enterprise y e-commerce.",
+            "Proyectos y casos reales explicados desde el problema, la solución, el stack técnico y el impacto sobre plataformas enterprise y e-commerce.",
           keywords: [
             "Java backend projects",
             "Enterprise platforms portfolio",
@@ -175,9 +175,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         about: {
-          title: "Sobre mi | Backend Engineering & AI-Assisted Development",
+          title: "Sobre mí | Backend Engineering & AI-Assisted Development",
           description:
-            "Perfil profesional orientado a backend engineering, plataformas enterprise, cloud solutions y AI-Assisted Development aplicado con criterio tecnico.",
+            "Perfil profesional orientado a backend engineering, plataformas enterprise, cloud solutions y AI-Assisted Development aplicado con criterio técnico.",
           keywords: [
             "Backend engineering profile",
             "AI-Assisted Development engineer",
@@ -199,7 +199,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         projectDetail: {
           title: "Detalle de proyecto | Javier Sanchez Lancha",
           description:
-            "Caso real explicado desde el problema, la solucion tecnica, el stack y el impacto profesional en plataformas enterprise y e-commerce.",
+            "Caso real explicado desde el problema, la solución técnica, el stack y el impacto profesional en plataformas enterprise y e-commerce.",
           keywords: [
             "Software engineering case study",
             "Enterprise platform project",
@@ -216,16 +216,16 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       contact: "Contactar",
       experience: "Ver experiencia",
       projects: "Ver proyectos",
-      about: "Sobre mi",
+      about: "Sobre mí",
     },
     home: {
       hero: {
         eyebrow: "Java, Spring, Enterprise Platforms, AI-Assisted Engineering",
         title: "Backend Software Engineer construyendo plataformas enterprise escalables",
         summary:
-          "Diseno, desarrollo y mejoro sistemas backend para plataformas enterprise, combinando Java, Spring, SAP Commerce Cloud y flujos de trabajo AI-assisted para entregar soluciones mas limpias, rapidas y fiables.",
+          "Diseño, desarrollo y mejoro sistemas backend para plataformas enterprise, combinando Java, Spring, SAP Commerce Cloud y flujos de trabajo AI-assisted para entregar soluciones más limpias, rápidas y fiables.",
         proof:
-          "Experiencia real en plataformas criticas de e-commerce y negocio, trabajando con cliente, QA y equipos funcionales para convertir requisitos complejos en soluciones tecnicas mantenibles.",
+          "Experiencia real en plataformas críticas de e-commerce y negocio, trabajando con cliente, QA y equipos funcionales para convertir requisitos complejos en soluciones técnicas mantenibles.",
         quickFacts: [
           {
             label: { es: "Foco", en: "Focus" },
@@ -241,7 +241,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           },
           {
             label: { es: "Diferencial", en: "Differentiator" },
-            value: { es: "AI-Assisted Engineering con criterio tecnico", en: "AI-Assisted Engineering with technical judgment" },
+            value: { es: "AI-Assisted Engineering con criterio técnico", en: "AI-Assisted Engineering with technical judgment" },
           },
         ],
         supportLinks: [
@@ -254,33 +254,33 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Fortalezas clave",
         title: "Perfil backend con experiencia real en sistemas sensibles para negocio",
         description:
-          "La propuesta de valor no se apoya en buzzwords. Se apoya en experiencia real entregando software en plataformas enterprise, resolviendo incidencias complejas y trabajando con impacto tecnico y de negocio.",
+          "La propuesta de valor no se apoya en buzzwords. Se apoya en experiencia real entregando software en plataformas enterprise, resolviendo incidencias complejas y trabajando con impacto técnico y de negocio.",
         items: [
           {
             title: { es: "Backend engineering con contexto real", en: "Backend engineering with real context" },
             body: {
-              es: "Experiencia desarrollando logica de negocio, servicios, jobs, modelos de datos e integraciones en plataformas que ya estan en marcha.",
+              es: "Experiencia desarrollando lógica de negocio, servicios, jobs, modelos de datos e integraciones en plataformas que ya están en marcha.",
               en: "Experience building business logic, services, jobs, data models, and integrations in live platforms.",
             },
           },
           {
-            title: { es: "Resolucion de problemas complejos", en: "Complex problem solving" },
+            title: { es: "Resolución de problemas complejos", en: "Complex problem solving" },
             body: {
-              es: "Analisis de incidencias productivas, debugging tecnico y mejora de estabilidad sobre sistemas criticos.",
+              es: "Análisis de incidencias productivas, debugging técnico y mejora de estabilidad sobre sistemas críticos.",
               en: "Production issue analysis, technical debugging, and stability improvements on critical systems.",
             },
           },
           {
-            title: { es: "Colaboracion con cliente y negocio", en: "Client and business collaboration" },
+            title: { es: "Colaboración con cliente y negocio", en: "Client and business collaboration" },
             body: {
-              es: "Traduccion de requisitos funcionales en soluciones escalables junto a QA, negocio y equipos funcionales.",
+              es: "Traducción de requisitos funcionales en soluciones escalables junto a QA, negocio y equipos funcionales.",
               en: "Translating functional requirements into scalable solutions together with QA, business, and functional teams.",
             },
           },
           {
             title: { es: "Entrega acelerada con IA", en: "Faster delivery with AI" },
             body: {
-              es: "Uso practico de herramientas generativas para acelerar analisis tecnico, automatizacion, documentacion y tareas repetitivas sin perder control sobre la implementacion.",
+              es: "Uso práctico de herramientas generativas para acelerar análisis técnico, automatización, documentación y tareas repetitivas sin perder control sobre la implementación.",
               en: "Practical use of generative tools to accelerate technical analysis, automation, documentation, and repetitive tasks without losing implementation control.",
             },
           },
@@ -290,45 +290,45 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Experience",
         title: "Evolucion profesional orientada a impacto",
         description:
-          "De la base backend en proyectos SAP y B2B hasta ownership tecnico en plataformas enterprise vivas, con una identidad cada vez mas clara como Backend Software Engineer.",
+          "De la base backend en proyectos SAP y B2B hasta ownership técnico en plataformas enterprise vivas, con una identidad cada vez más clara como Backend Software Engineer.",
       },
       projects: {
         eyebrow: "Featured work",
-        title: "Casos donde problema, solucion e impacto quedan claros",
+        title: "Casos donde problema, solución e impacto quedan claros",
         description:
-          "Proyectos y etapas contados desde lo que habia que resolver, la solucion tecnica aplicada y lo que demuestran sobre mi perfil en software engineering.",
+          "Proyectos y etapas contados desde lo que había que resolver, la solución técnica aplicada y lo que demuestran sobre mi perfil en software engineering.",
       },
       ai: {
         eyebrow: "AI-Assisted Engineering",
-        title: "IA como acelerador de productividad, no como sustituto del criterio tecnico",
+        title: "IA como acelerador de productividad, no como sustituto del criterio técnico",
         description:
-          "Integro herramientas de AI-Assisted Development en mi flujo de ingenieria para trabajar mas rapido y mejor sin comprometer calidad. Las uso para explorar soluciones, generar boilerplate, depurar incidencias complejas, revisar codigo, documentar decisiones tecnicas y automatizar tareas repetitivas.",
+          "Integro herramientas de AI-Assisted Development en mi flujo de ingeniería para trabajar más rápido y mejor sin comprometer calidad. Las uso para explorar soluciones, generar boilerplate, depurar incidencias complejas, revisar código, documentar decisiones técnicas y automatizar tareas repetitivas.",
         items: [
           {
-            title: { es: "Analisis tecnico mas rapido", en: "Faster technical analysis" },
+            title: { es: "Análisis técnico más rápido", en: "Faster technical analysis" },
             body: {
-              es: "Acelero exploracion de soluciones, lectura de contexto y primeras hipotesis tecnicas antes de implementar.",
+              es: "Acelero exploración de soluciones, lectura de contexto y primeras hipótesis técnicas antes de implementar.",
               en: "I accelerate solution exploration, context reading, and early technical hypotheses before implementation.",
             },
           },
           {
-            title: { es: "Debugging mas eficiente", en: "Better debugging workflows" },
+            title: { es: "Debugging más eficiente", en: "Better debugging workflows" },
             body: {
-              es: "Las utilizo para aislar causas raiz, revisar caminos alternativos y ordenar investigacion tecnica.",
+              es: "Las utilizo para aislar causas raíz, revisar caminos alternativos y ordenar investigación técnica.",
               en: "I use them to isolate root causes, review alternative paths, and structure technical investigation.",
             },
           },
           {
-            title: { es: "Documentacion y automatizacion", en: "Documentation and automation" },
+            title: { es: "Documentación y automatización", en: "Documentation and automation" },
             body: {
               es: "Me ayudan a documentar mejor, generar scripts y automatizar trabajo repetitivo para centrarme en arquitectura y valor de negocio.",
               en: "They help me document better, generate scripts, and automate repetitive work so I can focus on architecture and business value.",
             },
           },
           {
-            title: { es: "Soporte a calidad de codigo", en: "Code quality support" },
+            title: { es: "Soporte a calidad de código", en: "Code quality support" },
             body: {
-              es: "Aporto mas velocidad sin renunciar a mantenibilidad, revision critica ni decisiones tecnicas finales propias.",
+              es: "Aporto más velocidad sin renunciar a mantenibilidad, revisión crítica ni decisiones técnicas finales propias.",
               en: "I move faster without giving up maintainability, critical review, or ownership of final technical decisions.",
             },
           },
@@ -338,7 +338,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Skills",
         title: "Stack y capacidades organizadas por el tipo de valor que aporto",
         description:
-          "Las tecnologias importan, pero tambien el contexto en el que las aplico: backend, plataformas enterprise, cloud solutions, AI-Assisted Development y colaboracion efectiva.",
+          "Las tecnologías importan, pero también el contexto en el que las aplico: backend, plataformas enterprise, cloud solutions, AI-Assisted Development y colaboración efectiva.",
         categories: [
           {
             title: { es: "Backend", en: "Backend" },
@@ -363,16 +363,16 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         ],
       },
       contact: {
-        eyebrow: "Contact",
-        title: "Abierto a oportunidades con foco en backend, producto y plataformas enterprise",
+        eyebrow: "Contacto",
+        title: "Contacto",
         description:
-          "Busco seguir creciendo como Backend Software Engineer en entornos product-driven y cloud-oriented, trabajando en sistemas escalables y de alto impacto.",
+          "Si ves encaje con tu equipo o proyecto, estaré encantado de conversar sobre backend, producto y plataformas enterprise.",
         fitTitle: "Encaje especialmente bien en equipos que buscan",
         fitBullets: [
           "Java Backend Developer o Spring Developer con experiencia real en plataformas enterprise",
-          "Perfil capaz de moverse entre negocio, QA, cliente y desarrollo sin perder profundidad tecnica",
-          "Ingenieria orientada a estabilidad, mantenibilidad y entrega efectiva",
-          "Experiencia fuerte en SAP Commerce Cloud sin quedar limitado a una identidad de consultoria SAP",
+          "Perfil capaz de moverse entre negocio, QA, cliente y desarrollo sin perder profundidad técnica",
+          "Ingeniería orientada a estabilidad, mantenibilidad y entrega efectiva",
+          "Experiencia fuerte en SAP Commerce Cloud sin quedar limitado a una identidad de consultoría SAP",
         ],
       },
     },
@@ -383,10 +383,10 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         intro:
           "Mi trayectoria combina base backend, profundidad en Java y Spring, experiencia fuerte en SAP Commerce Cloud y trabajo real sobre plataformas enterprise vivas.",
         scanTitle: "Recruiter scan",
-        scanBody: "Backend Software Engineer con recorrido en e-commerce enterprise, incidencias productivas, integraciones y colaboracion directa con cliente y negocio.",
+        scanBody: "Backend Software Engineer con recorrido en e-commerce enterprise, incidencias productivas, integraciones y colaboración directa con cliente y negocio.",
         scanBullets: [
-          "Java, Spring, SQL y servicios backend sobre sistemas en produccion",
-          "SAP Commerce Cloud como fortaleza tecnica, no como unica identidad profesional",
+          "Java, Spring, SQL y servicios backend sobre sistemas en producción",
+          "SAP Commerce Cloud como fortaleza técnica, no como única identidad profesional",
           "Experiencia resolviendo problemas complejos en entornos B2B/B2C y enterprise",
         ],
       },
@@ -394,70 +394,70 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Projects",
         title: "Featured work y casos reales",
         intro:
-          "Cada proyecto se presenta desde el problema, la solucion tecnica, el stack utilizado y el impacto, para que se vea con claridad como trabajo y donde aporto valor.",
+          "Cada proyecto se presenta desde el problema, la solución técnica, el stack utilizado y el impacto, para que se vea con claridad cómo trabajo y dónde aporto valor.",
         scanTitle: "How to read these cases",
-        scanBody: "No son descripciones genericas: cada caso explica el contexto, la solucion y la senal profesional que deja para recruiting tecnico.",
+        scanBody: "No son descripciones genéricas: cada caso explica el contexto, la solución y la señal profesional que deja para recruiting técnico.",
         scanBullets: [
           "Problemas reales de plataformas enterprise y e-commerce",
           "Soluciones backend con Java, Spring y SAP Commerce Cloud",
-          "Impacto sobre estabilidad, entrega, mantenibilidad y colaboracion",
+          "Impacto sobre estabilidad, entrega, mantenibilidad y colaboración",
         ],
       },
       about: {
-        eyebrow: "Sobre mi",
+        eyebrow: "Sobre mí",
         title: "Backend engineering con experiencia enterprise y mentalidad de producto",
         intro:
-          "Soy Software Engineer especializado en desarrollo backend con Java, Spring y SAP Commerce Cloud, con experiencia real en plataformas enterprise de gran escala y sistemas criticos para negocio.",
+          "Soy Software Engineer especializado en desarrollo backend con Java, Spring y SAP Commerce Cloud, con experiencia real en plataformas enterprise de gran escala y sistemas críticos para negocio.",
         summaryTitle: "Current positioning",
         summaryBody:
-          "Trabajo sobre soluciones backend, integraciones, modelos de datos, jobs, servicios y automatizaciones. En paralelo, uso AI-Assisted Development para acelerar implementacion, debugging, analisis tecnico y tareas repetitivas sin perder foco en calidad, mantenibilidad e impacto de negocio.",
-        principlesTitle: "Como trabajo",
+          "Trabajo sobre soluciones backend, integraciones, modelos de datos, jobs, servicios y automatizaciones. En paralelo, uso AI-Assisted Development para acelerar implementación, debugging, análisis técnico y tareas repetitivas sin perder foco en calidad, mantenibilidad e impacto de negocio.",
+        principlesTitle: "Cómo trabajo",
         principlesIntro:
-          "Mi forma de trabajar combina profundidad tecnica, claridad con negocio y una forma pragmatica de usar IA generativa para entregar mejor software.",
+          "Mi forma de trabajar combina profundidad técnica, claridad con negocio y una forma pragmática de usar IA generativa para entregar mejor software.",
       },
       contact: {
         eyebrow: "Contact",
         title: "Hablemos",
         intro:
-          "Si buscas un perfil backend con experiencia en enterprise platforms, Java, Spring, SAP Commerce Cloud y AI-Assisted Engineering, estare encantado de conversar.",
+          "Si buscas un perfil backend con experiencia en enterprise platforms, Java, Spring, SAP Commerce Cloud y AI-Assisted Engineering, estaré encantado de conversar.",
         availability:
-          "Estoy abierto a oportunidades donde pueda seguir creciendo como Backend Software Engineer en entornos product-driven, cloud-oriented y con retos tecnicos reales.",
+          "Estoy abierto a oportunidades donde pueda seguir creciendo como Backend Software Engineer en entornos product-driven, cloud-oriented y con retos técnicos reales.",
         heroCardEyebrow: "Best fit",
-        heroCardTitle: "Donde puedo aportar mas valor desde el primer momento",
+        heroCardTitle: "Dónde puedo aportar más valor desde el primer momento",
         heroCardBullets: [
           "Equipos backend sobre Java, Spring y sistemas enterprise",
           "Plataformas e-commerce B2B/B2C con complejidad real",
-          "Contextos donde calidad, ownership y colaboracion importan",
+          "Contextos donde calidad, ownership y colaboración importan",
         ],
         fitTitle: "Oportunidades especialmente alineadas",
         fitBullets: [
           "Backend Software Engineer o Java Backend Developer",
           "Spring Developer en plataformas enterprise o cloud solutions",
-          "Equipos que valoren AI-Assisted Development con enfoque practico",
-          "Entornos donde SAP Commerce Cloud sea una fortaleza, no un limite",
+          "Equipos que valoren AI-Assisted Development con enfoque práctico",
+          "Entornos donde SAP Commerce Cloud sea una fortaleza, no un límite",
         ],
         channelsTitle: "Canales",
         channelsItems: [
           { label: "Email", value: siteSettings.email },
           { label: "LinkedIn", value: siteSettings.linkedin },
-          { label: "Ubicacion", value: siteSettings.location.es },
+          { label: "Ubicación", value: siteSettings.location.es },
         ],
         channelsNote:
-          "Prefiero conversaciones claras sobre el reto tecnico, el contexto de producto y el tipo de equipo, mas que procesos vacios o descripciones genricas.",
+          "Prefiero conversaciones claras sobre el reto técnico, el contexto de producto y el tipo de equipo, más que procesos vacíos o descripciones genéricas.",
         finalNote:
-          "Tambien puedo compartir mas contexto sobre experiencia en SAP Commerce Cloud, backend enterprise o mi flujo de AI-Assisted Engineering si encaja con la posicion.",
+          "También puedo compartir más contexto sobre experiencia en SAP Commerce Cloud, backend enterprise o mi flujo de AI-Assisted Engineering si encaja con la posición.",
       },
     },
     footer: {
       note: "Backend Software Engineer especializado en plataformas enterprise, Java, Spring y AI-Assisted Engineering.",
       availability:
-        "Disponible para oportunidades donde backend engineering, cloud solutions y delivery pragmatica importen tanto como la tecnologia.",
+        "Disponible para oportunidades donde backend engineering, cloud solutions y delivery pragmática importen tanto como la tecnología.",
       builtWith: "Built with Next.js, TypeScript and a practical engineering mindset.",
     },
   },
   en: {
     localeName: "English",
-    languageSwitch: "Ver en Espanol",
+    languageSwitch: "Ver en Español",
     roleLabel: "Backend Software Engineer",
     navigation: [
       { href: pageSlugs.home, label: "Home" },
@@ -577,7 +577,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           },
           {
             label: { es: "Diferencial", en: "Differentiator" },
-            value: { es: "AI-Assisted Engineering con criterio tecnico", en: "AI-Assisted Engineering with technical judgment" },
+            value: { es: "AI-Assisted Engineering con criterio técnico", en: "AI-Assisted Engineering with technical judgment" },
           },
         ],
         supportLinks: [
@@ -595,14 +595,14 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           {
             title: { es: "Backend engineering con contexto real", en: "Backend engineering with real context" },
             body: {
-              es: "Experiencia desarrollando logica de negocio, servicios, jobs, modelos de datos e integraciones en plataformas que ya estan en marcha.",
+              es: "Experiencia desarrollando lógica de negocio, servicios, jobs, modelos de datos e integraciones en plataformas que ya están en marcha.",
               en: "Experience building business logic, services, jobs, data models, and integrations in live platforms.",
             },
           },
           {
             title: { es: "Resolucion de problemas complejos", en: "Complex problem solving" },
             body: {
-              es: "Analisis de incidencias productivas, debugging tecnico y mejora de estabilidad sobre sistemas criticos.",
+              es: "Análisis de incidencias productivas, debugging técnico y mejora de estabilidad sobre sistemas críticos.",
               en: "Production issue analysis, technical debugging, and stability improvements on critical systems.",
             },
           },
@@ -616,7 +616,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           {
             title: { es: "Entrega acelerada con IA", en: "Faster delivery with AI" },
             body: {
-              es: "Uso practico de herramientas generativas para acelerar analisis tecnico, automatizacion, documentacion y tareas repetitivas sin perder control sobre la implementacion.",
+              es: "Uso práctico de herramientas generativas para acelerar análisis técnico, automatización, documentación y tareas repetitivas sin perder control sobre la implementación.",
               en: "Practical use of generative tools to accelerate technical analysis, automation, documentation, and repetitive tasks without losing implementation control.",
             },
           },
@@ -641,30 +641,30 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           "I integrate AI-assisted development tools into my engineering workflow to work faster and smarter without compromising quality. I use them to explore solutions, generate boilerplate, debug complex issues, review code, document technical decisions, and automate repetitive tasks.",
         items: [
           {
-            title: { es: "Analisis tecnico mas rapido", en: "Faster technical analysis" },
+            title: { es: "Análisis técnico más rápido", en: "Faster technical analysis" },
             body: {
-              es: "Acelero exploracion de soluciones, lectura de contexto y primeras hipotesis tecnicas antes de implementar.",
+              es: "Acelero exploración de soluciones, lectura de contexto y primeras hipótesis técnicas antes de implementar.",
               en: "I accelerate solution exploration, context reading, and early technical hypotheses before implementation.",
             },
           },
           {
-            title: { es: "Debugging mas eficiente", en: "Better debugging workflows" },
+            title: { es: "Debugging más eficiente", en: "Better debugging workflows" },
             body: {
-              es: "Las utilizo para aislar causas raiz, revisar caminos alternativos y ordenar investigacion tecnica.",
+              es: "Las utilizo para aislar causas raíz, revisar caminos alternativos y ordenar investigación técnica.",
               en: "I use them to isolate root causes, review alternative paths, and structure technical investigation.",
             },
           },
           {
-            title: { es: "Documentacion y automatizacion", en: "Documentation and automation" },
+            title: { es: "Documentación y automatización", en: "Documentation and automation" },
             body: {
               es: "Me ayudan a documentar mejor, generar scripts y automatizar trabajo repetitivo para centrarme en arquitectura y valor de negocio.",
               en: "They help me document better, generate scripts, and automate repetitive work so I can focus on architecture and business value.",
             },
           },
           {
-            title: { es: "Soporte a calidad de codigo", en: "Code quality support" },
+            title: { es: "Soporte a calidad de código", en: "Code quality support" },
             body: {
-              es: "Aporto mas velocidad sin renunciar a mantenibilidad, revision critica ni decisiones tecnicas finales propias.",
+              es: "Aporto más velocidad sin renunciar a mantenibilidad, revisión crítica ni decisiones técnicas finales propias.",
               en: "I move faster without giving up maintainability, critical review, or ownership of final technical decisions.",
             },
           },
@@ -700,9 +700,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
       contact: {
         eyebrow: "Contact",
-        title: "Open to backend, product, and enterprise platform opportunities",
+        title: "Contact",
         description:
-          "I want to keep growing as a Backend Software Engineer in product-driven and cloud-oriented environments, building scalable and high-impact software.",
+          "If there is a strong match with your team or product, I would be glad to talk about backend, product, and enterprise platforms.",
         fitTitle: "Especially strong fit for teams looking for",
         fitBullets: [
           "A Java Backend Developer or Spring Developer with real enterprise-platform experience",

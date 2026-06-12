@@ -1,4 +1,4 @@
-import { Bot, Braces, BriefcaseBusiness, Download, Layers3, Verified } from "lucide-react";
+import { Bot, Braces, BriefcaseBusiness, Layers3, Mail, Verified } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
@@ -12,7 +12,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
   const snapshotIcons = [Braces, BriefcaseBusiness, Bot, Verified];
 
   return (
-    <section className="relative overflow-hidden py-12 lg:py-24">
+    <section className="relative overflow-hidden py-12 lg:py-24" id="top">
       <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.24),transparent_42%),radial-gradient(circle_at_82%_18%,rgba(129,140,248,0.22),transparent_34%)]" />
       <Container>
         <div className="grid items-start gap-10 lg:grid-cols-12">
@@ -27,25 +27,13 @@ export function HomeHero({ locale }: { locale: Locale }) {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <ButtonLink className="px-7 text-base" href={localizePath(locale, "/experience")} variant="primary">
+              <ButtonLink className="px-7 text-base" href={`${localizePath(locale)}#experience`} variant="primary">
                 {copy.ctas.experience}
               </ButtonLink>
-              <ButtonLink className="px-7 text-base" href={localizePath(locale, "/contact")} variant="secondary">
+              <ButtonLink className="px-7 text-base" href={`${localizePath(locale)}#contact`} variant="secondary">
+                <Mail className="h-4 w-4" />
                 {copy.ctas.contact}
               </ButtonLink>
-              <ButtonLink className="px-3 text-base sm:px-5" href={`/${locale}/cv`} target="_blank" variant="ghost">
-                <Download className="h-4 w-4" />
-                {copy.ctas.resume}
-              </ButtonLink>
-            </div>
-
-            <div className="flex flex-wrap gap-3 pt-2">
-              {hero.quickFacts.map((fact) => (
-                <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 shadow-[0_18px_40px_-34px_rgba(1,4,15,0.9)] backdrop-blur-sm" key={fact.label.en}>
-                  <span className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#bcd1ff]">{fact.label[locale]}:</span>
-                  <span className="ml-2 text-sm font-bold text-white">{fact.value[locale]}</span>
-                </div>
-              ))}
             </div>
           </div>
 
@@ -59,7 +47,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 </h2>
                 <p className="mb-6 text-sm leading-7 text-slate-300">
                   {locale === "es"
-                    ? "Una lectura rapida del perfil: backend, plataformas enterprise, especializacion fuerte en SAP Commerce Cloud y uso practico de IA para acelerar entrega sin perder criterio tecnico."
+                    ? "Una lectura rápida del perfil: backend, plataformas enterprise, especialización fuerte en SAP Commerce Cloud y uso práctico de IA para acelerar entrega sin perder criterio técnico."
                     : "A quick read of the profile: backend, enterprise platforms, strong SAP Commerce Cloud specialization, and practical AI usage to accelerate delivery without giving up technical judgment."}
                 </p>
                 <ul className="space-y-5">
@@ -96,7 +84,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
                       <span className="mt-2 h-2 w-2 rounded-full bg-[#60a5fa]" />
                       <span>
                         {locale === "es"
-                          ? "Capacidad de moverme entre implementacion, incidencias, cliente y negocio"
+                          ? "Capacidad de moverme entre implementación, incidencias, cliente y negocio"
                           : "Ability to move across implementation, incidents, client communication, and business context"}
                       </span>
                     </li>

@@ -18,11 +18,11 @@ export function AIAssistedSection({ locale, eyebrow, title, description, items }
   const supportBullets =
     locale === "es"
       ? [
-          "Analisis tecnico mas rapido",
-          "Flujos de debugging mas claros",
-          "Documentacion mas limpia",
-          "Automatizacion de tareas repetitivas",
-          "Soporte a calidad de codigo",
+          "Análisis técnico más rápido",
+          "Flujos de debugging más claros",
+          "Documentación más limpia",
+          "Automatización de tareas repetitivas",
+          "Soporte a calidad de código",
           "Mayor velocidad de entrega",
         ]
       : [

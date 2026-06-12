@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { TerminalSquare } from "lucide-react";
+import { Mail, TerminalSquare } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
-import { MainNav } from "@/components/navigation/main-nav";
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { siteCopy, siteSettings } from "@/data/site";
 import { getAlternateLocale, type Locale } from "@/lib/i18n";
@@ -32,16 +31,16 @@ export function Header({ locale }: HeaderProps) {
             </span>
             <span className="ml-3 text-base font-bold tracking-tight text-ink">{siteSettings.name}</span>
           </div>
-          <MainNav items={copy.navigation} locale={locale} />
         </div>
         <div className="flex items-center gap-3">
           <Link
-            className="hidden rounded-full border border-white/8 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted hover:border-accent-soft/35 hover:text-white md:inline-flex"
+            className="hidden cursor-pointer rounded-full border border-white/8 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted hover:border-accent-soft/35 hover:text-white md:inline-flex"
             href={`/${alternateLocale}`}
           >
             {alternateLocale.toUpperCase()}
           </Link>
-          <ButtonLink className="hidden md:inline-flex" href={`/${locale}/contact`} variant="primary">
+          <ButtonLink className="hidden md:inline-flex" href={`/${locale}#contact`} variant="primary">
+            <Mail className="h-4 w-4" />
             {copy.ctas.contact}
           </ButtonLink>
           <MobileMenu locale={locale} />

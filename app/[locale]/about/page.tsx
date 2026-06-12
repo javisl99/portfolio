@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { ApproachGrid } from "@/components/sections/approach-grid";
 import { ContactPanel } from "@/components/sections/contact-panel";
 import { SkillsSection } from "@/components/sections/skills-section";
-import { StrengthGrid } from "@/components/sections/strength-grid";
 import { PageHero } from "@/components/ui/page-hero";
 import { Section } from "@/components/ui/section";
 import { siteCopy } from "@/data/site";
@@ -63,15 +62,10 @@ export default async function AboutPage({
         <ApproachGrid items={copy.home.ai.items} locale={locale} />
       </Section>
 
-      <Section
-        description={copy.home.strengths.description}
-        eyebrow={copy.home.strengths.eyebrow}
-        title={locale === "es" ? "Dónde aporto mejor" : "Where I add value best"}
-      >
-        <StrengthGrid items={copy.home.strengths.items.slice(0, 4)} locale={locale} />
-      </Section>
-
       <SkillsSection
+        aiDescription={copy.home.ai.description}
+        aiItems={copy.home.ai.items}
+        aiTitle={copy.home.ai.title}
         categories={copy.home.skills.categories}
         description={copy.home.skills.description}
         eyebrow={copy.home.skills.eyebrow}
@@ -80,12 +74,7 @@ export default async function AboutPage({
       />
 
       <Section description={copy.pages.contact.intro} eyebrow={copy.pages.contact.eyebrow} title={copy.pages.contact.title}>
-        <ContactPanel
-          description={copy.pages.contact.availability}
-          fitBullets={copy.pages.contact.fitBullets}
-          fitTitle={copy.pages.contact.fitTitle}
-          locale={locale}
-        />
+        <ContactPanel fitBullets={copy.pages.contact.fitBullets} fitTitle={copy.pages.contact.fitTitle} locale={locale} />
       </Section>
     </>
   );

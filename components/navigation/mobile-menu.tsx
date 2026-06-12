@@ -13,6 +13,14 @@ interface MobileMenuProps {
   locale: Locale;
 }
 
+const homeSectionMap: Record<string, string> = {
+  "/": "#top",
+  "/experience": "#experience",
+  "/projects": "#projects",
+  "/about": "#about",
+  "/contact": "#contact",
+};
+
 export function MobileMenu({ locale }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
   const copy = siteCopy[locale];
@@ -23,7 +31,7 @@ export function MobileMenu({ locale }: MobileMenuProps) {
       <button
         aria-expanded={open}
         aria-label={open ? (locale === "es" ? "Cerrar menú" : "Close menu") : locale === "es" ? "Abrir menú" : "Open menu"}
-        className="inline-flex h-10 w-10 items-center justify-center text-ink"
+        className="inline-flex h-10 w-10 cursor-pointer items-center justify-center text-ink"
         onClick={() => setOpen((current) => !current)}
         type="button"
       >
@@ -44,8 +52,8 @@ export function MobileMenu({ locale }: MobileMenuProps) {
             <nav aria-label="Mobile" className="grid gap-2">
               {copy.navigation.map((item) => (
                 <Link
-                  className="rounded-xl border border-line bg-panel px-4 py-3 text-sm font-semibold text-ink transition hover:border-accent/35 hover:text-accent"
-                  href={localizePath(locale, item.href)}
+                  className="cursor-pointer rounded-xl border border-line bg-panel px-4 py-3 text-sm font-semibold text-ink transition hover:border-accent/35 hover:text-accent"
+                  href={`${localizePath(locale)}${homeSectionMap[item.href] ?? "#top"}`}
                   key={item.href}
                   onClick={() => setOpen(false)}
                 >
@@ -55,7 +63,7 @@ export function MobileMenu({ locale }: MobileMenuProps) {
             </nav>
 
             <div className="flex flex-col gap-3">
-              <ButtonLink className="w-full" href={localizePath(locale, "/contact")} variant="primary">
+              <ButtonLink className="w-full" href={`${localizePath(locale)}#contact`} variant="primary">
                 {copy.ctas.contact}
               </ButtonLink>
               <ButtonLink className="w-full" href={`/${locale}/cv`} target="_blank" variant="secondary">

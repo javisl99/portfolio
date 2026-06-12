@@ -23,7 +23,7 @@ export function MobileBottomNav({ locale }: MobileBottomNavProps) {
   const items = [
     { key: "home", href: "/", label: locale === "es" ? "Inicio" : "Home" },
     { key: "projects", href: "/projects", label: locale === "es" ? "Proyectos" : "Work" },
-    { key: "about", href: "/about", label: locale === "es" ? "Sobre mi" : "About" },
+    { key: "about", href: "/about", label: locale === "es" ? "Sobre mí" : "About" },
     { key: "contact", href: "/contact", label: locale === "es" ? "Contacto" : "Contact" },
   ] as const;
 
