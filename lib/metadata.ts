@@ -10,16 +10,19 @@ const ogLocaleMap: Record<Locale, string> = {
   en: "en_US",
 };
 const commonExpertise = [
-  "SAP Commerce Cloud",
-  "Hybris",
+  "Backend Software Engineer",
   "Java",
   "Spring",
-  "Production support",
-  "Incident management",
-  "Checkout",
-  "Pricing",
-  "Stock",
-  "Integration Objects",
+  "Spring Boot",
+  "SAP Commerce Cloud",
+  "Enterprise Platforms",
+  "Cloud Solutions",
+  "AI-Assisted Engineering",
+  "AI-Assisted Development",
+  "REST APIs",
+  "SQL",
+  "Docker",
+  "Azure",
 ];
 
 export function buildUrl(pathname = "/") {

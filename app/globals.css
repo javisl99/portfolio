@@ -6,8 +6,9 @@
 @source "../data/**/*.{ts,tsx}";
 
 @theme inline {
-  --font-sans: var(--font-inter), sans-serif;
-  --font-display: var(--font-inter), sans-serif;
+  --font-sans: "Manrope Variable", sans-serif;
+  --font-display: "Space Grotesk Variable", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
   --color-bg: var(--background);
   --color-surface: var(--surface);
   --color-line: var(--line);
@@ -15,45 +16,95 @@
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-strong: var(--accent-strong);
   --color-accent-contrast: var(--accent-contrast);
   --color-panel: var(--panel);
   --color-panel-strong: var(--panel-strong);
   --shadow-soft: var(--shadow-soft-token);
+  --shadow-panel: var(--shadow-panel-token);
+  --glow-accent: var(--glow-accent-token);
 }
 
 :root {
-  --background: #f6f8f8;
-  --surface: #f1f5f9;
-  --line: rgba(226, 232, 240, 0.92);
-  --line-strong: rgba(203, 213, 225, 0.95);
-  --ink: #0f172a;
-  --muted: #64748b;
-  --accent: #13daec;
-  --accent-contrast: #07131d;
-  --panel: rgba(255, 255, 255, 0.98);
-  --panel-strong: rgba(255, 255, 255, 1);
-  --shadow-soft-token: 0 18px 40px -30px rgba(15, 23, 42, 0.16);
+  --background: #030712;
+  --surface: #0b1220;
+  --line: rgba(148, 163, 184, 0.14);
+  --line-strong: rgba(129, 140, 248, 0.36);
+  --ink: #eff4ff;
+  --muted: #94a3b8;
+  --accent: #2563eb;
+  --accent-soft: #60a5fa;
+  --accent-strong: #818cf8;
+  --accent-contrast: #f7f9ff;
+  --panel: rgba(10, 16, 31, 0.88);
+  --panel-strong: rgba(13, 21, 39, 0.98);
+  --shadow-soft-token: 0 24px 60px -36px rgba(2, 6, 23, 0.72);
+  --shadow-panel-token: 0 38px 90px -52px rgba(15, 23, 42, 0.96);
+  --glow-accent-token: 0 0 0 1px rgba(96, 165, 250, 0.18), 0 18px 48px -28px rgba(37, 99, 235, 0.45);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+* {
+  border-color: var(--line);
+}
+
 body {
   min-height: 100vh;
-  background: var(--background);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(37, 99, 235, 0.2), transparent 24%),
+    radial-gradient(circle at 88% 10%, rgba(129, 140, 248, 0.18), transparent 22%),
+    radial-gradient(circle at 50% 36%, rgba(15, 23, 42, 0.42), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 20%),
+    var(--background);
   color: var(--ink);
   font-family: var(--font-sans);
   transition: background-color 220ms ease, color 220ms ease;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 32%, transparent 88%);
+  opacity: 0.22;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 14%, rgba(96, 165, 250, 0.08), transparent 18rem),
+    radial-gradient(circle at 84% 78%, rgba(129, 140, 248, 0.08), transparent 16rem);
+  opacity: 0.8;
+}
+
 ::selection {
-  background: rgba(19, 218, 236, 0.22);
+  background: rgba(96, 165, 250, 0.34);
 }
 
 a,
-button {
+button,
+[role="button"] {
   -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+button {
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
 .content-shell {
@@ -71,22 +122,22 @@ button {
 }
 
 .content-shell::before {
-  top: 9rem;
-  left: -6rem;
-  height: 15rem;
-  width: 15rem;
-  background: rgba(19, 218, 236, 0.06);
+  top: 7rem;
+  left: -4rem;
+  height: 20rem;
+  width: 20rem;
+  background: rgba(37, 99, 235, 0.1);
 }
 
 .content-shell::after {
   right: -6rem;
   bottom: 6rem;
-  height: 16rem;
-  width: 16rem;
-  background: rgba(15, 23, 42, 0.03);
+  height: 18rem;
+  width: 18rem;
+  background: rgba(129, 140, 248, 0.1);
 }
 
 .tech-grid-bg {
-  background-image: radial-gradient(circle at 2px 2px, rgba(19, 218, 236, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(circle at 2px 2px, rgba(129, 140, 248, 0.16) 1px, transparent 0);
   background-size: 24px 24px;
 }

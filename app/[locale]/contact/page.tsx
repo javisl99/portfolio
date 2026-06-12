@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ContactPanel } from "@/components/sections/contact-panel";
 import { PageHero } from "@/components/ui/page-hero";
 import { Container } from "@/components/ui/container";
-import { siteCopy, siteSettings } from "@/data/site";
+import { siteCopy } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
 import { isLocale, type Locale } from "@/lib/i18n";
 
@@ -49,9 +49,16 @@ export default async function ContactPage({
   return (
     <>
       <PageHero eyebrow={pageCopy.eyebrow} intro={pageCopy.intro} title={pageCopy.title}>
-        <div className="space-y-3">
-          <p className="text-sm text-muted">{locale === "es" ? "Canales directos" : "Direct channels"}</p>
-          <p className="text-2xl font-black tracking-tight text-ink">{siteSettings.email}</p>
+        <div className="space-y-4">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{pageCopy.heroCardEyebrow}</p>
+          <h2 className="text-2xl font-black tracking-tight text-ink">{pageCopy.heroCardTitle}</h2>
+          <ul className="grid gap-3 text-sm leading-7 text-muted">
+            {pageCopy.heroCardBullets.map((bullet) => (
+              <li className="border-l-2 border-accent pl-4" key={bullet}>
+                {bullet}
+              </li>
+            ))}
+          </ul>
           <p className="text-sm leading-7 text-muted">{pageCopy.finalNote}</p>
         </div>
       </PageHero>

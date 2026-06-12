@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { AIAssistedSection } from "@/components/sections/ai-assisted-section";
 import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapshot-grid";
 import { HomeHero } from "@/components/sections/home-hero";
-import { HowIWorkSection } from "@/components/sections/how-i-work-section";
 import { ProjectGrid } from "@/components/sections/project-grid";
+import { SkillsSection } from "@/components/sections/skills-section";
 import { StrengthGrid } from "@/components/sections/strength-grid";
+import { ContactPanel } from "@/components/sections/contact-panel";
 import { Section } from "@/components/ui/section";
 import { siteCopy } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
@@ -81,13 +83,34 @@ export default async function HomePage({
         <ProjectGrid locale={locale} projects={featuredProjects.slice(0, 2)} />
       </Section>
 
-      <HowIWorkSection
-        description={copy.home.approach.description}
-        eyebrow={copy.home.approach.eyebrow}
-        items={copy.home.approach.items}
+      <AIAssistedSection
+        description={copy.home.ai.description}
+        eyebrow={copy.home.ai.eyebrow}
+        items={copy.home.ai.items}
         locale={locale}
-        title={copy.home.approach.title}
+        title={copy.home.ai.title}
       />
+
+      <SkillsSection
+        categories={copy.home.skills.categories}
+        description={copy.home.skills.description}
+        eyebrow={copy.home.skills.eyebrow}
+        locale={locale}
+        title={copy.home.skills.title}
+      />
+
+      <Section
+        description={copy.home.contact.description}
+        eyebrow={copy.home.contact.eyebrow}
+        title={copy.home.contact.title}
+      >
+        <ContactPanel
+          description={copy.pages.contact.availability}
+          fitBullets={copy.home.contact.fitBullets}
+          fitTitle={copy.home.contact.fitTitle}
+          locale={locale}
+        />
+      </Section>
     </>
   );
 }

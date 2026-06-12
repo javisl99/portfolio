@@ -22,13 +22,13 @@ export function MobileBottomNav({ locale }: MobileBottomNavProps) {
   const pathname = usePathname();
   const items = [
     { key: "home", href: "/", label: locale === "es" ? "Inicio" : "Home" },
-    { key: "projects", href: "/projects", label: locale === "es" ? "Casos" : "Work" },
-    { key: "about", href: "/about", label: locale === "es" ? "About" : "About" },
+    { key: "projects", href: "/projects", label: locale === "es" ? "Proyectos" : "Work" },
+    { key: "about", href: "/about", label: locale === "es" ? "Sobre mi" : "About" },
     { key: "contact", href: "/contact", label: locale === "es" ? "Contacto" : "Contact" },
   ] as const;
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 flex border-t border-accent/10 bg-bg/95 px-4 pb-4 pt-2 backdrop-blur-md md:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 flex border-t border-white/8 bg-[rgba(3,7,18,0.92)] px-4 pb-4 pt-2 backdrop-blur-xl md:hidden">
       {items.map((item) => {
         const href = localizePath(locale, item.href);
         const Icon = iconMap[item.key];
@@ -37,8 +37,8 @@ export function MobileBottomNav({ locale }: MobileBottomNavProps) {
         return (
           <Link
             className={cn(
-              "flex flex-1 flex-col items-center justify-center gap-1",
-              isActive ? "text-accent" : "text-muted",
+              "flex flex-1 flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2",
+              isActive ? "bg-white/[0.04] text-accent-soft" : "text-muted",
             )}
             href={href}
             key={item.key}

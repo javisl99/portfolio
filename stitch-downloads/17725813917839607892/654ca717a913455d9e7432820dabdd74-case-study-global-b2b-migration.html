@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Case Study | Technical Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13daec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#102022",
+                        "slate-custom": "#1e293b",
+                        "teal-accent": "#0d9488",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .tech-grid-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(19, 218, 236, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col tech-grid-bg">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-background-dark text-xl">terminal</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold tracking-tight uppercase">Technical Portfolio</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Projects</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Experience</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Stack</a>
+<button class="bg-primary hover:bg-primary/90 text-background-dark px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-sm">
+                        Hire Me
+                    </button>
+</nav>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-sm font-medium text-slate-500">
+<a class="hover:text-primary" href="#">Portfolio</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-200">B2B Commerce Modernization</span>
+</nav>
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+<div class="lg:col-span-2 space-y-6">
+<div class="flex flex-col md:flex-row gap-6 items-start">
+<div class="w-32 h-32 rounded-xl bg-slate-200 dark:bg-slate-800 overflow-hidden shrink-0 border border-slate-300 dark:border-slate-700">
+<img class="w-full h-full object-cover" data-alt="Abstract data visualization with blue and teal lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH2Pqks6n_R0GKOZD4NZiGQHBR6yZGE6ObK38lecx3bC4mXMDeswSX-TYC1zUTs0pLCuRbQXeWQP-wrnZm0pJDOVI8JYBA5LbDXu7KAGQaq1rRyY_U-DihLs1Q948g8TtEi27eWjOYygg2fbJHo5Hm4SVQ_iHORYklrqDfI4WrGmQqdWSJIXy9Jx4QMJNHOg16Z7h8dHkcCMpllmBPQTICAWJ9YZ1YxIAr-AYwsiyY8-gtmd_Ou_v2miPzP2g81LSJHEKX3pcNgum_"/>
+</div>
+<div class="space-y-2">
+<h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">
+                                Modernizing Global <span class="text-primary">B2B Commerce</span>
+</h1>
+<p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                                Lead Architect | Scalable Microservices &amp; SAP Commerce Ecosystem.
+                            </p>
+<div class="flex flex-wrap gap-4 pt-2 text-sm font-medium text-slate-500">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base">business</span> TechCorp</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base">group</span> Fortune 500 Retailer</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base">schedule</span> 18 Month Transformation</span>
+</div>
+</div>
+</div>
+<!-- Technical Tags -->
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20">JAVA 17</span>
+<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold">SAP COMMERCE</span>
+<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold">KAFKA</span>
+<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold">SPRING BOOT</span>
+<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold">AZURE K8S</span>
+<span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold">REDIS</span>
+</div>
+</div>
+<!-- Recruiter Summary Panel -->
+<div class="bg-slate-900 dark:bg-black p-6 rounded-xl border border-primary/30 shadow-2xl shadow-primary/10">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined text-2xl">bolt</span>
+<h3 class="font-bold uppercase tracking-widest text-sm">Recruiter TL;DR</h3>
+</div>
+<p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Led a cross-functional team of 15 to re-architect a legacy monolithic commerce platform into a microservices-based ecosystem.
+                    </p>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span>40% increase in checkout throughput</span>
+</li>
+<li class="flex items-start gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span>25% reduction in infra costs</span>
+</li>
+<li class="flex items-start gap-3 text-sm text-slate-400">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span>Zero-downtime migration of 1M+ users</span>
+</li>
+</ul>
+<button class="w-full bg-primary text-background-dark font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Download PDF Case Study
+                    </button>
+</div>
+</section>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Main Narrative Content -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Context -->
+<section class="space-y-4">
+<div class="flex items-center gap-4">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">The Context</h2>
+<div class="h-px flex-1 bg-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="bg-white dark:bg-slate-900/50 p-8 rounded-xl border border-slate-200 dark:border-slate-800 leading-relaxed text-slate-600 dark:text-slate-400">
+<p>TechCorp's flagship B2B platform, serving a global retailer with $2B in annual digital revenue, was operating on a decade-old SAP Hybris monolith. The system was fragile, release cycles spanned 8 weeks, and the maintenance of synchronous ERP integrations caused frequent checkout failures during peak holiday traffic.</p>
+</div>
+</section>
+<!-- Challenges -->
+<section class="space-y-4">
+<div class="flex items-center gap-4">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">What was at Stake</h2>
+<div class="h-px flex-1 bg-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<span class="material-symbols-outlined text-red-500 mb-3">warning</span>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">Technical Debt</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">A tightly coupled architecture meant a failure in the loyalty service could crash the entire storefront, leading to millions in lost potential revenue.</p>
+</div>
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<span class="material-symbols-outlined text-red-500 mb-3">trending_down</span>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">Business Velocity</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Market competitors were pivoting to headless commerce. Our client couldn't launch new regional storefronts faster than 6 months.</p>
+</div>
+</div>
+</section>
+<!-- Actions -->
+<section class="space-y-4">
+<div class="flex items-center gap-4">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">What I Did</h2>
+<div class="h-px flex-1 bg-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="bg-white dark:bg-slate-900/50 overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="p-8 space-y-6">
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">1</div>
+<div class="w-0.5 h-full bg-slate-200 dark:bg-slate-800 my-2"></div>
+</div>
+<div class="pb-6">
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">Architectural Strategy</h4>
+<p class="text-slate-600 dark:text-slate-400">Designed a Strangler Fig pattern migration path. We decoupled the core cart and checkout logic into Spring Boot microservices while keeping the legacy SAP system as the "source of record" for ERP sync.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">2</div>
+<div class="w-0.5 h-full bg-slate-200 dark:bg-slate-800 my-2"></div>
+</div>
+<div class="pb-6">
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">Event-Driven Integration</h4>
+<p class="text-slate-600 dark:text-slate-400">Implemented Kafka for asynchronous order processing. This isolated the frontend from legacy ERP latency, ensuring customers could always complete orders even if downstream systems were slow.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">3</div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">DevOps Leadership</h4>
+<p class="text-slate-600 dark:text-slate-400">Introduced CI/CD pipelines via Azure DevOps and containerized the suite with Kubernetes, reducing deployment time from 4 hours of manual labor to 12 minutes automated.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Proof/Skills -->
+<section class="space-y-4">
+<div class="flex items-center gap-4">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Expertise Proven</h2>
+<div class="h-px flex-1 bg-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="flex-1 min-w-[200px] border-l-4 border-primary bg-primary/5 p-4 rounded-r-lg">
+<h5 class="font-bold text-slate-900 dark:text-white text-sm mb-1 uppercase tracking-tighter">System Design</h5>
+<p class="text-xs text-slate-500">Distributed systems at scale</p>
+</div>
+<div class="flex-1 min-w-[200px] border-l-4 border-teal-accent bg-teal-accent/5 p-4 rounded-r-lg">
+<h5 class="font-bold text-slate-900 dark:text-white text-sm mb-1 uppercase tracking-tighter">Leadership</h5>
+<p class="text-xs text-slate-500">Mentoring &amp; Stakeholder Mgmt</p>
+</div>
+<div class="flex-1 min-w-[200px] border-l-4 border-slate-500 bg-slate-500/5 p-4 rounded-r-lg">
+<h5 class="font-bold text-slate-900 dark:text-white text-sm mb-1 uppercase tracking-tighter">Cloud Infrastructure</h5>
+<p class="text-xs text-slate-500">K8s, Azure, Performance Tuning</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar -->
+<aside class="lg:col-span-4 space-y-8">
+<!-- Performance Metrics -->
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<h4 class="text-slate-900 dark:text-white font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                            Impact Metrics
+                        </h4>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-slate-500 uppercase">Latency Reduction</span>
+<span class="text-primary">-65%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full">
+<div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-slate-500 uppercase">Uptime Reliability</span>
+<span class="text-primary">99.99%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full">
+<div class="bg-primary h-1.5 rounded-full" style="width: 99%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tech Stack Deep Dive -->
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<h4 class="text-slate-900 dark:text-white font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">layers</span>
+                            Detailed Stack
+                        </h4>
+<div class="space-y-4">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Backend</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] rounded text-slate-600 dark:text-slate-300">Java 17</span>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] rounded text-slate-600 dark:text-slate-300">Spring Boot</span>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] rounded text-slate-600 dark:text-slate-300">Hibernate</span>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Messaging &amp; Data</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] rounded text-slate-600 dark:text-slate-300">Apache Kafka</span>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] rounded text-slate-600 dark:text-slate-300">Azure CosmosDB</span>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] rounded text-slate-600 dark:text-slate-300">Redis</span>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Infrastructure</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] rounded text-slate-600 dark:text-slate-300">AKS (Kubernetes)</span>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] rounded text-slate-600 dark:text-slate-300">Terraform</span>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] rounded text-slate-600 dark:text-slate-300">Docker</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Call to Action -->
+<div class="bg-primary/10 border border-primary/20 p-6 rounded-xl flex flex-col gap-4">
+<div class="space-y-1">
+<h4 class="font-bold text-slate-900 dark:text-white">Technical Deep-Dive?</h4>
+<p class="text-sm text-slate-500">I'm happy to walk through the system architecture diagram or discuss specific design patterns used.</p>
+</div>
+<button class="bg-primary text-background-dark font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all">
+<span class="material-symbols-outlined">chat</span>
+                            Discuss this Project
+                        </button>
+</div>
+<!-- Code Snippet Decoration -->
+<div class="bg-slate-900 rounded-xl border border-slate-800 p-4 font-mono text-[10px] text-slate-400 overflow-hidden opacity-80">
+<div class="flex gap-1.5 mb-2">
+<div class="w-2 h-2 rounded-full bg-red-500"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+</div>
+<p class="text-primary">@Service</p>
+<p>public class OrderGateway {</p>
+<p class="pl-4 text-teal-accent">@Value("${kafka.topic.orders}")</p>
+<p class="pl-4">private String topic;</p>
+<p class="pl-4 text-teal-accent">public void process(Order o) {</p>
+<p class="pl-8 text-slate-500">// Distributed saga pattern</p>
+<p class="pl-8">template.send(topic, o.getId(), o);</p>
+<p class="pl-4">}</p>
+<p>}</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t border-slate-200 dark:border-slate-800 py-12">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="bg-slate-200 dark:bg-slate-800 p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-slate-500 text-sm">terminal</span>
+</div>
+<span class="text-sm font-bold text-slate-500 uppercase tracking-tighter">Architect Portfolio © 2024</span>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">link</span></a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
