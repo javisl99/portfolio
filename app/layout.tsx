@@ -1,18 +1,14 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
+
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/space-grotesk";
 
 import "./globals.css";
 
 import { siteCopy, siteSettings } from "@/data/site";
 import { buildUrl } from "@/lib/metadata";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(buildUrl()),
@@ -25,12 +21,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f8f8",
+  themeColor: "#030712",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html className={inter.variable} lang="en">
+    <html lang="en">
       <body>
         {children}
         <SpeedInsights />

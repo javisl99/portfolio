@@ -13,6 +13,11 @@ export interface QuickFact {
   value: LocalizedString;
 }
 
+export interface SkillCategory {
+  title: LocalizedString;
+  items: string[];
+}
+
 export interface ExperienceEntry {
   period: LocalizedString;
   company: string;

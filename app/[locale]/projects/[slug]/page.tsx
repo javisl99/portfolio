@@ -85,8 +85,8 @@ export default async function ProjectDetailPage({
   const categoryLabel =
     project.category === "sap-commerce"
       ? locale === "es"
-        ? "Caso SAP Commerce"
-        : "SAP Commerce case study"
+        ? "Caso enterprise commerce"
+        : "Enterprise commerce case"
       : locale === "es"
         ? "Proyecto personal"
         : "Personal project";
@@ -208,14 +208,14 @@ export default async function ProjectDetailPage({
             <div className="rounded-2xl border border-line bg-panel p-5 shadow-soft">
               <p className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                 <ShieldCheck className="h-4 w-4" />
-                {locale === "es" ? "Qué estaba en juego" : "What was at stake"}
+                {locale === "es" ? "Problema" : "Problem"}
               </p>
               <p className="text-sm leading-7 text-muted">{project.stakes}</p>
             </div>
             <div className="rounded-2xl border border-line bg-panel p-5 shadow-soft">
               <p className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                 <Wrench className="h-4 w-4" />
-                {locale === "es" ? "Qué hice" : "What I did"}
+                {locale === "es" ? "Solucion" : "Solution"}
               </p>
               <p className="text-sm leading-7 text-muted">{project.contribution}</p>
             </div>

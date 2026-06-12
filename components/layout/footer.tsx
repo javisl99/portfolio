@@ -21,11 +21,11 @@ export function Footer({ locale }: FooterProps) {
 
   if (isHome) {
     return (
-      <footer className="mt-24 border-t border-line bg-white pb-10 pt-20">
+      <footer className="mt-24 border-t border-white/8 bg-[linear-gradient(180deg,rgba(3,7,18,0),rgba(8,13,26,0.98))] pb-10 pt-24">
         <Container>
           <div className="mb-16 flex flex-col items-center text-center">
             <h2 className="mb-6 max-w-4xl font-display text-4xl font-black tracking-tight text-ink sm:text-5xl">
-              {locale === "es" ? "¿Listo para construir algo excepcional?" : "Ready to build something exceptional?"}
+              {locale === "es" ? "Listo para hablar de backend, producto y plataformas enterprise?" : "Ready to talk about backend, product, and enterprise platforms?"}
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
               <ButtonLink className="px-10 py-4 text-lg" href={localizePath(locale, "/contact")} variant="primary">
@@ -40,12 +40,12 @@ export function Footer({ locale }: FooterProps) {
 
           <div className="flex flex-col items-center justify-between gap-6 border-t border-line pt-10 md:flex-row">
             <div className="text-sm text-muted">
-              © {currentYear} {siteSettings.name}. {locale === "es" ? "Todos los derechos reservados." : "All rights reserved."}
+              © {currentYear} {siteSettings.name}. {copy.footer.note}
             </div>
             <div className="flex items-center gap-6">
               <a
                 aria-label="LinkedIn"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-surface transition hover:bg-accent/20 hover:text-accent"
+                className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/8 bg-white/[0.03] transition hover:border-accent-soft/30 hover:bg-accent/10 hover:text-white"
                 href={siteSettings.linkedin}
                 rel="noreferrer"
                 target="_blank"
@@ -54,7 +54,7 @@ export function Footer({ locale }: FooterProps) {
               </a>
               <a
                 aria-label="GitHub"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-surface transition hover:bg-accent/20 hover:text-accent"
+                className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/8 bg-white/[0.03] transition hover:border-accent-soft/30 hover:bg-accent/10 hover:text-white"
                 href={siteSettings.github}
                 rel="noreferrer"
                 target="_blank"
@@ -69,19 +69,19 @@ export function Footer({ locale }: FooterProps) {
   }
 
   return (
-    <footer className="mt-24 bg-[#102022] py-20 text-white">
+    <footer className="mt-24 bg-[linear-gradient(180deg,#08111f,#030712)] py-20 text-white">
       <Container className="text-center">
         <div className="space-y-8">
           <h2 className="font-display text-4xl font-black tracking-tight sm:text-5xl">
-            {locale === "es" ? "¿Listo para construir algo excepcional?" : "Ready to build something exceptional?"}
+            {locale === "es" ? "Listo para hablar de backend, producto y plataformas enterprise?" : "Ready to talk about backend, product, and enterprise platforms?"}
           </h2>
           <p className="mx-auto max-w-2xl text-lg leading-8 text-slate-300">{copy.footer.availability}</p>
           <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row">
-            <ButtonLink className="w-full sm:w-auto px-10 py-4 text-lg" href={localizePath(locale, "/contact")} variant="primary">
+            <ButtonLink className="w-full px-10 py-4 text-lg sm:w-auto" href={localizePath(locale, "/contact")} variant="primary">
               {locale === "es" ? "Contactar" : "Get in Touch"}
             </ButtonLink>
             <ButtonLink
-              className="w-full border-white/12 bg-white/10 px-10 py-4 text-lg text-white hover:bg-white/18 sm:w-auto"
+              className="w-full border-white/12 bg-white/6 px-10 py-4 text-lg text-white hover:bg-white/12 sm:w-auto"
               href={`/${locale}/cv`}
               target="_blank"
               variant="secondary"
@@ -94,7 +94,7 @@ export function Footer({ locale }: FooterProps) {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-10 md:flex-row">
           <div className="flex items-center gap-3">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white/10 text-accent">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white/10 text-accent-soft">
               <TerminalSquare className="h-4 w-4" />
             </span>
             <span className="text-xs font-bold uppercase tracking-[0.22em] text-slate-400">

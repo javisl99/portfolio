@@ -37,14 +37,14 @@ export function ExperienceTimeline({ locale, limit }: { locale: Locale; limit?: 
               </div>
               <div className="rounded-xl border border-line bg-surface/65 p-5">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                  {locale === "es" ? "Qué estaba en juego" : "What was at stake"}
+                  {locale === "es" ? "Problema" : "Problem"}
                 </p>
                 <p className="text-sm leading-7 text-muted">{entry.problem[locale]}</p>
               </div>
             </div>
             <div className="rounded-xl border border-line bg-panel p-5">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                {locale === "es" ? "Qué hice" : "What I did"}
+                {locale === "es" ? "Solucion" : "Solution"}
               </p>
               <ul className="grid gap-3">
                 {entry.intervention.map((achievement) => (
@@ -83,7 +83,7 @@ export function ExperienceTimeline({ locale, limit }: { locale: Locale; limit?: 
               </div>
               <div className="rounded-xl border-l-4 border-accent bg-surface/80 px-4 py-4">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                  {locale === "es" ? "Qué demuestra" : "What it shows"}
+                  {locale === "es" ? "Impacto" : "Impact"}
                 </p>
                 <p className="text-sm leading-7 text-ink">{entry.signal[locale]}</p>
               </div>

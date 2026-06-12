@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 .next
+.tmp*/
+.tmp*
 out
 coverage
 *.log
