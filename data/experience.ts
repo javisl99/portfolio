@@ -8,8 +8,8 @@ export const experienceEntries: ExperienceEntry[] = [
     },
     company: "Accenture",
     role: {
-      es: "Application Development Associate",
-      en: "Application Development Associate",
+      es: "Backend Software Engineer (SAP/ABAP & B2B e-Commerce)",
+      en: "Backend Software Engineer (SAP/ABAP & B2B e-Commerce)",
     },
     client: "Airbus",
     project: {
@@ -25,8 +25,8 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Technical foundation",
     },
     overview: {
-      es: "Mi entrada profesional al desarrollo enterprise: trabajo backend sobre un proyecto B2B nuevo, primera exposición real a SAP Commerce Cloud y experiencia adicional con SAP ABAP dentro de un entorno exigente.",
-      en: "My professional entry point into enterprise development: backend work on a new B2B project, first real exposure to SAP Commerce Cloud, and additional experience with SAP ABAP in a demanding environment.",
+      es: "Mi entrada profesional al desarrollo enterprise: trabajo backend sobre un proyecto B2B nuevo para Airbus, primera exposición real a SAP Commerce Cloud y experiencia adicional con SAP ABAP dentro de un entorno exigente.",
+      en: "My professional entry point into enterprise development: backend work on a new B2B project for Airbus, first real exposure to SAP Commerce Cloud, and additional experience with SAP ABAP in a demanding environment.",
     },
     focusAreas: [
       {
@@ -43,12 +43,12 @@ export const experienceEntries: ExperienceEntry[] = [
       },
     ],
     context: {
-      es: "Airbus fue un primer contexto serio de tecnología enterprise, con necesidad de aprender rápido y aportar desde una base backend en un proyecto en construcción.",
-      en: "Airbus was a serious first enterprise technology context, with a need to learn quickly and contribute from a backend foundation in a project still being built.",
+      es: "Airbus fue un primer contexto serio de tecnología enterprise, con necesidad de aprender rápido y aportar desde una base backend en un proyecto B2B en construcción dentro del ecosistema SAP.",
+      en: "Airbus was a serious first enterprise technology context, with a need to learn quickly and contribute from a backend foundation in a B2B project being built inside the SAP ecosystem.",
     },
     problem: {
-      es: "El reto era ganar base técnica real en un entorno profesional exigente mientras contribuía a la construcción de una plataforma B2B desde sus primeras fases.",
-      en: "The challenge was to build real technical foundations in a demanding professional environment while contributing to the early construction of a B2B platform.",
+      es: "El reto era construir una base técnica real en backend y arquitecturas enterprise mientras contribuía a una plataforma B2B desde sus primeras fases, combinando trabajo en SAP ABAP y SAP Commerce Cloud.",
+      en: "The challenge was to build real technical foundations in backend and enterprise architectures while contributing to a B2B platform from its early stages, combining SAP ABAP and SAP Commerce Cloud work.",
     },
     intervention: [
       {
@@ -56,8 +56,8 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Contributed to SAP/ABAP solution development and maintenance for Airbus in the Aerospace & Defense sector.",
       },
       {
-        es: "Trabajé como backend developer en un proyecto B2B sobre SAP Commerce Cloud, apoyando la base técnica del sistema.",
-        en: "Worked as a backend developer on a B2B SAP Commerce Cloud project, contributing to the technical foundation of the system.",
+        es: "Trabajé como backend developer en un proyecto B2B sobre SAP Commerce Cloud, apoyando la base técnica del sistema y entendiendo cómo se articulan las capas backend en una plataforma enterprise.",
+        en: "Worked as a backend developer on a B2B SAP Commerce Cloud project, contributing to the technical foundation of the system and understanding how backend layers come together in an enterprise platform.",
       },
       {
         es: "Desarrollé y mantuve componentes como function modules, dynpros, ALVs, custom transactions y enhancements en el entorno SAP.",
@@ -69,12 +69,12 @@ export const experienceEntries: ExperienceEntry[] = [
       },
     ],
     result: {
-      es: "Esta etapa me dejó una base backend y enterprise sólida, además de la capacidad de crecer rápidamente dentro de entornos complejos y altamente estructurados.",
-      en: "This stage gave me a solid backend and enterprise foundation, plus the ability to grow quickly inside complex and highly structured environments.",
+      es: "Esta etapa me dejó una base sólida en backend y arquitecturas enterprise, además de la capacidad de crecer rápidamente dentro de entornos complejos y altamente estructurados.",
+      en: "This stage gave me a solid foundation in backend and enterprise architectures, plus the ability to grow quickly inside complex and highly structured environments.",
     },
     signal: {
-      es: "Demuestra base técnica real, aprendizaje rápido y una entrada seria al software engineering enterprise.",
-      en: "Shows real technical foundations, fast learning, and a serious start in enterprise software engineering.",
+      es: "Demuestra base técnica real, aprendizaje rápido y una entrada seria al software engineering enterprise desde backend y plataformas SAP.",
+      en: "Shows real technical foundations, fast learning, and a serious start in enterprise software engineering through backend and SAP platforms.",
     },
     stack: ["Java", "Spring", "SAP Commerce Cloud", "SAP ABAP", "B2B Commerce"],
   },
@@ -85,8 +85,8 @@ export const experienceEntries: ExperienceEntry[] = [
     },
     company: "Minsait",
     role: {
-      es: "SAP Commerce Cloud Backend Developer",
-      en: "SAP Commerce Cloud Backend Developer",
+      es: "Backend Software Engineer / SAP Commerce Cloud",
+      en: "Backend Software Engineer / SAP Commerce Cloud",
     },
     client: "Claro Perú",
     project: {
@@ -102,8 +102,8 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Deeper standard expertise",
     },
     overview: {
-      es: "Etapa centrada en customizaciones sobre procesos core del negocio, donde gané más profundidad técnica en SAP Commerce Cloud, data modelling y flujos enterprise de e-commerce.",
-      en: "A stage centered on customizations in business-critical flows, where I developed deeper technical expertise in SAP Commerce Cloud, data modelling, and enterprise e-commerce flows.",
+      es: "Etapa centrada en customizaciones sobre procesos core del negocio, donde gané más profundidad técnica en SAP Commerce Cloud, data modelling, Java, Spring y flujos enterprise de e-commerce.",
+      en: "A stage centered on customizations in business-critical flows, where I developed deeper technical expertise in SAP Commerce Cloud, data modelling, Java, Spring, and enterprise e-commerce flows.",
     },
     focusAreas: [
       {
@@ -124,8 +124,8 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Claro Peru exposed me to a delivery environment where touching the standard or core flows had a direct impact on buying experience and long-term maintainability.",
     },
     problem: {
-      es: "El reto era implementar cambios sobre checkout, precios, stock e integraciones sin convertir cada necesidad en una ruptura innecesaria del comportamiento base de la plataforma.",
-      en: "The challenge was to implement changes across checkout, pricing, stock, and integrations without turning every requirement into an unnecessary break from the platform baseline.",
+      es: "El reto era implementar cambios sobre checkout, precios, stock e integraciones sin convertir cada necesidad en una ruptura innecesaria del comportamiento base de la plataforma, consolidando a la vez criterio sobre cuándo extender el estándar y cuándo no.",
+      en: "The challenge was to implement changes across checkout, pricing, stock, and integrations without turning every requirement into an unnecessary break from the platform baseline, while also sharpening my judgment on when to extend the standard and when not to.",
     },
     intervention: [
       {
@@ -137,8 +137,8 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Built backend features related to checkout, pricing, stock management, and integrations.",
       },
       {
-        es: "Reforcé experiencia en el estándar SAP Commerce, data modelling y flujos enterprise B2B/B2C.",
-        en: "Strengthened my experience with the SAP Commerce standard, data modelling, and enterprise B2B/B2C flows.",
+        es: "Reforcé experiencia en el estándar SAP Commerce, data modelling y flujos enterprise B2B/B2C, consolidando criterio en Java, Spring y en cuándo extender el estándar.",
+        en: "Strengthened my experience with the SAP Commerce standard, data modelling, and enterprise B2B/B2C flows, building stronger judgment in Java, Spring, and when to extend the standard.",
       },
       {
         es: "Trabajé en un entorno de entrega exigente que mejoró mi autonomía técnica y mi comprensión de producto.",
@@ -146,12 +146,12 @@ export const experienceEntries: ExperienceEntry[] = [
       },
     ],
     result: {
-      es: "Esta etapa consolidó criterio técnico sobre procesos core de e-commerce y me ayudó a moverme mejor entre ejecución, mantenibilidad y comprensión funcional.",
-      en: "This stage strengthened my technical judgment on core e-commerce flows and helped me operate more confidently across execution, maintainability, and functional understanding.",
+      es: "Esta etapa consolidó criterio técnico sobre procesos core de e-commerce y me ayudó a moverme mejor entre ejecución, mantenibilidad, comprensión funcional y decisiones sobre extensibilidad.",
+      en: "This stage strengthened my technical judgment on core e-commerce flows and helped me operate more confidently across execution, maintainability, functional understanding, and extensibility decisions.",
     },
     signal: {
-      es: "Demuestra profundidad backend en SAP Commerce Cloud y criterio para trabajar sobre flujos sensibles del negocio.",
-      en: "Shows deeper backend expertise in SAP Commerce Cloud and sound judgment when working on business-sensitive flows.",
+      es: "Demuestra profundidad backend en SAP Commerce Cloud y criterio para trabajar sobre flujos sensibles del negocio sin comprometer mantenibilidad.",
+      en: "Shows deeper backend expertise in SAP Commerce Cloud and sound judgment when working on business-sensitive flows without compromising maintainability.",
     },
     stack: ["Java", "Spring", "SAP Commerce Cloud", "Integration Objects", "FlexibleSearch", "SQL"],
   },
@@ -162,8 +162,8 @@ export const experienceEntries: ExperienceEntry[] = [
     },
     company: "Stratesys",
     role: {
-      es: "Technical Consultant SAP Commerce Cloud",
-      en: "Technical Consultant SAP Commerce Cloud",
+      es: "Backend Software Engineer | Enterprise Platforms",
+      en: "Backend Software Engineer | Enterprise Platforms",
     },
     client: "CaixaBank Tech",
     project: {
@@ -179,8 +179,8 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Production ownership",
     },
     overview: {
-      es: "Rol actual en Stratesys, alineado con mi perfil de LinkedIn: consultoría técnica y trabajo backend sobre una gran plataforma SAP Commerce Cloud, resolviendo incidencias complejas, implementando lógica de negocio y colaborando directamente con cliente, QA y negocio.",
-      en: "My current role at Stratesys, aligned with my LinkedIn profile: technical consulting and backend work on a large SAP Commerce Cloud platform, solving complex incidents, implementing business logic, and collaborating directly with client, QA, and business teams.",
+      es: "Rol actual en Stratesys, centrado en backend engineering sobre una gran plataforma del sector Real Estate: diseño e implementación de funcionalidades críticas, ownership end-to-end, soporte productivo y colaboración directa con cliente, QA y negocio.",
+      en: "My current role at Stratesys, centered on backend engineering for a large Real Estate platform: designing and implementing critical features, owning work end to end, supporting production, and collaborating directly with client, QA, and business teams.",
     },
     focusAreas: [
       {
@@ -201,8 +201,8 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "BuildingCenter is a large-scale SAP Commerce Cloud platform where technical changes and incident resolution directly affect operational continuity and business outcomes.",
     },
     problem: {
-      es: "El reto no era solo desarrollar funcionalidades, sino mantener estable una plataforma viva, investigar causas raíz, coordinar expectativas con cliente y traducir requisitos complejos en soluciones sostenibles.",
-      en: "The challenge was not only to deliver features, but to keep a live platform stable, investigate root causes, align with the client, and translate complex requirements into sustainable solutions.",
+      es: "El reto no era solo desarrollar funcionalidades, sino mantener estable una plataforma viva, investigar causas raíz, coordinar expectativas con cliente y traducir requisitos complejos en soluciones sostenibles con ownership de principio a fin.",
+      en: "The challenge was not only to deliver features, but to keep a live platform stable, investigate root causes, align with the client, and translate complex requirements into sustainable solutions with end-to-end ownership.",
     },
     intervention: [
       {
@@ -226,17 +226,17 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Collaborated with business stakeholders, QA, and functional teams to turn requirements into scalable technical solutions.",
       },
       {
-        es: "Uso de flujos AI-assisted para acelerar análisis técnico, coding, debugging y documentación.",
-        en: "Used AI-assisted workflows to accelerate technical analysis, coding, debugging, and documentation.",
+        es: "Uso de flujos AI-Assisted para acelerar análisis técnico, debugging, documentación y tareas de soporte a desarrollo sin delegar el criterio técnico final.",
+        en: "Used AI-Assisted workflows to accelerate technical analysis, debugging, documentation, and development support tasks without delegating final technical judgment.",
       },
     ],
     result: {
-      es: "Esta etapa refuerza un perfil que combina consultoría técnica, profundidad backend, experiencia real en plataformas enterprise y capacidad para sostener entrega y estabilidad al mismo tiempo.",
-      en: "This stage reinforces a profile that combines technical consulting, backend depth, real enterprise-platform experience, and the ability to sustain both delivery and stability.",
+      es: "Esta etapa refuerza un perfil que combina profundidad backend, experiencia real en plataformas enterprise, soporte productivo y capacidad para sostener entrega y estabilidad al mismo tiempo.",
+      en: "This stage reinforces a profile that combines backend depth, real enterprise-platform experience, production support, and the ability to sustain both delivery and stability at once.",
     },
     signal: {
-      es: "Demuestra ownership técnico, experiencia real en producción y capacidad para resolver problemas complejos con impacto de negocio.",
-      en: "Shows technical ownership, real production experience, and the ability to solve complex problems with business impact.",
+      es: "Demuestra ownership técnico, experiencia real en producción y capacidad para resolver problemas complejos con impacto de negocio usando Java, Spring, SQL y flujos AI-Assisted.",
+      en: "Shows technical ownership, real production experience, and the ability to solve complex problems with business impact using Java, Spring, SQL, and AI-Assisted workflows.",
     },
     stack: ["Java", "Spring", "SAP Commerce Cloud", "SQL", "FlexibleSearch", "Incident Management"],
   },

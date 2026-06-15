@@ -7,17 +7,25 @@ import "@fontsource-variable/space-grotesk";
 
 import "./globals.css";
 
-import { siteCopy, siteSettings } from "@/data/site";
+import { siteCopy } from "@/data/site";
 import { buildUrl } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL(buildUrl()),
   title: {
     default: siteCopy.es.metadata.defaultTitle,
-    template: `%s | ${siteSettings.name}`,
+    template: `%s`,
   },
   description: siteCopy.es.metadata.defaultDescription,
   keywords: siteCopy.es.metadata.keywords,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.svg",
+  },
 };
 
 export const viewport: Viewport = {

@@ -13,7 +13,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
 
   return (
     <section className="relative overflow-hidden py-12 lg:py-24" id="top">
-      <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.24),transparent_42%),radial-gradient(circle_at_82%_18%,rgba(129,140,248,0.22),transparent_34%)]" />
+      <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,rgba(96,165,250,0.28),transparent_38%),radial-gradient(circle_at_82%_18%,rgba(37,99,235,0.24),transparent_32%)]" />
       <Container>
         <div className="grid items-start gap-10 lg:grid-cols-12">
           <div className="relative space-y-8 lg:col-span-7">
@@ -38,8 +38,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
           </div>
 
           <div className="lg:col-span-5">
-            <aside className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(160deg,rgba(12,20,36,0.96),rgba(6,10,22,0.98))] p-7 shadow-[0_42px_100px_-48px_rgba(15,23,42,0.82)] sm:p-8">
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#60a5fa]/10 blur-3xl transition-colors group-hover:bg-[#818cf8]/16" />
+            <aside className="group relative overflow-hidden rounded-[2rem] border border-line bg-[linear-gradient(160deg,rgba(11,18,32,0.96),rgba(6,10,22,0.98))] p-7 shadow-[0_42px_100px_-48px_rgba(2,6,23,0.88)] sm:p-8">
+              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#60a5fa]/12 blur-3xl transition-colors group-hover:bg-[#2563eb]/20" />
               <div className="relative">
                 <h2 className="mb-3 flex items-center gap-2 text-lg font-bold text-white">
                   <Layers3 className="h-5 w-5 text-[#bcd1ff]" />
@@ -47,8 +47,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 </h2>
                 <p className="mb-6 text-sm leading-7 text-slate-300">
                   {locale === "es"
-                    ? "Una lectura rápida del perfil: backend, plataformas enterprise, especialización fuerte en SAP Commerce Cloud y uso práctico de IA para acelerar entrega sin perder criterio técnico."
-                    : "A quick read of the profile: backend, enterprise platforms, strong SAP Commerce Cloud specialization, and practical AI usage to accelerate delivery without giving up technical judgment."}
+                    ? "Una lectura rápida del perfil: Java backend, plataformas enterprise y sistemas distribuidos, especialización fuerte en SAP Commerce Cloud sin quedar encerrado en consultoría SAP y uso práctico de Codex y ChatGPT para acelerar entrega sin perder criterio técnico."
+                    : "A quick read of the profile: Java backend, enterprise platforms and distributed systems, strong SAP Commerce Cloud specialization without being boxed into SAP consulting, and practical use of Codex and ChatGPT to accelerate delivery without giving up technical judgment."}
                 </p>
                 <ul className="space-y-5">
                   {hero.quickFacts.map((fact, index) => {
@@ -56,19 +56,19 @@ export function HomeHero({ locale }: { locale: Locale }) {
 
                     return (
                       <li className="flex items-start gap-4" key={fact.label.en}>
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/8 bg-white/[0.04] text-[#bcd1ff]">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-white/[0.03] text-[#bcd1ff]">
                           <Icon className="h-4 w-4" />
                         </div>
                         <div>
                           <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-400">{fact.label[locale]}</p>
-                          <p className="mt-1 font-semibold text-white">{fact.value[locale]}</p>
+                          <p className="mt-1 text-sm font-semibold leading-6 text-white">{fact.value[locale]}</p>
                         </div>
                       </li>
                     );
                   })}
                 </ul>
                 <div className="mt-7 border-t border-white/10 pt-7">
-                  <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
+                  <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#9fbeff]">
                     {locale === "es" ? "Lo que mejor representa mi valor" : "What best represents my value"}
                   </p>
                   <ul className="mt-4 grid gap-3 text-sm leading-7 text-slate-300">
@@ -76,16 +76,16 @@ export function HomeHero({ locale }: { locale: Locale }) {
                       <span className="mt-2 h-2 w-2 rounded-full bg-[#818cf8]" />
                       <span>
                         {locale === "es"
-                          ? "Backend engineering aplicado a plataformas enterprise con complejidad real"
-                          : "Backend engineering applied to enterprise platforms with real complexity"}
+                          ? "Backend engineering aplicado a plataformas enterprise, sistemas distribuidos y flujos sensibles de negocio"
+                          : "Backend engineering applied to enterprise platforms, distributed systems, and business-sensitive flows"}
                       </span>
                     </li>
                     <li className="flex gap-3">
                       <span className="mt-2 h-2 w-2 rounded-full bg-[#60a5fa]" />
                       <span>
                         {locale === "es"
-                          ? "Capacidad de moverme entre implementación, incidencias, cliente y negocio"
-                          : "Ability to move across implementation, incidents, client communication, and business context"}
+                          ? "Capacidad de moverme entre implementación, incidencias, debugging, cliente y contexto de producto"
+                          : "Ability to move across implementation, incidents, debugging, client communication, and product context"}
                       </span>
                     </li>
                   </ul>
