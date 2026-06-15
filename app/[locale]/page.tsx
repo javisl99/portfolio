@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { ApproachGrid } from "@/components/sections/approach-grid";
 import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapshot-grid";
+import { ExperienceTimeline } from "@/components/sections/experience-timeline";
 import { HomeHero } from "@/components/sections/home-hero";
 import { ProjectGrid } from "@/components/sections/project-grid";
 import { SkillsSection } from "@/components/sections/skills-section";
@@ -9,7 +11,7 @@ import { ContactPanel } from "@/components/sections/contact-panel";
 import { Section } from "@/components/ui/section";
 import { siteCopy } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
-import { getFeaturedProjects } from "@/lib/projects";
+import { getProjects } from "@/lib/projects";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({
@@ -47,7 +49,8 @@ export default async function HomePage({
 
   const locale = rawLocale as Locale;
   const copy = siteCopy[locale];
-  const featuredProjects = await getFeaturedProjects(locale);
+  const projects = await getProjects(locale);
+  const aboutPage = copy.pages.about;
 
   return (
     <>
@@ -62,6 +65,9 @@ export default async function HomePage({
       >
         <div className="space-y-10">
           <ExperienceSnapshotGrid locale={locale} variant="timeline" />
+          <div className="border-t border-line pt-10">
+            <ExperienceTimeline locale={locale} />
+          </div>
         </div>
       </Section>
 
@@ -72,7 +78,30 @@ export default async function HomePage({
         eyebrow={copy.home.projects.eyebrow}
         title={copy.home.projects.title}
       >
-        <ProjectGrid locale={locale} projects={featuredProjects.slice(0, 2)} />
+        <ProjectGrid locale={locale} projects={projects} />
+      </Section>
+
+      <Section
+        id="about"
+        align="center"
+        description={aboutPage.intro}
+        eyebrow={aboutPage.eyebrow}
+        title={aboutPage.title}
+      >
+        <div className="space-y-8">
+          <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+            <article className="rounded-[1.9rem] border border-line bg-panel p-7 text-left shadow-soft sm:p-8">
+              <p className="mb-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#9fbeff]">{aboutPage.summaryTitle}</p>
+              <h3 className="text-2xl font-black tracking-tight text-ink">{copy.roleLabel}</h3>
+              <p className="mt-4 text-sm leading-7 text-muted sm:text-base">{aboutPage.summaryBody}</p>
+            </article>
+            <article className="rounded-[1.9rem] border border-line bg-[linear-gradient(160deg,rgba(12,20,36,0.96),rgba(6,10,22,0.98))] p-7 text-left shadow-[0_42px_90px_-52px_rgba(37,99,235,0.4)] sm:p-8">
+              <p className="mb-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#9fbeff]">{aboutPage.principlesTitle}</p>
+              <p className="text-sm leading-7 text-slate-300 sm:text-base">{aboutPage.principlesIntro}</p>
+            </article>
+          </div>
+          <ApproachGrid items={copy.home.ai.items} locale={locale} />
+        </div>
       </Section>
 
       <SkillsSection

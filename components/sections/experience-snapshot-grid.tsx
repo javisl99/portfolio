@@ -21,12 +21,12 @@ export function ExperienceSnapshotGrid({ locale, variant = "cards" }: Experience
               <span className="absolute left-5 top-7 h-3 w-3 -translate-x-1/2 rounded-full bg-accent ring-4 ring-bg md:left-1/2" />
               <div
                 className={cn(
-                  "ml-12 w-full rounded-[1.7rem] border border-white/8 bg-[linear-gradient(180deg,rgba(10,16,31,0.92),rgba(7,12,24,0.96))] p-6 shadow-soft md:ml-0 md:w-[calc(50%-2.5rem)]",
+                  "ml-12 w-full rounded-[1.7rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.94),rgba(7,12,24,0.98))] p-6 shadow-soft md:ml-0 md:w-[calc(50%-2.5rem)]",
                   index % 2 === 0 ? "md:mr-[2.5rem]" : "md:ml-[2.5rem]",
                 )}
               >
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-                  <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#bcd1ff]">{entry.progression[locale]}</p>
+                  <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">{entry.progression[locale]}</p>
                   <span className="text-xs font-bold uppercase tracking-[0.14em] text-muted">{entry.period[locale]}</span>
                 </div>
                 <h3 className="text-lg font-black tracking-tight text-ink">{entry.role[locale]}</h3>
@@ -48,11 +48,11 @@ export function ExperienceSnapshotGrid({ locale, variant = "cards" }: Experience
     <div className="grid gap-6 xl:grid-cols-3">
       {experienceEntries.map((entry) => (
         <article
-          className="rounded-[1.7rem] border border-line bg-[linear-gradient(180deg,rgba(10,16,31,0.92),rgba(8,13,26,0.96))] p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35"
+          className="rounded-[1.7rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.94),rgba(7,12,24,0.98))] p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35"
           key={`${entry.company}-${entry.period.en}-snapshot`}
         >
           <div className="mb-4 flex flex-wrap items-center gap-3">
-            <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#bcd1ff]">{entry.progression[locale]}</p>
+            <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#9fbeff]">{entry.progression[locale]}</p>
             <span className="rounded-lg border border-line px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
               {entry.period[locale]}
             </span>

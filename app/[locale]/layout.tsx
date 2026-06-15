@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import { MobileBottomNav } from "@/components/navigation/mobile-bottom-nav";
 import { siteCopy } from "@/data/site";
 import { createMetadata, getPersonStructuredData, getWebsiteStructuredData } from "@/lib/metadata";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
@@ -67,9 +66,8 @@ export default async function LocaleLayout({
         type="application/ld+json"
       />
       <Header locale={locale} />
-      <main className="pb-24 md:pb-0">{children}</main>
+      <main>{children}</main>
       <Footer locale={locale} />
-      <MobileBottomNav locale={locale} />
     </div>
   );
 }

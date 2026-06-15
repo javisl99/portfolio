@@ -23,6 +23,7 @@ const commonExpertise = [
   "SQL",
   "Docker",
   "Azure",
+  "Generative AI",
 ];
 
 export function buildUrl(pathname = "/") {
@@ -68,7 +69,7 @@ export function createMetadata({
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `${siteSettings.name} portfolio`,
+          alt: `${siteSettings.name} Backend Software Engineer portfolio`,
         },
       ],
     },
@@ -111,10 +112,5 @@ export function getWebsiteStructuredData(locale: Locale) {
     url: buildUrl(localizePath(locale)),
     inLanguage: locale,
     description: copy.metadata.defaultDescription,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: buildUrl(localizePath(locale, "/projects")),
-      "query-input": "required name=project",
-    },
   };
 }

@@ -8,7 +8,7 @@ export function ExperienceTimeline({ locale, limit }: { locale: Locale; limit?: 
     <div className="grid gap-5">
       {entries.map((entry) => (
         <article
-          className="grid gap-6 rounded-2xl border border-line bg-panel p-6 shadow-soft lg:grid-cols-[14rem_minmax(0,1fr)]"
+          className="grid gap-6 rounded-[1.8rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.95),rgba(7,12,24,0.98))] p-6 shadow-soft lg:grid-cols-[14rem_minmax(0,1fr)]"
           key={`${entry.company}-${entry.period.en}`}
         >
           <div className="space-y-3">
@@ -29,20 +29,20 @@ export function ExperienceTimeline({ locale, limit }: { locale: Locale; limit?: 
           <div className="space-y-5">
             <p className="text-base leading-7 text-muted">{entry.overview[locale]}</p>
             <div className="grid gap-4 lg:grid-cols-2">
-              <div className="rounded-xl border border-line bg-surface/65 p-5">
+              <div className="rounded-xl border border-line bg-surface/70 p-5">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                   {locale === "es" ? "Contexto" : "Context"}
                 </p>
                 <p className="text-sm leading-7 text-muted">{entry.context[locale]}</p>
               </div>
-              <div className="rounded-xl border border-line bg-surface/65 p-5">
+              <div className="rounded-xl border border-line bg-surface/70 p-5">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                   {locale === "es" ? "Problema" : "Problem"}
                 </p>
                 <p className="text-sm leading-7 text-muted">{entry.problem[locale]}</p>
               </div>
             </div>
-            <div className="rounded-xl border border-line bg-panel p-5">
+            <div className="rounded-xl border border-line bg-panel/90 p-5">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                 {locale === "es" ? "Solucion" : "Solution"}
               </p>
@@ -61,7 +61,7 @@ export function ExperienceTimeline({ locale, limit }: { locale: Locale; limit?: 
               </p>
               <div className="flex flex-wrap gap-2">
                 {entry.focusAreas.map((focus) => (
-                  <span className="rounded-md bg-surface px-3 py-1 text-xs font-medium text-ink" key={focus.en}>
+                  <span className="rounded-md border border-line bg-surface px-3 py-1 text-xs font-medium text-ink" key={focus.en}>
                     {focus[locale]}
                   </span>
                 ))}

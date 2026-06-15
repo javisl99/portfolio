@@ -19,27 +19,26 @@ const visuals = [
 
 export function ProjectGrid({ locale, projects }: ProjectGridProps) {
   const [activeProject, setActiveProject] = useState<ProjectSummary | null>(null);
-  const [visibleProject, setVisibleProject] = useState<ProjectSummary | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  function openModal(project: ProjectSummary) {
+    setActiveProject(project);
+
+    window.requestAnimationFrame(() => {
+      setIsModalVisible(true);
+    });
+  }
+
+  function closeModal() {
+    setIsModalVisible(false);
+
+    window.setTimeout(() => {
+      setActiveProject(null);
+    }, 240);
+  }
 
   useEffect(() => {
     if (!activeProject) {
-      return;
-    }
-
-    setVisibleProject(activeProject);
-
-    const frame = window.requestAnimationFrame(() => {
-      setIsModalVisible(true);
-    });
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
-  }, [activeProject]);
-
-  useEffect(() => {
-    if (!visibleProject) {
       return;
     }
 
@@ -57,16 +56,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleEscape);
     };
-  }, [visibleProject]);
-
-  const closeModal = () => {
-    setIsModalVisible(false);
-
-    window.setTimeout(() => {
-      setActiveProject(null);
-      setVisibleProject(null);
-    }, 240);
-  };
+  }, [activeProject]);
 
   return (
     <>
@@ -77,10 +67,10 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
 
           return (
             <article
-              className="group overflow-hidden rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,rgba(11,18,33,0.94),rgba(7,12,24,0.98))] shadow-[0_30px_72px_-42px_rgba(15,23,42,0.9)] transition duration-300 hover:-translate-y-2 hover:border-accent-soft/30"
+              className="group overflow-hidden rounded-[1.9rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,33,0.95),rgba(7,12,24,0.99))] shadow-[0_30px_72px_-42px_rgba(2,6,23,0.92)] transition duration-300 hover:-translate-y-2 hover:border-accent-soft/30"
               key={`${project.locale}-${project.slug}`}
             >
-              <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-[linear-gradient(180deg,rgba(37,99,235,0.1),rgba(255,255,255,0.02))]">
+              <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-[linear-gradient(180deg,rgba(37,99,235,0.12),rgba(255,255,255,0.02))]">
                 <div className={`absolute inset-0 bg-gradient-to-br ${visuals[index % visuals.length].gradient}`} />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <VisualIcon className="h-24 w-24 text-ink/8 transition duration-300 group-hover:scale-105" />
@@ -96,7 +86,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
 
               <div className="p-7">
                 <div className="mb-5 flex items-center justify-between gap-3">
-                  <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#bcd1ff]">{project.year}</p>
+                  <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">{project.year}</p>
                   <span className="rounded-lg border border-line px-3 py-1 text-xs text-muted">
                     {project.category === "sap-commerce" ? "SAP Commerce" : project.role}
                   </span>
@@ -112,14 +102,14 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
                 <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(15rem,0.9fr)]">
                   <div className="space-y-4">
                     <div className="rounded-2xl border border-line bg-surface/70 p-5">
-                      <p className="mb-2 flex items-center gap-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#bcd1ff]">
+                      <p className="mb-2 flex items-center gap-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#9fbeff]">
                         <ShieldCheck className="h-4 w-4" />
                         {locale === "es" ? "Problema" : "Problem"}
                       </p>
                       <p className="text-sm leading-7 text-muted">{project.stakes}</p>
                     </div>
                     <div className="rounded-2xl border border-line bg-surface/70 p-5">
-                      <p className="mb-2 flex items-center gap-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#bcd1ff]">
+                      <p className="mb-2 flex items-center gap-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#9fbeff]">
                         <Wrench className="h-4 w-4" />
                         {locale === "es" ? "Solución" : "Solution"}
                       </p>
@@ -128,7 +118,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
                   </div>
                   <div className="flex h-full flex-col gap-4">
                     <div className="rounded-2xl border border-line bg-white/[0.03] p-5">
-                      <p className="mb-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#bcd1ff]">{stackTitle}</p>
+                      <p className="mb-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#9fbeff]">{stackTitle}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.stack.map((item) => (
                           <span className="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-1.5 font-mono text-[0.68rem] text-slate-200" key={item}>
@@ -138,7 +128,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
                       </div>
                     </div>
                     <div className="rounded-2xl border-l-4 border-accent bg-white/[0.04] px-5 py-5">
-                      <p className="mb-2 flex items-center gap-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#bcd1ff]">
+                      <p className="mb-2 flex items-center gap-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#9fbeff]">
                         <Layers3 className="h-4 w-4" />
                         {locale === "es" ? "Impacto" : "Impact"}
                       </p>
@@ -149,7 +139,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
 
                 <button
                   className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-[#c7d6ff] transition group-hover:translate-x-1 group-hover:text-white"
-                  onClick={() => setActiveProject(project)}
+                  onClick={() => openModal(project)}
                   type="button"
                 >
                   {locale === "es" ? "Leer caso completo" : "Read full case"}
@@ -161,7 +151,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
         })}
       </div>
 
-      {visibleProject ? (
+      {activeProject ? (
         <div aria-hidden={false} className="fixed inset-0 z-[70] pointer-events-auto" onClick={closeModal}>
           <div
             className={`absolute inset-0 bg-[rgba(2,6,23,0.88)] backdrop-blur-xl transition-all duration-300 ease-out ${isModalVisible ? "opacity-100" : "opacity-0"}`}
@@ -193,9 +183,9 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
                       {locale === "es" ? "Caso destacado" : "Featured case"}
                     </p>
                     <h3 className="mt-4 font-display text-3xl font-black leading-[1.02] tracking-tight text-white sm:text-5xl">
-                      {visibleProject.title}
+                      {activeProject.title}
                     </h3>
-                    <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">{visibleProject.summary}</p>
+                    <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">{activeProject.summary}</p>
                   </div>
                 </div>
 
@@ -203,19 +193,19 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
                   <div className="grid gap-4 md:grid-cols-4">
                     <div>
                       <p className="font-mono text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#bcd1ff]">{locale === "es" ? "Año" : "Year"}</p>
-                      <p className="mt-2 text-sm font-semibold text-white">{visibleProject.year}</p>
+                      <p className="mt-2 text-sm font-semibold text-white">{activeProject.year}</p>
                     </div>
                     <div>
                       <p className="font-mono text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#bcd1ff]">{locale === "es" ? "Rol" : "Role"}</p>
-                      <p className="mt-2 text-sm font-semibold text-white">{visibleProject.role}</p>
+                      <p className="mt-2 text-sm font-semibold text-white">{activeProject.role}</p>
                     </div>
                     <div>
                       <p className="font-mono text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#bcd1ff]">{locale === "es" ? "Empresa" : "Employer"}</p>
-                      <p className="mt-2 text-sm font-semibold text-white">{visibleProject.employer}</p>
+                      <p className="mt-2 text-sm font-semibold text-white">{activeProject.employer}</p>
                     </div>
                     <div>
                       <p className="font-mono text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#bcd1ff]">{locale === "es" ? "Contexto" : "Context"}</p>
-                      <p className="mt-2 text-sm font-semibold text-white">{visibleProject.client ?? visibleProject.domain}</p>
+                      <p className="mt-2 text-sm font-semibold text-white">{activeProject.client ?? activeProject.domain}</p>
                     </div>
                   </div>
                 </div>
@@ -226,14 +216,14 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
                       <p className="mb-3 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
                         {locale === "es" ? "Problema" : "Problem"}
                       </p>
-                      <p className="text-base leading-8 text-slate-200">{visibleProject.stakes}</p>
+                      <p className="text-base leading-8 text-slate-200">{activeProject.stakes}</p>
                     </section>
 
                     <section className="rounded-[1.8rem] border border-white/10 bg-[#0d1426] p-6 sm:p-7">
                       <p className="mb-3 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
                         {locale === "es" ? "Solución" : "Solution"}
                       </p>
-                      <p className="text-base leading-8 text-slate-200">{visibleProject.contribution}</p>
+                      <p className="text-base leading-8 text-slate-200">{activeProject.contribution}</p>
                     </section>
                   </div>
 
@@ -242,7 +232,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
                       <p className="mb-3 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
                         {locale === "es" ? "Impacto" : "Impact"}
                       </p>
-                      <p className="text-base leading-8 text-white">{visibleProject.signal}</p>
+                      <p className="text-base leading-8 text-white">{activeProject.signal}</p>
                     </section>
 
                     <section className="rounded-[1.8rem] border border-white/10 bg-[#0d1426] p-6 sm:p-7">
@@ -250,7 +240,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
                         {locale === "es" ? "Stack técnico" : "Tech stack"}
                       </p>
                       <div className="flex flex-wrap gap-2.5">
-                        {visibleProject.stack.map((item) => (
+                        {activeProject.stack.map((item) => (
                           <span className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[0.68rem] text-slate-200" key={item}>
                             {item}
                           </span>
@@ -262,7 +252,7 @@ export function ProjectGrid({ locale, projects }: ProjectGridProps) {
                       <p className="mb-3 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
                         {locale === "es" ? "Dominio" : "Domain"}
                       </p>
-                      <p className="text-base leading-8 text-slate-200">{visibleProject.domain}</p>
+                      <p className="text-base leading-8 text-slate-200">{activeProject.domain}</p>
                     </section>
                   </div>
                 </div>
