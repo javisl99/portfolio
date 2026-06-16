@@ -2,7 +2,9 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
+// @ts-ignore: font packages may not have type declarations for side-effect imports
 import "@fontsource-variable/manrope";
+// @ts-ignore: font packages may not have type declarations for side-effect imports
 import "@fontsource-variable/space-grotesk";
 
 import "./globals.css";
@@ -19,10 +21,7 @@ export const metadata: Metadata = {
   description: siteCopy.es.metadata.defaultDescription,
   keywords: siteCopy.es.metadata.keywords,
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     shortcut: "/favicon.ico",
     apple: "/favicon.svg",
   },
