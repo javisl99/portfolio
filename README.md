@@ -12,18 +12,18 @@ Bilingual professional portfolio built with Next.js, TypeScript, Tailwind CSS, a
 ## Run locally
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
-`npm run dev` uses Webpack instead of Turbopack to keep local preview stable with the current MDX/content setup.
+`pnpm dev` uses Webpack instead of Turbopack to keep local preview stable with the current MDX/content setup.
 
 ## Validation
 
 ```bash
-npm run lint
-npm run typecheck
-npm run build
+pnpm lint
+pnpm typecheck
+pnpm build
 ```
 
 ## Where to edit content
