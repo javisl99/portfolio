@@ -2,9 +2,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
-// @ts-ignore: font packages may not have type declarations for side-effect imports
 import "@fontsource-variable/manrope";
-// @ts-ignore: font packages may not have type declarations for side-effect imports
 import "@fontsource-variable/space-grotesk";
 
 import "./globals.css";
