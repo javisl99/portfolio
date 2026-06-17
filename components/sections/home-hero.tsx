@@ -1,15 +1,18 @@
-import { Bot, Braces, BriefcaseBusiness, Layers3, Mail, Verified } from "lucide-react";
+import { Bot, Braces, BriefcaseBusiness, Download, Layers3, Mail, Verified } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { Pill } from "@/components/ui/pill";
 import { siteCopy } from "@/data/site";
+import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { localizePath, type Locale } from "@/lib/i18n";
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const copy = siteCopy[locale];
   const hero = copy.home.hero;
   const snapshotIcons = [Braces, BriefcaseBusiness, Bot, Verified];
+  const cvHref = getCvFilePath(locale);
+  const cvDownloadName = getCvDownloadName(locale);
 
   return (
     <section className="relative overflow-hidden py-12 lg:py-24" id="top">
@@ -33,6 +36,10 @@ export function HomeHero({ locale }: { locale: Locale }) {
               <ButtonLink className="px-7 text-base" href={`${localizePath(locale)}#contact`} variant="secondary">
                 <Mail className="h-4 w-4" />
                 {copy.ctas.contact}
+              </ButtonLink>
+              <ButtonLink className="px-7 text-base" download={cvDownloadName} href={cvHref} target="_blank" variant="secondary">
+                <Download className="h-4 w-4" />
+                {copy.ctas.resume}
               </ButtonLink>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import type { CopyCard, QuickFact, SkillCategory } from "@/data/types";
+import { getCvFilePath } from "@/lib/cv";
 import type { Locale } from "@/lib/i18n";
 
 export const siteSettings = {
@@ -250,7 +251,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         supportLinks: [
           { href: "/experience", label: "Ver experiencia" },
           { href: "/contact", label: "Contactar" },
-          { href: "/cv", label: "Descargar CV", external: true },
+          { href: getCvFilePath("es"), label: "Descargar CV", external: true },
         ],
       },
       strengths: {
@@ -550,7 +551,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
     },
     ctas: {
-      resume: "Download CV",
+      resume: "Download Resume",
       email: "Send email",
       linkedin: "Open LinkedIn",
       contact: "Contact Me",
@@ -590,7 +591,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         supportLinks: [
           { href: "/experience", label: "View Experience" },
           { href: "/contact", label: "Contact Me" },
-          { href: "/cv", label: "Download CV", external: true },
+          { href: getCvFilePath("en"), label: "Download Resume", external: true },
         ],
       },
       strengths: {
