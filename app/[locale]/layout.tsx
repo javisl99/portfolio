@@ -52,7 +52,7 @@ export default async function LocaleLayout({
   const websiteStructuredData = getWebsiteStructuredData(locale);
 
   return (
-    <div className="content-shell">
+    <>
       <script
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(personStructuredData),
@@ -66,8 +66,10 @@ export default async function LocaleLayout({
         type="application/ld+json"
       />
       <Header locale={locale} />
-      <main>{children}</main>
-      <Footer locale={locale} />
-    </div>
+      <div className="content-shell pt-20">
+        <main>{children}</main>
+        <Footer locale={locale} />
+      </div>
+    </>
   );
 }

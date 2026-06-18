@@ -18,7 +18,7 @@ export function Header({ locale }: HeaderProps) {
   const alternateLocale = getAlternateLocale(locale);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-[rgba(3,7,18,0.82)] backdrop-blur-2xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-[rgba(3,7,18,0.82)] shadow-[0_10px_30px_-20px_rgba(2,6,23,0.95)] backdrop-blur-2xl">
       <Container className="flex min-h-20 items-center justify-between gap-4">
         <div className="flex items-center gap-6 lg:gap-8">
           <Link className="hidden shrink-0 items-center gap-3 text-sm md:inline-flex" href={`/${locale}`}>
