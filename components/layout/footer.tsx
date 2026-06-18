@@ -44,7 +44,7 @@ export function Footer({ locale }: FooterProps) {
 
           <div className="flex flex-col items-center justify-between gap-6 border-t border-line pt-10 md:flex-row">
             <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
-              <BrandLogo className="w-[14rem]" imageClassName="w-[14rem]" variant="full-light" />
+              <BrandLogo className="w-[19rem]" imageClassName="w-[19rem]" variant="full-light" />
               <div className="text-sm text-muted">
                 © {currentYear} {siteSettings.name}. {copy.footer.note}
               </div>

@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
-@source "../app/**/*.{ts,tsx}";
-@source "../components/**/*.{ts,tsx}";
+@source "../app/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../pages/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../src/**/*.{js,ts,jsx,tsx,mdx}";
 @source "../content/**/*.{md,mdx}";
-@source "../data/**/*.{ts,tsx}";
+@source "../data/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../lib/**/*.{js,ts,jsx,tsx,mdx}";
 
 @theme inline {
   --font-sans: "Manrope Variable", sans-serif;
@@ -46,6 +49,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 * {
@@ -54,6 +58,7 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 12% 0%, rgba(96, 165, 250, 0.22), transparent 22%),
     radial-gradient(circle at 84% 8%, rgba(37, 99, 235, 0.2), transparent 24%),
@@ -109,6 +114,7 @@ button {
 
 .content-shell {
   position: relative;
+  overflow-x: clip;
 }
 
 .content-shell::before,
@@ -123,14 +129,14 @@ button {
 
 .content-shell::before {
   top: 7rem;
-  left: -4rem;
+  left: 0;
   height: 20rem;
   width: 20rem;
   background: rgba(96, 165, 250, 0.12);
 }
 
 .content-shell::after {
-  right: -6rem;
+  right: 0;
   bottom: 6rem;
   height: 18rem;
   width: 18rem;
