@@ -251,10 +251,19 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           },
         ],
         highlights: [
-          { label: { es: "4+ años de experiencia profesional", en: "4+ years of professional experience" } },
-          { label: { es: "Java & Spring Backend", en: "Java & Spring Backend" } },
+          {
+            label: { es: "4+ años de experiencia profesional", en: "4+ years of professional experience" },
+            shortLabel: { es: "4+ años", en: "4+ years" },
+          },
+          {
+            label: { es: "Java & Spring Backend", en: "Java & Spring Backend" },
+            shortLabel: { es: "Java & Spring", en: "Java & Spring" },
+          },
           { label: { es: "Plataformas enterprise", en: "Enterprise platforms" } },
-          { label: { es: "Producción e incidencias reales", en: "Real production support" } },
+          {
+            label: { es: "Producción e incidencias reales", en: "Real production support" },
+            shortLabel: { es: "Producción real", en: "Production support" },
+          },
           { label: { es: "AI-Assisted Engineering", en: "AI-Assisted Engineering" } },
         ],
         supportLinks: [
@@ -498,7 +507,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         },
     },
     footer: {
-      note: "Backend Software Engineer especializado en plataformas enterprise, Java, Spring y AI-Assisted Engineering.",
+      note: "",
       availability:
         "Disponible para oportunidades donde la ingeniería backend, el contexto cloud y una entrega pragmática importen tanto como la tecnología.",
       builtWith: "Construido con Next.js, TypeScript y una mentalidad de ingeniería pragmática.",
@@ -633,10 +642,19 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           },
         ],
         highlights: [
-          { label: { es: "4+ años de experiencia profesional", en: "4+ years of professional experience" } },
-          { label: { es: "Java & Spring Backend", en: "Java & Spring Backend" } },
+          {
+            label: { es: "4+ años de experiencia profesional", en: "4+ years of professional experience" },
+            shortLabel: { es: "4+ años", en: "4+ years" },
+          },
+          {
+            label: { es: "Java & Spring Backend", en: "Java & Spring Backend" },
+            shortLabel: { es: "Java & Spring", en: "Java & Spring" },
+          },
           { label: { es: "Plataformas enterprise", en: "Enterprise platforms" } },
-          { label: { es: "Producción e incidencias reales", en: "Real production support" } },
+          {
+            label: { es: "Producción e incidencias reales", en: "Real production support" },
+            shortLabel: { es: "Producción real", en: "Production support" },
+          },
           { label: { es: "AI-Assisted Engineering", en: "AI-Assisted Engineering" } },
         ],
         supportLinks: [
@@ -880,7 +898,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
     },
     footer: {
-      note: "Backend Software Engineer focused on enterprise platforms, Java, Spring, and AI-Assisted Engineering.",
+      note: "",
       availability:
         "Available for opportunities where backend engineering, cloud solutions, and pragmatic delivery matter as much as the stack itself.",
       builtWith: "Built with Next.js, TypeScript, and a practical engineering mindset.",

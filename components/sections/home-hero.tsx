@@ -103,19 +103,29 @@ export function HomeHero({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-8 grid grid-cols-2 gap-2.5 sm:mt-10 sm:gap-3 xl:grid-cols-5">
           {hero.highlights.map((highlight, index) => {
             const Icon = highlightIcons[index % highlightIcons.length];
+            const isLastHighlight = index === hero.highlights.length - 1;
 
             return (
               <div
-                className="group flex items-center gap-3 rounded-[1.35rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.92),rgba(7,12,24,0.97))] px-4 py-3 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35"
+                className={`group flex items-center gap-2 rounded-[1.1rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.92),rgba(7,12,24,0.97))] px-3 py-2.5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35 sm:gap-3 sm:rounded-[1.35rem] sm:px-4 sm:py-3 ${
+                  isLastHighlight ? "col-span-2 mx-auto w-full max-w-[14rem] sm:col-span-1 sm:max-w-none" : ""
+                }`}
                 key={highlight.label.en}
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line bg-white/[0.04] text-[#bcd1ff] transition duration-300 group-hover:border-accent-soft/35 group-hover:bg-white/[0.06] group-hover:text-white">
-                  <Icon className="h-4 w-4" />
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-line bg-white/[0.04] text-[#bcd1ff] transition duration-300 group-hover:border-accent-soft/35 group-hover:bg-white/[0.06] group-hover:text-white sm:h-10 sm:w-10 sm:rounded-xl">
+                  <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </div>
-                <p className="text-sm font-semibold leading-6 text-slate-100 transition duration-300 group-hover:text-white">{highlight.label[locale]}</p>
+                <div>
+                  <p className="text-[0.92rem] font-semibold leading-5 text-slate-100 transition duration-300 group-hover:text-white sm:hidden">
+                    {highlight.shortLabel?.[locale] ?? highlight.label[locale]}
+                  </p>
+                  <p className="hidden text-sm font-semibold leading-6 text-slate-100 transition duration-300 group-hover:text-white sm:block">
+                    {highlight.label[locale]}
+                  </p>
+                </div>
               </div>
             );
           })}

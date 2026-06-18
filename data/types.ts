@@ -15,6 +15,7 @@ export interface QuickFact {
 
 export interface HighlightPill {
   label: LocalizedString;
+  shortLabel?: LocalizedString;
 }
 
 export interface SkillCategory {
