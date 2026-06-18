@@ -8,6 +8,7 @@ import { BrandLogo } from "@/components/ui/brand-logo";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { siteCopy, siteSettings } from "@/data/site";
+import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { localizePath, type Locale } from "@/lib/i18n";
 
 interface FooterProps {
@@ -19,6 +20,8 @@ export function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const pathname = usePathname();
   const isHome = pathname === `/${locale}`;
+  const cvHref = getCvFilePath(locale);
+  const cvDownloadName = getCvDownloadName(locale);
 
   if (isHome) {
     return (
@@ -32,7 +35,7 @@ export function Footer({ locale }: FooterProps) {
               <ButtonLink className="px-10 py-4 text-lg" href={`${localizePath(locale)}#contact`} variant="primary">
                 {locale === "es" ? "Contactar" : "Get in Touch"}
               </ButtonLink>
-              <ButtonLink className="px-10 py-4 text-lg" href={`/${locale}/cv`} target="_blank" variant="secondary">
+              <ButtonLink className="px-10 py-4 text-lg" download={cvDownloadName} href={cvHref} target="_blank" variant="secondary">
                 <Download className="mr-2 h-5 w-5" />
                 {copy.ctas.resume}
               </ButtonLink>
@@ -86,7 +89,8 @@ export function Footer({ locale }: FooterProps) {
             </ButtonLink>
             <ButtonLink
               className="w-full border-white/12 bg-white/6 px-10 py-4 text-lg text-white hover:bg-white/12 sm:w-auto"
-              href={`/${locale}/cv`}
+              download={cvDownloadName}
+              href={cvHref}
               target="_blank"
               variant="secondary"
             >
@@ -108,9 +112,9 @@ export function Footer({ locale }: FooterProps) {
             <Link className="transition hover:text-accent" href={siteSettings.github} rel="noreferrer" target="_blank">
               GitHub
             </Link>
-            <Link className="transition hover:text-accent" href={`/${locale}/cv`} target="_blank">
+            <a className="transition hover:text-accent" download={cvDownloadName} href={cvHref} rel="noreferrer" target="_blank">
               {copy.ctas.resume}
-            </Link>
+            </a>
           </div>
         </div>
       </Container>

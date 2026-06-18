@@ -2,6 +2,7 @@ import { FileDown, FolderOpen, Github, Linkedin, Mail, MapPin } from "lucide-rea
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { siteCopy, siteSettings } from "@/data/site";
+import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { localizePath, type Locale } from "@/lib/i18n";
 
 interface ContactPanelProps {
@@ -13,6 +14,8 @@ interface ContactPanelProps {
 export function ContactPanel({ locale, fitTitle, fitBullets }: ContactPanelProps) {
   const copy = siteCopy[locale];
   const contactCopy = copy.pages.contact;
+  const cvHref = getCvFilePath(locale);
+  const cvDownloadName = getCvDownloadName(locale);
   const secondaryActions = [
     {
       href: siteSettings.github,
@@ -88,7 +91,7 @@ export function ContactPanel({ locale, fitTitle, fitBullets }: ContactPanelProps
                 );
               })}
             </div>
-            <ButtonLink className="w-full justify-center" href={`/${locale}/cv`} target="_blank" variant="secondary">
+            <ButtonLink className="w-full justify-center" download={cvDownloadName} href={cvHref} target="_blank" variant="secondary">
               <FileDown className="h-4 w-4" />
               {copy.ctas.resume}
             </ButtonLink>

@@ -21,8 +21,8 @@ export function Header({ locale }: HeaderProps) {
     <header className="sticky top-0 z-40 border-b border-line bg-[rgba(3,7,18,0.82)] backdrop-blur-2xl">
       <Container className="flex min-h-20 items-center justify-between gap-4">
         <div className="flex items-center gap-6 lg:gap-8">
-          <Link className="hidden items-center gap-3 text-sm md:inline-flex" href={`/${locale}`}>
-            <BrandLogo className="w-[13.5rem]" imageClassName="w-[13.5rem]" priority variant="full-light" />
+          <Link className="hidden shrink-0 items-center gap-3 text-sm md:inline-flex" href={`/${locale}`}>
+            <BrandLogo className="w-[19rem] shrink-0" imageClassName="w-[19rem]" priority variant="full-light" />
           </Link>
           <div className="flex items-center gap-3 md:hidden">
             <BrandLogo className="w-10" imageClassName="w-10" priority variant="mark" />

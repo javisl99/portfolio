@@ -19,21 +19,22 @@ export interface SkillCategory {
 }
 
 export interface ExperienceEntry {
+  id: string;
+  badge: LocalizedString;
   period: LocalizedString;
   company: string;
-  role: LocalizedString;
-  client?: string;
-  project: LocalizedString;
-  projectType: LocalizedString;
-  progression: LocalizedString;
-  overview: LocalizedString;
-  focusAreas: LocalizedString[];
+  title: LocalizedString;
+  subtitle: LocalizedString;
+  description: LocalizedString;
+  cardImpact: LocalizedString;
+  buttonLabel: LocalizedString;
+  modalSubtitle: LocalizedString;
+  modalSummary: LocalizedString;
   context: LocalizedString;
-  problem: LocalizedString;
-  intervention: LocalizedString[];
-  result: LocalizedString;
-  signal: LocalizedString;
+  responsibilities: LocalizedString[];
   stack: string[];
+  modalImpact: LocalizedString;
+  focusAreas?: string[];
 }
 
 export interface ProjectFrontmatter {

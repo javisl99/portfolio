@@ -7,6 +7,7 @@ import { useState } from "react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { siteCopy, siteSettings } from "@/data/site";
+import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { getAlternateLocale, localizePath, type Locale } from "@/lib/i18n";
 
 interface MobileMenuProps {
@@ -25,6 +26,8 @@ export function MobileMenu({ locale }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
   const copy = siteCopy[locale];
   const alternateLocale = getAlternateLocale(locale);
+  const cvHref = getCvFilePath(locale);
+  const cvDownloadName = getCvDownloadName(locale);
 
   return (
     <div className="md:hidden">
@@ -66,7 +69,7 @@ export function MobileMenu({ locale }: MobileMenuProps) {
               <ButtonLink className="w-full" href={`${localizePath(locale)}#contact`} variant="primary">
                 {copy.ctas.contact}
               </ButtonLink>
-              <ButtonLink className="w-full" href={`/${locale}/cv`} target="_blank" variant="secondary">
+              <ButtonLink className="w-full" download={cvDownloadName} href={cvHref} target="_blank" variant="secondary">
                 {copy.ctas.resume}
               </ButtonLink>
               <div className="flex items-center justify-between rounded-xl border border-line bg-panel px-4 py-3">

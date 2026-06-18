@@ -1,81 +1,172 @@
+"use client";
+
+import { useState } from "react";
+import { ArrowRight, BriefcaseBusiness, Building2, CalendarDays, Layers3 } from "lucide-react";
+
+import { DetailModal } from "@/components/ui/detail-modal";
 import { experienceEntries } from "@/data/experience";
+import type { ExperienceEntry } from "@/data/types";
 import type { Locale } from "@/lib/i18n";
-import { cn } from "@/lib/utils";
 
 interface ExperienceSnapshotGridProps {
   locale: Locale;
-  variant?: "cards" | "timeline";
 }
 
-export function ExperienceSnapshotGrid({ locale, variant = "cards" }: ExperienceSnapshotGridProps) {
-  if (variant === "timeline") {
-    return (
-      <div className="relative mx-auto max-w-5xl">
-        <div className="absolute bottom-0 left-5 top-0 w-px bg-gradient-to-b from-transparent via-line-strong to-transparent md:left-1/2 md:-translate-x-px" />
-        <div className="space-y-8">
-          {experienceEntries.map((entry, index) => (
-            <article
-              className={cn("relative flex", index % 2 === 0 ? "md:justify-end" : "md:justify-start")}
-              key={`${entry.company}-${entry.period.en}-timeline`}
-            >
-              <span className="absolute left-5 top-7 h-3 w-3 -translate-x-1/2 rounded-full bg-accent ring-4 ring-bg md:left-1/2" />
-              <div
-                className={cn(
-                  "ml-12 w-full rounded-[1.7rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.94),rgba(7,12,24,0.98))] p-6 shadow-soft md:ml-0 md:w-[calc(50%-2.5rem)]",
-                  index % 2 === 0 ? "md:mr-[2.5rem]" : "md:ml-[2.5rem]",
-                )}
-              >
-                <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-                  <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">{entry.progression[locale]}</p>
-                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-muted">{entry.period[locale]}</span>
-                </div>
-                <h3 className="text-lg font-black tracking-tight text-ink">{entry.role[locale]}</h3>
-                <p className="mt-1 text-sm text-muted">
-                  {entry.company}
-                  {entry.client ? ` · ${entry.client}` : ""}
-                </p>
-                <p className="mt-4 text-sm font-semibold leading-6 text-ink">{entry.project[locale]}</p>
-                <p className="mt-3 text-sm leading-7 text-muted">{entry.result[locale]}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    );
+export function ExperienceSnapshotGrid({ locale }: ExperienceSnapshotGridProps) {
+  const [activeEntry, setActiveEntry] = useState<ExperienceEntry | null>(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  function openModal(entry: ExperienceEntry) {
+    setActiveEntry(entry);
+
+    window.requestAnimationFrame(() => {
+      setIsModalVisible(true);
+    });
+  }
+
+  function closeModal() {
+    setIsModalVisible(false);
+
+    window.setTimeout(() => {
+      setActiveEntry(null);
+    }, 240);
   }
 
   return (
-    <div className="grid gap-6 xl:grid-cols-3">
-      {experienceEntries.map((entry) => (
-        <article
-          className="rounded-[1.7rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.94),rgba(7,12,24,0.98))] p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35"
-          key={`${entry.company}-${entry.period.en}-snapshot`}
-        >
-          <div className="mb-4 flex flex-wrap items-center gap-3">
-            <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#9fbeff]">{entry.progression[locale]}</p>
-            <span className="rounded-lg border border-line px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
-              {entry.period[locale]}
-            </span>
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-lg font-black tracking-tight text-ink">{entry.role[locale]}</h3>
-            <p className="text-sm text-muted">
-              {entry.company}
-              {entry.client ? ` · ${entry.client}` : ""}
-            </p>
-          </div>
-          <p className="mt-5 text-sm font-medium leading-6 text-ink">{entry.project[locale]}</p>
-          <p className="mt-4 text-sm leading-7 text-muted">{entry.overview[locale]}</p>
-          <p className="mt-4 rounded-xl border-l-4 border-accent bg-white/[0.04] px-4 py-3 text-sm leading-7 text-ink">{entry.signal[locale]}</p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {entry.stack.slice(0, 3).map((item) => (
-              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-muted" key={item}>
-                {item}
+    <>
+      <div className="grid gap-6 md:grid-cols-2">
+        {experienceEntries.map((entry) => (
+          <article
+            className="group flex h-full flex-col rounded-[1.9rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.96),rgba(7,12,24,0.99))] p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35"
+            key={entry.id}
+          >
+            <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+              <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">{entry.badge[locale]}</p>
+              <span className="rounded-lg border border-line px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
+                {entry.period[locale]}
               </span>
-            ))}
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-xl font-black tracking-tight text-ink">{entry.title[locale]}</h3>
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-200">{entry.company}</p>
+              <p className="text-sm text-muted">{entry.subtitle[locale]}</p>
+            </div>
+
+            <p className="mt-5 text-sm leading-7 text-slate-300">{entry.description[locale]}</p>
+
+            <div className="mt-5 rounded-[1.2rem] border border-white/10 bg-white/[0.04] px-4 py-4">
+              <p className="mb-2 font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
+                {locale === "es" ? "Impacto" : "Impact"}
+              </p>
+              <p className="text-sm leading-7 text-ink">{entry.cardImpact[locale]}</p>
+            </div>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {entry.stack.slice(0, 6).map((item) => (
+                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-muted" key={item}>
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <button
+              className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-[#c7d6ff] transition hover:translate-x-1 hover:text-white group-hover:text-white"
+              onClick={() => openModal(entry)}
+              type="button"
+            >
+              {entry.buttonLabel[locale]}
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </article>
+        ))}
+      </div>
+
+      <DetailModal
+        ariaLabel={locale === "es" ? "Cerrar modal de experiencia" : "Close experience modal"}
+        eyebrow={locale === "es" ? "Experiencia profesional" : "Professional experience"}
+        headerExtras={
+          activeEntry ? (
+            <div className="space-y-3">
+              <div className="flex flex-wrap gap-2">
+                {activeEntry.stack.slice(0, 4).map((item) => (
+                  <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-[0.68rem] font-mono text-slate-200" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ) : null
+        }
+        onClose={closeModal}
+        open={Boolean(activeEntry)}
+        summary={activeEntry?.modalSummary[locale]}
+        subtitle={activeEntry?.modalSubtitle[locale]}
+        title={activeEntry?.title[locale] ?? ""}
+        visible={isModalVisible}
+        widthClassName="w-[min(92vw,1040px)]"
+      >
+        {activeEntry ? (
+          <div className="grid gap-4 lg:grid-cols-2">
+            <section className="rounded-[1.6rem] border border-white/10 bg-[#0d1426] p-5 sm:p-6">
+              <p className="mb-3 flex items-center gap-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
+                <Building2 className="h-4 w-4" />
+                {locale === "es" ? "Contexto" : "Context"}
+              </p>
+              <p className="text-[0.96rem] leading-7 text-slate-200">{activeEntry.context[locale]}</p>
+            </section>
+
+            <section className="rounded-[1.6rem] border border-[#60a5fa]/18 bg-[linear-gradient(135deg,rgba(18,39,82,0.96),rgba(24,35,76,0.98))] p-5 sm:p-6">
+              <p className="mb-3 flex items-center gap-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
+                <CalendarDays className="h-4 w-4" />
+                Highlights
+              </p>
+              <p className="text-[0.96rem] leading-7 text-white">{activeEntry.modalImpact[locale]}</p>
+            </section>
+
+            <section className="rounded-[1.6rem] border border-white/10 bg-[#0d1426] p-5 sm:p-6">
+              <p className="mb-3 flex items-center gap-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
+                <BriefcaseBusiness className="h-4 w-4" />
+                {locale === "es" ? "Responsabilidades" : "Responsibilities"}
+              </p>
+              <ul className="grid gap-2.5">
+                {activeEntry.responsibilities.map((responsibility) => (
+                  <li className="flex gap-3 text-[0.96rem] leading-7 text-slate-200" key={responsibility.en}>
+                    <span className="mt-2.5 h-2 w-2 rounded-full bg-accent" />
+                    <span>{responsibility[locale]}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="rounded-[1.6rem] border border-white/10 bg-[#0d1426] p-5 sm:p-6">
+              <p className="mb-3 flex items-center gap-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
+                <Layers3 className="h-4 w-4" />
+                {activeEntry.focusAreas?.length ? (locale === "es" ? "Focus areas y stack tecnico" : "Focus areas and technical stack") : locale === "es" ? "Stack tecnico" : "Technical stack"}
+              </p>
+              {activeEntry.focusAreas?.length ? (
+                <div className="mb-4">
+                  <p className="mb-2 font-mono text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#8fb5ff]">Focus areas</p>
+                  <div className="flex flex-wrap gap-2">
+                    {activeEntry.focusAreas.map((item) => (
+                      <span className="rounded-md border border-white/10 bg-white/[0.06] px-3 py-1.5 font-mono text-[0.68rem] text-slate-200" key={item}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              <div className="flex flex-wrap gap-2.5">
+                {activeEntry.stack.map((item) => (
+                  <span className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[0.68rem] text-slate-200" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </section>
           </div>
-        </article>
-      ))}
-    </div>
+        ) : null}
+      </DetailModal>
+    </>
   );
 }
