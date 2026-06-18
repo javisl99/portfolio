@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 
 import { ApproachGrid } from "@/components/sections/approach-grid";
 import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapshot-grid";
-import { ExperienceTimeline } from "@/components/sections/experience-timeline";
 import { HomeHero } from "@/components/sections/home-hero";
+import { ProfessionalValueGrid } from "@/components/sections/professional-value-grid";
 import { ProjectGrid } from "@/components/sections/project-grid";
 import { SkillsSection } from "@/components/sections/skills-section";
 import { ContactPanel } from "@/components/sections/contact-panel";
@@ -63,12 +63,17 @@ export default async function HomePage({
         eyebrow={copy.home.career.eyebrow}
         title={copy.home.career.title}
       >
-        <div className="space-y-10">
-          <ExperienceSnapshotGrid locale={locale} variant="timeline" />
-          <div className="border-t border-line pt-10">
-            <ExperienceTimeline locale={locale} />
-          </div>
-        </div>
+        <ExperienceSnapshotGrid locale={locale} />
+      </Section>
+
+      <Section
+        id="professional-value"
+        align="center"
+        description={copy.home.value.description}
+        eyebrow={copy.home.value.eyebrow}
+        title={copy.home.value.title}
+      >
+        <ProfessionalValueGrid items={copy.home.value.items} locale={locale} />
       </Section>
 
       <Section

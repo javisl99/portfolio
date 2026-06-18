@@ -59,6 +59,7 @@ type SiteLocaleCopy = {
     };
     strengths: { eyebrow: string; title: string; description: string; items: CopyCard[] };
     career: { eyebrow: string; title: string; description: string };
+    value: { eyebrow: string; title: string; description: string; items: CopyCard[] };
     projects: { eyebrow: string; title: string; description: string };
     ai: { eyebrow: string; title: string; description: string; items: CopyCard[] };
     skills: { eyebrow: string; title: string; description: string; categories: SkillCategory[] };
@@ -295,6 +296,41 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         title: "Evolución profesional orientada a impacto",
         description:
           "De la base backend en proyectos SAP y B2B hasta ownership técnico en plataformas enterprise vivas, con una identidad cada vez más clara como Backend Software Engineer.",
+      },
+      value: {
+        eyebrow: "Valor profesional",
+        title: "Valor Profesional",
+        description: "Lo que aporto como ingeniero backend en entornos enterprise.",
+        items: [
+          {
+            title: { es: "Backend Engineering", en: "Backend Engineering" },
+            body: {
+              es: "Diseño y desarrollo de soluciones backend mantenibles y escalables para plataformas enterprise.",
+              en: "Design and development of scalable and maintainable backend solutions for enterprise platforms.",
+            },
+          },
+          {
+            title: { es: "Enterprise Systems", en: "Enterprise Systems" },
+            body: {
+              es: "Experiencia trabajando sobre sistemas críticos con procesos complejos, integraciones y operaciones de negocio reales.",
+              en: "Experience working on critical systems with complex business processes and integrations.",
+            },
+          },
+          {
+            title: { es: "AI-Assisted Engineering", en: "AI-Assisted Engineering" },
+            body: {
+              es: "Uso de Codex, ChatGPT y Claude para acelerar análisis técnico, debugging, documentación y desarrollo.",
+              en: "Leveraging Codex, ChatGPT and Claude to accelerate technical analysis, debugging, documentation and development workflows.",
+            },
+          },
+          {
+            title: { es: "Business Understanding", en: "Business Understanding" },
+            body: {
+              es: "Capacidad para traducir requisitos funcionales complejos en soluciones técnicas robustas y mantenibles.",
+              en: "Ability to translate complex business requirements into robust and maintainable technical solutions.",
+            },
+          },
+        ],
       },
       projects: {
         eyebrow: "Casos destacados",
@@ -635,6 +671,41 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         title: "Professional growth with a clear backend and enterprise direction",
         description:
           "From backend foundations in SAP and B2B environments to stronger technical ownership in live enterprise platforms, with an increasingly clear identity as a Backend Software Engineer.",
+      },
+      value: {
+        eyebrow: "Professional value",
+        title: "Professional Value",
+        description: "What I bring as a backend engineer in enterprise environments.",
+        items: [
+          {
+            title: { es: "Backend Engineering", en: "Backend Engineering" },
+            body: {
+              es: "Diseño y desarrollo de soluciones backend mantenibles y escalables para plataformas enterprise.",
+              en: "Design and development of scalable and maintainable backend solutions for enterprise platforms.",
+            },
+          },
+          {
+            title: { es: "Enterprise Systems", en: "Enterprise Systems" },
+            body: {
+              es: "Experiencia trabajando sobre sistemas críticos con procesos complejos, integraciones y operaciones de negocio reales.",
+              en: "Experience working on critical systems with complex business processes and integrations.",
+            },
+          },
+          {
+            title: { es: "AI-Assisted Engineering", en: "AI-Assisted Engineering" },
+            body: {
+              es: "Uso de Codex, ChatGPT y Claude para acelerar análisis técnico, debugging, documentación y desarrollo.",
+              en: "Leveraging Codex, ChatGPT and Claude to accelerate technical analysis, debugging, documentation and development workflows.",
+            },
+          },
+          {
+            title: { es: "Business Understanding", en: "Business Understanding" },
+            body: {
+              es: "Capacidad para traducir requisitos funcionales complejos en soluciones técnicas robustas y mantenibles.",
+              en: "Ability to translate complex business requirements into robust and maintainable technical solutions.",
+            },
+          },
+        ],
       },
       projects: {
         eyebrow: "Featured work",
