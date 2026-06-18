@@ -23,11 +23,11 @@ export function SkillsSection({ locale, eyebrow, title, description, categories,
     locale === "es"
       ? [
           "Análisis técnico más rápido",
-          "Debugging mejor guiado",
-          "Documentación más clara",
-          "Automatización útil",
+          "Investigación de incidencias mejor guiada",
+          "Automatización con criterio",
+          "Mejor foco en decisiones técnicas",
         ]
-      : ["Faster technical analysis", "Better guided debugging", "Cleaner documentation", "Useful automation"];
+      : ["Faster technical analysis", "Better incident investigation", "Automation with judgment", "More focus on technical decisions"];
 
   return (
     <section className="py-18 sm:py-24" id="skills">
@@ -48,7 +48,10 @@ export function SkillsSection({ locale, eyebrow, title, description, categories,
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300">{aiDescription}</p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 {supportBullets.map((item) => (
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-slate-200" key={item}>
+                  <div
+                    className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-slate-200 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35 hover:bg-white/[0.06] hover:text-white"
+                    key={item}
+                  >
                     {item}
                   </div>
                 ))}

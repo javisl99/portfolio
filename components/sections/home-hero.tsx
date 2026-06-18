@@ -13,6 +13,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
   const snapshotIcons = [Braces, BriefcaseBusiness, Bot, Verified];
   const cvHref = getCvFilePath(locale);
   const cvDownloadName = getCvDownloadName(locale);
+  const highlightIcons = [Verified, Braces, BriefcaseBusiness, Layers3, Bot];
 
   return (
     <section className="relative overflow-hidden py-12 lg:py-24" id="top">
@@ -46,7 +47,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
 
           <div className="lg:col-span-5">
             <aside className="group relative overflow-hidden rounded-[2rem] border border-line bg-[linear-gradient(160deg,rgba(11,18,32,0.96),rgba(6,10,22,0.98))] p-7 shadow-[0_42px_100px_-48px_rgba(2,6,23,0.88)] sm:p-8">
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#60a5fa]/12 blur-3xl transition-colors group-hover:bg-[#2563eb]/20" />
+              <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 rounded-full bg-[#60a5fa]/12 blur-3xl transition-colors group-hover:bg-[#2563eb]/20" />
               <div className="relative">
                 <h2 className="mb-3 flex items-center gap-2 text-lg font-bold text-white">
                   <Layers3 className="h-5 w-5 text-[#bcd1ff]" />
@@ -54,8 +55,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 </h2>
                 <p className="mb-6 text-sm leading-7 text-slate-300">
                   {locale === "es"
-                    ? "Una lectura rápida del perfil: Java backend, plataformas enterprise y sistemas distribuidos, especialización fuerte en SAP Commerce Cloud sin quedar encerrado en consultoría SAP y uso práctico de Codex y ChatGPT para acelerar entrega sin perder criterio técnico."
-                    : "A quick read of the profile: Java backend, enterprise platforms and distributed systems, strong SAP Commerce Cloud specialization without being boxed into SAP consulting, and practical use of Codex and ChatGPT to accelerate delivery without giving up technical judgment."}
+                    ? "Una lectura rápida del perfil: backend Java sobre plataformas enterprise, experiencia en producción, buena comprensión del negocio y uso práctico de IA para trabajar con más claridad y velocidad."
+                    : "A quick read of the profile: Java backend across enterprise platforms, real production experience, strong business awareness, and practical AI usage to work with more clarity and speed."}
                 </p>
                 <ul className="space-y-5">
                   {hero.quickFacts.map((fact, index) => {
@@ -83,16 +84,16 @@ export function HomeHero({ locale }: { locale: Locale }) {
                       <span className="mt-2 h-2 w-2 rounded-full bg-[#818cf8]" />
                       <span>
                         {locale === "es"
-                          ? "Backend engineering aplicado a plataformas enterprise, sistemas distribuidos y flujos sensibles de negocio"
-                          : "Backend engineering applied to enterprise platforms, distributed systems, and business-sensitive flows"}
+                          ? "Backend engineering aplicado a plataformas enterprise, integraciones complejas y flujos sensibles de negocio"
+                          : "Backend engineering applied to enterprise platforms, complex integrations, and business-sensitive flows"}
                       </span>
                     </li>
                     <li className="flex gap-3">
                       <span className="mt-2 h-2 w-2 rounded-full bg-[#60a5fa]" />
                       <span>
                         {locale === "es"
-                          ? "Capacidad de moverme entre implementación, incidencias, debugging, cliente y contexto de producto"
-                          : "Ability to move across implementation, incidents, debugging, client communication, and product context"}
+                          ? "Capacidad de moverme entre implementación, incidencias, contexto de producto y conversación con negocio"
+                          : "Ability to move across implementation, incidents, product context, and business-facing conversations"}
                       </span>
                     </li>
                   </ul>
@@ -100,6 +101,24 @@ export function HomeHero({ locale }: { locale: Locale }) {
               </div>
             </aside>
           </div>
+        </div>
+
+        <div className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+          {hero.highlights.map((highlight, index) => {
+            const Icon = highlightIcons[index % highlightIcons.length];
+
+            return (
+              <div
+                className="group flex items-center gap-3 rounded-[1.35rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.92),rgba(7,12,24,0.97))] px-4 py-3 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35"
+                key={highlight.label.en}
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line bg-white/[0.04] text-[#bcd1ff] transition duration-300 group-hover:border-accent-soft/35 group-hover:bg-white/[0.06] group-hover:text-white">
+                  <Icon className="h-4 w-4" />
+                </div>
+                <p className="text-sm font-semibold leading-6 text-slate-100 transition duration-300 group-hover:text-white">{highlight.label[locale]}</p>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

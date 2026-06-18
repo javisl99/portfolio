@@ -11,7 +11,7 @@ import { ContactPanel } from "@/components/sections/contact-panel";
 import { Section } from "@/components/ui/section";
 import { siteCopy } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
-import { getProjects } from "@/lib/projects";
+import { getFeaturedProjects } from "@/lib/projects";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({
@@ -49,7 +49,7 @@ export default async function HomePage({
 
   const locale = rawLocale as Locale;
   const copy = siteCopy[locale];
-  const projects = await getProjects(locale);
+  const projects = await getFeaturedProjects(locale);
   const aboutPage = copy.pages.about;
 
   return (
@@ -95,12 +95,12 @@ export default async function HomePage({
       >
         <div className="space-y-8">
           <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-            <article className="rounded-[1.9rem] border border-line bg-panel p-7 text-left shadow-soft sm:p-8">
+            <article className="group rounded-[1.9rem] border border-line bg-panel p-7 text-left shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35 sm:p-8">
               <p className="mb-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#9fbeff]">{aboutPage.summaryTitle}</p>
-              <h3 className="text-2xl font-black tracking-tight text-ink">{copy.roleLabel}</h3>
+              <h3 className="text-2xl font-black tracking-tight text-ink transition duration-300 group-hover:text-white">{copy.roleLabel}</h3>
               <p className="mt-4 text-sm leading-7 text-muted sm:text-base">{aboutPage.summaryBody}</p>
             </article>
-            <article className="rounded-[1.9rem] border border-line bg-[linear-gradient(160deg,rgba(12,20,36,0.96),rgba(6,10,22,0.98))] p-7 text-left shadow-[0_42px_90px_-52px_rgba(37,99,235,0.4)] sm:p-8">
+            <article className="group rounded-[1.9rem] border border-line bg-[linear-gradient(160deg,rgba(12,20,36,0.96),rgba(6,10,22,0.98))] p-7 text-left shadow-[0_42px_90px_-52px_rgba(37,99,235,0.4)] transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35 sm:p-8">
               <p className="mb-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#9fbeff]">{aboutPage.principlesTitle}</p>
               <p className="text-sm leading-7 text-slate-300 sm:text-base">{aboutPage.principlesIntro}</p>
             </article>

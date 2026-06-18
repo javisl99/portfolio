@@ -13,6 +13,10 @@ export interface QuickFact {
   value: LocalizedString;
 }
 
+export interface HighlightPill {
+  label: LocalizedString;
+}
+
 export interface SkillCategory {
   title: LocalizedString;
   items: string[];
