@@ -2,14 +2,14 @@ import { ImageResponse } from "next/og";
 
 import { siteSettings } from "@/data/site";
 
-export const alt = "Javier Sanchez Lancha | Backend Software Engineer";
-export const size = {
+export const socialImageAlt = "Javier Sanchez Lancha | Backend Software Engineer";
+export const socialImageSize = {
   width: 1200,
   height: 630,
 };
-export const contentType = "image/png";
+export const socialImageContentType = "image/png";
 
-export default function OpenGraphImage() {
+export function renderSocialImage() {
   return new ImageResponse(
     (
       <div
@@ -70,25 +70,25 @@ export default function OpenGraphImage() {
             background: "rgba(11,18,32,0.76)",
           }}
         >
-          Backend Software Engineer / Java / Spring / Enterprise Platforms
+          Backend Software Engineer / Java / Spring / SAP Commerce Cloud
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "18px", maxWidth: "920px" }}>
           <div style={{ fontSize: 80, lineHeight: 1.02, fontWeight: 700 }}>{siteSettings.name}</div>
           <div style={{ fontSize: 36, lineHeight: 1.28, color: "#cbd5e1" }}>
-            Backend Software Engineer focused on scalable systems, enterprise platforms, Java, Spring, and
-            AI-Assisted workflows powered by strong technical judgment.
+            Backend Software Engineer focused on Java, Spring, REST APIs, SQL, integrations, and production-facing
+            systems, with AI used as support rather than the main story.
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#94a3b8" }}>
-          <span>Enterprise backend portfolio for recruiters and hiring teams</span>
-          <span>Java / Spring / SAP Commerce Cloud / AI-Assisted Engineering</span>
+          <span>Backend portfolio for recruiters and hiring teams</span>
+          <span>Java / Spring / SAP Commerce Cloud / REST APIs</span>
         </div>
       </div>
     ),
     {
-      ...size,
+      ...socialImageSize,
     },
   );
 }

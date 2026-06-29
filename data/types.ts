@@ -8,6 +8,11 @@ export interface CopyCard {
   body: LocalizedString;
 }
 
+export interface ExperienceInsight {
+  title: LocalizedString;
+  body: LocalizedString;
+}
+
 export interface QuickFact {
   label: LocalizedString;
   value: LocalizedString;
@@ -32,6 +37,7 @@ export interface ExperienceEntry {
   subtitle: LocalizedString;
   description: LocalizedString;
   cardImpact: LocalizedString;
+  cardHighlights: LocalizedString[];
   buttonLabel: LocalizedString;
   modalSubtitle: LocalizedString;
   modalSummary: LocalizedString;
@@ -39,6 +45,7 @@ export interface ExperienceEntry {
   responsibilities: LocalizedString[];
   stack: string[];
   modalImpact: LocalizedString;
+  modalHighlights: ExperienceInsight[];
   focusAreas?: string[];
 }
 

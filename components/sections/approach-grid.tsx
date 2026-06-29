@@ -22,7 +22,7 @@ export function ApproachGrid({ items, locale }: { items: CopyCard[]; locale: Loc
           <FeaturedIcon className="h-5 w-5" />
         </div>
         <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#9fbeff]">
-          {locale === "es" ? "Technical approach" : "Technical approach"}
+          {locale === "es" ? "Enfoque técnico" : "Technical approach"}
         </p>
         <h3 className="mb-4 text-3xl font-black tracking-tight text-white">{featuredItem.title[locale]}</h3>
         <p className="max-w-2xl text-base leading-8 text-slate-300">{featuredItem.body[locale]}</p>

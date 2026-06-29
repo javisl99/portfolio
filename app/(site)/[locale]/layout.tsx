@@ -1,12 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
+// @ts-ignore: font packages may not have type declarations for side-effect imports
+import "@fontsource-variable/manrope";
+// @ts-ignore: font packages may not have type declarations for side-effect imports
+import "@fontsource-variable/space-grotesk";
+
+import "../../globals.css";
+
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { siteCopy } from "@/data/site";
 import { createMetadata, getPersonStructuredData, getWebsiteStructuredData } from "@/lib/metadata";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
+
+export const viewport: Viewport = {
+  themeColor: "#030712",
+};
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -52,24 +64,27 @@ export default async function LocaleLayout({
   const websiteStructuredData = getWebsiteStructuredData(locale);
 
   return (
-    <>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(personStructuredData),
-        }}
-        type="application/ld+json"
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(websiteStructuredData),
-        }}
-        type="application/ld+json"
-      />
-      <Header locale={locale} />
-      <div className="content-shell pt-20">
-        <main>{children}</main>
-        <Footer locale={locale} />
-      </div>
-    </>
+    <html lang={locale}>
+      <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personStructuredData),
+          }}
+          type="application/ld+json"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteStructuredData),
+          }}
+          type="application/ld+json"
+        />
+        <Header locale={locale} />
+        <div className="content-shell pt-20">
+          <main>{children}</main>
+          <Footer locale={locale} />
+        </div>
+        <SpeedInsights />
+      </body>
+    </html>
   );
 }

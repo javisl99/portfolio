@@ -1,4 +1,3 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
@@ -7,19 +6,14 @@ import "@fontsource-variable/manrope";
 // @ts-ignore: font packages may not have type declarations for side-effect imports
 import "@fontsource-variable/space-grotesk";
 
-import "./globals.css";
+import "../globals.css";
 
-import { siteCopy } from "@/data/site";
-import { buildUrl } from "@/lib/metadata";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getMetadataBase } from "@/lib/metadata";
+import { defaultLocale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(buildUrl()),
-  title: {
-    default: siteCopy.es.metadata.defaultTitle,
-    template: `%s`,
-  },
-  description: siteCopy.es.metadata.defaultDescription,
-  keywords: siteCopy.es.metadata.keywords,
+  metadataBase: getMetadataBase(),
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     shortcut: "/favicon.ico",
@@ -31,9 +25,9 @@ export const viewport: Viewport = {
   themeColor: "#030712",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default function RedirectRootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang={defaultLocale}>
       <body>
         {children}
         <SpeedInsights />

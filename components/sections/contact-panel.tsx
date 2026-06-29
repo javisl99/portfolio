@@ -18,16 +18,28 @@ export function ContactPanel({ locale, fitTitle, fitBullets }: ContactPanelProps
   const cvDownloadName = getCvDownloadName(locale);
   const secondaryActions = [
     {
+      href: siteSettings.linkedin,
+      label: "LinkedIn",
+      icon: Linkedin,
+      external: true,
+    },
+    {
+      href: `mailto:${siteSettings.email}`,
+      label: locale === "es" ? "Email" : "Email",
+      icon: Mail,
+      external: true,
+    },
+    {
+      href: localizePath(locale, "/projects"),
+      label: locale === "es" ? "Proyectos" : "Projects",
+      icon: FolderOpen,
+      external: false,
+    },
+    {
       href: siteSettings.github,
       label: "GitHub",
       icon: Github,
       external: true,
-    },
-    {
-      href: `${localizePath(locale)}#projects`,
-      label: locale === "es" ? "Proyectos" : "Projects",
-      icon: FolderOpen,
-      external: false,
     },
   ];
 
@@ -35,9 +47,9 @@ export function ContactPanel({ locale, fitTitle, fitBullets }: ContactPanelProps
     <div className="mx-auto max-w-5xl">
       <div className="rounded-[1.9rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.95),rgba(7,12,24,0.98))] p-8 shadow-soft sm:p-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
-          <div>
+          <div className="order-2 lg:order-1">
             <p className="mb-5 font-mono text-[0.7rem] font-bold uppercase tracking-[0.2em] text-[#9fbeff]">{fitTitle}</p>
-            <ul className="grid gap-4 text-sm leading-7 text-muted sm:grid-cols-2">
+            <ul className="grid gap-4 text-sm leading-7 text-muted">
               {fitBullets.map((bullet) => (
                 <li className="rounded-2xl border border-line bg-white/[0.03] px-4 py-4" key={bullet}>
                   <span>{bullet}</span>
@@ -46,7 +58,7 @@ export function ContactPanel({ locale, fitTitle, fitBullets }: ContactPanelProps
             </ul>
           </div>
 
-          <div className="space-y-5">
+          <div className="order-1 space-y-5 lg:order-2">
             <div className="border-b border-white/10 pb-4">
               <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.24em] text-[#9fbeff]">{contactCopy.channelsTitle}</p>
             </div>
@@ -72,14 +84,14 @@ export function ContactPanel({ locale, fitTitle, fitBullets }: ContactPanelProps
                 </li>
               ))}
             </ul>
-            <p className="text-sm leading-7 text-muted">{contactCopy.channelsNote}</p>
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <p className="text-sm leading-6 text-muted sm:leading-7">{contactCopy.channelsNote}</p>
+            <div className="grid gap-3 sm:grid-cols-2">
               {secondaryActions.map((action) => {
                 const Icon = action.icon;
 
                 return (
                   <ButtonLink
-                    className="justify-center sm:flex-1"
+                    className="justify-center"
                     href={action.href}
                     key={action.label}
                     target={action.external ? "_blank" : undefined}

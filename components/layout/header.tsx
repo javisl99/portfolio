@@ -4,10 +4,11 @@ import { Mail } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { Container } from "@/components/ui/container";
+import { LocaleSwitcher } from "@/components/navigation/locale-switcher";
 import { MainNav } from "@/components/navigation/main-nav";
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { siteCopy, siteSettings } from "@/data/site";
-import { getAlternateLocale, type Locale } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 
 interface HeaderProps {
   locale: Locale;
@@ -15,7 +16,6 @@ interface HeaderProps {
 
 export function Header({ locale }: HeaderProps) {
   const copy = siteCopy[locale];
-  const alternateLocale = getAlternateLocale(locale);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-[rgba(3,7,18,0.82)] shadow-[0_10px_30px_-20px_rgba(2,6,23,0.95)] backdrop-blur-2xl">
@@ -31,13 +31,10 @@ export function Header({ locale }: HeaderProps) {
           <MainNav items={copy.navigation} locale={locale} />
         </div>
         <div className="flex items-center gap-3">
-          <Link
-            className="hidden cursor-pointer rounded-full border border-line bg-panel px-3.5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted hover:border-accent-soft/35 hover:text-white md:inline-flex"
-            href={`/${alternateLocale}`}
-          >
-            {alternateLocale.toUpperCase()}
-          </Link>
-          <ButtonLink className="hidden md:inline-flex" href={`/${locale}#contact`} variant="primary">
+          <div className="hidden md:block">
+            <LocaleSwitcher label={copy.languageSwitch} locale={locale} />
+          </div>
+          <ButtonLink className="hidden md:inline-flex" href={`/${locale}/contact`} variant="primary">
             <Mail className="h-4 w-4" />
             {copy.ctas.contact}
           </ButtonLink>
