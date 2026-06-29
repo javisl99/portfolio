@@ -13,36 +13,50 @@ export const experienceEntries: ExperienceEntry[] = [
     },
     company: "Stratesys",
     title: {
-      es: "Backend Software Engineer | Enterprise Platforms",
+      es: "Backend Software Engineer | Plataformas de negocio",
       en: "Backend Software Engineer | Enterprise Platforms",
     },
     subtitle: {
-      es: "SAP Commerce Cloud enterprise platform · Real Estate sector",
-      en: "SAP Commerce Cloud enterprise platform · Real Estate sector",
+      es: "SAP Commerce Cloud · Real Estate · backend, integraciones y soporte productivo",
+      en: "SAP Commerce Cloud · Real Estate · backend, integrations, and production support",
     },
     description: {
-      es: "Desarrollo y evolución de una plataforma enterprise de gran escala para el sector Real Estate, con foco en funcionalidades críticas de negocio, integraciones, estabilidad productiva y colaboración directa con cliente, negocio y QA.",
-      en: "Development and evolution of a large-scale enterprise platform for the Real Estate sector, focusing on business-critical features, integrations, production stability and direct collaboration with clients, business stakeholders and QA teams.",
+      es: "Desarrollo y evolución de una plataforma SAP Commerce Cloud en producción para el sector Real Estate, trabajando sobre funcionalidades backend, integraciones, incidencias y estabilidad operativa.",
+      en: "Development and evolution of a production SAP Commerce Cloud platform in the Real Estate sector, working on backend features, integrations, incidents, and operational stability.",
     },
     cardImpact: {
-      es: "Experiencia real en plataformas enterprise de gran escala, resolución de incidencias productivas y desarrollo backend orientado a estabilidad, mantenibilidad y valor de negocio.",
-      en: "Real-world experience in large-scale enterprise platforms, production troubleshooting, and backend development focused on stability, maintainability and business value.",
+      es: "Experiencia directa en soporte productivo, evolución funcional y resolución de incidencias con impacto real sobre negocio.",
+      en: "Direct experience in production support, functional evolution, and incident resolution with real business impact.",
     },
+    cardHighlights: [
+      {
+        es: "Plataforma SAP Commerce Cloud en producción con incidencias, integraciones y evolutivos simultáneos.",
+        en: "Production SAP Commerce Cloud platform with simultaneous incidents, integrations, and product evolution work.",
+      },
+      {
+        es: "Trabajo con Java, Spring, SQL, jobs, interceptors, validators, workflows y Backoffice.",
+        en: "Work across Java, Spring, SQL, jobs, interceptors, validators, workflows, and Backoffice.",
+      },
+      {
+        es: "Colaboración directa con QA, negocio y cliente para priorizar cambios y análisis de causa raíz.",
+        en: "Direct collaboration with QA, business teams, and client stakeholders to prioritize changes and root cause analysis.",
+      },
+    ],
     buttonLabel: {
-      es: "Más información",
-      en: "Learn more",
+      es: "Ver responsabilidades",
+      en: "View responsibilities",
     },
     modalSubtitle: {
       es: "Stratesys · Junio 2024 - Actualidad · Sector Real Estate",
       en: "Stratesys · June 2024 - Present · Real Estate Sector",
     },
     modalSummary: {
-      es: "Trabajo como Backend Software Engineer en una plataforma enterprise de gran escala del sector Real Estate. Participo en el desarrollo y evolución de funcionalidades críticas de negocio, integraciones, procesos batch, workflows y servicios backend complejos, colaborando directamente con cliente, negocio y QA.",
-      en: "I work as a Backend Software Engineer on a large-scale enterprise platform in the Real Estate sector. I contribute to the development and evolution of business-critical features, integrations, batch processes, workflows and complex backend services, collaborating directly with clients, business stakeholders and QA teams.",
+      es: "Trabajo como Backend Software Engineer sobre una plataforma SAP Commerce Cloud en producción. Participo en evolutivos, incidencias, integraciones, procesos batch y servicios backend complejos en colaboración con cliente, negocio y QA.",
+      en: "I work as a Backend Software Engineer on a production SAP Commerce Cloud platform. I contribute to product evolution, incidents, integrations, batch processes, and complex backend services in collaboration with clients, business teams, and QA.",
     },
     context: {
-      es: "Plataforma enterprise viva con soporte productivo, evolutivos continuos, integraciones complejas y procesos críticos para negocio.",
-      en: "Live enterprise platform with production support, continuous enhancements, complex integrations and business-critical processes.",
+      es: "Plataforma viva con soporte productivo, evolutivos continuos, integraciones complejas y procesos sensibles para negocio.",
+      en: "Live platform with production support, continuous product work, complex integrations, and business-sensitive processes.",
     },
     responsibilities: [
       {
@@ -50,11 +64,11 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Development and evolution of backend features using Java, Spring and SAP Commerce Cloud.",
       },
       {
-        es: "Desarrollo de servicios, modelos de datos, jobs, interceptores, validadores e integraciones.",
-        en: "Development of services, data models, jobs, interceptors, validators and integrations.",
+        es: "Desarrollo de servicios, modelos de datos, jobs, interceptors, validators e integraciones.",
+        en: "Development of services, data models, jobs, interceptors, validators, and integrations.",
       },
       {
-        es: "Resolución de incidencias en entornos productivos y análisis de causa raíz.",
+        es: "Resolución de incidencias en producción y análisis de causa raíz.",
         en: "Production issue troubleshooting and root cause analysis.",
       },
       {
@@ -66,8 +80,8 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Participation in batch processes, workflows, Backoffice development and complex business logic implementation.",
       },
       {
-        es: "Uso de herramientas de IA generativa para acelerar análisis técnico, debugging, documentación y automatización de tareas.",
-        en: "Use of generative AI tools to accelerate technical analysis, debugging, documentation and task automation.",
+        es: "Uso puntual de IA generativa para acelerar análisis técnico, debugging y documentación.",
+        en: "Selective use of generative AI to accelerate technical analysis, debugging, and documentation.",
       },
     ],
     stack: [
@@ -80,12 +94,34 @@ export const experienceEntries: ExperienceEntry[] = [
       "Batch Processes",
       "Workflows",
       "Integrations",
-      "AI-Assisted Engineering",
+      "AI-assisted workflows",
     ],
     modalImpact: {
-      es: "Experiencia en plataformas enterprise de gran escala, trabajando sobre incidencias productivas, integraciones complejas, procesos batch y colaboración directa con cliente y negocio.",
-      en: "Experience in large-scale enterprise platforms, working on production incidents, complex integrations, batch processes and direct collaboration with clients and business stakeholders.",
+      es: "Experiencia sobre una plataforma viva, trabajando incidencias, procesos batch, integraciones y colaboración directa con cliente y negocio.",
+      en: "Experience on a live platform, working on incidents, batch processes, integrations, and direct collaboration with clients and business stakeholders.",
     },
+    modalHighlights: [
+      {
+        title: {
+          es: "Dónde aporta",
+          en: "Where it adds value",
+        },
+        body: {
+          es: "Etapa centrada en sostener una plataforma viva: evolutivos, incidencias, procesos batch, integraciones y decisiones con impacto operativo.",
+          en: "Stage focused on sustaining a live platform: product evolution, incidents, batch processes, integrations, and decisions with operational impact.",
+        },
+      },
+      {
+        title: {
+          es: "Señal para recruiter",
+          en: "Recruiter signal",
+        },
+        body: {
+          es: "No es solo desarrollo de features: demuestra análisis de causa raíz, coordinación con QA, cliente y negocio, y trabajo sobre zonas sensibles del sistema.",
+          en: "Not just feature delivery: it shows root cause analysis, coordination with QA, client, and business teams, and work on sensitive areas of the system.",
+        },
+      },
+    ],
     focusAreas: ["Backend Engineering", "Enterprise Platforms", "Business Integrations", "Production Support", "AI-Assisted Development"],
   },
   {
@@ -104,31 +140,45 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Backend Software Engineer | SAP Commerce Cloud",
     },
     subtitle: {
-      es: "Claro Peru · B2B SAP Commerce Cloud platform",
-      en: "Claro Peru · B2B SAP Commerce Cloud Platform",
+      es: "Claro Perú · plataforma B2B SAP Commerce Cloud",
+      en: "Claro Perú · SAP Commerce Cloud B2B platform",
     },
     description: {
-      es: "Participé en la construcción desde cero de una plataforma SAP Commerce Cloud B2B para Claro Perú, desarrollando funcionalidades relacionadas con checkout, pricing, gestión de stock, APIs REST e integraciones empresariales.",
-      en: "I participated in building a SAP Commerce Cloud B2B platform from scratch for Claro Peru, developing features around checkout, pricing, stock management, REST APIs and enterprise integrations.",
+      es: "Participé en la construcción desde cero de una plataforma SAP Commerce Cloud B2B para Claro Perú, desarrollando backend sobre checkout, pricing, stock, APIs REST e integraciones.",
+      en: "I participated in building a SAP Commerce Cloud B2B platform from scratch for Claro Perú, developing backend work around checkout, pricing, stock, REST APIs, and integrations.",
     },
     cardImpact: {
-      es: "Consolidación de criterio backend en flujos críticos de eCommerce enterprise y experiencia extendiendo SAP Commerce Cloud de forma mantenible.",
-      en: "Strengthened backend expertise in enterprise eCommerce systems and SAP Commerce Cloud customization.",
+      es: "Consolidación de criterio backend sobre flujos de commerce sensibles para negocio y sobre cómo extender SAP Commerce Cloud con cuidado.",
+      en: "Strengthened backend judgment around business-sensitive commerce flows and around how to extend SAP Commerce Cloud carefully.",
     },
+    cardHighlights: [
+      {
+        es: "Proyecto B2B greenfield con checkout, pricing, stock, APIs REST e integraciones como zonas core.",
+        en: "Greenfield B2B project with checkout, pricing, stock, REST APIs, and integrations as core areas.",
+      },
+      {
+        es: "Trabajo sobre Java, Spring, SAP Commerce Cloud, FlexibleSearch, Oracle e Integration Objects.",
+        en: "Work across Java, Spring, SAP Commerce Cloud, FlexibleSearch, Oracle, and Integration Objects.",
+      },
+      {
+        es: "Etapa útil para reforzar criterio sobre estándar, customización y flujos sensibles de commerce.",
+        en: "Useful stage to strengthen judgment around platform standard behavior, customization, and sensitive commerce flows.",
+      },
+    ],
     buttonLabel: {
-      es: "Más información",
-      en: "Learn more",
+      es: "Ver responsabilidades",
+      en: "View responsibilities",
     },
     modalSubtitle: {
       es: "Minsait · Enero 2024 - Junio 2024 · Claro Perú",
-      en: "Minsait · January 2024 - June 2024 · Claro Peru",
+      en: "Minsait · January 2024 - June 2024 · Claro Perú",
     },
     modalSummary: {
       es: "Participé en la construcción desde cero de una plataforma SAP Commerce Cloud B2B para Claro Perú, desarrollando funcionalidades relacionadas con checkout, pricing, gestión de stock, APIs REST e integraciones empresariales.",
-      en: "I participated in building a SAP Commerce Cloud B2B platform from scratch for Claro Peru, developing features around checkout, pricing, stock management, REST APIs and enterprise integrations.",
+      en: "I participated in building a SAP Commerce Cloud B2B platform from scratch for Claro Perú, developing features around checkout, pricing, stock management, REST APIs and enterprise integrations.",
     },
     context: {
-      es: "Proyecto B2B enterprise sobre SAP Commerce Cloud, con flujos core de eCommerce sensibles para negocio.",
+      es: "Proyecto B2B sobre SAP Commerce Cloud, con flujos core de e-commerce sensibles para negocio.",
       en: "Enterprise B2B eCommerce platform built on SAP Commerce Cloud with business-critical commerce workflows.",
     },
     responsibilities: [
@@ -138,11 +188,11 @@ export const experienceEntries: ExperienceEntry[] = [
       },
       {
         es: "Implementación de funcionalidades relacionadas con checkout, pricing, stock e integraciones.",
-        en: "Implementation of checkout, pricing, stock management and integration features.",
+        en: "Implementation of checkout, pricing, stock management, and integration features.",
       },
       {
         es: "Diseño e implementación de APIs REST utilizando Java y Spring.",
-        en: "Design and implementation of REST APIs.",
+        en: "Design and implementation of REST APIs with Java and Spring.",
       },
       {
         es: "Integración con sistemas externos y bases de datos Oracle.",
@@ -153,15 +203,37 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Participation in code reviews and continuous product improvement.",
       },
       {
-        es: "Adaptación y extensión del estándar de SAP Commerce Cloud manteniendo estabilidad y mantenibilidad.",
-        en: "Extension and customization of SAP Commerce Cloud while maintaining platform stability and maintainability.",
+        es: "Adaptación y extensión del estándar de SAP Commerce Cloud manteniendo estabilidad funcional.",
+        en: "Extension and customization of SAP Commerce Cloud while preserving stable platform behavior.",
       },
     ],
     stack: ["Java", "Spring", "SAP Commerce Cloud", "REST APIs", "Oracle", "Integration Objects", "FlexibleSearch", "B2B eCommerce"],
     modalImpact: {
-      es: "Participación en un proyecto greenfield B2B para una gran compañía de telecomunicaciones, desarrollando funcionalidades core de eCommerce e integraciones críticas para negocio.",
-      en: "Participation in a B2B greenfield project for a major telecommunications company, developing core eCommerce features and business-critical integrations.",
+      es: "Participación en un proyecto B2B greenfield desarrollando flujos core de commerce e integraciones relevantes para negocio.",
+      en: "Participation in a B2B greenfield project developing core commerce flows and integrations relevant to the business.",
     },
+    modalHighlights: [
+      {
+        title: {
+          es: "Dónde aporta",
+          en: "Where it adds value",
+        },
+        body: {
+          es: "Etapa de construcción B2B donde el foco estuvo en checkout, pricing, stock, APIs REST, Integration Objects y extensión del estándar.",
+          en: "B2B build stage focused on checkout, pricing, stock, REST APIs, Integration Objects, and extending the standard.",
+        },
+      },
+      {
+        title: {
+          es: "Señal para recruiter",
+          en: "Recruiter signal",
+        },
+        body: {
+          es: "Muestra capacidad para trabajar en flujos core de commerce sin tratar SAP Commerce Cloud como una caja negra.",
+          en: "Shows the ability to work on core commerce flows without treating SAP Commerce Cloud as a black box.",
+        },
+      },
+    ],
   },
   {
     id: "stratesys-junior-sap-commerce-cloud",
@@ -175,35 +247,49 @@ export const experienceEntries: ExperienceEntry[] = [
     },
     company: "Stratesys",
     title: {
-      es: "Junior Software Engineer | Enterprise Platforms",
+      es: "Junior Software Engineer | Plataformas de negocio",
       en: "Junior Software Engineer | Enterprise Platforms",
     },
     subtitle: {
-      es: "Enterprise platforms · SAP Commerce Cloud",
+      es: "Plataformas de negocio · SAP Commerce Cloud",
       en: "Enterprise Platforms · SAP Commerce Cloud",
     },
     description: {
-      es: "Desarrollo backend sobre SAP Commerce Cloud, participación en evolutivos e incidencias de plataformas enterprise e implementación de funcionalidades utilizando Java y Spring.",
-      en: "Backend development on SAP Commerce Cloud, participation in platform enhancements, issue resolution and feature implementation using Java and Spring.",
+      es: "Desarrollo backend sobre SAP Commerce Cloud, participación en evolutivos e incidencias e implementación de funcionalidades con Java y Spring.",
+      en: "Backend development on SAP Commerce Cloud, participation in product evolution and incidents, and feature implementation with Java and Spring.",
     },
     cardImpact: {
-      es: "Base profesional en backend Java, plataformas enterprise, colaboración con equipos funcionales y desarrollo sobre SAP Commerce Cloud.",
-      en: "Built a strong foundation in backend engineering, enterprise platforms and SAP Commerce Cloud development.",
+      es: "Base profesional en backend Java, colaboración con equipos funcionales y trabajo sobre una plataforma SAP Commerce Cloud real.",
+      en: "Built a strong professional foundation in Java backend, collaboration with functional teams, and work on a real SAP Commerce Cloud platform.",
     },
+    cardHighlights: [
+      {
+        es: "Consolidación como backend en SAP Commerce Cloud con Java, Spring, Backoffice y FlexibleSearch.",
+        en: "Consolidation as a backend engineer in SAP Commerce Cloud with Java, Spring, Backoffice, and FlexibleSearch.",
+      },
+      {
+        es: "Participación en evolutivos, incidencias y mantenimiento sobre una plataforma ya operativa.",
+        en: "Participation in product evolution, incidents, and maintenance on an already operating platform.",
+      },
+      {
+        es: "Colaboración constante con perfiles técnicos y funcionales dentro de un entorno ágil.",
+        en: "Constant collaboration with technical and functional profiles inside an agile environment.",
+      },
+    ],
     buttonLabel: {
-      es: "Más información",
-      en: "Learn more",
+      es: "Ver responsabilidades",
+      en: "View responsibilities",
     },
     modalSubtitle: {
       es: "Stratesys · Marzo 2023 - Diciembre 2023 · Enterprise Platforms",
       en: "Stratesys · March 2023 - December 2023 · Enterprise Platforms",
     },
     modalSummary: {
-      es: "Etapa de consolidación como desarrollador backend en entornos SAP Commerce Cloud, participando en evolutivos, incidencias y desarrollo de funcionalidades sobre plataformas enterprise.",
-      en: "Consolidation stage as a backend developer working on SAP Commerce Cloud enterprise environments, platform enhancements, issue resolution and backend feature development.",
+      es: "Etapa de consolidación como desarrollador backend en entornos SAP Commerce Cloud, participando en evolutivos, incidencias y desarrollo de funcionalidades.",
+      en: "Consolidation stage as a backend developer in SAP Commerce Cloud environments, contributing to product evolution, incidents, and backend feature development.",
     },
     context: {
-      es: "Plataformas enterprise basadas en SAP Commerce Cloud, con colaboración entre equipos técnicos, funcionales y de negocio.",
+      es: "Plataformas de negocio basadas en SAP Commerce Cloud, con colaboración entre equipos técnicos, funcionales y de negocio.",
       en: "Enterprise platforms based on SAP Commerce Cloud, with close collaboration between technical, functional and business teams.",
     },
     responsibilities: [
@@ -212,8 +298,8 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Backend development on SAP Commerce Cloud.",
       },
       {
-        es: "Participación en evolutivos e incidencias de plataformas enterprise.",
-        en: "Participation in platform enhancements and issue resolution.",
+        es: "Participación en evolutivos e incidencias sobre la plataforma.",
+        en: "Participation in product evolution and issue resolution.",
       },
       {
         es: "Implementación de funcionalidades utilizando Java y Spring.",
@@ -230,9 +316,31 @@ export const experienceEntries: ExperienceEntry[] = [
     ],
     stack: ["Java", "Spring", "SAP Commerce Cloud", "Hybris", "Backoffice", "FlexibleSearch", "Git", "Maven", "Agile"],
     modalImpact: {
-      es: "Base sólida en desarrollo backend Java sobre plataformas enterprise, participando en evolutivos, incidencias y colaboración con equipos técnicos y funcionales.",
-      en: "Solid foundation in Java backend development on enterprise platforms, participating in enhancements, issue resolution and collaboration with technical and functional teams.",
+      es: "Base sólida en desarrollo backend Java, participando en evolutivos, incidencias y colaboración con equipos técnicos y funcionales.",
+      en: "Solid foundation in Java backend development, participating in product evolution, issue resolution, and collaboration with technical and functional teams.",
     },
+    modalHighlights: [
+      {
+        title: {
+          es: "Dónde aporta",
+          en: "Where it adds value",
+        },
+        body: {
+          es: "Etapa de consolidación: Java, Spring, SAP Commerce Cloud, Backoffice, FlexibleSearch y colaboración con equipos funcionales.",
+          en: "Consolidation stage: Java, Spring, SAP Commerce Cloud, Backoffice, FlexibleSearch, and collaboration with functional teams.",
+        },
+      },
+      {
+        title: {
+          es: "Señal para recruiter",
+          en: "Recruiter signal",
+        },
+        body: {
+          es: "Marca el paso de tareas iniciales a una base backend sólida sobre una plataforma real.",
+          en: "Marks the transition from early tasks into a solid backend foundation on a real platform.",
+        },
+      },
+    ],
   },
   {
     id: "accenture-application-development-associate",
@@ -254,27 +362,41 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Airbus · Aerospace & Defense · SAP & SAP Commerce",
     },
     description: {
-      es: "Participación en proyectos tecnológicos para Airbus dentro del sector Aerospace & Defense, combinando desarrollos ABAP, mantenimiento de soluciones SAP y participación en un proyecto SAP Commerce B2B como desarrollador backend.",
-      en: "Participated in technology projects for Airbus within the Aerospace & Defense sector, combining ABAP development, SAP maintenance and SAP Commerce B2B backend development.",
+      es: "Participación en proyectos para Airbus combinando desarrollos ABAP, mantenimiento SAP y una primera experiencia en backend SAP Commerce B2B.",
+      en: "Participation in Airbus projects combining ABAP development, SAP maintenance, and an early SAP Commerce B2B backend experience.",
     },
     cardImpact: {
-      es: "Base técnica en entornos enterprise, desarrollo SAP, ABAP y primera experiencia en plataformas SAP Commerce Cloud B2B.",
-      en: "Built a strong technical foundation in enterprise software, SAP development, ABAP and SAP Commerce Cloud B2B platforms.",
+      es: "Base técnica en software de negocio, desarrollo SAP/ABAP y primer contacto real con backend SAP Commerce.",
+      en: "Built a strong technical foundation in business software, SAP/ABAP development, and early SAP Commerce backend work.",
     },
+    cardHighlights: [
+      {
+        es: "Primera etapa profesional en SAP/ABAP, mantenimiento, soporte técnico e incidencias.",
+        en: "First professional stage in SAP/ABAP, maintenance, technical support, and incidents.",
+      },
+      {
+        es: "Contacto inicial con SAP Commerce B2B dentro de un entorno complejo y estructurado.",
+        en: "Initial contact with SAP Commerce B2B inside a complex and structured environment.",
+      },
+      {
+        es: "Base útil para entender procesos de negocio, entornos enterprise y colaboración multidisciplinar.",
+        en: "Useful foundation for understanding business processes, enterprise environments, and multidisciplinary collaboration.",
+      },
+    ],
     buttonLabel: {
-      es: "Más información",
-      en: "Learn more",
+      es: "Ver responsabilidades",
+      en: "View responsibilities",
     },
     modalSubtitle: {
       es: "Accenture · Julio 2022 - Marzo 2023 · Airbus (Aerospace & Defense)",
       en: "Accenture · July 2022 - March 2023 · Airbus (Aerospace & Defense)",
     },
     modalSummary: {
-      es: "Participé en proyectos tecnológicos para Airbus dentro del sector Aerospace & Defense, trabajando en desarrollos SAP/ABAP, mantenimiento de soluciones empresariales y participación en un proyecto SAP Commerce B2B como desarrollador backend.",
-      en: "I participated in technology projects for Airbus within the Aerospace & Defense sector, working on SAP/ABAP developments, enterprise solutions maintenance and a SAP Commerce B2B project as a backend developer.",
+      es: "Participé en proyectos para Airbus trabajando en desarrollos SAP/ABAP, mantenimiento de soluciones y una primera etapa como desarrollador backend en SAP Commerce B2B.",
+      en: "I participated in Airbus projects working on SAP/ABAP development, solution maintenance, and an early stage as a backend developer in SAP Commerce B2B.",
     },
     context: {
-      es: "Entorno enterprise para cliente del sector Aerospace & Defense, con proyectos SAP y SAP Commerce Cloud orientados a procesos de negocio y soluciones empresariales.",
+      es: "Entorno de software de negocio para un cliente del sector Aerospace & Defense, con proyectos SAP y SAP Commerce Cloud orientados a procesos críticos.",
       en: "Enterprise environment for an Aerospace & Defense client, with SAP and SAP Commerce Cloud projects focused on business processes and enterprise software solutions.",
     },
     responsibilities: [
@@ -295,14 +417,36 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Technical support, troubleshooting and new feature development.",
       },
       {
-        es: "Colaboración con equipos multidisciplinares en entornos enterprise.",
+        es: "Colaboración con equipos multidisciplinares en entornos complejos y estructurados.",
         en: "Collaboration with multidisciplinary enterprise teams.",
       },
     ],
     stack: ["ABAP", "SAP", "SAP Commerce Cloud", "Java", "Hybris", "ALV", "Dynpros", "Enterprise Software"],
     modalImpact: {
-      es: "Base técnica en sistemas enterprise, desarrollo SAP/ABAP y participación en proyectos SAP Commerce B2B para un cliente internacional del sector Aerospace & Defense.",
+      es: "Base técnica en sistemas de negocio, desarrollo SAP/ABAP y participación en proyectos SAP Commerce B2B para un cliente internacional del sector Aerospace & Defense.",
       en: "Technical foundation in enterprise systems, SAP/ABAP development and participation in SAP Commerce B2B projects for an international Aerospace & Defense client.",
     },
+    modalHighlights: [
+      {
+        title: {
+          es: "Dónde aporta",
+          en: "Where it adds value",
+        },
+        body: {
+          es: "Base técnica en SAP/ABAP, mantenimiento, incidencias y primera exposición a SAP Commerce B2B.",
+          en: "Technical foundation in SAP/ABAP, maintenance, incidents, and first exposure to SAP Commerce B2B.",
+        },
+      },
+      {
+        title: {
+          es: "Señal para recruiter",
+          en: "Recruiter signal",
+        },
+        body: {
+          es: "Explica el origen funcional y técnico que después facilita trabajar con plataformas commerce e integraciones.",
+          en: "Explains the functional and technical foundation that later helped with commerce platforms and integrations.",
+        },
+      },
+    ],
   },
 ];

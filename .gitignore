@@ -9,6 +9,7 @@ dist/
 output/
 tsconfig.tsbuildinfo
 tsconfig.typecheck.tsbuildinfo
+*.tsbuildinfo
 
 # production / deployment
 .vercel/
@@ -47,6 +48,7 @@ tmp/
 
 # OS / editor
 .DS_Store
+__MACOSX/
 Thumbs.db
 .idea/
 .vscode/

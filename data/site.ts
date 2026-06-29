@@ -8,6 +8,12 @@ export const siteSettings = {
   email: "javier.sanchez.lancha99@gmail.com",
   linkedin: "https://www.linkedin.com/in/javiersanchezlancha",
   github: "https://github.com/javisl99",
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    process.env.SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : undefined) ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined) ??
+    "https://javisl99.github.io/portfolio",
   location: {
     es: "Sevilla, España",
     en: "Seville, Spain",
@@ -80,6 +86,10 @@ type SiteLocaleCopy = {
       scanTitle: string;
       scanBody: string;
       scanBullets: string[];
+      valueEyebrow: string;
+      valueTitle: string;
+      valueDescription: string;
+      valueItems: CopyCard[];
     };
     projects: {
       eyebrow: string;
@@ -97,6 +107,7 @@ type SiteLocaleCopy = {
       summaryBody: string;
       principlesTitle: string;
       principlesIntro: string;
+      principlesItems: CopyCard[];
     };
     contact: {
       eyebrow: string;
@@ -134,31 +145,28 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       { href: pageSlugs.contact, label: "Contacto" },
     ],
     metadata: {
-      defaultTitle: "Backend Software Engineer | Java, Spring & AI-Assisted Engineering",
+      defaultTitle: "Backend Software Engineer | Java, Spring, REST APIs & SAP Commerce Cloud",
       defaultDescription:
-        "Backend Software Engineer desarrollando plataformas enterprise con Java, Spring, SAP Commerce Cloud y herramientas de IA generativa para entregar soluciones más limpias, rápidas y fiables.",
+        "Backend Software Engineer con experiencia en Java, Spring, SAP Commerce Cloud, APIs REST, SQL e incidencias de producción sobre plataformas de negocio.",
       keywords: [
         "Backend Software Engineer",
         "Java Backend Developer",
         "Spring Developer",
         "SAP Commerce Cloud",
-        "Enterprise Platforms",
-        "AI-Assisted Engineering",
-        "AI-Assisted Development",
-        "Cloud Solutions",
-        "Scalable Systems",
-        "Software Engineering",
-        "E-commerce Platforms",
+        "Java",
+        "Spring",
         "REST APIs",
         "SQL",
-        "Docker",
-        "Azure",
+        "Integraciones",
+        "Backend de producción",
+        "E-commerce B2B",
+        "E-commerce B2C",
       ],
       pages: {
         experience: {
           title: "Experiencia | Backend Software Engineer | Javier Sanchez Lancha",
           description:
-            "Experiencia profesional en backend engineering, Java, Spring, SAP Commerce Cloud y plataformas enterprise con foco en impacto, estabilidad y colaboración con negocio.",
+            "Experiencia profesional en Java backend, Spring, SAP Commerce Cloud, integraciones, soporte productivo y colaboración con negocio, QA y cliente.",
           keywords: [
             "Backend Software Engineer experience",
             "Java Spring experience",
@@ -167,9 +175,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         projects: {
-          title: "Proyectos | Enterprise Platforms & Java Backend",
+          title: "Proyectos | Java Backend y plataformas de negocio",
           description:
-            "Proyectos y casos reales explicados desde el problema, la solución, el stack técnico y el impacto sobre plataformas enterprise y e-commerce.",
+            "Casos reales de backend Java y SAP Commerce Cloud explicados con contexto, problema, solución, stack técnico e impacto cualitativo.",
           keywords: [
             "Java backend projects",
             "Enterprise platforms portfolio",
@@ -178,20 +186,20 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         about: {
-          title: "Sobre mí | Backend Engineering & AI-Assisted Development",
+          title: "Sobre mí | Java Backend, Spring y SAP Commerce Cloud",
           description:
-            "Perfil profesional orientado a backend engineering, plataformas enterprise, cloud solutions y AI-Assisted Development aplicado con criterio técnico.",
+            "Perfil backend centrado en Java, Spring, APIs REST, SQL, plataformas de negocio y colaboración técnica con producto, QA y cliente.",
           keywords: [
             "Backend engineering profile",
-            "AI-Assisted Development engineer",
+            "Java backend profile",
             "Java Spring software engineering",
-            "Cloud-oriented backend engineer",
+            "Backend engineer for business platforms",
           ],
         },
         contact: {
           title: "Contacto | Javier Sanchez Lancha",
           description:
-            "Contacto para oportunidades como Backend Software Engineer, Java Backend Developer, Spring Developer o roles en plataformas enterprise y cloud solutions.",
+            "Contacto para oportunidades como Backend Software Engineer o Java Backend Developer con foco en Spring, APIs, SQL e integraciones.",
           keywords: [
             "Backend Software Engineer contact",
             "Java Backend Developer contact",
@@ -202,7 +210,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         projectDetail: {
           title: "Detalle de proyecto | Javier Sanchez Lancha",
           description:
-            "Caso real explicado desde el problema, la solución técnica, el stack y el impacto profesional en plataformas enterprise y e-commerce.",
+            "Caso real explicado desde el contexto, el problema, la solución técnica, el stack y lo que demuestra sobre mi perfil backend.",
           keywords: [
             "Software engineering case study",
             "Enterprise platform project",
@@ -223,31 +231,34 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
     },
     home: {
       hero: {
-        eyebrow: "Java, Spring, Enterprise Platforms, AI-Assisted Engineering",
-        title: "Backend Software Engineer construyendo plataformas enterprise escalables",
+        eyebrow: "Backend Software Engineer · Java · Spring · REST APIs · SAP Commerce Cloud",
+        title: "Backend Software Engineer | Java, Spring y SAP Commerce Cloud",
         summary:
-          "Diseño, desarrollo y evoluciono sistemas backend para plataformas enterprise con Java y Spring, buscando soluciones mantenibles, claras y fiables en contextos reales.",
+          "Desarrollo backend con Java y Spring sobre plataformas en producción, con foco en SAP Commerce Cloud, integraciones, incidencias y evolución funcional.",
         proof:
-          "Experiencia profesional en plataformas críticas de negocio, incidencias reales de producción e integraciones complejas, colaborando con cliente, QA y negocio para convertir requisitos en soluciones técnicas sostenibles.",
+          "Trabajo con APIs REST, SQL, jobs, interceptors, validators y colaboración diaria con QA, negocio y cliente.",
         quickFacts: [
           {
             label: { es: "Foco", en: "Focus" },
-            value: { es: "Java Backend, Spring, AI-Assisted Engineering", en: "Java Backend, Spring, AI-Assisted Engineering" },
-          },
-          {
-            label: { es: "Entorno", en: "Environment" },
-            value: { es: "Plataformas enterprise y sistemas distribuidos", en: "Enterprise platforms and distributed systems" },
+            value: { es: "Java backend, Spring, APIs REST y SQL", en: "Java backend, Spring, REST APIs, and SQL" },
           },
           {
             label: { es: "Especialidad", en: "Specialty" },
             value: {
-              es: "SAP Commerce Cloud y e-commerce B2B/B2C, sin quedar limitado a consultoría SAP",
-              en: "SAP Commerce Cloud and B2B/B2C e-commerce, without being limited to SAP consulting",
+              es: "SAP Commerce Cloud sobre e-commerce B2B/B2C y plataformas de negocio",
+              en: "SAP Commerce Cloud across B2B/B2C commerce and business platforms",
             },
           },
           {
-            label: { es: "Diferencial", en: "Differentiator" },
-            value: { es: "IA aplicada a ingeniería backend con criterio técnico propio", en: "AI applied to backend engineering with independent technical judgment" },
+            label: { es: "Producción", en: "Production" },
+            value: {
+              es: "Integraciones, incidencias, soporte productivo y evolución funcional",
+              en: "Integrations, incidents, production support, and product evolution",
+            },
+          },
+          {
+            label: { es: "Ubicación", en: "Location" },
+            value: { es: siteSettings.location.es, en: siteSettings.location.en },
           },
         ],
         highlights: [
@@ -259,12 +270,11 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
             label: { es: "Java & Spring Backend", en: "Java & Spring Backend" },
             shortLabel: { es: "Java & Spring", en: "Java & Spring" },
           },
-          { label: { es: "Plataformas enterprise", en: "Enterprise platforms" } },
           {
             label: { es: "Producción e incidencias reales", en: "Real production support" },
             shortLabel: { es: "Producción real", en: "Production support" },
           },
-          { label: { es: "AI-Assisted Engineering", en: "AI-Assisted Engineering" } },
+          { label: { es: "SAP Commerce como especialización", en: "SAP Commerce specialization" } },
         ],
         supportLinks: [
           { href: "/experience", label: "Ver experiencia" },
@@ -274,92 +284,92 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
       strengths: {
         eyebrow: "Fortalezas clave",
-        title: "Perfil backend con experiencia real en sistemas sensibles para negocio",
+        title: "Señales rápidas de encaje backend",
         description:
-          "La propuesta de valor no se apoya en buzzwords. Se apoya en experiencia real entregando software en plataformas enterprise, resolviendo incidencias complejas y trabajando con impacto técnico y de negocio.",
+          "Una lectura corta para decidir si merece la pena entrar en experiencia y proyectos.",
         items: [
           {
-            title: { es: "Backend engineering con contexto real", en: "Backend engineering with real context" },
+            title: { es: "Java, Spring y SQL", en: "Java, Spring, and SQL" },
             body: {
-              es: "Experiencia desarrollando lógica de negocio, servicios, jobs, modelos de datos e integraciones en plataformas que ya están en marcha.",
-              en: "Experience building business logic, services, jobs, data models, and integrations in live platforms.",
+              es: "Trabajo backend sobre servicios, APIs REST, modelos de datos, consultas y lógica de negocio.",
+              en: "Backend work across services, REST APIs, data models, queries, and business logic.",
             },
           },
           {
-            title: { es: "Resolución de problemas complejos", en: "Complex problem solving" },
+            title: { es: "SAP Commerce Cloud", en: "SAP Commerce Cloud" },
             body: {
-              es: "Análisis de incidencias productivas, debugging técnico y mejora de estabilidad sobre sistemas críticos.",
-              en: "Production issue analysis, technical debugging, and stability improvements on critical systems.",
+              es: "Especialización práctica en commerce, Backoffice, FlexibleSearch, jobs, interceptors y validators.",
+              en: "Practical specialization across commerce, Backoffice, FlexibleSearch, jobs, interceptors, and validators.",
             },
           },
           {
-            title: { es: "Colaboración con cliente y negocio", en: "Client and business collaboration" },
+            title: { es: "Producción e incidencias", en: "Production and incidents" },
             body: {
-              es: "Traducción de requisitos funcionales en soluciones escalables junto a QA, negocio y equipos funcionales.",
-              en: "Translating functional requirements into scalable solutions together with QA, business, and functional teams.",
+              es: "Acostumbrado a analizar causas, validar hipótesis y coordinar cambios con QA, negocio y cliente.",
+              en: "Used to analyzing causes, validating hypotheses, and coordinating changes with QA, business teams, and clients.",
             },
           },
           {
-            title: { es: "Entrega acelerada con IA", en: "Faster delivery with AI" },
+            title: { es: "Integraciones", en: "Integrations" },
             body: {
-              es: "Uso práctico de herramientas generativas para acelerar análisis técnico, automatización, documentación y tareas repetitivas sin perder control sobre la implementación.",
-              en: "Practical use of generative tools to accelerate technical analysis, automation, documentation, and repetitive tasks without losing implementation control.",
+              es: "Experiencia conectando sistemas, flujos de e-commerce y necesidades funcionales sin perder estabilidad.",
+              en: "Experience connecting systems, commerce flows, and functional needs without losing stability.",
             },
           },
         ],
       },
       career: {
         eyebrow: "Experiencia",
-        title: "Evolución profesional orientada a impacto",
+        title: "Trayectoria backend sobre sistemas reales",
         description:
-          "De la base backend en proyectos SAP y B2B hasta ownership técnico en plataformas enterprise vivas, con una identidad cada vez más clara como Backend Software Engineer.",
+          "De una base en proyectos SAP y B2B a un perfil backend más sólido en Java, Spring, integraciones y soporte productivo.",
       },
       value: {
         eyebrow: "Valor profesional",
-        title: "Valor Profesional",
-        description: "La combinación de backend, contexto de negocio y criterio de ejecución que aporto en entornos enterprise.",
+        title: "Lo que mejor representa mi valor",
+        description: "Una síntesis breve del tipo de trabajo donde más aporto como backend.",
         items: [
           {
-            title: { es: "Backend Engineering", en: "Backend Engineering" },
+            title: { es: "Producción antes que teoría", en: "Production over theory" },
             body: {
-              es: "Diseño y desarrollo soluciones backend mantenibles para plataformas enterprise con foco en claridad, estabilidad y evolución sostenible.",
-              en: "Design and development of scalable and maintainable backend solutions for enterprise platforms.",
+              es: "Me interesa que el backend funcione bien cuando hay datos, integraciones, incidencias y usuarios dependiendo del sistema.",
+              en: "I care about backend work that holds up when there is data, integrations, incidents, and users depending on the system.",
             },
           },
           {
-            title: { es: "Enterprise Systems", en: "Enterprise Systems" },
+            title: { es: "Colaboración operativa", en: "Operational collaboration" },
             body: {
-              es: "Experiencia trabajando sobre sistemas críticos con procesos complejos, integraciones y operaciones de negocio reales.",
-              en: "Experience working on critical systems with complex business processes and integrations.",
+              es: "Trabajo bien cerca de QA, negocio y cliente para convertir dudas funcionales en decisiones técnicas accionables.",
+              en: "I work well with QA, business teams, and clients to turn functional uncertainty into actionable technical decisions.",
             },
           },
           {
-            title: { es: "AI-Assisted Engineering", en: "AI-Assisted Engineering" },
+            title: { es: "Ejecución con criterio", en: "Practical execution" },
             body: {
-              es: "Integro IA generativa para acelerar análisis, ejecución y automatización sin delegar el criterio técnico ni la responsabilidad final.",
-              en: "Leveraging generative AI to accelerate analysis, implementation, and automation without outsourcing technical judgment.",
+              es: "Priorizo entender el estándar, aislar el problema y entregar cambios que el equipo pueda mantener.",
+              en: "I focus on understanding the standard, isolating the problem, and delivering changes the team can maintain.",
             },
           },
           {
-            title: { es: "Business Understanding", en: "Business Understanding" },
+            title: { es: "IA como apoyo puntual", en: "AI as selective support" },
             body: {
-              es: "Capacidad para traducir requisitos funcionales complejos en soluciones técnicas robustas y mantenibles.",
-              en: "Ability to translate complex business requirements into robust and maintainable technical solutions.",
+              es: "La uso para acelerar lectura, documentación y primeras hipótesis, manteniendo siempre la revisión técnica final.",
+              en: "I use it to speed up reading, documentation, and early hypotheses while keeping final technical review with me.",
             },
           },
         ],
       },
       projects: {
         eyebrow: "Casos destacados",
-        title: "Casos donde problema, solución e impacto quedan claros",
+        title: "Casos concretos de backend",
         description:
-          "Una selección breve de casos concretos explicados desde el reto, la respuesta técnica y la señal profesional que dejan.",
+          "Una selección corta sobre producción, checkout, pricing, stock, integraciones y soporte técnico.",
       },
       ai: {
-        eyebrow: "AI-Assisted Engineering",
-        title: "IA como acelerador de ingeniería, no como sustituto del criterio técnico",
+        eyebrow: "Trabajo asistido con IA",
+        title: "IA como apoyo de productividad, no como protagonista",
         description:
-          "Integro IA generativa en mi flujo de ingeniería para acelerar análisis, implementación y automatización. Me ayuda a avanzar más rápido, pero el criterio técnico final, la decisión de arquitectura y la responsabilidad sobre el código siguen siendo míos.",
+          "La uso para acelerar lectura de contexto, documentación técnica, automatización puntual y primeras hipótesis. La decisión técnica final y la responsabilidad sobre el código siguen siendo mías.",
         items: [
           {
             title: { es: "Análisis técnico más rápido", en: "Faster technical analysis" },
@@ -385,113 +395,171 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           {
             title: { es: "Soporte a calidad de código", en: "Code quality support" },
             body: {
-              es: "Aporto más velocidad sin renunciar a mantenibilidad, revisión crítica ni a que la decisión técnica final y la responsabilidad del resultado sean mías.",
+              es: "Aporto más velocidad sin renunciar a la revisión crítica ni a que la decisión técnica final y la responsabilidad del resultado sean mías.",
               en: "I move faster without giving up maintainability, critical review, or ownership of final technical decisions.",
             },
           },
         ],
       },
       skills: {
-        eyebrow: "Skills",
-        title: "Stack y capacidades organizadas por el tipo de valor que aporto",
+        eyebrow: "Áreas de trabajo",
+        title: "Tecnologías y áreas en las que más aporto",
         description:
-          "Las tecnologías importan, pero también el contexto en el que las aplico: backend, plataformas enterprise, cloud y colaboración efectiva.",
+          "El stack importa, pero también el contexto donde lo aplico: backend Java, integraciones, plataformas de negocio, SQL y colaboración efectiva.",
         categories: [
           {
             title: { es: "Backend", en: "Backend" },
             items: ["Java", "Spring", "Spring Boot", "REST APIs", "SQL", "Software Engineering"],
           },
           {
-            title: { es: "Enterprise Platforms", en: "Enterprise Platforms" },
+            title: { es: "Plataformas de negocio", en: "Enterprise Platforms" },
             items: ["SAP Commerce Cloud", "Hybris", "Backoffice", "Impex", "FlexibleSearch", "B2B/B2C E-commerce"],
           },
           {
-            title: { es: "Cloud & DevOps", en: "Cloud & DevOps" },
-            items: ["Docker", "Azure", "Git", "CI/CD", "Cloud Solutions"],
+            title: { es: "Cloud y entrega", en: "Cloud & DevOps" },
+            items: ["Docker", "Azure", "Git", "CI/CD"],
           },
           {
-            title: { es: "AI-Assisted Development", en: "AI-Assisted Development" },
-            items: ["Codex", "ChatGPT", "Generative AI", "AI-Assisted Development", "Technical Analysis", "Automation"],
+            title: { es: "IA aplicada al trabajo técnico", en: "AI-Assisted Development" },
+            items: ["Codex", "ChatGPT", "Generative AI", "Technical Analysis", "Automation"],
           },
           {
-            title: { es: "Soft Skills", en: "Soft Skills" },
-            items: ["Problem Solving", "Client Collaboration", "Requirements Analysis", "Teamwork", "Ownership", "Business Impact"],
+            title: { es: "Colaboración y análisis", en: "Soft Skills" },
+            items: ["Problem Solving", "Client Collaboration", "Requirements Analysis", "Teamwork", "Ownership"],
           },
         ],
       },
       contact: {
         eyebrow: "Contacto",
-        title: "Contacto",
-        description:
-          "Si ves encaje con tu equipo o proyecto, estaré encantado de conversar sobre backend, producto y plataformas enterprise.",
+        title: "Hablemos",
+        description: "Email, LinkedIn y CV para valorar rápido si mi perfil encaja con tu equipo.",
         fitTitle: "Encaje especialmente bien en equipos que buscan",
         fitBullets: [
-          "Backend/Java Developer con experiencia en plataformas enterprise y microservicios",
-          "Perfil que utiliza IA generativa para acelerar ejecución y análisis sin sacrificar calidad",
-          "Capacidad de diseño y resolución de problemas complejos colaborando con producto, QA, negocio y cliente",
-          "Experiencia en SAP Commerce Cloud, pero sin quedar limitado a consultoría SAP",
+          "Backend/Java Developer con experiencia en APIs, integraciones y lógica de producto",
+          "Perfil con experiencia en producción, incidencias y evolución backend de producto",
+          "Capacidad para resolver problemas complejos colaborando con producto, QA, negocio y cliente",
         ],
       },
     },
     pages: {
       experience: {
         eyebrow: "Experiencia",
-        title: "Experiencia construyendo y sosteniendo plataformas enterprise",
+        title: "Trayectoria backend: de SAP a Java, Spring y producción",
         intro:
-          "Mi trayectoria combina base backend, profundidad en Java y Spring, experiencia fuerte en SAP Commerce Cloud y trabajo real sobre plataformas enterprise vivas.",
+          "Esta página resume cómo he pasado de una base SAP/ABAP y B2B a trabajar en backend Java/Spring sobre SAP Commerce Cloud, APIs, integraciones, incidencias y soporte productivo.",
         scanTitle: "Lectura rápida para recruiters",
-        scanBody: "Backend Software Engineer con recorrido en e-commerce enterprise, incidencias productivas, integraciones y colaboración directa con cliente y negocio.",
+        scanBody: "La progresión combina base funcional SAP, desarrollo backend commerce y trabajo actual sobre plataformas activas.",
         scanBullets: [
-          "Java, Spring, SQL y servicios backend sobre sistemas en producción",
-          "SAP Commerce Cloud como fortaleza técnica, no como única identidad profesional",
-          "Experiencia resolviendo problemas complejos en entornos B2B/B2C y enterprise",
+          "Base inicial en SAP/ABAP y proyectos B2B",
+          "Backend con Java, Spring, SAP Commerce Cloud, APIs REST y SQL",
+          "Evolución hacia producción, integraciones, incidencias y colaboración con QA/cliente/negocio",
+        ],
+        valueEyebrow: "Progresión",
+        valueTitle: "Cómo ha evolucionado mi perfil backend",
+        valueDescription: "No es una lista de tecnologías: es el camino desde base SAP hasta trabajo backend con responsabilidad operativa.",
+        valueItems: [
+          {
+            title: { es: "Primera base técnica", en: "Technical foundation" },
+            body: {
+              es: "Comencé con SAP, ABAP y proyectos B2B, aprendiendo a moverme en entornos con procesos funcionales y equipos grandes.",
+              en: "I started with SAP, ABAP, and B2B projects, learning how to work in functional environments with larger delivery teams.",
+            },
+          },
+          {
+            title: { es: "Backend commerce", en: "Commerce backend" },
+            body: {
+              es: "Después reforcé Java, Spring y SAP Commerce Cloud sobre checkout, pricing, stock, Backoffice, Integration Objects y APIs REST.",
+              en: "I then strengthened Java, Spring, and SAP Commerce Cloud across checkout, pricing, stock, Backoffice, Integration Objects, and REST APIs.",
+            },
+          },
+          {
+            title: { es: "Producción e incidencias", en: "Production and incidents" },
+            body: {
+              es: "Mi etapa actual añade soporte productivo, análisis de causa raíz, jobs, interceptors, validators, SQL y coordinación con QA, negocio y cliente.",
+              en: "My current stage adds production support, root cause analysis, jobs, interceptors, validators, SQL, and coordination with QA, business teams, and clients.",
+            },
+          },
+          {
+            title: { es: "Dirección actual", en: "Current direction" },
+            body: {
+              es: "Quiero seguir creciendo como Backend Software Engineer generalista, con SAP Commerce Cloud como especialización fuerte y no como límite.",
+              en: "I want to keep growing as a broader Backend Software Engineer, with SAP Commerce Cloud as a strong specialization rather than a limitation.",
+            },
+          },
         ],
       },
       projects: {
         eyebrow: "Proyectos",
-        title: "Proyectos destacados y casos reales",
+        title: "Casos donde se ve el trabajo técnico",
         intro:
-          "Cada proyecto se presenta desde el problema, la solución técnica, el stack utilizado y el impacto, para que se vea con claridad cómo trabajo y dónde aporto valor.",
-        scanTitle: "Cómo leer estos casos",
-        scanBody: "No son descripciones genéricas: cada caso explica el contexto, la solución y la señal profesional que deja para recruiting técnico.",
+          "Estos casos muestran zonas concretas donde he trabajado: producción, checkout, pricing, stock, integraciones, soporte e investigación de incidencias.",
+        scanTitle: "Qué mirar en cada caso",
+        scanBody: "La señal importante está en el problema, la contribución backend y el stack usado, no en un relato largo.",
         scanBullets: [
-          "Problemas reales de plataformas enterprise y e-commerce",
-          "Soluciones backend con Java, Spring y SAP Commerce Cloud",
-          "Impacto sobre estabilidad, entrega, mantenibilidad y colaboración",
+          "Qué parte del sistema estaba en juego",
+          "Qué hice con Java, Spring, SAP Commerce Cloud, SQL o APIs",
+          "Qué demuestra sobre análisis, soporte, integraciones o entrega",
         ],
       },
         about: {
           eyebrow: "Sobre mí",
-          title: "Ingeniería backend con experiencia enterprise y mentalidad de producto",
+          title: "Cómo trabajo cuando el backend tiene contexto",
           intro:
-            "Soy Backend Software Engineer con foco en Java, Spring y plataformas enterprise, acostumbrado a trabajar cerca del producto y del contexto real del negocio.",
-          summaryTitle: "Posicionamiento actual",
+            "Más que repetir stack, aquí explico mi forma de analizar, colaborar y tomar decisiones cuando hay requisitos funcionales, incidencias o zonas sensibles del producto.",
+          summaryTitle: "Forma de trabajo",
           summaryBody:
-            "Disfruto entender cómo funciona un sistema de verdad: sus integraciones, sus puntos frágiles, el impacto en negocio y lo que hace falta para mantenerlo sano con el tiempo. Mi trabajo diario se mueve entre backend, incidencias, conversación con equipos y decisiones técnicas que priorizan mantenibilidad.",
+            "Antes de implementar intento entender el flujo, los datos, el estándar de la plataforma y quién necesita la respuesta. Esa base me ayuda a proponer cambios más seguros y a comunicar mejor con QA, negocio y cliente.",
           principlesTitle: "Cómo trabajo",
           principlesIntro:
-            "Trabajo con calma en el análisis, claridad en la comunicación y una ejecución pragmática orientada a resolver bien antes que a complicar más el sistema.",
+            "Cuatro hábitos que se repiten en mi día a día cuando trabajo sobre backend, producción y equipos mixtos.",
+          principlesItems: [
+            {
+              title: { es: "Antes de tocar código", en: "Before touching code" },
+              body: {
+                es: "Reviso el flujo, los datos afectados, el comportamiento estándar y los riesgos de romper algo que ya funciona.",
+                en: "I review the flow, affected data, standard behavior, and the risk of breaking something that already works.",
+              },
+            },
+            {
+              title: { es: "Cuando hay una incidencia", en: "When there is an incident" },
+              body: {
+                es: "Ordeno síntomas, logs, consultas, hipótesis y validaciones para llegar a una causa probable sin saltar demasiado pronto a una solución.",
+                en: "I organize symptoms, logs, queries, hypotheses, and validations to reach a likely cause before jumping into a fix.",
+              },
+            },
+            {
+              title: { es: "Cuando negocio necesita una respuesta", en: "When business needs an answer" },
+              body: {
+                es: "Traduzco el problema técnico a impacto funcional y próximos pasos claros para que QA, cliente y negocio puedan decidir.",
+                en: "I translate the technical problem into functional impact and clear next steps so QA, client, and business stakeholders can decide.",
+              },
+            },
+            {
+              title: { es: "Cómo uso IA", en: "How I use AI" },
+              body: {
+                es: "La uso para acelerar lectura de contexto, documentación y alternativas, pero no para sustituir análisis, pruebas ni responsabilidad técnica.",
+                en: "I use it to speed up context reading, documentation, and alternatives, but not to replace analysis, testing, or technical ownership.",
+              },
+            },
+          ],
         },
         contact: {
           eyebrow: "Contacto",
           title: "Hablemos",
-          intro:
-            "Si buscas un perfil backend con experiencia en plataformas enterprise, Java, Spring, SAP Commerce Cloud y AI-Assisted Engineering, estaré encantado de conversar.",
-          availability:
-            "Estoy abierto a oportunidades donde pueda seguir creciendo como Backend Software Engineer en entornos orientados a producto, cloud y con retos técnicos reales.",
-          heroCardEyebrow: "Encaje",
-          heroCardTitle: "Dónde puedo aportar más valor desde el primer momento",
+          intro: "Contacto directo para oportunidades Backend Software Engineer o Java Backend Developer.",
+          availability: "Disponible para equipos que necesiten backend Java/Spring, SAP Commerce Cloud o experiencia en soporte productivo.",
+          heroCardEyebrow: "Disponibilidad",
+          heroCardTitle: "Disponible para valorar encaje",
           heroCardBullets: [
-            "Equipos backend sobre Java, Spring, microservicios y sistemas enterprise",
+            "Equipos backend sobre Java, Spring, APIs y lógica de producto",
             "Plataformas e-commerce B2B/B2C con complejidad real",
-            "Contextos donde calidad, ownership y colaboración importan",
+            "Contextos donde calidad, responsabilidad técnica y colaboración importan",
           ],
           fitTitle: "Oportunidades especialmente alineadas",
           fitBullets: [
-            "Backend/Java Developer con experiencia en plataformas enterprise y microservicios",
-            "Perfil que usa IA generativa para acelerar análisis y ejecución sin sacrificar calidad",
-            "Capacidad de diseño y resolución de problemas complejos junto a producto, QA, negocio y cliente",
-            "Experiencia en SAP Commerce Cloud sin quedar limitado a consultoría SAP",
+            "Backend/Java Developer con experiencia en lógica de producto, integraciones y APIs",
+            "Experiencia en producción, incidencias y evolución backend junto a QA, negocio y cliente",
+            "SAP Commerce Cloud como especialización fuerte, sin limitar mi perfil a consultoría SAP",
           ],
           channelsTitle: "Canales",
           channelsItems: [
@@ -501,15 +569,15 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
             { label: "Ubicación", value: siteSettings.location.es },
           ],
           channelsNote:
-            "Me interesa colaborar en equipos donde pueda aportar criterio backend, comprensión de negocio y capacidad para construir soluciones mantenibles en entornos reales.",
+            "Si el rol encaja, lo más rápido es escribirme por email o LinkedIn y revisar el CV.",
           finalNote:
-            "También puedo compartir más contexto sobre experiencia en SAP Commerce Cloud, backend enterprise o mi forma de trabajar si encaja con la posición.",
+            "Encaje principal: backend Java/Spring, SAP Commerce Cloud, APIs, SQL, integraciones y soporte productivo.",
         },
     },
     footer: {
       note: "",
       availability:
-        "Disponible para oportunidades donde la ingeniería backend, el contexto cloud y una entrega pragmática importen tanto como la tecnología.",
+        "Disponible para oportunidades donde la ingeniería backend, las integraciones y una entrega pragmática importen tanto como la tecnología.",
       builtWith: "Construido con Next.js, TypeScript y una mentalidad de ingeniería pragmática.",
     },
   },
@@ -525,31 +593,28 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       { href: pageSlugs.contact, label: "Contact" },
     ],
     metadata: {
-      defaultTitle: "Backend Software Engineer | Java, Spring & AI-Assisted Engineering",
+      defaultTitle: "Backend Software Engineer | Java, Spring, REST APIs & SAP Commerce Cloud",
       defaultDescription:
-        "Backend Software Engineer building enterprise platforms with Java, Spring, SAP Commerce Cloud, and generative AI tools to deliver cleaner, faster, and more reliable solutions.",
+        "Backend Software Engineer with experience in Java, Spring, SAP Commerce Cloud, REST APIs, SQL, integrations, and production-facing backend work.",
       keywords: [
         "Backend Software Engineer",
         "Java Backend Developer",
         "Spring Developer",
         "SAP Commerce Cloud",
-        "Enterprise Platforms",
-        "AI-Assisted Engineering",
-        "AI-Assisted Development",
-        "Cloud Solutions",
-        "Scalable Systems",
-        "Software Engineering",
-        "E-commerce Platforms",
+        "Java",
+        "Spring",
         "REST APIs",
         "SQL",
-        "Docker",
-        "Azure",
+        "Integrations",
+        "Production Support",
+        "E-commerce B2B",
+        "E-commerce B2C",
       ],
       pages: {
         experience: {
           title: "Experience | Backend Software Engineer | Javier Sanchez Lancha",
           description:
-            "Professional experience across backend engineering, Java, Spring, SAP Commerce Cloud, and enterprise platforms with a focus on impact, stability, and business collaboration.",
+            "Professional experience across Java backend, Spring, SAP Commerce Cloud, integrations, production support, and collaboration with business, QA, and clients.",
           keywords: [
             "Backend Software Engineer experience",
             "Java Spring engineer",
@@ -560,7 +625,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         projects: {
           title: "Projects | Java Backend & Enterprise Platforms",
           description:
-            "Selected work explained through problem, solution, tech stack, and impact across enterprise platforms and e-commerce systems.",
+            "Real backend cases explained through context, problem, technical work, stack, and qualitative impact across SAP Commerce Cloud and business platforms.",
           keywords: [
             "Java backend portfolio",
             "Enterprise platform projects",
@@ -569,20 +634,20 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         about: {
-          title: "About | Backend Engineering & AI-Assisted Development",
+          title: "About | Java Backend, Spring, and SAP Commerce Cloud",
           description:
-            "Backend engineering profile focused on Java, Spring, enterprise platforms, cloud-oriented environments, and practical AI-Assisted Development.",
+            "Backend profile focused on Java, Spring, REST APIs, SQL, business platforms, and practical collaboration with product, QA, and clients.",
           keywords: [
             "Backend engineering profile",
-            "AI-Assisted Development",
+            "AI-assisted workflows",
             "Java Spring software engineer",
-            "Cloud-oriented backend engineer",
+            "Backend engineer for business platforms",
           ],
         },
         contact: {
           title: "Contact | Javier Sanchez Lancha",
           description:
-            "Contact Javier for Backend Software Engineer, Java Backend Developer, Spring Developer, enterprise platform, or cloud-oriented opportunities.",
+            "Contact Javier for Backend Software Engineer or Java Backend Developer roles focused on Spring, APIs, SQL, integrations, and production systems.",
           keywords: [
             "Backend Software Engineer contact",
             "Java Backend Developer contact",
@@ -593,7 +658,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         projectDetail: {
           title: "Project detail | Javier Sanchez Lancha",
           description:
-            "A real project explained through problem, technical solution, stack, and impact in enterprise and e-commerce environments.",
+            "A real project explained through context, problem, technical solution, stack, and what it shows about my backend profile.",
           keywords: [
             "Software engineering case study",
             "Enterprise platform project",
@@ -614,31 +679,31 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
     },
     home: {
       hero: {
-        eyebrow: "Java, Spring, Enterprise Platforms, AI-Assisted Engineering",
-        title: "Backend Software Engineer building scalable enterprise platforms",
+        eyebrow: "Java Backend, Spring, REST APIs, SQL, SAP Commerce Cloud",
+        title: "Backend Software Engineer | Java, Spring, and SAP Commerce Cloud",
         summary:
-          "I design, build, and evolve backend systems for enterprise platforms with Java and Spring, aiming for maintainable, clear, and reliable solutions in real-world contexts.",
+          "I build Java and Spring backend systems for production business platforms, with SAP Commerce Cloud as a strong specialty across integrations, incidents, and product evolution.",
         proof:
-          "Professional experience across business-critical platforms, real production support, and complex integrations, working with clients, QA, and business teams to turn requirements into sustainable technical solutions.",
+          "My work combines REST APIs, SQL, jobs, interceptors, validators, production support, and close collaboration with QA, business teams, and clients.",
         quickFacts: [
           {
             label: { es: "Foco", en: "Focus" },
-            value: { es: "Java Backend, Spring, AI-Assisted Engineering", en: "Java Backend, Spring, AI-Assisted Engineering" },
-          },
-          {
-            label: { es: "Entorno", en: "Environment" },
-            value: { es: "Plataformas enterprise y sistemas distribuidos", en: "Enterprise platforms and distributed systems" },
+            value: { es: "Java backend, Spring, APIs REST y SQL", en: "Java backend, Spring, REST APIs, and SQL" },
           },
           {
             label: { es: "Especialidad", en: "Specialty" },
             value: {
               es: "SAP Commerce Cloud y e-commerce B2B/B2C, sin quedar limitado a consultoría SAP",
-              en: "SAP Commerce Cloud and B2B/B2C e-commerce, without being limited to SAP consulting",
+              en: "SAP Commerce Cloud across B2B/B2C commerce and business platforms",
             },
           },
           {
-            label: { es: "Diferencial", en: "Differentiator" },
-            value: { es: "IA aplicada a ingeniería backend con criterio técnico propio", en: "AI applied to backend engineering with independent technical judgment" },
+            label: { es: "Producción", en: "Production" },
+            value: { es: "Integraciones, incidencias y soporte productivo", en: "Integrations, incidents, and production support" },
+          },
+          {
+            label: { es: "Ubicación", en: "Location" },
+            value: { es: siteSettings.location.es, en: siteSettings.location.en },
           },
         ],
         highlights: [
@@ -650,12 +715,11 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
             label: { es: "Java & Spring Backend", en: "Java & Spring Backend" },
             shortLabel: { es: "Java & Spring", en: "Java & Spring" },
           },
-          { label: { es: "Plataformas enterprise", en: "Enterprise platforms" } },
           {
             label: { es: "Producción e incidencias reales", en: "Real production support" },
             shortLabel: { es: "Producción real", en: "Production support" },
           },
-          { label: { es: "AI-Assisted Engineering", en: "AI-Assisted Engineering" } },
+          { label: { es: "SAP Commerce como especialización", en: "SAP Commerce specialization" } },
         ],
         supportLinks: [
           { href: "/experience", label: "View Experience" },
@@ -665,77 +729,77 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
       strengths: {
         eyebrow: "Core strengths",
-        title: "A backend profile shaped by real work in business-critical systems",
+        title: "Fast backend fit signals",
         description:
-          "The value proposition is not based on buzzwords. It comes from real experience shipping software on enterprise platforms, solving complex incidents, and working with technical and business impact in mind.",
+          "A short read to decide whether it is worth going deeper into experience and projects.",
         items: [
           {
-            title: { es: "Backend engineering con contexto real", en: "Backend engineering with real context" },
+            title: { es: "Java, Spring y SQL", en: "Java, Spring, and SQL" },
             body: {
-              es: "Experiencia desarrollando lógica de negocio, servicios, jobs, modelos de datos e integraciones en plataformas que ya están en marcha.",
-              en: "Experience building business logic, services, jobs, data models, and integrations in live platforms.",
+              es: "Trabajo backend sobre servicios, APIs REST, modelos de datos, consultas y lógica de negocio.",
+              en: "Backend work across services, REST APIs, data models, queries, and business logic.",
             },
           },
           {
-            title: { es: "Resolución de problemas complejos", en: "Complex problem solving" },
+            title: { es: "SAP Commerce Cloud", en: "SAP Commerce Cloud" },
             body: {
-              es: "Análisis de incidencias productivas, debugging técnico y mejora de estabilidad sobre sistemas críticos.",
-              en: "Production issue analysis, technical debugging, and stability improvements on critical systems.",
+              es: "Especialización práctica en commerce, Backoffice, FlexibleSearch, jobs, interceptors y validators.",
+              en: "Practical specialization across commerce, Backoffice, FlexibleSearch, jobs, interceptors, and validators.",
             },
           },
           {
-            title: { es: "Colaboracion con cliente y negocio", en: "Client and business collaboration" },
+            title: { es: "Producción e incidencias", en: "Production and incidents" },
             body: {
-              es: "Traducción de requisitos funcionales en soluciones escalables junto a QA, negocio y equipos funcionales.",
-              en: "Translating functional requirements into scalable solutions together with QA, business, and functional teams.",
+              es: "Acostumbrado a analizar causas, validar hipótesis y coordinar cambios con QA, negocio y cliente.",
+              en: "Used to analyzing causes, validating hypotheses, and coordinating changes with QA, business teams, and clients.",
             },
           },
           {
-            title: { es: "Entrega acelerada con IA", en: "Faster delivery with AI" },
+            title: { es: "Integraciones", en: "Integrations" },
             body: {
-              es: "Uso práctico de herramientas generativas para acelerar análisis técnico, automatización, documentación y tareas repetitivas sin perder control sobre la implementación.",
-              en: "Practical use of generative tools to accelerate technical analysis, automation, documentation, and repetitive tasks without losing implementation control.",
+              es: "Experiencia conectando sistemas, flujos de e-commerce y necesidades funcionales sin perder estabilidad.",
+              en: "Experience connecting systems, commerce flows, and functional needs without losing stability.",
             },
           },
         ],
       },
       career: {
         eyebrow: "Experience",
-        title: "Professional growth with a clear backend and enterprise direction",
+        title: "Professional growth with a clear backend and production direction",
         description:
-          "From backend foundations in SAP and B2B environments to stronger technical ownership in live enterprise platforms, with an increasingly clear identity as a Backend Software Engineer.",
+          "From SAP and B2B backend foundations to a stronger Java and Spring profile shaped by integrations, production work, and real system ownership.",
       },
       value: {
         eyebrow: "Professional value",
-        title: "Professional Value",
-        description: "The mix of backend depth, business context, and execution judgment I bring to enterprise environments.",
+        title: "What best represents my value",
+        description: "A brief synthesis of the kind of backend work where I bring the most value.",
         items: [
           {
-            title: { es: "Backend Engineering", en: "Backend Engineering" },
+            title: { es: "Producción antes que teoría", en: "Production over theory" },
             body: {
-              es: "Diseño y desarrollo de soluciones backend mantenibles y escalables para plataformas enterprise.",
-              en: "Design and development of maintainable backend solutions for enterprise platforms, with a strong focus on clarity, stability, and sustainable evolution.",
+              es: "Me interesa que el backend funcione bien cuando hay datos, integraciones, incidencias y usuarios dependiendo del sistema.",
+              en: "I care about backend work that holds up when there is data, integrations, incidents, and users depending on the system.",
             },
           },
           {
-            title: { es: "Enterprise Systems", en: "Enterprise Systems" },
+            title: { es: "Colaboración operativa", en: "Operational collaboration" },
             body: {
-              es: "Experiencia trabajando sobre sistemas críticos con procesos complejos, integraciones y operaciones de negocio reales.",
-              en: "Experience working on critical systems with complex business processes and integrations.",
+              es: "Trabajo bien cerca de QA, negocio y cliente para convertir dudas funcionales en decisiones técnicas accionables.",
+              en: "I work well with QA, business teams, and clients to turn functional uncertainty into actionable technical decisions.",
             },
           },
           {
-            title: { es: "AI-Assisted Engineering", en: "AI-Assisted Engineering" },
+            title: { es: "Ejecución con criterio", en: "Practical execution" },
             body: {
-              es: "Uso de Codex, ChatGPT y Claude para acelerar análisis técnico, debugging, documentación y desarrollo.",
-              en: "Using generative AI to accelerate analysis, implementation, and automation without outsourcing technical judgment.",
+              es: "Priorizo entender el estándar, aislar el problema y entregar cambios que el equipo pueda mantener.",
+              en: "I focus on understanding the standard, isolating the problem, and delivering changes the team can maintain.",
             },
           },
           {
-            title: { es: "Business Understanding", en: "Business Understanding" },
+            title: { es: "IA como apoyo puntual", en: "AI as selective support" },
             body: {
-              es: "Capacidad para traducir requisitos funcionales complejos en soluciones técnicas robustas y mantenibles.",
-              en: "Ability to translate complex business requirements into robust and maintainable technical solutions.",
+              es: "La uso para acelerar lectura, documentación y primeras hipótesis, manteniendo siempre la revisión técnica final.",
+              en: "I use it to speed up reading, documentation, and early hypotheses while keeping final technical review with me.",
             },
           },
         ],
@@ -747,10 +811,10 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           "A short selection of concrete cases explained through the challenge, the technical response, and the professional signal they leave behind.",
       },
       ai: {
-        eyebrow: "AI-Assisted Engineering",
-        title: "AI as a productivity accelerator, not a replacement for technical judgment",
+        eyebrow: "AI-assisted work",
+        title: "AI as productivity support, not the main story",
         description:
-          "I integrate generative AI into my engineering workflow to accelerate analysis, implementation, and automation. It helps me move faster, but the final technical judgment, architecture choices, and responsibility for the code remain mine.",
+          "I use it to speed up context reading, technical documentation, selective automation, and early hypotheses. Final technical decisions and responsibility for the code still stay with me.",
         items: [
           {
             title: { es: "Análisis técnico más rápido", en: "Faster technical analysis" },
@@ -776,7 +840,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           {
             title: { es: "Soporte a calidad de código", en: "Code quality support" },
             body: {
-              es: "Aporto más velocidad sin renunciar a mantenibilidad, revisión crítica ni decisiones técnicas finales propias.",
+              es: "Aporto más velocidad sin renunciar a la revisión crítica ni a mis decisiones técnicas finales.",
               en: "I move faster without giving up maintainability, critical review, or the fact that the final technical decision and responsibility for the result stay with me.",
             },
           },
@@ -784,9 +848,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
       skills: {
         eyebrow: "Skills",
-        title: "Technologies and capabilities grouped by the kind of value I bring",
+        title: "Technologies and areas where I bring the most value",
         description:
-          "The tools matter, but so does the context where I use them: backend engineering, enterprise platforms, cloud-oriented delivery, and collaborative execution.",
+          "The stack matters, but so does the context where I use it: Java backend, integrations, business platforms, SQL, and collaborative execution.",
         categories: [
           {
             title: { es: "Backend", en: "Backend" },
@@ -798,15 +862,15 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           },
           {
             title: { es: "Cloud & DevOps", en: "Cloud & DevOps" },
-            items: ["Docker", "Azure", "Git", "CI/CD", "Cloud Solutions"],
+            items: ["Docker", "Azure", "Git", "CI/CD"],
           },
           {
             title: { es: "AI-Assisted Development", en: "AI-Assisted Development" },
-            items: ["Codex", "ChatGPT", "Generative AI", "AI-Assisted Development", "Technical Analysis", "Automation"],
+            items: ["Codex", "ChatGPT", "Generative AI", "Technical Analysis", "Automation"],
           },
           {
             title: { es: "Soft Skills", en: "Soft Skills" },
-            items: ["Problem Solving", "Client Collaboration", "Requirements Analysis", "Teamwork", "Ownership", "Business Impact"],
+            items: ["Problem Solving", "Client Collaboration", "Requirements Analysis", "Teamwork", "Ownership"],
           },
         ],
       },
@@ -814,10 +878,10 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Contact",
         title: "Contact",
         description:
-          "If there is a strong match with your team or product, I would be glad to talk about backend, product, and enterprise platforms.",
+          "Email, LinkedIn, and resume for a quick fit check.",
         fitTitle: "Especially strong fit for teams looking for",
         fitBullets: [
-          "A Backend/Java Developer with experience in enterprise platforms and microservices",
+          "A Backend/Java Developer with experience in APIs, integrations, and product logic",
           "Someone who uses generative AI to accelerate execution and analysis without sacrificing quality",
           "A profile with strong design and complex problem-solving skills across product, QA, business, and client collaboration",
           "SAP Commerce Cloud experience without being limited to SAP consulting work",
@@ -827,62 +891,124 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
     pages: {
       experience: {
         eyebrow: "Experience",
-        title: "Experience building and sustaining enterprise platforms",
+        title: "Backend path: from SAP to Java, Spring, and production",
         intro:
-          "My background combines backend foundations, strong Java and Spring experience, deep SAP Commerce Cloud exposure, and real work on live enterprise systems.",
+          "This page summarizes how I moved from a SAP/ABAP and B2B foundation into Java/Spring backend work across SAP Commerce Cloud, APIs, integrations, incidents, and production support.",
         scanTitle: "Recruiter scan",
-        scanBody: "Backend Software Engineer with experience in enterprise e-commerce, production issues, integrations, and direct collaboration with clients and business teams.",
+        scanBody: "The progression combines SAP functional foundations, commerce backend development, and current work on active platforms.",
         scanBullets: [
-          "Java, Spring, SQL, and backend services in production environments",
-          "SAP Commerce Cloud as a strong specialization, not my only professional identity",
-          "Complex problem solving in B2B, B2C, and enterprise platform contexts",
+          "Initial foundation in SAP/ABAP and B2B projects",
+          "Backend work with Java, Spring, SAP Commerce Cloud, REST APIs, and SQL",
+          "Progression into production support, integrations, incidents, and collaboration with QA/client/business teams",
+        ],
+        valueEyebrow: "Progression",
+        valueTitle: "How my backend profile has evolved",
+        valueDescription: "This is not only a stack list: it is the path from SAP foundations to backend work with operational responsibility.",
+        valueItems: [
+          {
+            title: { es: "Primera base técnica", en: "Technical foundation" },
+            body: {
+              es: "Comencé con SAP, ABAP y proyectos B2B, aprendiendo a moverme en entornos con procesos funcionales y equipos grandes.",
+              en: "I started with SAP, ABAP, and B2B projects, learning how to work in functional environments with larger delivery teams.",
+            },
+          },
+          {
+            title: { es: "Backend commerce", en: "Commerce backend" },
+            body: {
+              es: "Después reforcé Java, Spring y SAP Commerce Cloud sobre checkout, pricing, stock, Backoffice, Integration Objects y APIs REST.",
+              en: "I then strengthened Java, Spring, and SAP Commerce Cloud across checkout, pricing, stock, Backoffice, Integration Objects, and REST APIs.",
+            },
+          },
+          {
+            title: { es: "Producción e incidencias", en: "Production and incidents" },
+            body: {
+              es: "Mi etapa actual añade soporte productivo, análisis de causa raíz, jobs, interceptors, validators, SQL y coordinación con QA, negocio y cliente.",
+              en: "My current stage adds production support, root cause analysis, jobs, interceptors, validators, SQL, and coordination with QA, business teams, and clients.",
+            },
+          },
+          {
+            title: { es: "Dirección actual", en: "Current direction" },
+            body: {
+              es: "Quiero seguir creciendo como Backend Software Engineer generalista, con SAP Commerce Cloud como especialización fuerte y no como límite.",
+              en: "I want to keep growing as a broader Backend Software Engineer, with SAP Commerce Cloud as a strong specialization rather than a limitation.",
+            },
+          },
         ],
       },
       projects: {
         eyebrow: "Projects",
-        title: "Featured work and real cases",
+        title: "Cases where the technical work is visible",
         intro:
-          "Each project is presented through the problem, the technical solution, the stack involved, and the impact, so the way I work becomes immediately clear.",
-        scanTitle: "How to read these cases",
-        scanBody: "These are not generic summaries. Each case explains the context, the solution, and the professional signal it leaves for technical recruiting.",
+          "These cases show concrete areas where I have worked: production, checkout, pricing, stock, integrations, support, and incident investigation.",
+        scanTitle: "What to look for in each case",
+        scanBody: "The important signal is the problem, the backend contribution, and the stack used, not a long narrative.",
         scanBullets: [
-          "Real problems in enterprise and e-commerce platforms",
-          "Backend solutions using Java, Spring, and SAP Commerce Cloud",
-          "Impact on stability, maintainability, delivery speed, and collaboration",
+          "Which part of the system was at stake",
+          "What I did with Java, Spring, SAP Commerce Cloud, SQL, or APIs",
+          "What it shows about analysis, support, integrations, or delivery",
         ],
       },
       about: {
         eyebrow: "About",
-        title: "Backend engineering with enterprise experience and product mindset",
+        title: "How I work when backend has context",
         intro:
-          "I am a Backend Software Engineer focused on Java, Spring, and enterprise platforms, used to working close to product and real business context.",
-        summaryTitle: "Current positioning",
+          "Instead of repeating the stack, this page explains how I analyze, collaborate, and make decisions when there are functional requirements, incidents, or sensitive product areas.",
+        summaryTitle: "Working style",
         summaryBody:
-          "I enjoy understanding how a system really works: its integrations, its fragile points, its business impact, and what it takes to keep it healthy over time. My daily work moves across backend delivery, incident analysis, team conversations, and technical decisions that prioritize maintainability.",
+          "Before implementing, I try to understand the flow, the data, the platform standard, and who needs the answer. That foundation helps me propose safer changes and communicate better with QA, business teams, and clients.",
         principlesTitle: "How I work",
         principlesIntro:
-          "My way of working combines calm analysis, clear communication, and pragmatic execution aimed at solving problems well instead of making the system more complex.",
+          "Four habits that show up repeatedly in my day-to-day work across backend, production, and mixed teams.",
+        principlesItems: [
+          {
+            title: { es: "Antes de tocar código", en: "Before touching code" },
+            body: {
+              es: "Reviso el flujo, los datos afectados, el comportamiento estándar y los riesgos de romper algo que ya funciona.",
+              en: "I review the flow, affected data, standard behavior, and the risk of breaking something that already works.",
+            },
+          },
+          {
+            title: { es: "Cuando hay una incidencia", en: "When there is an incident" },
+            body: {
+              es: "Ordeno síntomas, logs, consultas, hipótesis y validaciones para llegar a una causa probable sin saltar demasiado pronto a una solución.",
+              en: "I organize symptoms, logs, queries, hypotheses, and validations to reach a likely cause before jumping into a fix.",
+            },
+          },
+          {
+            title: { es: "Cuando negocio necesita una respuesta", en: "When business needs an answer" },
+            body: {
+              es: "Traduzco el problema técnico a impacto funcional y próximos pasos claros para que QA, cliente y negocio puedan decidir.",
+              en: "I translate the technical problem into functional impact and clear next steps so QA, client, and business stakeholders can decide.",
+            },
+          },
+          {
+            title: { es: "Cómo uso IA", en: "How I use AI" },
+            body: {
+              es: "La uso para acelerar lectura de contexto, documentación y alternativas, pero no para sustituir análisis, pruebas ni responsabilidad técnica.",
+              en: "I use it to speed up context reading, documentation, and alternatives, but not to replace analysis, testing, or technical ownership.",
+            },
+          },
+        ],
       },
       contact: {
         eyebrow: "Contact",
         title: "Let’s talk",
-        intro:
-          "If you are looking for a backend profile with experience in enterprise platforms, Java, Spring, and real production contexts, I would be glad to connect.",
+        intro: "Direct contact for Backend Software Engineer or Java Backend Developer opportunities.",
         availability:
-          "I am open to opportunities where I can keep growing as a Backend Software Engineer in product-driven, cloud-oriented environments with real technical challenges.",
-        heroCardEyebrow: "Best fit",
-        heroCardTitle: "Where I can add value quickly",
+          "Open to teams that need Java/Spring backend, SAP Commerce Cloud, or production support experience.",
+        heroCardEyebrow: "Availability",
+        heroCardTitle: "Available to assess fit",
         heroCardBullets: [
-          "Backend teams working with Java, Spring, and enterprise systems",
+          "Backend teams working with Java, Spring, APIs, and product logic",
           "B2B/B2C e-commerce platforms with real operational complexity",
           "Environments where quality, ownership, and collaboration matter",
         ],
         fitTitle: "Especially aligned opportunities",
         fitBullets: [
-          "Backend/Java Developer roles in enterprise platforms and microservices",
-          "Teams that use generative AI to accelerate analysis and execution without sacrificing quality",
-          "Environments where complex problem solving happens across product, QA, business, and client collaboration",
-          "Opportunities where SAP Commerce Cloud is a strength, not a limitation",
+          "Backend/Java Developer roles involving product logic, integrations, and APIs",
+          "Production-facing environments where incidents, integrations, and product evolution matter",
+          "Work that involves collaboration with QA, business, and client stakeholders",
+          "Opportunities where SAP Commerce Cloud is a strong specialization, not a limitation",
         ],
         channelsTitle: "Channels",
         channelsItems: [
@@ -892,15 +1018,15 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           { label: "Location", value: siteSettings.location.en },
         ],
         channelsNote:
-          "I’m interested in teams where I can contribute backend expertise, business understanding and the ability to build maintainable solutions in real-world environments.",
+          "If the role fits, the fastest path is to reach me by email or LinkedIn and review the resume.",
         finalNote:
-          "I can also share more detail about my SAP Commerce Cloud experience, enterprise backend work, or how I approach engineering if it is relevant for the role.",
+          "Primary fit: Java/Spring backend, SAP Commerce Cloud, APIs, SQL, integrations, and production support.",
       },
     },
     footer: {
       note: "",
       availability:
-        "Available for opportunities where backend engineering, cloud solutions, and pragmatic delivery matter as much as the stack itself.",
+        "Available for opportunities where backend engineering, integrations, and pragmatic delivery matter as much as the stack itself.",
       builtWith: "Built with Next.js, TypeScript, and a practical engineering mindset.",
     },
   },

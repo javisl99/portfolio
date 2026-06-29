@@ -43,7 +43,9 @@ export function SkillsSection({ locale, eyebrow, title, description, categories,
         {aiTitle && aiDescription && aiItems.length > 0 ? (
           <div className="mb-8 grid gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]">
             <article className="rounded-[2rem] border border-line bg-[linear-gradient(160deg,rgba(11,18,32,0.96),rgba(6,10,22,0.98))] p-8 shadow-[0_36px_80px_-42px_rgba(37,99,235,0.42)] sm:p-10">
-              <p className="mb-4 font-mono text-[0.7rem] font-bold uppercase tracking-[0.24em] text-[#9fbeff]">AI-Assisted Engineering</p>
+              <p className="mb-4 font-mono text-[0.7rem] font-bold uppercase tracking-[0.24em] text-[#9fbeff]">
+                {locale === "es" ? "Trabajo asistido con IA" : "AI-assisted work"}
+              </p>
               <h3 className="max-w-2xl font-display text-2xl font-black tracking-tight text-white sm:text-3xl">{aiTitle}</h3>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300">{aiDescription}</p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">

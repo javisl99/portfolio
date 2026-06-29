@@ -18,13 +18,6 @@ const iconMap = {
   contact: Mail,
 };
 
-const homeSectionMap = {
-  "/": "#top",
-  "/projects": "#projects",
-  "/about": "#about",
-  "/contact": "#contact",
-} as const;
-
 export function MobileBottomNav({ locale }: MobileBottomNavProps) {
   const pathname = usePathname();
   const items = [
@@ -37,14 +30,14 @@ export function MobileBottomNav({ locale }: MobileBottomNavProps) {
   return (
     <nav className="fixed bottom-4 left-4 right-4 z-50 flex rounded-[1.75rem] border border-line bg-[rgba(3,7,18,0.9)] px-3 py-2 shadow-[0_24px_60px_-32px_rgba(2,6,23,0.95)] backdrop-blur-xl md:hidden">
       {items.map((item) => {
-        const href = `${localizePath(locale)}${homeSectionMap[item.href]}`;
+        const href = localizePath(locale, item.href);
         const Icon = iconMap[item.key];
-        const isActive = item.href === "/" ? pathname === localizePath(locale) : false;
+        const isActive = item.href === "/" ? pathname === localizePath(locale) : pathname === href;
 
         return (
           <Link
             className={cn(
-              "flex flex-1 flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2.5",
+              "flex flex-1 flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2.5 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent",
               isActive ? "bg-white/[0.05] text-accent-soft" : "text-muted",
             )}
             href={href}
