@@ -1,4 +1,3 @@
-import { getCvFilePath } from "@/lib/cv";
 import { isLocale } from "@/lib/i18n";
 
 export async function GET(
@@ -11,5 +10,5 @@ export async function GET(
     return new Response("Not found", { status: 404 });
   }
 
-  return Response.redirect(new URL(getCvFilePath(locale), request.url), 307);
+  return Response.redirect(new URL("/CV_javierSanchezLancha.pdf", request.url), 307);
 }

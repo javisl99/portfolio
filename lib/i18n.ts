@@ -28,18 +28,3 @@ export function localizePath(locale: Locale, pathname = "") {
   return `/${locale}${pathname}`;
 }
 
-export function replaceLocaleInPathname(pathname: string | null | undefined, targetLocale: Locale) {
-  if (!pathname) {
-    return localizePath(targetLocale);
-  }
-
-  if (pathname === "/") {
-    return localizePath(targetLocale);
-  }
-
-  if (/^\/(es|en)(?=\/|$)/.test(pathname)) {
-    return pathname.replace(/^\/(es|en)(?=\/|$)/, `/${targetLocale}`);
-  }
-
-  return localizePath(targetLocale, pathname);
-}
