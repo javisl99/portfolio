@@ -18,22 +18,12 @@ export interface ProjectDetail extends ProjectSummary {
   content: ReactNode;
 }
 
-const projectsDirectory = path.join(/* turbopackIgnore: true */ process.cwd(), "content", "projects");
-
-export function getProjectSourcePath(locale: Locale, slug: string) {
-  return path.join(projectsDirectory, locale, `${slug}.mdx`);
-}
+const projectsDirectory = path.join(process.cwd(), "content", "projects");
 
 async function readProjectSource(locale: Locale, slug: string) {
-  const fullPath = getProjectSourcePath(locale, slug);
+  const fullPath = path.join(projectsDirectory, locale, `${slug}.mdx`);
 
   return fs.readFile(fullPath, "utf8");
-}
-
-export async function getProjectLastModified(locale: Locale, slug: string) {
-  const stats = await fs.stat(getProjectSourcePath(locale, slug));
-
-  return stats.mtime;
 }
 
 export const getProjects = cache(async (locale: Locale): Promise<ProjectSummary[]> => {
