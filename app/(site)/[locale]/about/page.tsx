@@ -59,7 +59,7 @@ export default async function AboutPage({
         align="center"
         description={page.principlesIntro}
         eyebrow={page.principlesTitle}
-        title={locale === "es" ? "Cómo trabajo en backend y con equipos" : "How I work in backend and with teams"}
+        title={locale === "es" ? "Cómo analizo, colaboro y trabajo en backend" : "How I analyze, collaborate, and work in backend"}
       >
         <ProfessionalValueGrid items={page.principlesItems} locale={locale} />
       </Section>
@@ -68,16 +68,16 @@ export default async function AboutPage({
         align="center"
         description={
           locale === "es"
-            ? "Una vista compacta de las tecnologías y áreas en las que más trabajo."
-            : "A compact view of the technologies and technical areas I work with most often."
+            ? "No es una lista completa, solo dos áreas que resumen bien el tipo de backend donde más suelo aportar."
+            : "Not a full stack list, just two areas that summarize the kind of backend work where I contribute most."
         }
-        eyebrow={copy.home.skills.eyebrow}
-        title={locale === "es" ? "Áreas de trabajo frecuentes" : "Frequent work areas"}
+        eyebrow={locale === "es" ? "Áreas frecuentes" : "Frequent areas"}
+        title={locale === "es" ? "Dónde suelo moverme con más naturalidad" : "Where I tend to work most naturally"}
       >
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {copy.home.skills.categories.slice(0, 3).map((category) => (
+        <div className="grid gap-5 md:grid-cols-2">
+          {copy.home.skills.categories.slice(0, 2).map((category) => (
             <article
-              className="rounded-[1.6rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.94),rgba(7,12,24,0.98))] p-6 shadow-soft"
+              className="rounded-[1.6rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.94),rgba(7,12,24,0.98))] p-6 shadow-soft"
               key={category.title.en}
             >
               <h3 className="mb-4 text-lg font-black tracking-tight text-ink">{category.title[locale]}</h3>

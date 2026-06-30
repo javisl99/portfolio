@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { AIImpactSection } from "@/components/sections/ai-impact-section";
 import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapshot-grid";
 import { HomeHero } from "@/components/sections/home-hero";
 import { ProjectGrid } from "@/components/sections/project-grid";
@@ -81,6 +82,33 @@ export default async function HomePage({
         title={copy.home.projects.title}
       >
         <ProjectGrid locale={locale} projects={projects} variant="compact" />
+      </Section>
+
+      <Section
+        actions={
+          <ButtonLink href={localizePath(locale, "/projects")} variant="secondary">
+            {locale === "es" ? "Ver casos reales" : "View real cases"}
+          </ButtonLink>
+        }
+        align="center"
+        className="py-16 sm:py-24"
+        description={copy.home.ai.description}
+        eyebrow={copy.home.ai.eyebrow}
+        title={copy.home.ai.title}
+      >
+        <AIImpactSection
+          context={copy.home.ai.context}
+          description={copy.home.ai.description}
+          eyebrow={copy.home.ai.eyebrow}
+          items={copy.home.ai.items}
+          locale={locale}
+          metrics={copy.home.ai.metrics}
+          metricsNote={copy.home.ai.metricsNote}
+          note={copy.home.ai.note}
+          showLead={false}
+          title={copy.home.ai.title}
+          variant="compact"
+        />
       </Section>
 
       <Section

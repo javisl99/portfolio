@@ -18,7 +18,7 @@ export function LocaleSwitcher({ locale, label }: LocaleSwitcherProps) {
   return (
     <Link
       aria-label={label}
-      className="inline-flex rounded-xl border border-line bg-panel/90 px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-muted transition hover:border-accent/35 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent"
+      className="inline-flex rounded-xl border border-white/8 bg-[rgba(8,17,31,0.72)] px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-muted transition hover:border-accent/28 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent"
       href={alternatePath}
     >
       {alternateLocale.toUpperCase()}

@@ -1,4 +1,4 @@
-import type { CopyCard, HighlightPill, QuickFact, SkillCategory } from "@/data/types";
+import type { AiImpactMetric, CopyCard, HighlightPill, QuickFact, SkillCategory } from "@/data/types";
 import { getCvFilePath } from "@/lib/cv";
 import type { Locale } from "@/lib/i18n";
 
@@ -68,7 +68,16 @@ type SiteLocaleCopy = {
     career: { eyebrow: string; title: string; description: string };
     value: { eyebrow: string; title: string; description: string; items: CopyCard[] };
     projects: { eyebrow: string; title: string; description: string };
-    ai: { eyebrow: string; title: string; description: string; items: CopyCard[] };
+    ai: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      context: string;
+      metricsNote: string;
+      note: string;
+      items: CopyCard[];
+      metrics: AiImpactMetric[];
+    };
     skills: { eyebrow: string; title: string; description: string; categories: SkillCategory[] };
     contact: {
       eyebrow: string;
@@ -234,9 +243,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Backend Software Engineer · Java · Spring · REST APIs · SAP Commerce Cloud",
         title: "Backend Software Engineer | Java, Spring y SAP Commerce Cloud",
         summary:
-          "Desarrollo backend con Java y Spring sobre plataformas en producción, con foco en SAP Commerce Cloud, integraciones, incidencias y evolución funcional.",
+          "Backend Software Engineer centrado en Java y Spring sobre plataformas en producción, con SAP Commerce Cloud como especialización fuerte.",
         proof:
-          "Trabajo con APIs REST, SQL, jobs, interceptors, validators y colaboración diaria con QA, negocio y cliente.",
+          "Trabajo con APIs REST, SQL, integraciones e incidencias, coordinando cambios con QA, negocio y cliente.",
         quickFacts: [
           {
             label: { es: "Foco", en: "Focus" },
@@ -322,7 +331,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Experiencia",
         title: "Trayectoria backend sobre sistemas reales",
         description:
-          "De una base en proyectos SAP y B2B a un perfil backend más sólido en Java, Spring, integraciones y soporte productivo.",
+          "De una base en SAP y B2B a un perfil backend más sólido en Java, Spring, integraciones, incidencias y soporte productivo.",
       },
       value: {
         eyebrow: "Valor profesional",
@@ -363,41 +372,95 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Casos destacados",
         title: "Casos concretos de backend",
         description:
-          "Una selección corta sobre producción, checkout, pricing, stock, integraciones y soporte técnico.",
+          "Tres casos para ver trabajo real sobre producción, checkout, pricing, stock, integraciones y soporte técnico.",
       },
       ai: {
-        eyebrow: "Trabajo asistido con IA",
-        title: "IA como apoyo de productividad, no como protagonista",
+        eyebrow: "IA aplicada al trabajo técnico",
+        title: "IA como acelerador de análisis, no como sustituto del criterio técnico",
         description:
-          "La uso para acelerar lectura de contexto, documentación técnica, automatización puntual y primeras hipótesis. La decisión técnica final y la responsabilidad sobre el código siguen siendo mías.",
+          "Desde mi etapa actual en Stratesys utilizo IA generativa para acelerar análisis técnico, debugging y preparación de cambios, manteniendo siempre la decisión técnica, las pruebas locales y la validación previa a QA bajo mi responsabilidad.",
+        context:
+          "La utilizo desde mi etapa actual en Stratesys, en un contexto como BuildingCenter, como herramienta de apoyo en análisis técnico, debugging, documentación y preparación de cambios sobre SAP Commerce Cloud.",
+        metricsNote:
+          "Estimaciones basadas en métricas propias de tareas comparables realizadas antes y después de incorporar IA generativa a mi flujo de trabajo. No representan benchmarks universales, sino impacto observado en mi contexto profesional.",
+        note:
+          "La IA no sustituye experiencia ni criterio técnico. Su mayor valor está en llegar antes al contexto útil, reducir trabajo repetitivo y dedicar más tiempo a resolver problemas complejos y tomar mejores decisiones de ingeniería.",
         items: [
           {
-            title: { es: "Análisis técnico más rápido", en: "Faster technical analysis" },
+            title: { es: "Dónde aporta más valor", en: "Where it adds the most value" },
             body: {
-              es: "La utilizo para recorrer contexto, contrastar hipótesis y llegar antes a un plan técnico útil.",
-              en: "I accelerate solution exploration, context reading, and early technical hypotheses before implementation.",
+              es: "Lectura rápida de contexto complejo\nContraste de hipótesis técnicas\nLocalización de código afectado\nPreparación inicial de cambios\nGeneración de scripts, documentación y tareas repetitivas",
+              en: "Fast reading of complex context\nTechnical hypothesis contrast\nAffected code localization\nInitial change preparation\nScript generation, documentation, and repetitive tasks",
             },
           },
           {
-            title: { es: "Debugging más eficiente", en: "Better debugging workflows" },
+            title: { es: "Qué sigo validando yo", en: "What I still validate myself" },
             body: {
-              es: "Me ayuda a aislar causas raíz, comparar caminos alternativos y estructurar la investigación de incidencias complejas.",
-              en: "I use them to isolate root causes, review alternative paths, and structure technical investigation.",
+              es: "Decisiones técnicas y de arquitectura\nValidación del estándar SAP Commerce\nPruebas locales\nRevisión funcional\nValidación previa a QA\nResponsabilidad final del código",
+              en: "Technical and architectural decisions\nSAP Commerce standard validation\nLocal testing\nFunctional review\nPre-QA validation\nFinal responsibility for the code",
             },
           },
+        ],
+        metrics: [
           {
-            title: { es: "Documentación y automatización", en: "Documentation and automation" },
-            body: {
-              es: "La aprovecho para documentar decisiones, generar scripts y automatizar trabajo repetitivo para centrarme en arquitectura y valor de negocio.",
-              en: "They help me document better, generate scripts, and automate repetitive work so I can focus on architecture and business value.",
+            title: { es: "Preparación y análisis de cambios complejos", en: "Preparation and analysis of complex changes" },
+            highlight: { es: "Hasta ~70% menos tiempo en tareas comparables", en: "Up to ~70% less time in comparable tasks" },
+            beforeLabel: { es: "Antes", en: "Before" },
+            beforeValue: {
+              es: "Lectura manual completa del contexto, identificación del código afectado y preparación inicial del cambio.",
+              en: "Full manual context reading, identification of the affected code, and initial change preparation.",
             },
+            afterLabel: { es: "Ahora", en: "Now" },
+            afterValue: {
+              es: "Hipótesis iniciales, localización del código afectado y preparación del cambio en menos tiempo, manteniendo revisión técnica propia.",
+              en: "Initial hypotheses, affected code localization, and change preparation in less time while keeping my own technical review.",
+            },
+            note: {
+              es: "Especialmente útil en evolutivos con lógica de negocio compleja, integraciones o impacto en varios módulos.",
+              en: "Especially useful in evolutions involving complex business logic, integrations, or impact across multiple modules.",
+            },
+            beforeRatio: 100,
+            afterRatio: 35,
           },
           {
-            title: { es: "Soporte a calidad de código", en: "Code quality support" },
-            body: {
-              es: "Aporto más velocidad sin renunciar a la revisión crítica ni a que la decisión técnica final y la responsabilidad del resultado sean mías.",
-              en: "I move faster without giving up maintainability, critical review, or ownership of final technical decisions.",
+            title: { es: "Implementación de tareas de 1 a 2 jornadas", en: "Implementation of 1- to 2-day tasks" },
+            highlight: { es: "Ahora en menos de 1 jornada cuando el contexto está acotado", en: "Now in less than 1 day when the context is bounded" },
+            beforeLabel: { es: "Antes", en: "Before" },
+            beforeValue: {
+              es: "Implementación manual completa, pruebas locales y repaso previo a QA.",
+              en: "Full manual implementation, local testing, and final review before QA.",
             },
+            afterLabel: { es: "Ahora", en: "Now" },
+            afterValue: {
+              es: "Generación inicial de estructura, apoyo en edge cases y documentación técnica, con revisión y pruebas locales propias.",
+              en: "Initial structure generation, support on edge cases, and technical documentation, with my own review and local testing.",
+            },
+            note: {
+              es: "La IA acelera partes repetitivas y de análisis, pero la implementación final, validación y responsabilidad siguen siendo mías.",
+              en: "AI accelerates repetitive and analysis-heavy parts, but final implementation, validation, and responsibility remain mine.",
+            },
+            beforeRatio: 100,
+            afterRatio: 45,
+          },
+          {
+            title: { es: "Investigación inicial de incidencias", en: "Initial incident investigation" },
+            highlight: { es: "De horas o hasta 1 jornada a una primera hipótesis en minutos", en: "From hours or up to a full day to a first hypothesis in minutes" },
+            beforeLabel: { es: "Antes", en: "Before" },
+            beforeValue: {
+              es: "Lectura manual de logs, trazas, código afectado y posibles caminos de ejecución.",
+              en: "Manual reading of logs, traces, affected code, and possible execution paths.",
+            },
+            afterLabel: { es: "Ahora", en: "Now" },
+            afterValue: {
+              es: "Resumen de contexto, comparación de hipótesis y localización inicial de posibles causas raíz.",
+              en: "Context summary, hypothesis comparison, and initial localization of possible root causes.",
+            },
+            note: {
+              es: "La resolución final sigue dependiendo de depuración real, pruebas, revisión del estándar y validación funcional.",
+              en: "Final resolution still depends on real debugging, testing, standard review, and functional validation.",
+            },
+            beforeRatio: 100,
+            afterRatio: 6,
           },
         ],
       },
@@ -446,43 +509,43 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Experiencia",
         title: "Trayectoria backend: de SAP a Java, Spring y producción",
         intro:
-          "Esta página resume cómo he pasado de una base SAP/ABAP y B2B a trabajar en backend Java/Spring sobre SAP Commerce Cloud, APIs, integraciones, incidencias y soporte productivo.",
+          "Aquí se ve la progresión completa: base SAP/ABAP, backend commerce sobre SAP Commerce Cloud y una etapa actual más cercana a producción, integraciones e incidencias.",
         scanTitle: "Lectura rápida para recruiters",
-        scanBody: "La progresión combina base funcional SAP, desarrollo backend commerce y trabajo actual sobre plataformas activas.",
+        scanBody: "Más que una lista de tecnologías, esta página muestra cómo ha evolucionado el tipo de problemas que he ido resolviendo.",
         scanBullets: [
-          "Base inicial en SAP/ABAP y proyectos B2B",
-          "Backend con Java, Spring, SAP Commerce Cloud, APIs REST y SQL",
-          "Evolución hacia producción, integraciones, incidencias y colaboración con QA/cliente/negocio",
+          "Inicio en SAP/ABAP y proyectos B2B con peso funcional",
+          "Paso a Java, Spring, SAP Commerce Cloud, APIs REST, SQL y lógica de negocio",
+          "Trabajo actual más cerca de producción, integraciones, soporte e investigación de incidencias",
         ],
         valueEyebrow: "Progresión",
         valueTitle: "Cómo ha evolucionado mi perfil backend",
-        valueDescription: "No es una lista de tecnologías: es el camino desde base SAP hasta trabajo backend con responsabilidad operativa.",
+        valueDescription: "La evolución no va solo de stack: va de asumir más contexto técnico, más responsabilidad operativa y mejor capacidad de análisis.",
         valueItems: [
           {
             title: { es: "Primera base técnica", en: "Technical foundation" },
             body: {
-              es: "Comencé con SAP, ABAP y proyectos B2B, aprendiendo a moverme en entornos con procesos funcionales y equipos grandes.",
+              es: "Comencé con SAP, ABAP y proyectos B2B, entendiendo procesos funcionales, datos de negocio y cómo moverse en entornos con más complejidad organizativa.",
               en: "I started with SAP, ABAP, and B2B projects, learning how to work in functional environments with larger delivery teams.",
             },
           },
           {
             title: { es: "Backend commerce", en: "Commerce backend" },
             body: {
-              es: "Después reforcé Java, Spring y SAP Commerce Cloud sobre checkout, pricing, stock, Backoffice, Integration Objects y APIs REST.",
+              es: "Después reforcé Java, Spring y SAP Commerce Cloud sobre checkout, pricing, stock, Backoffice, Integration Objects, modelos de datos y APIs REST.",
               en: "I then strengthened Java, Spring, and SAP Commerce Cloud across checkout, pricing, stock, Backoffice, Integration Objects, and REST APIs.",
             },
           },
           {
             title: { es: "Producción e incidencias", en: "Production and incidents" },
             body: {
-              es: "Mi etapa actual añade soporte productivo, análisis de causa raíz, jobs, interceptors, validators, SQL y coordinación con QA, negocio y cliente.",
+              es: "Mi etapa actual añade soporte productivo, análisis de causa raíz, jobs, interceptors, validators, SQL y coordinación con QA, negocio y cliente cuando hay que decidir y actuar rápido.",
               en: "My current stage adds production support, root cause analysis, jobs, interceptors, validators, SQL, and coordination with QA, business teams, and clients.",
             },
           },
           {
             title: { es: "Dirección actual", en: "Current direction" },
             body: {
-              es: "Quiero seguir creciendo como Backend Software Engineer generalista, con SAP Commerce Cloud como especialización fuerte y no como límite.",
+              es: "La dirección es seguir creciendo como Backend Software Engineer generalista, con SAP Commerce Cloud como una especialización fuerte y experiencia útil también fuera de ese nicho.",
               en: "I want to keep growing as a broader Backend Software Engineer, with SAP Commerce Cloud as a strong specialization rather than a limitation.",
             },
           },
@@ -494,7 +557,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         intro:
           "Estos casos muestran zonas concretas donde he trabajado: producción, checkout, pricing, stock, integraciones, soporte e investigación de incidencias.",
         scanTitle: "Qué mirar en cada caso",
-        scanBody: "La señal importante está en el problema, la contribución backend y el stack usado, no en un relato largo.",
+        scanBody: "La clave no es el relato general, sino qué parte del sistema estaba en juego, qué decisión backend tomé y qué señal técnica deja cada caso.",
         scanBullets: [
           "Qué parte del sistema estaba en juego",
           "Qué hice con Java, Spring, SAP Commerce Cloud, SQL o APIs",
@@ -505,13 +568,13 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           eyebrow: "Sobre mí",
           title: "Cómo trabajo cuando el backend tiene contexto",
           intro:
-            "Más que repetir stack, aquí explico mi forma de analizar, colaborar y tomar decisiones cuando hay requisitos funcionales, incidencias o zonas sensibles del producto.",
+            "Esta página no va de repetir tecnologías. Va de cómo analizo, colaboro y tomo decisiones cuando el backend afecta a producto, negocio o producción.",
           summaryTitle: "Forma de trabajo",
           summaryBody:
-            "Antes de implementar intento entender el flujo, los datos, el estándar de la plataforma y quién necesita la respuesta. Esa base me ayuda a proponer cambios más seguros y a comunicar mejor con QA, negocio y cliente.",
+            "Antes de implementar intento entender el flujo, los datos afectados, el comportamiento estándar y quién necesita una respuesta útil. Esa base me ayuda a proponer cambios más seguros y a comunicar mejor con QA, negocio y cliente.",
           principlesTitle: "Cómo trabajo",
           principlesIntro:
-            "Cuatro hábitos que se repiten en mi día a día cuando trabajo sobre backend, producción y equipos mixtos.",
+            "Cuatro hábitos que explican mejor mi forma de trabajar que una lista larga de herramientas.",
           principlesItems: [
             {
               title: { es: "Antes de tocar código", en: "Before touching code" },
@@ -537,7 +600,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
             {
               title: { es: "Cómo uso IA", en: "How I use AI" },
               body: {
-                es: "La uso para acelerar lectura de contexto, documentación y alternativas, pero no para sustituir análisis, pruebas ni responsabilidad técnica.",
+                es: "La uso para acelerar lectura de contexto, documentación y alternativas, pero nunca como sustituto de análisis, pruebas o responsabilidad técnica.",
                 en: "I use it to speed up context reading, documentation, and alternatives, but not to replace analysis, testing, or technical ownership.",
               },
             },
@@ -545,15 +608,15 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         },
         contact: {
           eyebrow: "Contacto",
-          title: "Hablemos",
-          intro: "Contacto directo para oportunidades Backend Software Engineer o Java Backend Developer.",
-          availability: "Disponible para equipos que necesiten backend Java/Spring, SAP Commerce Cloud o experiencia en soporte productivo.",
+        title: "Hablemos",
+        intro: "Contacto directo para oportunidades Backend Software Engineer o Java Backend Developer.",
+        availability: "Disponible para valorar oportunidades backend con Java, Spring, SAP Commerce Cloud, integraciones y soporte productivo.",
           heroCardEyebrow: "Disponibilidad",
           heroCardTitle: "Disponible para valorar encaje",
           heroCardBullets: [
-            "Equipos backend sobre Java, Spring, APIs y lógica de producto",
-            "Plataformas e-commerce B2B/B2C con complejidad real",
-            "Contextos donde calidad, responsabilidad técnica y colaboración importan",
+            "Java, Spring, APIs REST y lógica de producto",
+            "E-commerce B2B/B2C, integraciones y zonas sensibles del negocio",
+            "Equipos donde QA, negocio y cliente forman parte del trabajo real",
           ],
           fitTitle: "Oportunidades especialmente alineadas",
           fitBullets: [
@@ -569,7 +632,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
             { label: "Ubicación", value: siteSettings.location.es },
           ],
           channelsNote:
-            "Si el rol encaja, lo más rápido es escribirme por email o LinkedIn y revisar el CV.",
+            "La vía más rápida es email o LinkedIn; el CV está listo para revisión inmediata.",
           finalNote:
             "Encaje principal: backend Java/Spring, SAP Commerce Cloud, APIs, SQL, integraciones y soporte productivo.",
         },
@@ -682,9 +745,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Java Backend, Spring, REST APIs, SQL, SAP Commerce Cloud",
         title: "Backend Software Engineer | Java, Spring, and SAP Commerce Cloud",
         summary:
-          "I build Java and Spring backend systems for production business platforms, with SAP Commerce Cloud as a strong specialty across integrations, incidents, and product evolution.",
+          "Backend Software Engineer focused on Java and Spring across production platforms, with SAP Commerce Cloud as a strong specialization.",
         proof:
-          "My work combines REST APIs, SQL, jobs, interceptors, validators, production support, and close collaboration with QA, business teams, and clients.",
+          "My work combines REST APIs, SQL, integrations, incidents, and close collaboration with QA, business teams, and clients.",
         quickFacts: [
           {
             label: { es: "Foco", en: "Focus" },
@@ -767,7 +830,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Experience",
         title: "Professional growth with a clear backend and production direction",
         description:
-          "From SAP and B2B backend foundations to a stronger Java and Spring profile shaped by integrations, production work, and real system ownership.",
+          "From SAP and B2B foundations to a stronger Java and Spring backend profile shaped by integrations, incidents, and production ownership.",
       },
       value: {
         eyebrow: "Professional value",
@@ -808,41 +871,95 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Featured work",
         title: "Work presented through problem, solution, and impact",
         description:
-          "A short selection of concrete cases explained through the challenge, the technical response, and the professional signal they leave behind.",
+          "Three concrete cases covering production, checkout, pricing, stock, integrations, and support work.",
       },
       ai: {
-        eyebrow: "AI-assisted work",
-        title: "AI as productivity support, not the main story",
+        eyebrow: "AI applied to technical work",
+        title: "AI as an analysis accelerator, not a substitute for technical judgment",
         description:
-          "I use it to speed up context reading, technical documentation, selective automation, and early hypotheses. Final technical decisions and responsibility for the code still stay with me.",
+          "Since my current stage at Stratesys, I use generative AI to accelerate technical analysis, debugging, and change preparation while keeping technical decisions, local testing, and pre-QA validation under my own responsibility.",
+        context:
+          "I use it in my current Stratesys stage, in a context such as BuildingCenter, as a support tool for technical analysis, debugging, documentation, and change preparation on SAP Commerce Cloud.",
+        metricsNote:
+          "Estimates based on my own metrics from comparable tasks completed before and after introducing generative AI into my workflow. They are not universal benchmarks, but observed impact in my professional context.",
+        note:
+          "AI does not replace experience or technical judgment. Its greatest value is getting to useful context sooner, reducing repetitive work, and leaving more time to solve complex problems and make better engineering decisions.",
         items: [
           {
-            title: { es: "Análisis técnico más rápido", en: "Faster technical analysis" },
+            title: { es: "Dónde aporta más valor", en: "Where it adds the most value" },
             body: {
-              es: "Acelero exploración de soluciones, lectura de contexto y primeras hipótesis técnicas antes de implementar.",
-              en: "I use it to explore context, contrast hypotheses, and reach a useful technical plan sooner.",
+              es: "Lectura rápida de contexto complejo\nContraste de hipótesis técnicas\nLocalización de código afectado\nPreparación inicial de cambios\nGeneración de scripts, documentación y tareas repetitivas",
+              en: "Fast reading of complex context\nTechnical hypothesis contrast\nAffected code localization\nInitial change preparation\nScript generation, documentation, and repetitive tasks",
             },
           },
           {
-            title: { es: "Debugging más eficiente", en: "Better debugging workflows" },
+            title: { es: "Qué sigo validando yo", en: "What I still validate myself" },
             body: {
-              es: "Las utilizo para aislar causas raíz, revisar caminos alternativos y ordenar investigación técnica.",
-              en: "It helps me isolate root causes, compare alternative paths, and structure incident investigation more effectively.",
+              es: "Decisiones técnicas y de arquitectura\nValidación del estándar SAP Commerce\nPruebas locales\nRevisión funcional\nValidación previa a QA\nResponsabilidad final del código",
+              en: "Technical and architectural decisions\nSAP Commerce standard validation\nLocal testing\nFunctional review\nPre-QA validation\nFinal responsibility for the code",
             },
           },
+        ],
+        metrics: [
           {
-            title: { es: "Documentación y automatización", en: "Documentation and automation" },
-            body: {
-              es: "Me ayudan a documentar mejor, generar scripts y automatizar trabajo repetitivo para centrarme en arquitectura y valor de negocio.",
-              en: "I rely on it to document decisions, generate scripts, and automate repetitive work so I can focus on architecture and business value.",
+            title: { es: "Preparación y análisis de cambios complejos", en: "Preparation and analysis of complex changes" },
+            highlight: { es: "Hasta ~70% menos tiempo en tareas comparables", en: "Up to ~70% less time in comparable tasks" },
+            beforeLabel: { es: "Antes", en: "Before" },
+            beforeValue: {
+              es: "Lectura manual completa del contexto, identificación del código afectado y preparación inicial del cambio.",
+              en: "Full manual context reading, identification of the affected code, and initial change preparation.",
             },
+            afterLabel: { es: "Ahora", en: "Now" },
+            afterValue: {
+              es: "Hipótesis iniciales, localización del código afectado y preparación del cambio en menos tiempo, manteniendo revisión técnica propia.",
+              en: "Initial hypotheses, affected code localization, and change preparation in less time while keeping my own technical review.",
+            },
+            note: {
+              es: "Especialmente útil en evolutivos con lógica de negocio compleja, integraciones o impacto en varios módulos.",
+              en: "Especially useful in evolutions involving complex business logic, integrations, or impact across multiple modules.",
+            },
+            beforeRatio: 100,
+            afterRatio: 35,
           },
           {
-            title: { es: "Soporte a calidad de código", en: "Code quality support" },
-            body: {
-              es: "Aporto más velocidad sin renunciar a la revisión crítica ni a mis decisiones técnicas finales.",
-              en: "I move faster without giving up maintainability, critical review, or the fact that the final technical decision and responsibility for the result stay with me.",
+            title: { es: "Implementación de tareas de 1 a 2 jornadas", en: "Implementation of 1- to 2-day tasks" },
+            highlight: { es: "Ahora en menos de 1 jornada cuando el contexto está acotado", en: "Now in less than 1 day when the context is bounded" },
+            beforeLabel: { es: "Antes", en: "Before" },
+            beforeValue: {
+              es: "Implementación manual completa, pruebas locales y repaso previo a QA.",
+              en: "Full manual implementation, local testing, and final review before QA.",
             },
+            afterLabel: { es: "Ahora", en: "Now" },
+            afterValue: {
+              es: "Generación inicial de estructura, apoyo en edge cases y documentación técnica, con revisión y pruebas locales propias.",
+              en: "Initial structure generation, support on edge cases, and technical documentation, with my own review and local testing.",
+            },
+            note: {
+              es: "La IA acelera partes repetitivas y de análisis, pero la implementación final, validación y responsabilidad siguen siendo mías.",
+              en: "AI accelerates repetitive and analysis-heavy parts, but final implementation, validation, and responsibility remain mine.",
+            },
+            beforeRatio: 100,
+            afterRatio: 45,
+          },
+          {
+            title: { es: "Investigación inicial de incidencias", en: "Initial incident investigation" },
+            highlight: { es: "De horas o hasta 1 jornada a una primera hipótesis en minutos", en: "From hours or up to a full day to a first hypothesis in minutes" },
+            beforeLabel: { es: "Antes", en: "Before" },
+            beforeValue: {
+              es: "Lectura manual de logs, trazas, código afectado y posibles caminos de ejecución.",
+              en: "Manual reading of logs, traces, affected code, and possible execution paths.",
+            },
+            afterLabel: { es: "Ahora", en: "Now" },
+            afterValue: {
+              es: "Resumen de contexto, comparación de hipótesis y localización inicial de posibles causas raíz.",
+              en: "Context summary, hypothesis comparison, and initial localization of possible root causes.",
+            },
+            note: {
+              es: "La resolución final sigue dependiendo de depuración real, pruebas, revisión del estándar y validación funcional.",
+              en: "Final resolution still depends on real debugging, testing, standard review, and functional validation.",
+            },
+            beforeRatio: 100,
+            afterRatio: 6,
           },
         ],
       },
@@ -876,7 +993,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
       contact: {
         eyebrow: "Contact",
-        title: "Contact",
+        title: "Let’s talk",
         description:
           "Email, LinkedIn, and resume for a quick fit check.",
         fitTitle: "Especially strong fit for teams looking for",
@@ -893,17 +1010,17 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Experience",
         title: "Backend path: from SAP to Java, Spring, and production",
         intro:
-          "This page summarizes how I moved from a SAP/ABAP and B2B foundation into Java/Spring backend work across SAP Commerce Cloud, APIs, integrations, incidents, and production support.",
+          "This page shows the full progression: SAP/ABAP foundations, commerce backend work on SAP Commerce Cloud, and a current stage closer to production, integrations, and incidents.",
         scanTitle: "Recruiter scan",
-        scanBody: "The progression combines SAP functional foundations, commerce backend development, and current work on active platforms.",
+        scanBody: "Rather than repeating the stack, this page shows how the kind of problems I solve has evolved over time.",
         scanBullets: [
-          "Initial foundation in SAP/ABAP and B2B projects",
-          "Backend work with Java, Spring, SAP Commerce Cloud, REST APIs, and SQL",
-          "Progression into production support, integrations, incidents, and collaboration with QA/client/business teams",
+          "Start in SAP/ABAP and B2B work with strong functional context",
+          "Move into Java, Spring, SAP Commerce Cloud, REST APIs, SQL, and business logic",
+          "Current work closer to production support, integrations, and incident investigation",
         ],
         valueEyebrow: "Progression",
         valueTitle: "How my backend profile has evolved",
-        valueDescription: "This is not only a stack list: it is the path from SAP foundations to backend work with operational responsibility.",
+        valueDescription: "The progression is not only about the stack. It is about taking on more technical context, operational responsibility, and analysis depth.",
         valueItems: [
           {
             title: { es: "Primera base técnica", en: "Technical foundation" },
@@ -939,9 +1056,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Projects",
         title: "Cases where the technical work is visible",
         intro:
-          "These cases show concrete areas where I have worked: production, checkout, pricing, stock, integrations, support, and incident investigation.",
+          "These cases show the concrete zones where I have worked: production, checkout, pricing, stock, integrations, support, and incident investigation.",
         scanTitle: "What to look for in each case",
-        scanBody: "The important signal is the problem, the backend contribution, and the stack used, not a long narrative.",
+        scanBody: "The value is not the broad narrative, but which system area was at stake, which backend decision I made, and what technical signal each case leaves behind.",
         scanBullets: [
           "Which part of the system was at stake",
           "What I did with Java, Spring, SAP Commerce Cloud, SQL, or APIs",
@@ -952,13 +1069,13 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "About",
         title: "How I work when backend has context",
         intro:
-          "Instead of repeating the stack, this page explains how I analyze, collaborate, and make decisions when there are functional requirements, incidents, or sensitive product areas.",
+          "This page is not about repeating the stack. It is about how I analyze, collaborate, and make decisions when backend work affects product, business, or production.",
         summaryTitle: "Working style",
         summaryBody:
-          "Before implementing, I try to understand the flow, the data, the platform standard, and who needs the answer. That foundation helps me propose safer changes and communicate better with QA, business teams, and clients.",
+          "Before implementing, I try to understand the flow, the affected data, the platform standard, and who needs a useful answer. That foundation helps me propose safer changes and communicate better with QA, business teams, and clients.",
         principlesTitle: "How I work",
         principlesIntro:
-          "Four habits that show up repeatedly in my day-to-day work across backend, production, and mixed teams.",
+          "Four habits that explain my way of working better than a long tools list.",
         principlesItems: [
           {
             title: { es: "Antes de tocar código", en: "Before touching code" },
@@ -995,13 +1112,13 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         title: "Let’s talk",
         intro: "Direct contact for Backend Software Engineer or Java Backend Developer opportunities.",
         availability:
-          "Open to teams that need Java/Spring backend, SAP Commerce Cloud, or production support experience.",
+          "Open to backend opportunities involving Java, Spring, SAP Commerce Cloud, integrations, and production support.",
         heroCardEyebrow: "Availability",
         heroCardTitle: "Available to assess fit",
         heroCardBullets: [
-          "Backend teams working with Java, Spring, APIs, and product logic",
-          "B2B/B2C e-commerce platforms with real operational complexity",
-          "Environments where quality, ownership, and collaboration matter",
+          "Java, Spring, REST APIs, and product logic",
+          "B2B/B2C commerce, integrations, and sensitive business flows",
+          "Teams where QA, business, and client collaboration are part of the real work",
         ],
         fitTitle: "Especially aligned opportunities",
         fitBullets: [
@@ -1018,7 +1135,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           { label: "Location", value: siteSettings.location.en },
         ],
         channelsNote:
-          "If the role fits, the fastest path is to reach me by email or LinkedIn and review the resume.",
+          "The fastest path is email or LinkedIn, with the resume ready for immediate review.",
         finalNote:
           "Primary fit: Java/Spring backend, SAP Commerce Cloud, APIs, SQL, integrations, and production support.",
       },

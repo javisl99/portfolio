@@ -17,7 +17,7 @@ export function ProjectDetailCta({ locale, className }: ProjectDetailCtaProps) {
   return (
     <div
       className={cn(
-        "rounded-[1.8rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.96),rgba(7,12,24,0.99))] p-6 shadow-soft",
+        "rounded-[1.8rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.92),rgba(7,12,24,0.98))] p-6 shadow-soft",
         className,
       )}
     >
@@ -29,10 +29,10 @@ export function ProjectDetailCta({ locale, className }: ProjectDetailCtaProps) {
       </h2>
       <p className="mt-3 text-sm leading-7 text-muted">
         {locale === "es"
-          ? "También puedes revisar más casos, descargar mi CV o contactar directamente."
+          ? "También puedes revisar más casos, descargar mi CV o escribirme directamente."
           : "You can also review more case studies, download my resume, or reach out directly."}
       </p>
-      <div className="mt-6 grid gap-3">
+      <div className="mt-6 grid gap-3 sm:grid-cols-3">
         <ButtonLink href={localizePath(locale, "/projects")} variant="secondary">
           <ArrowLeft className="h-4 w-4" />
           {locale === "es" ? "Volver a proyectos" : "Back to projects"}

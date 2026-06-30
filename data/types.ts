@@ -28,6 +28,18 @@ export interface SkillCategory {
   items: string[];
 }
 
+export interface AiImpactMetric {
+  title: LocalizedString;
+  highlight: LocalizedString;
+  beforeLabel: LocalizedString;
+  beforeValue: LocalizedString;
+  afterLabel: LocalizedString;
+  afterValue: LocalizedString;
+  note: LocalizedString;
+  beforeRatio: number;
+  afterRatio: number;
+}
+
 export interface ExperienceEntry {
   id: string;
   badge: LocalizedString;
