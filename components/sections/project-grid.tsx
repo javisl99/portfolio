@@ -79,7 +79,7 @@ export function ProjectGrid({ locale, projects, variant = "full" }: ProjectGridP
 
         return (
           <article
-            className="group overflow-hidden rounded-[1.9rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,33,0.95),rgba(7,12,24,0.99))] shadow-[0_30px_72px_-42px_rgba(2,6,23,0.92)] transition duration-300 hover:-translate-y-2 hover:border-accent-soft/30 motion-reduce:transform-none motion-reduce:transition-none"
+            className="group overflow-hidden rounded-[1.9rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,33,0.94),rgba(7,12,24,0.99))] shadow-[0_30px_72px_-42px_rgba(2,6,23,0.92)] transition duration-300 hover:-translate-y-2 hover:border-accent-soft/24 motion-reduce:transform-none motion-reduce:transition-none"
             key={`${project.locale}-${project.slug}`}
           >
             <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-[linear-gradient(180deg,rgba(37,99,235,0.12),rgba(255,255,255,0.02))]">

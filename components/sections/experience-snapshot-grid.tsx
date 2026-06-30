@@ -94,64 +94,57 @@ export function ExperienceSnapshotGrid({ locale, variant = "full" }: ExperienceS
     <>
       <div className="grid gap-6 md:grid-cols-2">
         {experienceEntries.map((entry) => {
-          const stageSignals = getStageSignals(entry);
+          const stageSignals = getStageSignals(entry).slice(0, 3);
 
           return (
             <article
-            className="group flex h-full flex-col rounded-[1.9rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.96),rgba(7,12,24,0.99))] p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/35"
-            key={entry.id}
-          >
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-              <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">{entry.badge[locale]}</p>
-              <span className="rounded-lg border border-line px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
-                {entry.period[locale]}
-              </span>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-xl font-black tracking-tight text-ink">{entry.title[locale]}</h3>
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-200">{entry.company}</p>
-              <p className="text-sm text-muted">{entry.subtitle[locale]}</p>
-            </div>
-
-            <p className="mt-5 text-sm leading-7 text-slate-300">{entry.description[locale]}</p>
-
-            <div className="mt-5 rounded-[1.2rem] border border-white/10 bg-white/[0.04] px-4 py-4">
-              <p className="mb-2 font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
-                {locale === "es" ? "Señales de etapa" : "Stage signals"}
-              </p>
-              <ul className="grid gap-2 text-sm leading-7 text-ink">
-                {entry.cardHighlights.map((highlight) => (
-                  <li className="flex gap-3" key={highlight.en}>
-                    <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
-                    <span>{highlight[locale]}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              {stageSignals.map((item) => (
-                <span className="rounded-full border border-[#60a5fa]/20 bg-[#60a5fa]/8 px-3 py-1.5 text-xs font-semibold text-[#d5e2ff]" key={item}>
-                  {item}
-                </span>
-              ))}
-              {entry.stack.slice(0, 4).map((item) => (
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-muted" key={item}>
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <button
-              className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-[#c7d6ff] transition hover:translate-x-1 hover:text-white group-hover:text-white"
-              onClick={() => openModal(entry)}
-              type="button"
+              className="group flex h-full flex-col rounded-[1.9rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.96),rgba(7,12,24,0.99))] p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/28"
+              key={entry.id}
             >
-              {entry.buttonLabel[locale]}
-              <ArrowRight className="h-4 w-4" />
-            </button>
-          </article>
+              <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+                <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">{entry.badge[locale]}</p>
+                <span className="rounded-lg border border-white/8 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
+                  {entry.period[locale]}
+                </span>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xl font-black tracking-tight text-ink">{entry.title[locale]}</h3>
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-200">{entry.company}</p>
+                <p className="text-sm text-muted">{entry.subtitle[locale]}</p>
+              </div>
+
+              <p className="mt-5 text-sm leading-7 text-slate-300">{entry.cardImpact[locale]}</p>
+
+              <div className="mt-5 rounded-[1.2rem] bg-white/[0.035] px-4 py-4">
+                <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
+                  {locale === "es" ? "Contexto de la etapa" : "Stage context"}
+                </p>
+                <p className="mt-2 text-sm leading-7 text-slate-200">{entry.context[locale]}</p>
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {stageSignals.map((item) => (
+                  <span className="rounded-full border border-[#60a5fa]/20 bg-[#60a5fa]/8 px-3 py-1.5 text-xs font-semibold text-[#d5e2ff]" key={item}>
+                    {item}
+                  </span>
+                ))}
+                {entry.stack.slice(0, 3).map((item) => (
+                  <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-muted" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              <button
+                className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-[#c7d6ff] transition hover:translate-x-1 hover:text-white group-hover:text-white"
+                onClick={() => openModal(entry)}
+                type="button"
+              >
+                {entry.buttonLabel[locale]}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </article>
           );
         })}
       </div>
@@ -174,6 +167,7 @@ export function ExperienceSnapshotGrid({ locale, variant = "full" }: ExperienceS
         }
         onClose={closeModal}
         open={Boolean(activeEntry)}
+        summary={activeEntry?.modalSummary[locale]}
         subtitle={activeEntry?.modalSubtitle[locale]}
         title={activeEntry?.title[locale] ?? ""}
         visible={isModalVisible}
@@ -209,6 +203,16 @@ export function ExperienceSnapshotGrid({ locale, variant = "full" }: ExperienceS
                 ))}
               </ul>
             </section>
+
+            {activeEntry.modalImpact ? (
+              <section className="rounded-[1.6rem] border border-white/10 bg-[#0d1426] p-5 sm:p-6">
+                <p className="mb-3 flex items-center gap-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">
+                  <CalendarDays className="h-4 w-4" />
+                  {locale === "es" ? "Lo que aporta esta etapa" : "What this stage adds"}
+                </p>
+                <p className="text-[0.96rem] leading-7 text-slate-200">{activeEntry.modalImpact[locale]}</p>
+              </section>
+            ) : null}
 
             <section className="rounded-[1.6rem] border border-white/10 bg-[#0d1426] p-5 sm:p-6">
               <p className="mb-3 flex items-center gap-2 font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#bcd1ff]">

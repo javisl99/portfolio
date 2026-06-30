@@ -9,7 +9,7 @@ import { Section } from "@/components/ui/section";
 import { siteCopy } from "@/data/site";
 import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { createMetadata } from "@/lib/metadata";
-import { isLocale, type Locale } from "@/lib/i18n";
+import { isLocale, localizePath, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({
   params,
@@ -53,7 +53,7 @@ export default async function ContactPage({
 
   return (
     <>
-      <PageHero className="py-12 sm:py-16" eyebrow={page.eyebrow} intro={page.intro} title={page.title}>
+      <PageHero className="py-10 sm:py-16" eyebrow={page.eyebrow} intro={page.intro} title={page.title}>
         <div className="space-y-5">
           <div>
             <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">{page.heroCardEyebrow}</p>
@@ -62,18 +62,23 @@ export default async function ContactPage({
           </div>
 
           <div className="grid gap-3">
-            <ButtonLink className="w-full justify-center" href={`mailto:${copy.pages.contact.channelsItems[0]?.value}`} variant="primary">
-              <Mail className="h-4 w-4" />
-              Email
-            </ButtonLink>
             <div className="grid gap-3 sm:grid-cols-2">
+              <ButtonLink className="w-full justify-center" href={`mailto:${copy.pages.contact.channelsItems[0]?.value}`} variant="primary">
+                <Mail className="h-4 w-4" />
+                Email
+              </ButtonLink>
               <ButtonLink className="w-full justify-center" href={copy.pages.contact.channelsItems[1]?.href ?? "#"} target="_blank" variant="secondary">
                 <Linkedin className="h-4 w-4" />
                 LinkedIn
               </ButtonLink>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
               <ButtonLink className="w-full justify-center" download={cvDownloadName} href={cvHref} target="_blank" variant="secondary">
                 <FileDown className="h-4 w-4" />
                 {copy.ctas.resume}
+              </ButtonLink>
+              <ButtonLink className="w-full justify-center" href={localizePath(locale, "/projects")} variant="secondary">
+                {locale === "es" ? "Ver proyectos" : "View projects"}
               </ButtonLink>
             </div>
           </div>
@@ -96,8 +101,8 @@ export default async function ContactPage({
       <Section
         align="center"
         description={page.finalNote}
-        eyebrow={page.eyebrow}
-        title={locale === "es" ? "Canales claros y encaje rápido" : "Clear channels and quick fit"}
+        eyebrow={locale === "es" ? "Siguiente paso" : "Next step"}
+        title={locale === "es" ? "Canales claros y oportunidades alineadas" : "Clear channels and aligned opportunities"}
       >
         <ContactPanel fitBullets={page.fitBullets} fitTitle={page.fitTitle} locale={locale} />
       </Section>

@@ -113,9 +113,9 @@ export default async function ProjectDetailPage({
         }}
         type="application/ld+json"
       />
-      <Container className="pt-6 sm:pt-10">
-        <nav aria-label={locale === "es" ? "Ruta de navegación" : "Breadcrumb"} className="mb-1 sm:mb-2">
-          <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted sm:gap-2">
+      <Container className="pt-3 sm:pt-8">
+        <nav aria-label={locale === "es" ? "Ruta de navegación" : "Breadcrumb"} className="mb-0.5">
+          <ol className="flex flex-wrap items-center gap-1 text-[0.72rem] text-muted sm:gap-2 sm:text-sm">
             <li>
               <Link className="transition hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" href={localizePath(locale)}>
                 {locale === "es" ? "Inicio" : "Home"}
@@ -142,32 +142,40 @@ export default async function ProjectDetailPage({
         </nav>
       </Container>
 
-      <PageHero className="py-10 sm:py-16" eyebrow={project.role} intro={project.summary} title={project.title}>
-        <div className="space-y-5">
+      <PageHero
+        className="py-6 sm:py-14"
+        eyebrow={project.role}
+        intro={project.summary}
+        introClassName="max-w-2xl text-[0.98rem] sm:text-[1.05rem] sm:leading-8"
+        panelClassName="border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.84),rgba(7,12,24,0.92))]"
+        title={project.title}
+        titleClassName="text-[2.15rem] sm:text-5xl lg:text-6xl"
+      >
+        <div className="space-y-4">
           <div>
             <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">
               {locale === "es" ? "Ficha rápida" : "Quick profile"}
             </p>
-            <div className="mt-3 grid gap-3 text-sm text-slate-200 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+            <div className="mt-2.5 grid gap-2 text-sm text-slate-200 sm:grid-cols-2">
+              <div className="rounded-[1.15rem] bg-white/[0.04] px-4 py-3">
                 <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-slate-400">{locale === "es" ? "Año" : "Year"}</p>
                 <p className="mt-1 font-semibold text-white">{project.year}</p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+              <div className="rounded-[1.15rem] bg-white/[0.04] px-4 py-3">
                 <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-slate-400">{locale === "es" ? "Empresa" : "Employer"}</p>
                 <p className="mt-1 font-semibold text-white">{project.employer}</p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+              <div className="rounded-[1.15rem] bg-white/[0.04] px-4 py-3">
                 <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-slate-400">{locale === "es" ? "Cliente" : "Client"}</p>
                 <p className="mt-1 font-semibold text-white">{project.client ?? project.domain}</p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+              <div className="rounded-[1.15rem] bg-white/[0.04] px-4 py-3">
                 <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-slate-400">{locale === "es" ? "Stack" : "Stack"}</p>
                 <p className="mt-1 font-semibold text-white">{project.stack.slice(0, 3).join(" · ")}</p>
               </div>
             </div>
           </div>
-          <div className="rounded-2xl border border-[#60a5fa]/18 bg-[linear-gradient(135deg,rgba(18,39,82,0.96),rgba(24,35,76,0.98))] p-4">
+          <div className="rounded-[1.25rem] border border-[#60a5fa]/16 bg-[linear-gradient(135deg,rgba(18,39,82,0.9),rgba(24,35,76,0.94))] p-4">
             <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-[#bcd1ff]">
               {locale === "es" ? "Qué evaluaría un recruiter aquí" : "What a recruiter can assess here"}
             </p>
@@ -178,21 +186,21 @@ export default async function ProjectDetailPage({
 
       <Container className="pb-20 sm:pb-28">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
-          <article className="rounded-[2rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.96),rgba(7,12,24,0.99))] p-7 shadow-soft sm:p-9">
+          <article className="rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.95),rgba(7,12,24,0.99))] p-7 shadow-soft sm:p-9">
             <div className="mb-8 grid gap-4 sm:grid-cols-3">
-              <section className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
+              <section className="rounded-[1.4rem] bg-white/[0.03] p-4">
                 <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-[#9fbeff]">
                   {locale === "es" ? "Problema" : "Problem"}
                 </p>
                 <p className="mt-2 text-sm leading-7 text-slate-300">{project.stakes}</p>
               </section>
-              <section className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
+              <section className="rounded-[1.4rem] bg-white/[0.03] p-4">
                 <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-[#9fbeff]">
                   {locale === "es" ? "Contribución" : "Contribution"}
                 </p>
                 <p className="mt-2 text-sm leading-7 text-slate-300">{project.contribution}</p>
               </section>
-              <section className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
+              <section className="rounded-[1.4rem] bg-white/[0.03] p-4">
                 <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-[#9fbeff]">
                   {locale === "es" ? "Dominio" : "Domain"}
                 </p>
@@ -208,7 +216,7 @@ export default async function ProjectDetailPage({
           </article>
 
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-[1.8rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.96),rgba(7,12,24,0.99))] p-6 shadow-soft">
+            <div className="rounded-[1.8rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.92),rgba(7,12,24,0.97))] p-6 shadow-soft">
               <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#9fbeff]">
                 {locale === "es" ? "Stack técnico" : "Technical stack"}
               </p>

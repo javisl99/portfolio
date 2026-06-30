@@ -80,8 +80,8 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Participation in batch processes, workflows, Backoffice development and complex business logic implementation.",
       },
       {
-        es: "Uso puntual de IA generativa para acelerar análisis técnico, debugging y documentación.",
-        en: "Selective use of generative AI to accelerate technical analysis, debugging, and documentation.",
+        es: "Desde 2026, uso IA generativa como acelerador de análisis técnico, debugging y preparación de cambios, manteniendo la validación final en mis manos.",
+        en: "Since 2026, I use generative AI as an accelerator for technical analysis, debugging, and change preparation, while keeping final validation in my own hands.",
       },
     ],
     stack: [
@@ -117,8 +117,8 @@ export const experienceEntries: ExperienceEntry[] = [
           en: "Recruiter signal",
         },
         body: {
-          es: "No es solo desarrollo de features: demuestra análisis de causa raíz, coordinación con QA, cliente y negocio, y trabajo sobre zonas sensibles del sistema.",
-          en: "Not just feature delivery: it shows root cause analysis, coordination with QA, client, and business teams, and work on sensitive areas of the system.",
+          es: "No es solo desarrollo de features: demuestra análisis de causa raíz, coordinación con QA, cliente y negocio, y desde 2026 una forma de trabajar más rápida apoyada por IA sin delegar criterio técnico.",
+          en: "Not just feature delivery: it shows root cause analysis, coordination with QA, client, and business teams, and since 2026 a faster workflow supported by AI without delegating technical judgment.",
         },
       },
     ],

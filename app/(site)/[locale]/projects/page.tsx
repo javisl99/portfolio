@@ -51,15 +51,27 @@ export default async function ProjectsPage({
 
   return (
     <>
-      <PageHero eyebrow={page.eyebrow} intro={page.intro} title={page.title}>
+      <PageHero
+        eyebrow={page.eyebrow}
+        intro={page.intro}
+        introClassName="max-w-3xl sm:text-[1.08rem] sm:leading-8"
+        panelClassName="border-[#60a5fa]/18 bg-[linear-gradient(180deg,rgba(17,29,56,0.96),rgba(9,15,30,0.98))]"
+        panelLayout="below"
+        titleClassName="max-w-4xl"
+        title={page.title}
+      >
         <RecruiterScanCard bullets={page.scanBullets} description={page.scanBody} eyebrow={page.scanTitle} title={locale === "es" ? "Qué vas a encontrar" : "What you will find"} />
       </PageHero>
 
       <Section
         align="center"
-        description={copy.home.projects.description}
-        eyebrow={copy.home.projects.eyebrow}
-        title={locale === "es" ? "Casos completos con problema, contribución y stack" : "Complete cases with problem, contribution, and stack"}
+        description={
+          locale === "es"
+            ? "Cada caso deja visible el problema, la contribución backend y la señal técnica que un recruiter puede evaluar rápido."
+            : "Each case keeps the problem, backend contribution, and technical signal visible enough to evaluate quickly."
+        }
+        eyebrow={locale === "es" ? "Casos reales" : "Real cases"}
+        title={locale === "es" ? "Problema, contribución y señal backend" : "Problem, contribution, and backend signal"}
       >
         <ProjectGrid locale={locale} projects={projects} />
       </Section>

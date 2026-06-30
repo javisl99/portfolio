@@ -49,6 +49,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
   overflow-x: hidden;
 }
 
@@ -60,10 +61,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 12% 0%, rgba(96, 165, 250, 0.22), transparent 22%),
-    radial-gradient(circle at 84% 8%, rgba(37, 99, 235, 0.2), transparent 24%),
-    radial-gradient(circle at 50% 36%, rgba(15, 23, 42, 0.46), transparent 40%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 22%),
+    radial-gradient(circle at 12% 0%, rgba(96, 165, 250, 0.18), transparent 22%),
+    radial-gradient(circle at 84% 8%, rgba(37, 99, 235, 0.16), transparent 24%),
+    radial-gradient(circle at 50% 36%, rgba(15, 23, 42, 0.38), transparent 40%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 22%),
     var(--background);
   color: var(--ink);
   font-family: var(--font-sans);
@@ -79,7 +80,7 @@ body::before {
     linear-gradient(90deg, rgba(159, 190, 255, 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(circle at center, black 28%, transparent 86%);
-  opacity: 0.2;
+  opacity: 0.14;
 }
 
 body::after {
@@ -90,7 +91,7 @@ body::after {
   background:
     radial-gradient(circle at 8% 14%, rgba(96, 165, 250, 0.08), transparent 18rem),
     radial-gradient(circle at 84% 78%, rgba(37, 99, 235, 0.08), transparent 16rem);
-  opacity: 0.8;
+  opacity: 0.62;
 }
 
 ::selection {
