@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Download, Mail } from "lucide-react";
 
 import { AIImpactSection } from "@/components/sections/ai-impact-section";
 import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapshot-grid";
+import { HomeAboutPreview } from "@/components/sections/home-about-preview";
 import { HomeHero } from "@/components/sections/home-hero";
 import { ProjectGrid } from "@/components/sections/project-grid";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { siteCopy } from "@/data/site";
+import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { createMetadata } from "@/lib/metadata";
 import { getFeaturedProjects } from "@/lib/projects";
 import { isLocale, localizePath, type Locale } from "@/lib/i18n";
@@ -50,6 +53,8 @@ export default async function HomePage({
   const copy = siteCopy[locale];
   const projects = await getFeaturedProjects(locale);
   const aboutPage = copy.pages.about;
+  const cvHref = getCvFilePath(locale);
+  const cvDownloadName = getCvDownloadName(locale);
 
   return (
     <>
@@ -103,7 +108,7 @@ export default async function HomePage({
       <Section
         actions={
           <ButtonLink href={localizePath(locale, "/about")} variant="secondary">
-            {copy.ctas.about}
+            {locale === "es" ? "Ver cómo trabajo" : "See how I work"}
           </ButtonLink>
         }
         id="about"
@@ -112,37 +117,39 @@ export default async function HomePage({
         eyebrow={aboutPage.eyebrow}
         title={aboutPage.title}
       >
-        <article className="mx-auto max-w-4xl rounded-[1.9rem] border border-line bg-panel p-7 text-left shadow-soft sm:p-8">
-          <p className="mb-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#9fbeff]">{aboutPage.summaryTitle}</p>
-          <h3 className="text-2xl font-black tracking-tight text-ink">{copy.roleLabel}</h3>
-          <p className="mt-4 text-sm leading-7 text-muted sm:text-base">{aboutPage.principlesIntro}</p>
-        </article>
+        <HomeAboutPreview items={aboutPage.principlesItems} locale={locale} />
       </Section>
 
-      <Section
-        actions={
-          <ButtonLink href={localizePath(locale, "/contact")} variant="secondary">
-            {copy.ctas.contact}
-          </ButtonLink>
-        }
-        id="contact"
-        align="center"
-        description={copy.pages.contact.availability}
-        eyebrow={copy.pages.contact.eyebrow}
-        title={locale === "es" ? "Disponible para una conversación rápida" : "Available for a quick conversation"}
-      >
-        <div className="mx-auto max-w-4xl rounded-[1.9rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.95),rgba(7,12,24,0.98))] p-7 text-center shadow-soft sm:p-9">
-          <p className="mx-auto max-w-2xl text-sm leading-7 text-muted sm:text-base">{copy.home.contact.description}</p>
-          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-            <ButtonLink className="justify-center" href={localizePath(locale, "/contact")} variant="primary">
-              {copy.ctas.contact}
-            </ButtonLink>
-            <ButtonLink className="justify-center" href={localizePath(locale, "/projects")} variant="secondary">
-              {copy.ctas.projects}
-            </ButtonLink>
+      <section className="pb-4 pt-8 sm:pb-5 sm:pt-4" id="contact">
+        <Container>
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="font-display text-4xl font-black tracking-tight text-ink sm:text-5xl">
+              {locale === "es" ? "¿Listo para hablar de backend, integraciones y producto?" : "Ready to talk about backend, integrations, and product?"}
+            </h2>
+            <p className="mx-auto mt-4 max-w-[37.5rem] text-sm leading-7 text-muted sm:text-base">
+              {locale === "es"
+                ? "Abierto a nuevas oportunidades y conversaciones relacionadas con backend, integraciones y plataformas de producto."
+                : "Open to new opportunities and conversations around backend engineering, integrations and product platforms."}
+            </p>
+            <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+              <ButtonLink className="justify-center px-10 py-4 text-lg" href={localizePath(locale, "/contact")} variant="primary">
+                <Mail className="h-5 w-5 shrink-0 self-center" />
+                <span className="inline-flex items-center leading-none">{locale === "es" ? "Contactar" : "Get in Touch"}</span>
+              </ButtonLink>
+              <ButtonLink
+                className="justify-center px-10 py-4 text-lg"
+                download={cvDownloadName}
+                href={cvHref}
+                target="_blank"
+                variant="secondary"
+              >
+                <Download className="h-5 w-5 shrink-0 self-center" />
+                <span className="inline-flex items-center leading-none">{copy.ctas.resume}</span>
+              </ButtonLink>
+            </div>
           </div>
-        </div>
-      </Section>
+        </Container>
+      </section>
     </>
   );
 }
