@@ -8,25 +8,6 @@ const ogLocaleMap: Record<Locale, string> = {
   es: "es_ES",
   en: "en_US",
 };
-const commonExpertise = [
-  "Backend Software Engineer",
-  "Java",
-  "Spring",
-  "Spring Boot",
-  "SAP Commerce Cloud",
-  "REST APIs",
-  "SQL",
-  "FlexibleSearch",
-  "Integration Objects",
-  "Jobs",
-  "Interceptors",
-  "Validators",
-  "Backoffice",
-  "Root Cause Analysis",
-  "Production Support",
-  "Business Integrations",
-];
-
 export function buildUrl(pathname = "/") {
   const baseUrl = getMetadataBase();
   const normalizedPath = pathname === "/" ? "" : pathname.replace(/^\/+/, "");
@@ -98,22 +79,30 @@ export function createMetadata({
 }
 
 export function getPersonStructuredData(locale: Locale) {
-  const copy = siteCopy[locale];
-
   return {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteSettings.name,
     jobTitle: siteSettings.schemaRole,
-    url: buildUrl(localizePath(locale)),
+    url: buildUrl("/"),
     email: `mailto:${siteSettings.email}`,
     sameAs: [siteSettings.linkedin, siteSettings.github],
     address: {
       "@type": "PostalAddress",
-      addressLocality: siteSettings.location[locale],
+      addressLocality: locale === "es" ? "Sevilla" : "Seville",
+      addressCountry: "ES",
     },
-    description: copy.metadata.defaultDescription,
-    knowsAbout: [...copy.metadata.keywords, ...commonExpertise],
+    description: siteCopy[locale].metadata.defaultDescription,
+    knowsAbout: [
+      "Java",
+      "Spring",
+      "REST APIs",
+      "SQL",
+      "SAP Commerce Cloud",
+      "Backend Engineering",
+      "Integrations",
+      "Production Support",
+    ],
   };
 }
 
@@ -124,7 +113,7 @@ export function getWebsiteStructuredData(locale: Locale) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteSettings.name,
-    url: buildUrl(localizePath(locale)),
+    url: buildUrl("/"),
     inLanguage: locale,
     description: copy.metadata.defaultDescription,
   };

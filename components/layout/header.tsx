@@ -24,10 +24,14 @@ export function Header({ locale }: HeaderProps) {
           <Link className="hidden shrink-0 items-center gap-3 text-sm md:inline-flex" href={`/${locale}`}>
             <BrandLogo className="w-[18.4rem] shrink-0" imageClassName="w-[18.4rem]" priority variant="full-light" />
           </Link>
-          <div className="flex items-center gap-3 md:hidden">
+          <Link
+            aria-label={locale === "es" ? "Ir al inicio" : "Go to home"}
+            className="flex items-center gap-3 md:hidden"
+            href={`/${locale}`}
+          >
             <BrandLogo className="w-10" imageClassName="w-10" priority variant="mark" />
             <span className="text-base font-bold tracking-tight text-ink">{siteSettings.name}</span>
-          </div>
+          </Link>
           <MainNav items={copy.navigation} locale={locale} />
         </div>
         <div className="flex items-center gap-3">

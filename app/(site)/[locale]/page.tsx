@@ -12,7 +12,7 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { siteCopy } from "@/data/site";
 import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
-import { createMetadata } from "@/lib/metadata";
+import { createMetadata, getPersonStructuredData, getWebsiteStructuredData } from "@/lib/metadata";
 import { getFeaturedProjects } from "@/lib/projects";
 import { isLocale, localizePath, type Locale } from "@/lib/i18n";
 
@@ -55,9 +55,23 @@ export default async function HomePage({
   const aboutPage = copy.pages.about;
   const cvHref = getCvFilePath(locale);
   const cvDownloadName = getCvDownloadName(locale);
+  const personStructuredData = getPersonStructuredData(locale);
+  const websiteStructuredData = getWebsiteStructuredData(locale);
 
   return (
     <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personStructuredData),
+        }}
+        type="application/ld+json"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteStructuredData),
+        }}
+        type="application/ld+json"
+      />
       <HomeHero locale={locale} />
 
       <Section

@@ -71,7 +71,7 @@ export default async function ContactPage({
     locale === "es"
       ? [
           {
-            title: "Java & Spring Backend",
+            title: "Java backend y APIs",
             body: "Experiencia en lógica de negocio, integraciones y APIs.",
           },
           {
@@ -85,7 +85,7 @@ export default async function ContactPage({
         ]
       : [
           {
-            title: "Java & Spring Backend",
+            title: "Java backend and APIs",
             body: "Experience in business logic, integrations, and APIs.",
           },
           {

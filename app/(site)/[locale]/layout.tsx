@@ -13,7 +13,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { siteCopy } from "@/data/site";
-import { createMetadata, getPersonStructuredData, getWebsiteStructuredData } from "@/lib/metadata";
+import { createMetadata } from "@/lib/metadata";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 
 export const viewport: Viewport = {
@@ -60,24 +60,9 @@ export default async function LocaleLayout({
   }
 
   const locale = rawLocale as Locale;
-  const personStructuredData = getPersonStructuredData(locale);
-  const websiteStructuredData = getWebsiteStructuredData(locale);
-
   return (
     <html lang={locale}>
       <body>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personStructuredData),
-          }}
-          type="application/ld+json"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteStructuredData),
-          }}
-          type="application/ld+json"
-        />
         <Header locale={locale} />
         <div className="content-shell pt-[4.25rem] sm:pt-20">
           <main>{children}</main>
