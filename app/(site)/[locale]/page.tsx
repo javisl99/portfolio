@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { AIImpactSection } from "@/components/sections/ai-impact-section";
 import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapshot-grid";
+import { HomeAboutPreview } from "@/components/sections/home-about-preview";
 import { HomeHero } from "@/components/sections/home-hero";
 import { ProjectGrid } from "@/components/sections/project-grid";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -103,7 +104,7 @@ export default async function HomePage({
       <Section
         actions={
           <ButtonLink href={localizePath(locale, "/about")} variant="secondary">
-            {copy.ctas.about}
+            {locale === "es" ? "Ver cómo trabajo" : "See how I work"}
           </ButtonLink>
         }
         id="about"
@@ -112,11 +113,7 @@ export default async function HomePage({
         eyebrow={aboutPage.eyebrow}
         title={aboutPage.title}
       >
-        <article className="mx-auto max-w-4xl rounded-[1.9rem] border border-line bg-panel p-7 text-left shadow-soft sm:p-8">
-          <p className="mb-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#9fbeff]">{aboutPage.summaryTitle}</p>
-          <h3 className="text-2xl font-black tracking-tight text-ink">{copy.roleLabel}</h3>
-          <p className="mt-4 text-sm leading-7 text-muted sm:text-base">{aboutPage.principlesIntro}</p>
-        </article>
+        <HomeAboutPreview items={aboutPage.principlesItems} locale={locale} />
       </Section>
 
       <Section
