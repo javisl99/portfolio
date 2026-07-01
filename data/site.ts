@@ -8,7 +8,7 @@ export const siteSettings = {
   email: "javier.sanchez.lancha99@gmail.com",
   linkedin: "https://www.linkedin.com/in/javiersanchezlancha",
   github: "https://github.com/javisl99",
-  siteUrl: "https://javiersanchezlancha-dev.vercel.app",
+  siteUrl: "https://javiersanchezlancha.com",
   location: {
     es: "Sevilla, España",
     en: "Seville, Spain",
