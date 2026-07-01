@@ -79,7 +79,7 @@ export default async function LocaleLayout({
           type="application/ld+json"
         />
         <Header locale={locale} />
-        <div className="content-shell pt-20">
+        <div className="content-shell pt-[4.25rem] sm:pt-20">
           <main>{children}</main>
           <Footer locale={locale} />
         </div>

@@ -16,7 +16,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
   const heroTitleSecondary = locale === "es" ? "Java, Spring y SAP Commerce Cloud" : "Java, Spring, and SAP Commerce Cloud";
 
   return (
-    <section className="relative overflow-hidden py-6 sm:py-9 lg:py-22" id="top">
+    <section className="relative overflow-hidden py-6 sm:py-9 lg:pb-16 lg:pt-22" id="top">
       <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,rgba(96,165,250,0.28),transparent_38%),radial-gradient(circle_at_82%_18%,rgba(37,99,235,0.24),transparent_32%)]" />
       <Container>
         <div className="grid items-start gap-7 lg:grid-cols-12 lg:gap-8">
@@ -121,17 +121,17 @@ export function HomeHero({ locale }: { locale: Locale }) {
 
             return (
               <div
-                className="group flex h-full min-w-0 items-center gap-2 rounded-[1.1rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.82),rgba(7,12,24,0.9))] px-3 py-2.5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/30 sm:gap-3 sm:rounded-[1.35rem] sm:px-4 sm:py-3"
+                className="group flex h-full min-w-0 items-center gap-2 rounded-[1.05rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.82),rgba(7,12,24,0.9))] px-3 py-2 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/30 sm:gap-2.5 sm:rounded-[1.25rem] sm:px-3.5 sm:py-2.5"
                 key={highlight.label.en}
               >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] text-[#bcd1ff] transition duration-300 group-hover:bg-white/[0.06] group-hover:text-white sm:h-10 sm:w-10 sm:rounded-xl">
-                  <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] text-[#bcd1ff] transition duration-300 group-hover:bg-white/[0.06] group-hover:text-white sm:h-8 sm:w-8 sm:rounded-[0.95rem]">
+                  <Icon className="h-3.5 w-3.5 sm:h-[0.95rem] sm:w-[0.95rem]" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[0.92rem] font-semibold leading-5 text-slate-100 transition duration-300 group-hover:text-white sm:hidden">
+                  <p className="text-[0.9rem] font-semibold leading-5 text-slate-100 transition duration-300 group-hover:text-white sm:hidden">
                     {highlight.shortLabel?.[locale] ?? highlight.label[locale]}
                   </p>
-                  <p className="hidden text-sm font-semibold leading-6 text-slate-100 transition duration-300 group-hover:text-white sm:block">
+                  <p className="hidden text-[0.95rem] font-semibold leading-5 text-slate-100 transition duration-300 group-hover:text-white sm:block">
                     {highlight.label[locale]}
                   </p>
                 </div>

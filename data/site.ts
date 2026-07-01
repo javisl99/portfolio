@@ -272,18 +272,21 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         ],
         highlights: [
           {
-            label: { es: "4+ años de experiencia profesional", en: "4+ years of professional experience" },
-            shortLabel: { es: "4+ años", en: "4+ years" },
+            label: { es: "4+ años experiencia", en: "4+ years experience" },
+            shortLabel: { es: "4+ años experiencia", en: "4+ years experience" },
           },
           {
-            label: { es: "Java & Spring Backend", en: "Java & Spring Backend" },
-            shortLabel: { es: "Java & Spring", en: "Java & Spring" },
+            label: { es: "Java Backend", en: "Java Backend" },
+            shortLabel: { es: "Java Backend", en: "Java Backend" },
           },
           {
-            label: { es: "Integraciones y soporte productivo", en: "Real production support" },
+            label: { es: "Soporte productivo", en: "Production support" },
             shortLabel: { es: "Soporte productivo", en: "Production support" },
           },
-          { label: { es: "SAP Commerce como especialización", en: "SAP Commerce specialization" } },
+          {
+            label: { es: "Experto SAP Commerce", en: "SAP Commerce expert" },
+            shortLabel: { es: "Experto SAP Commerce", en: "SAP Commerce expert" },
+          },
         ],
         supportLinks: [
           { href: "/experience", label: "Ver experiencia" },
@@ -771,18 +774,21 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         ],
         highlights: [
           {
-            label: { es: "4+ años de experiencia profesional", en: "4+ years of professional experience" },
-            shortLabel: { es: "4+ años", en: "4+ years" },
+            label: { es: "4+ años experiencia", en: "4+ years experience" },
+            shortLabel: { es: "4+ años experiencia", en: "4+ years experience" },
           },
           {
-            label: { es: "Java & Spring Backend", en: "Java & Spring Backend" },
-            shortLabel: { es: "Java & Spring", en: "Java & Spring" },
+            label: { es: "Java Backend", en: "Java Backend" },
+            shortLabel: { es: "Java Backend", en: "Java Backend" },
           },
           {
-            label: { es: "Integraciones y soporte productivo", en: "Real production support" },
+            label: { es: "Soporte productivo", en: "Production support" },
             shortLabel: { es: "Soporte productivo", en: "Production support" },
           },
-          { label: { es: "SAP Commerce como especialización", en: "SAP Commerce specialization" } },
+          {
+            label: { es: "Experto SAP Commerce", en: "SAP Commerce expert" },
+            shortLabel: { es: "Experto SAP Commerce", en: "SAP Commerce expert" },
+          },
         ],
         supportLinks: [
           { href: "/experience", label: "View Experience" },
