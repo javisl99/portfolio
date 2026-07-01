@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Analytics } from "@vercel/analytics/next"
 
 // @ts-ignore: font packages may not have type declarations for side-effect imports
 import "@fontsource-variable/manrope";
