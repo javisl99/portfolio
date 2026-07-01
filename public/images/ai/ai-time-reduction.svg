@@ -1,0 +1,47 @@
+<svg width="840" height="260" viewBox="0 0 840 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Comparativa de tiempo antes y ahora con IA</title>
+  <desc id="desc">Gráfico comparativo de barras que muestra reducción de tiempo en tres tipos de tareas tras incorporar IA generativa al flujo de trabajo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="840" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#101D34"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+  <rect width="840" height="260" rx="24" fill="url(#bg)"/>
+  <rect x="1" y="1" width="838" height="258" rx="23" stroke="#263B63"/>
+
+  <text x="36" y="44" fill="#93B4FF" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="4">MÉTRICAS PROPIAS</text>
+  <text x="36" y="76" fill="#EAF2FF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">Reducción observada en tareas comparables</text>
+  <text x="36" y="100" fill="#A8B7D8" font-family="Inter, Arial, sans-serif" font-size="14">Datos de contexto profesional propio. No representan benchmarks universales.</text>
+
+  <!-- Row 1 -->
+  <text x="36" y="136" fill="#EAF2FF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Cambios complejos</text>
+  <text x="214" y="136" fill="#A8B7D8" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="2">ANTES</text>
+  <rect x="284" y="126" width="410" height="10" rx="5" fill="#AAB7C8" opacity="0.95"/>
+  <text x="714" y="136" fill="#A8B7D8" font-family="Inter, Arial, sans-serif" font-size="12">~1 semana</text>
+  <text x="214" y="158" fill="#60A5FA" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="2">AHORA</text>
+  <rect x="284" y="148" width="410" height="10" rx="5" fill="#223047"/>
+  <rect x="284" y="148" width="125" height="10" rx="5" fill="url(#blue)"/>
+  <text x="714" y="158" fill="#60A5FA" font-family="Inter, Arial, sans-serif" font-size="12">&lt; 2 días</text>
+
+  <!-- Row 2 -->
+  <text x="36" y="190" fill="#EAF2FF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Tareas 1–2 jornadas</text>
+  <text x="214" y="190" fill="#A8B7D8" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="2">ANTES</text>
+  <rect x="284" y="180" width="410" height="10" rx="5" fill="#AAB7C8" opacity="0.95"/>
+  <text x="714" y="190" fill="#A8B7D8" font-family="Inter, Arial, sans-serif" font-size="12">1–2 jornadas</text>
+  <text x="214" y="212" fill="#60A5FA" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="2">AHORA</text>
+  <rect x="284" y="202" width="410" height="10" rx="5" fill="#223047"/>
+  <rect x="284" y="202" width="184" height="10" rx="5" fill="url(#blue)"/>
+  <text x="714" y="212" fill="#60A5FA" font-family="Inter, Arial, sans-serif" font-size="12">&lt; 1 jornada</text>
+
+  <!-- Row 3 -->
+  <text x="36" y="238" fill="#EAF2FF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Incidencias</text>
+  <text x="214" y="238" fill="#A8B7D8" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="2">AHORA</text>
+  <rect x="284" y="228" width="410" height="10" rx="5" fill="#223047"/>
+  <rect x="284" y="228" width="34" height="10" rx="5" fill="url(#blue)"/>
+  <text x="714" y="238" fill="#60A5FA" font-family="Inter, Arial, sans-serif" font-size="12">minutos</text>
+</svg>

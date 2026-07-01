@@ -123,7 +123,7 @@ export function DetailModal({
         <div className="relative border-b border-white/10 px-5 py-5 sm:px-6 sm:py-5 lg:px-7">
           <button
             aria-label={ariaLabel}
-            className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-[rgba(9,14,28,0.94)] text-slate-200 transition hover:border-accent-soft/35 hover:bg-[rgba(16,24,44,0.98)] hover:text-white sm:right-5 sm:top-5 lg:right-6 lg:top-6"
+            className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-[rgba(9,14,28,0.94)] text-slate-200 transition hover:border-accent-soft/35 hover:bg-[rgba(16,24,44,0.98)] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent sm:right-5 sm:top-5 lg:right-6 lg:top-6"
             onClick={onClose}
             ref={closeButtonRef}
             type="button"

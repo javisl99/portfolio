@@ -380,7 +380,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         description:
           "Desde mi etapa actual en Stratesys utilizo IA generativa para acelerar análisis técnico, debugging y preparación de cambios, manteniendo siempre la decisión técnica, las pruebas locales y la validación previa a QA bajo mi responsabilidad.",
         context:
-          "La utilizo desde mi etapa actual en Stratesys, en un contexto como BuildingCenter, como herramienta de apoyo en análisis técnico, debugging, documentación y preparación de cambios sobre SAP Commerce Cloud.",
+          "La utilizo como herramienta de apoyo en análisis técnico, debugging, documentación y preparación de cambios sobre SAP Commerce Cloud.",
         metricsNote:
           "Estimaciones basadas en métricas propias de tareas comparables realizadas antes y después de incorporar IA generativa a mi flujo de trabajo. No representan benchmarks universales, sino impacto observado en mi contexto profesional.",
         note:
@@ -396,8 +396,8 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           {
             title: { es: "Qué sigo validando yo", en: "What I still validate myself" },
             body: {
-              es: "Decisiones técnicas y de arquitectura\nValidación del estándar SAP Commerce\nPruebas locales\nRevisión funcional\nValidación previa a QA\nResponsabilidad final del código",
-              en: "Technical and architectural decisions\nSAP Commerce standard validation\nLocal testing\nFunctional review\nPre-QA validation\nFinal responsibility for the code",
+              es: "Decisiones técnicas y de arquitectura\nValidación del estándar SAP Commerce\nPruebas locales\nValidación previa a QA\nResponsabilidad final del código",
+              en: "Technical and architectural decisions\nSAP Commerce standard validation\nLocal testing\nPre-QA validation\nFinal responsibility for the code",
             },
           },
         ],
@@ -879,7 +879,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         description:
           "Since my current stage at Stratesys, I use generative AI to accelerate technical analysis, debugging, and change preparation while keeping technical decisions, local testing, and pre-QA validation under my own responsibility.",
         context:
-          "I use it in my current Stratesys stage, in a context such as BuildingCenter, as a support tool for technical analysis, debugging, documentation, and change preparation on SAP Commerce Cloud.",
+          "I use it as a support tool for technical analysis, debugging, documentation, and change preparation on SAP Commerce Cloud.",
         metricsNote:
           "Estimates based on my own metrics from comparable tasks completed before and after introducing generative AI into my workflow. They are not universal benchmarks, but observed impact in my professional context.",
         note:
@@ -895,8 +895,8 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           {
             title: { es: "Qué sigo validando yo", en: "What I still validate myself" },
             body: {
-              es: "Decisiones técnicas y de arquitectura\nValidación del estándar SAP Commerce\nPruebas locales\nRevisión funcional\nValidación previa a QA\nResponsabilidad final del código",
-              en: "Technical and architectural decisions\nSAP Commerce standard validation\nLocal testing\nFunctional review\nPre-QA validation\nFinal responsibility for the code",
+              es: "Decisiones técnicas y de arquitectura\nValidación del estándar SAP Commerce\nPruebas locales\nValidación previa a QA\nResponsabilidad final del código",
+              en: "Technical and architectural decisions\nSAP Commerce standard validation\nLocal testing\nPre-QA validation\nFinal responsibility for the code",
             },
           },
         ],

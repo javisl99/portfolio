@@ -137,7 +137,7 @@ export function ExperienceSnapshotGrid({ locale, variant = "full" }: ExperienceS
               </div>
 
               <button
-                className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-[#c7d6ff] transition hover:translate-x-1 hover:text-white group-hover:text-white"
+                className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-[#c7d6ff] transition hover:translate-x-1 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent group-hover:text-white"
                 onClick={() => openModal(entry)}
                 type="button"
               >
