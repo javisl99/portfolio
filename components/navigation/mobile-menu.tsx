@@ -60,9 +60,36 @@ export function MobileMenu({ locale }: MobileMenuProps) {
       return;
     }
 
+    const previousOverflow = document.body.style.overflow;
+
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         closeMenu();
+      }
+    };
+
+    const handleTab = (event: KeyboardEvent) => {
+      if (event.key !== "Tab" || !panelRef.current) {
+        return;
+      }
+
+      const focusableElements = panelRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+      );
+
+      if (focusableElements.length === 0) {
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
       }
     };
 
@@ -84,7 +111,9 @@ export function MobileMenu({ locale }: MobileMenuProps) {
       closeMenu();
     };
 
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleEscape);
+    window.addEventListener("keydown", handleTab);
     document.addEventListener("mousedown", handlePointerDown);
     document.addEventListener("touchstart", handlePointerDown);
     window.requestAnimationFrame(() => {
@@ -92,7 +121,9 @@ export function MobileMenu({ locale }: MobileMenuProps) {
     });
 
     return () => {
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleEscape);
+      window.removeEventListener("keydown", handleTab);
       document.removeEventListener("mousedown", handlePointerDown);
       document.removeEventListener("touchstart", handlePointerDown);
     };
@@ -162,13 +193,15 @@ export function MobileMenu({ locale }: MobileMenuProps) {
               </ButtonLink>
               <div className="flex items-center justify-between rounded-xl border border-white/8 bg-[rgba(8,17,31,0.72)] px-4 py-3">
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-muted">{copy.languageSwitch}</span>
-                <Link
+                <a
                   className="text-sm font-bold text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent"
                   href={replaceLocaleInPathname(pathname, alternateLocale)}
+                  hrefLang={alternateLocale}
+                  lang={alternateLocale}
                   onClick={closeMenu}
                 >
                   {alternateLocale.toUpperCase()}
-                </Link>
+                </a>
               </div>
             </div>
           </div>

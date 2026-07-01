@@ -1,4 +1,4 @@
-import { Braces, BriefcaseBusiness, Download, Layers3, Linkedin, Mail, Verified } from "lucide-react";
+import { Braces, BriefcaseBusiness, Coffee, Download, Layers3, Linkedin, Mail, MapPin, Verified } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
@@ -10,12 +10,10 @@ import { localizePath, type Locale } from "@/lib/i18n";
 export function HomeHero({ locale }: { locale: Locale }) {
   const copy = siteCopy[locale];
   const hero = copy.home.hero;
-  const snapshotIcons = [Braces, Verified, BriefcaseBusiness, BriefcaseBusiness];
+  const snapshotIcons = [Braces, Verified, BriefcaseBusiness, MapPin];
   const cvHref = getCvFilePath(locale);
   const cvDownloadName = getCvDownloadName(locale);
-  const highlightIcons = [Verified, Braces, BriefcaseBusiness, Layers3, Verified];
-  const locationLabel = locale === "es" ? `Ubicación · ${siteSettings.location.es}` : `Location · ${siteSettings.location.en}`;
-
+  const highlightIcons = [Verified, Coffee, BriefcaseBusiness, Layers3, Verified];
   return (
     <section className="relative overflow-hidden py-6 sm:py-9 lg:py-22" id="top">
       <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,rgba(96,165,250,0.28),transparent_38%),radial-gradient(circle_at_82%_18%,rgba(37,99,235,0.24),transparent_32%)]" />
@@ -54,12 +52,6 @@ export function HomeHero({ locale }: { locale: Locale }) {
               <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base" href={siteSettings.linkedin} target="_blank" variant="secondary">
                 <Linkedin className="h-4 w-4" />
                 LinkedIn
-              </ButtonLink>
-            </div>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-300">
-              <span className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-slate-400">{locationLabel}</span>
-              <ButtonLink className="min-h-0 px-0 py-0 text-xs font-bold" href={localizePath(locale, "/experience")} variant="ghost">
-                {copy.ctas.experience}
               </ButtonLink>
             </div>
           </div>
@@ -125,19 +117,16 @@ export function HomeHero({ locale }: { locale: Locale }) {
         <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-9 sm:gap-3 xl:grid-cols-5">
           {hero.highlights.map((highlight, index) => {
             const Icon = highlightIcons[index % highlightIcons.length];
-            const isLastHighlight = index === hero.highlights.length - 1;
 
             return (
               <div
-                className={`group flex items-center gap-2 rounded-[1.1rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.82),rgba(7,12,24,0.9))] px-3 py-2.5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/30 sm:gap-3 sm:rounded-[1.35rem] sm:px-4 sm:py-3 ${
-                  isLastHighlight ? "col-span-2 mx-auto w-full max-w-[14rem] sm:col-span-1 sm:max-w-none" : ""
-                }`}
+                className="group flex h-full min-w-0 items-center gap-2 rounded-[1.1rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.82),rgba(7,12,24,0.9))] px-3 py-2.5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/30 sm:gap-3 sm:rounded-[1.35rem] sm:px-4 sm:py-3"
                 key={highlight.label.en}
               >
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] text-[#bcd1ff] transition duration-300 group-hover:bg-white/[0.06] group-hover:text-white sm:h-10 sm:w-10 sm:rounded-xl">
                   <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-[0.92rem] font-semibold leading-5 text-slate-100 transition duration-300 group-hover:text-white sm:hidden">
                     {highlight.shortLabel?.[locale] ?? highlight.label[locale]}
                   </p>

@@ -6,6 +6,7 @@ import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapsho
 import { HomeHero } from "@/components/sections/home-hero";
 import { ProjectGrid } from "@/components/sections/project-grid";
 import { ButtonLink } from "@/components/ui/button-link";
+import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { siteCopy } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
@@ -84,32 +85,20 @@ export default async function HomePage({
         <ProjectGrid locale={locale} projects={projects} variant="compact" />
       </Section>
 
-      <Section
-        actions={
-          <ButtonLink href={localizePath(locale, "/projects")} variant="secondary">
-            {locale === "es" ? "Ver casos reales" : "View real cases"}
-          </ButtonLink>
-        }
-        align="center"
-        className="py-16 sm:py-24"
-        description={copy.home.ai.description}
-        eyebrow={copy.home.ai.eyebrow}
-        title={copy.home.ai.title}
-      >
-        <AIImpactSection
+      <section className="py-16 sm:py-24" id="ai">
+        <Container>
+          <AIImpactSection
           context={copy.home.ai.context}
           description={copy.home.ai.description}
           eyebrow={copy.home.ai.eyebrow}
           items={copy.home.ai.items}
           locale={locale}
-          metrics={copy.home.ai.metrics}
           metricsNote={copy.home.ai.metricsNote}
           note={copy.home.ai.note}
-          showLead={false}
           title={copy.home.ai.title}
-          variant="compact"
         />
-      </Section>
+      </Container>
+    </section>
 
       <Section
         actions={

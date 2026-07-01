@@ -53,6 +53,9 @@ export function createMetadata({
   path?: string;
 }): Metadata {
   const localizedPath = localizePath(locale, path);
+  const alternateLocales = locales.filter((currentLocale) => currentLocale !== locale);
+  const openGraphImageUrl = buildUrl(localizePath(locale, "/opengraph-image"));
+  const twitterImageUrl = buildUrl(localizePath(locale, "/twitter-image"));
 
   return {
     metadataBase: getMetadataBase(),
@@ -75,11 +78,21 @@ export function createMetadata({
       url: buildUrl(localizedPath),
       siteName: siteSettings.name,
       locale: ogLocaleMap[locale],
+      alternateLocale: alternateLocales.map((currentLocale) => ogLocaleMap[currentLocale]),
+      images: [
+        {
+          url: openGraphImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${siteSettings.name} | ${title}`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [twitterImageUrl],
     },
   };
 }
