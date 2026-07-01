@@ -20,7 +20,7 @@ export function Footer({ locale }: FooterProps) {
         <div className="flex flex-col items-center justify-between gap-6 pt-6 md:flex-row md:pt-8">
           <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
             <BrandLogo className="w-[19rem]" imageClassName="w-[19rem]" variant="full-light" />
-            <div className="text-sm text-muted">© {currentYear} {siteSettings.name}</div>
+            <div className="text-sm text-muted md:self-start">© {currentYear} {siteSettings.name}</div>
           </div>
           <div className="flex items-center gap-6">
             <a

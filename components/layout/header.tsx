@@ -34,9 +34,9 @@ export function Header({ locale }: HeaderProps) {
           <div className="hidden md:block">
             <LocaleSwitcher label={copy.languageSwitch} locale={locale} />
           </div>
-          <ButtonLink className="hidden md:inline-flex" href={`/${locale}/contact`} variant="primary">
+          <ButtonLink className="hidden md:inline-flex" href={`mailto:${siteSettings.email}`} variant="primary">
             <Mail className="h-4 w-4" />
-            {copy.ctas.contact}
+            {locale === "es" ? "Enviar email" : "Send email"}
           </ButtonLink>
           <MobileMenu locale={locale} />
         </div>
