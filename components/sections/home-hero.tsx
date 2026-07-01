@@ -2,7 +2,6 @@ import { Braces, BriefcaseBusiness, Coffee, Download, Layers3, Linkedin, Mail, M
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
-import { Pill } from "@/components/ui/pill";
 import { siteCopy, siteSettings } from "@/data/site";
 import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { localizePath, type Locale } from "@/lib/i18n";
@@ -14,18 +13,20 @@ export function HomeHero({ locale }: { locale: Locale }) {
   const cvHref = getCvFilePath(locale);
   const cvDownloadName = getCvDownloadName(locale);
   const highlightIcons = [Verified, Coffee, BriefcaseBusiness, Layers3, Verified];
+  const heroTitleSecondary = locale === "es" ? "Java, Spring y SAP Commerce Cloud" : "Java, Spring, and SAP Commerce Cloud";
+
   return (
     <section className="relative overflow-hidden py-6 sm:py-9 lg:py-22" id="top">
       <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,rgba(96,165,250,0.28),transparent_38%),radial-gradient(circle_at_82%_18%,rgba(37,99,235,0.24),transparent_32%)]" />
       <Container>
         <div className="grid items-start gap-7 lg:grid-cols-12 lg:gap-8">
           <div className="relative space-y-4 sm:space-y-5 lg:col-span-7 lg:space-y-7">
-            <Pill className="max-w-full px-4 py-2 text-[0.6rem] leading-5 sm:px-5 sm:py-2.5 sm:text-[0.67rem]">
-              {hero.eyebrow}
-            </Pill>
             <div className="space-y-3 sm:space-y-4">
               <h1 className="max-w-4xl font-display text-[2.2rem] font-black leading-[0.98] tracking-tight text-ink sm:text-5xl lg:text-7xl">
-                {hero.title}
+                <span className="block">{locale === "es" ? "Backend Software Engineer" : "Backend Software Engineer"}</span>
+                <span className="mt-2 block text-[0.54em] font-semibold leading-[0.98] text-[#c7d8ff] sm:mt-3">
+                  {heroTitleSecondary}
+                </span>
               </h1>
               <p className="max-w-3xl text-[0.98rem] leading-7 text-muted sm:text-[1.1rem] sm:leading-8">{hero.summary}</p>
               <p className="max-w-2xl text-sm leading-6 text-slate-300 sm:text-[0.98rem] sm:leading-7">{hero.proof}</p>

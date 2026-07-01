@@ -154,7 +154,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       { href: pageSlugs.contact, label: "Contacto" },
     ],
     metadata: {
-      defaultTitle: "Backend Software Engineer | Java, Spring, REST APIs & SAP Commerce Cloud",
+      defaultTitle: "Backend Software Engineer Java, Spring, REST APIs & SAP Commerce Cloud",
       defaultDescription:
         "Backend Software Engineer con experiencia en Java, Spring, SAP Commerce Cloud, APIs REST, SQL e incidencias de producción sobre plataformas de negocio.",
       keywords: [
@@ -280,8 +280,8 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
             shortLabel: { es: "Java & Spring", en: "Java & Spring" },
           },
           {
-            label: { es: "Producción e incidencias reales", en: "Real production support" },
-            shortLabel: { es: "Producción real", en: "Production support" },
+            label: { es: "Integraciones y soporte productivo", en: "Real production support" },
+            shortLabel: { es: "Soporte productivo", en: "Production support" },
           },
           { label: { es: "SAP Commerce como especialización", en: "SAP Commerce specialization" } },
         ],
@@ -656,7 +656,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       { href: pageSlugs.contact, label: "Contact" },
     ],
     metadata: {
-      defaultTitle: "Backend Software Engineer | Java, Spring, REST APIs & SAP Commerce Cloud",
+      defaultTitle: "Backend Software Engineer Java, Spring, REST APIs & SAP Commerce Cloud",
       defaultDescription:
         "Backend Software Engineer with experience in Java, Spring, SAP Commerce Cloud, REST APIs, SQL, integrations, and production-facing backend work.",
       keywords: [
@@ -743,7 +743,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
     home: {
       hero: {
         eyebrow: "Java Backend, Spring, REST APIs, SQL, SAP Commerce Cloud",
-        title: "Backend Software Engineer | Java, Spring, and SAP Commerce Cloud",
+        title: "Backend Software Engineer Java, Spring, and SAP Commerce Cloud",
         summary:
           "Backend Software Engineer focused on Java and Spring across production platforms, with SAP Commerce Cloud as a strong specialization.",
         proof:
@@ -779,8 +779,8 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
             shortLabel: { es: "Java & Spring", en: "Java & Spring" },
           },
           {
-            label: { es: "Producción e incidencias reales", en: "Real production support" },
-            shortLabel: { es: "Producción real", en: "Production support" },
+            label: { es: "Integraciones y soporte productivo", en: "Real production support" },
+            shortLabel: { es: "Soporte productivo", en: "Production support" },
           },
           { label: { es: "SAP Commerce como especialización", en: "SAP Commerce specialization" } },
         ],
