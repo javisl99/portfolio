@@ -1,29 +1,23 @@
 import type { Metadata } from "next";
 
 import { siteCopy, siteSettings } from "@/data/site";
-import { localizePath, locales, type Locale } from "@/lib/i18n";
+import { defaultLocale, localizePath, locales, type Locale } from "@/lib/i18n";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-const defaultOgImage = "/opengraph-image";
+const siteUrl = siteSettings.siteUrl;
 const ogLocaleMap: Record<Locale, string> = {
   es: "es_ES",
   en: "en_US",
 };
-const commonExpertise = [
-  "SAP Commerce Cloud",
-  "Hybris",
-  "Java",
-  "Spring",
-  "Production support",
-  "Incident management",
-  "Checkout",
-  "Pricing",
-  "Stock",
-  "Integration Objects",
-];
-
 export function buildUrl(pathname = "/") {
-  return new URL(pathname, siteUrl).toString();
+  const baseUrl = getMetadataBase();
+  const normalizedPath = pathname === "/" ? "" : pathname.replace(/^\/+/, "");
+  const resolved = new URL(normalizedPath, baseUrl.pathname.endsWith("/") ? baseUrl : new URL(`${baseUrl.pathname}/`, baseUrl));
+
+  return resolved.toString();
+}
+
+export function getMetadataBase() {
+  return new URL(siteUrl);
 }
 
 export function createMetadata({
@@ -40,10 +34,12 @@ export function createMetadata({
   path?: string;
 }): Metadata {
   const localizedPath = localizePath(locale, path);
-  const imageUrl = buildUrl(defaultOgImage);
+  const alternateLocales = locales.filter((currentLocale) => currentLocale !== locale);
+  const openGraphImageUrl = buildUrl(localizePath(locale, "/opengraph-image"));
+  const twitterImageUrl = buildUrl(localizePath(locale, "/twitter-image"));
 
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: getMetadataBase(),
     title: {
       absolute: title,
     },
@@ -51,7 +47,10 @@ export function createMetadata({
     keywords,
     alternates: {
       canonical: buildUrl(localizedPath),
-      languages: Object.fromEntries(locales.map((currentLocale) => [currentLocale, buildUrl(localizePath(currentLocale, path))])),
+      languages: {
+        ...Object.fromEntries(locales.map((currentLocale) => [currentLocale, buildUrl(localizePath(currentLocale, path))])),
+        "x-default": buildUrl(localizePath(defaultLocale, path)),
+      },
     },
     openGraph: {
       type: "website",
@@ -60,12 +59,13 @@ export function createMetadata({
       url: buildUrl(localizedPath),
       siteName: siteSettings.name,
       locale: ogLocaleMap[locale],
+      alternateLocale: alternateLocales.map((currentLocale) => ogLocaleMap[currentLocale]),
       images: [
         {
-          url: imageUrl,
+          url: openGraphImageUrl,
           width: 1200,
           height: 630,
-          alt: `${siteSettings.name} portfolio`,
+          alt: `${siteSettings.name} | ${title}`,
         },
       ],
     },
@@ -73,28 +73,36 @@ export function createMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [imageUrl],
+      images: [twitterImageUrl],
     },
   };
 }
 
 export function getPersonStructuredData(locale: Locale) {
-  const copy = siteCopy[locale];
-
   return {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteSettings.name,
     jobTitle: siteSettings.schemaRole,
-    url: buildUrl(localizePath(locale)),
+    url: buildUrl("/"),
     email: `mailto:${siteSettings.email}`,
     sameAs: [siteSettings.linkedin, siteSettings.github],
     address: {
       "@type": "PostalAddress",
-      addressLocality: siteSettings.location[locale],
+      addressLocality: locale === "es" ? "Sevilla" : "Seville",
+      addressCountry: "ES",
     },
-    description: copy.metadata.defaultDescription,
-    knowsAbout: [...copy.metadata.keywords, ...commonExpertise],
+    description: siteCopy[locale].metadata.defaultDescription,
+    knowsAbout: [
+      "Java",
+      "Spring",
+      "REST APIs",
+      "SQL",
+      "SAP Commerce Cloud",
+      "Backend Engineering",
+      "Integrations",
+      "Production Support",
+    ],
   };
 }
 
@@ -105,13 +113,8 @@ export function getWebsiteStructuredData(locale: Locale) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteSettings.name,
-    url: buildUrl(localizePath(locale)),
+    url: buildUrl("/"),
     inLanguage: locale,
     description: copy.metadata.defaultDescription,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: buildUrl(localizePath(locale, "/projects")),
-      "query-input": "required name=project",
-    },
   };
 }

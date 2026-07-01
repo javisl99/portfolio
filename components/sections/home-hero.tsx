@@ -1,111 +1,143 @@
-import { History, Layers3, MapPin, Mail, Verified } from "lucide-react";
+import { Braces, BriefcaseBusiness, Coffee, Download, Layers3, Linkedin, Mail, MapPin, Verified } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
-import { Pill } from "@/components/ui/pill";
-import { ProfileAvatar } from "@/components/ui/profile-avatar";
 import { siteCopy, siteSettings } from "@/data/site";
+import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { localizePath, type Locale } from "@/lib/i18n";
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const copy = siteCopy[locale];
   const hero = copy.home.hero;
-  const snapshotIcons = [History, MapPin, Layers3, Verified];
-  const stackTokens = ["Java", "SAP", "Spring", "SQL"];
+  const snapshotIcons = [Braces, Verified, BriefcaseBusiness, MapPin];
+  const cvHref = getCvFilePath(locale);
+  const cvDownloadName = getCvDownloadName(locale);
+  const highlightIcons = [Verified, Coffee, BriefcaseBusiness, Layers3, Verified];
+  const heroTitleSecondary = locale === "es" ? "Java, Spring y SAP Commerce Cloud" : "Java, Spring, and SAP Commerce Cloud";
 
   return (
-    <section className="relative overflow-hidden py-12 lg:py-20">
+    <section className="relative overflow-hidden py-6 sm:py-9 lg:pb-16 lg:pt-22" id="top">
+      <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,rgba(96,165,250,0.28),transparent_38%),radial-gradient(circle_at_82%_18%,rgba(37,99,235,0.24),transparent_32%)]" />
       <Container>
-        <div className="flex flex-col gap-8 md:hidden">
-          <div className="flex flex-col items-center gap-4 text-center">
-            <ProfileAvatar className="h-24 w-24 p-1" iconClassName="h-8 w-8" />
-            <div>
-              <h1 className="text-2xl font-bold leading-tight tracking-tight text-ink">{hero.title}</h1>
-              <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-muted">{hero.summary}</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            <ButtonLink className="h-12 w-full justify-center rounded-lg text-sm font-bold tracking-wide" href={localizePath(locale, "/contact")} variant="primary">
-              {locale === "es" ? "Contactar" : "Contact Me"}
-            </ButtonLink>
-            <ButtonLink
-              className="h-12 w-full justify-center rounded-lg border border-accent/20 bg-accent/10 text-sm font-bold tracking-wide text-accent hover:bg-accent/15"
-              href={localizePath(locale, "/experience")}
-              variant="secondary"
-            >
-              {copy.ctas.experience}
-            </ButtonLink>
-          </div>
-
-          <div className="grid grid-cols-3 gap-3">
-            {hero.quickFacts.slice(0, 3).map((fact) => (
-              <div className="flex flex-col items-center justify-center rounded-xl border border-accent/10 bg-panel p-4 text-center shadow-sm" key={fact.label.en}>
-                <span className="text-xs font-medium text-muted">{fact.label[locale]}</span>
-                <span className="mt-1 text-sm font-bold text-accent">{fact.value[locale]}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="hidden items-center gap-12 lg:grid lg:grid-cols-12">
-          <div className="space-y-8 lg:col-span-7">
-            <Pill>{hero.eyebrow}</Pill>
-            <div className="space-y-4">
-              <h1 className="font-display text-5xl font-black leading-[1.1] tracking-tight text-ink lg:text-7xl">
-                {hero.title}
+        <div className="grid items-start gap-7 lg:grid-cols-12 lg:gap-8">
+          <div className="relative space-y-4 sm:space-y-5 lg:col-span-7 lg:space-y-7">
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="max-w-4xl font-display text-[2.2rem] font-black leading-[0.98] tracking-tight text-ink sm:text-5xl lg:text-7xl">
+                <span className="block">{locale === "es" ? "Backend Software Engineer" : "Backend Software Engineer"}</span>
+                <span className="mt-2 block text-[0.54em] font-semibold leading-[0.98] text-[#c7d8ff] sm:mt-3">
+                  {heroTitleSecondary}
+                </span>
               </h1>
-              <p className="max-w-2xl text-xl leading-relaxed text-muted">{hero.summary}</p>
+              <p className="max-w-3xl text-[0.98rem] leading-7 text-muted sm:text-[1.1rem] sm:leading-8">{hero.summary}</p>
+              <p className="max-w-2xl text-sm leading-6 text-slate-300 sm:text-[0.98rem] sm:leading-7">{hero.proof}</p>
             </div>
 
-            <div className="flex flex-wrap gap-4">
-              <ButtonLink className="rounded-xl px-8 py-4 text-lg" href={localizePath(locale, "/contact")} variant="primary">
-                {locale === "es" ? "Contactar" : "Contact Me"}
+            <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:flex-wrap">
+              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base" href={localizePath(locale, "/projects")} variant="primary">
+                {copy.ctas.projects}
               </ButtonLink>
-              <ButtonLink className="rounded-xl px-8 py-4 text-lg" href={localizePath(locale, "/experience")} variant="secondary">
-                {copy.ctas.experience}
+              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base" href={localizePath(locale, "/contact")} variant="secondary">
+                <Mail className="h-4 w-4" />
+                {copy.ctas.contact}
+              </ButtonLink>
+              <ButtonLink
+                className="px-5 text-sm sm:px-7 sm:text-base"
+                download={cvDownloadName}
+                href={cvHref}
+                target="_blank"
+                variant="secondary"
+              >
+                <Download className="h-4 w-4" />
+                {copy.ctas.resume}
+              </ButtonLink>
+              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base" href={siteSettings.linkedin} target="_blank" variant="secondary">
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
               </ButtonLink>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <aside className="group relative overflow-hidden rounded-2xl border border-line bg-panel p-8 shadow-xl">
-              <div className="absolute right-0 top-0 -mr-16 -mt-16 h-32 w-32 rounded-full bg-accent/5 blur-3xl transition-colors group-hover:bg-accent/10" />
-              <h2 className="mb-6 flex items-center gap-2 text-xl font-bold text-ink">
-                <Layers3 className="h-5 w-5 text-accent" />
-                {locale === "es" ? "Recruiter snapshot" : "Recruiter Snapshot"}
-              </h2>
-              <ul className="space-y-6">
-                {hero.quickFacts.map((fact, index) => {
-                  const Icon = snapshotIcons[index % snapshotIcons.length];
+            <aside className="group relative mx-auto w-full max-w-[80vw] overflow-hidden rounded-[1.6rem] border border-white/8 bg-[linear-gradient(160deg,rgba(11,18,32,0.92),rgba(6,10,22,0.97))] p-4 shadow-[0_42px_100px_-52px_rgba(2,6,23,0.92)] sm:max-w-none sm:rounded-[2rem] sm:p-5 lg:max-w-[25rem] lg:p-6">
+              <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 rounded-full bg-[#60a5fa]/12 blur-3xl transition-colors group-hover:bg-[#2563eb]/20" />
+              <div className="relative">
+                <h2 className="mb-2 flex items-center gap-2 text-base font-bold text-white sm:mb-2.5 sm:text-lg">
+                  <Layers3 className="h-4 w-4 text-[#bcd1ff] sm:h-5 sm:w-5" />
+                  {locale === "es" ? "Resumen para recruiters" : "Recruiter snapshot"}
+                </h2>
+                <p className="mb-4 hidden text-sm leading-6 text-slate-300 sm:block">
+                  {locale === "es"
+                    ? "Lectura rápida del perfil: foco backend, especialidad, tipo de entorno y ubicación."
+                    : "Quick profile read: backend focus, specialization, working environment, and location."}
+                </p>
+                <ul className="grid gap-1 sm:gap-2">
+                  {hero.quickFacts.map((fact, index) => {
+                    const Icon = snapshotIcons[index % snapshotIcons.length];
 
-                  return (
-                    <li className="flex items-start gap-4" key={fact.label.en}>
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-surface text-accent">
-                        <Icon className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted">{fact.label[locale]}</p>
-                        <p className="font-bold text-ink">{fact.value[locale]}</p>
-                      </div>
+                    return (
+                      <li className="flex items-start gap-3 rounded-[1.15rem] px-2 py-2 transition-colors duration-200 hover:bg-white/[0.025]" key={fact.label.en}>
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] text-[#bcd1ff] sm:h-9 sm:w-9">
+                          <Icon className="h-4 w-4" />
+                        </div>
+                        <div className="border-b border-white/7 pb-2 last:border-b-0 last:pb-0">
+                          <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-400">{fact.label[locale]}</p>
+                          <p className="mt-1 text-sm font-semibold leading-5 text-white">{fact.value[locale]}</p>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <div className="mt-5 hidden border-t border-white/8 pt-5 sm:mt-5 sm:block sm:pt-5">
+                  <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#9fbeff]">
+                    {locale === "es" ? "Lo que mejor representa mi valor" : "What best represents my value"}
+                  </p>
+                  <ul className="mt-3 grid gap-2.5 text-sm leading-6 text-slate-300">
+                    <li className="flex gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-[#818cf8]" />
+                      <span>
+                        {locale === "es"
+                          ? "Trabajo sobre incidencias, integraciones y lógica de negocio que ya está en uso"
+                          : "Work across incidents, integrations, and business logic already in use"}
+                      </span>
                     </li>
-                  );
-                })}
-              </ul>
-              <div className="mt-8 border-t border-line pt-8">
-                <div className="flex flex-wrap gap-2">
-                  {stackTokens.map((token) => (
-                    <span
-                      className="inline-flex h-12 min-w-12 items-center justify-center rounded-full bg-accent/20 px-3 text-[0.68rem] font-black tracking-[0.08em] text-ink"
-                      key={token}
-                    >
-                      {token}
-                    </span>
-                  ))}
+                    <li className="flex gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-[#60a5fa]" />
+                      <span>
+                        {locale === "es"
+                          ? "Colaboración con QA, negocio y cliente; IA solo como apoyo táctico de análisis"
+                          : "Collaboration with QA, business, and clients; AI only as tactical analysis support"}
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </aside>
           </div>
+        </div>
+
+        <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-9 sm:gap-3 xl:grid-cols-5">
+          {hero.highlights.map((highlight, index) => {
+            const Icon = highlightIcons[index % highlightIcons.length];
+
+            return (
+              <div
+                className="group flex h-full min-w-0 items-center gap-2 rounded-[1.05rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.82),rgba(7,12,24,0.9))] px-3 py-2 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/30 sm:gap-2.5 sm:rounded-[1.25rem] sm:px-3.5 sm:py-2.5"
+                key={highlight.label.en}
+              >
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] text-[#bcd1ff] transition duration-300 group-hover:bg-white/[0.06] group-hover:text-white sm:h-8 sm:w-8 sm:rounded-[0.95rem]">
+                  <Icon className="h-3.5 w-3.5 sm:h-[0.95rem] sm:w-[0.95rem]" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[0.9rem] font-semibold leading-5 text-slate-100 transition duration-300 group-hover:text-white sm:hidden">
+                    {highlight.shortLabel?.[locale] ?? highlight.label[locale]}
+                  </p>
+                  <p className="hidden text-[0.95rem] font-semibold leading-5 text-slate-100 transition duration-300 group-hover:text-white sm:block">
+                    {highlight.label[locale]}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

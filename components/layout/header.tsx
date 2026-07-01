@@ -1,12 +1,14 @@
 import Link from "next/link";
-import { TerminalSquare } from "lucide-react";
+import { Mail } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { Container } from "@/components/ui/container";
+import { LocaleSwitcher } from "@/components/navigation/locale-switcher";
 import { MainNav } from "@/components/navigation/main-nav";
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { siteCopy, siteSettings } from "@/data/site";
-import { getAlternateLocale, type Locale } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 
 interface HeaderProps {
   locale: Locale;
@@ -14,32 +16,27 @@ interface HeaderProps {
 
 export function Header({ locale }: HeaderProps) {
   const copy = siteCopy[locale];
-  const alternateLocale = getAlternateLocale(locale);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur-md">
-      <Container className="flex min-h-20 items-center justify-between gap-4">
-        <div className="flex items-center gap-8">
-          <Link className="hidden items-center gap-3 text-sm md:inline-flex" href={`/${locale}`}>
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-contrast">
-              <TerminalSquare className="h-4 w-4" />
-            </span>
-            <span className="font-display text-lg font-black tracking-tight text-ink">{siteSettings.name}</span>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/7 bg-[rgba(3,7,18,0.74)] shadow-[0_10px_34px_-24px_rgba(2,6,23,0.96)] backdrop-blur-2xl transition-colors duration-200">
+      <Container className="flex min-h-[4.25rem] items-center justify-between gap-4 sm:min-h-[4.7rem]">
+        <div className="flex items-center gap-6 lg:gap-8">
+          <Link className="hidden shrink-0 items-center gap-3 text-sm md:inline-flex" href={`/${locale}`}>
+            <BrandLogo className="w-[18.4rem] shrink-0" imageClassName="w-[18.4rem]" priority variant="full-light" />
           </Link>
-          <div className="flex items-center md:hidden">
-            <span className="inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-accent/20 bg-panel">
-              <TerminalSquare className="h-4 w-4 text-accent" />
-            </span>
-            <span className="ml-3 text-base font-bold tracking-tight text-ink">{siteSettings.name}</span>
-          </div>
+          <Link className="flex items-center gap-3 md:hidden" href={`/${locale}`}>
+            <BrandLogo className="w-10" imageClassName="w-10" priority variant="mark" />
+            <span className="text-base font-bold tracking-tight text-ink">{siteSettings.name}</span>
+          </Link>
           <MainNav items={copy.navigation} locale={locale} />
         </div>
         <div className="flex items-center gap-3">
-          <Link className="hidden text-sm font-medium text-muted transition hover:text-accent md:inline-flex" href={`/${alternateLocale}`}>
-            {alternateLocale.toUpperCase()}
-          </Link>
-          <ButtonLink className="hidden md:inline-flex" href={`/${locale}/contact`} variant="primary">
-            {copy.ctas.contact}
+          <div className="hidden md:block">
+            <LocaleSwitcher label={copy.languageSwitch} locale={locale} />
+          </div>
+          <ButtonLink className="hidden md:inline-flex" href={`mailto:${siteSettings.email}`} variant="primary">
+            <Mail className="h-4 w-4" />
+            {locale === "es" ? "Enviar email" : "Send email"}
           </ButtonLink>
           <MobileMenu locale={locale} />
         </div>
