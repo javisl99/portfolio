@@ -20,6 +20,8 @@ export const viewport: Viewport = {
   themeColor: "#030712",
 };
 
+const shouldRenderSpeedInsights = process.env.VERCEL === "1";
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -68,7 +70,7 @@ export default async function LocaleLayout({
           <main>{children}</main>
           <Footer locale={locale} />
         </div>
-        <SpeedInsights />
+        {shouldRenderSpeedInsights ? <SpeedInsights /> : null}
       </body>
     </html>
   );

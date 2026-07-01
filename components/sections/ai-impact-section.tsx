@@ -285,7 +285,7 @@ function WorkflowStepCard({ step, showArrow }: { step: WorkflowStep; showArrow?:
           </span>
           <Icon className={cn("h-10 w-10 shrink-0 transition duration-300 group-hover:scale-105 motion-reduce:transform-none", tone.text)} strokeWidth={1.8} />
         </div>
-        <h4 className="text-lg font-black tracking-tight text-white">{step.title}</h4>
+        <h3 className="text-lg font-black tracking-tight text-white">{step.title}</h3>
         <p className="mt-2 text-sm leading-6 text-slate-300">{step.body}</p>
       </article>
 
