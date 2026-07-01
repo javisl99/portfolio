@@ -117,6 +117,24 @@ type SiteLocaleCopy = {
       principlesTitle: string;
       principlesIntro: string;
       principlesItems: CopyCard[];
+      focusTitle: string;
+      focusBody: string;
+      trajectoryTitle: string;
+      trajectoryIntro: string;
+      trajectoryItems: CopyCard[];
+      valueTitle: string;
+      valueIntro: string;
+      valueItems: string[];
+      learningTitle: string;
+      learningIntro: string;
+      learningItems: CopyCard[];
+      outsideTitle: string;
+      outsideBody: string;
+      outsideSecondaryBody?: string;
+      technicalTitle: string;
+      technicalIntro: string;
+      ctaTitle: string;
+      ctaBody: string;
     };
     contact: {
       eyebrow: string;
@@ -569,9 +587,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
         about: {
           eyebrow: "Sobre mí",
-          title: "Cómo trabajo cuando el backend tiene contexto",
+          title: "Cómo he construido mi perfil como Backend Engineer",
           intro:
-            "Esta página no va de repetir tecnologías. Va de cómo analizo, colaboro y tomo decisiones cuando el backend afecta a producto, negocio o producción.",
+            "Mi perfil se ha ido formando alrededor de sistemas reales: plataformas en producción, integraciones, incidencias, lógica de negocio y colaboración con equipos técnicos y funcionales.",
           summaryTitle: "Forma de trabajo",
           summaryBody:
             "Antes de implementar intento entender el flujo, los datos afectados, el comportamiento estándar y quién necesita una respuesta útil. Esa base me ayuda a proponer cambios más seguros y a comunicar mejor con QA, negocio y cliente.",
@@ -589,8 +607,8 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
             {
               title: { es: "Cuando hay una incidencia", en: "When there is an incident" },
               body: {
-                es: "Ordeno síntomas, logs, consultas, hipótesis y validaciones para llegar a una causa probable sin saltar demasiado pronto a una solución.",
-                en: "I organize symptoms, logs, queries, hypotheses, and validations to reach a likely cause before jumping into a fix.",
+                es: "Analizo síntomas, logs e hipótesis antes de definir una solución.",
+                en: "I analyze symptoms, logs, and hypotheses before defining a solution.",
               },
             },
             {
@@ -603,11 +621,95 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
             {
               title: { es: "Cómo uso IA", en: "How I use AI" },
               body: {
-                es: "La uso para acelerar lectura de contexto, documentación y alternativas, pero nunca como sustituto de análisis, pruebas o responsabilidad técnica.",
-                en: "I use it to speed up context reading, documentation, and alternatives, but not to replace analysis, testing, or technical ownership.",
+                es: "La utilizo como acelerador, nunca como sustituto del criterio técnico.",
+                en: "I use it as an accelerator, never as a substitute for technical judgment.",
               },
             },
           ],
+          focusTitle: "Enfoque",
+          focusBody:
+            "Me interesa el backend que no vive aislado: sistemas que conectan producto, negocio, operaciones y experiencia de usuario.",
+          trajectoryTitle: "Mi trayectoria como ingeniero backend",
+          trajectoryIntro:
+            "De los primeros proyectos en Java a trabajar sobre plataformas SAP Commerce en producción, he orientado mi perfil hacia sistemas donde el backend afecta directamente a negocio, producto y operaciones.",
+          trajectoryItems: [
+            {
+              title: { es: "Base Java y backend", en: "Java and backend foundation" },
+              body: {
+                es: "Empecé construyendo una base sólida en Java, APIs, lógica de negocio y trabajo con bases de datos, aprendiendo a valorar la claridad del código y la mantenibilidad por encima de soluciones rápidas.",
+                en: "I started by building a solid foundation in Java, APIs, business logic, and database work, learning to value code clarity and maintainability over quick fixes.",
+              },
+            },
+            {
+              title: { es: "Plataformas enterprise", en: "Enterprise platforms" },
+              body: {
+                es: "Con SAP Commerce Cloud empecé a trabajar en entornos donde el backend no es solo código: también implica modelo de datos, Backoffice, procesos, integraciones, soporte productivo y coordinación con varios equipos.",
+                en: "With SAP Commerce Cloud I started working in environments where backend is not just code: it also involves data models, Backoffice, processes, integrations, production support, and coordination across teams.",
+              },
+            },
+            {
+              title: { es: "Producción, incidencias y evolución", en: "Production, incidents and evolution" },
+              body: {
+                es: "Mi experiencia se ha ido consolidando en sistemas vivos, donde entender una incidencia, preparar un cambio seguro o explicar impacto funcional es tan importante como implementar la solución.",
+                en: "My experience has grown around live systems, where understanding an incident, preparing a safe change, or explaining functional impact is as important as implementing the solution.",
+              },
+            },
+          ],
+          valueTitle: "Dónde aporto más valor",
+          valueIntro:
+            "Me siento especialmente cómodo en contextos donde el backend tiene impacto real en producto, negocio y operación.",
+          valueItems: [
+            "Sistemas ya en producción",
+            "Integraciones entre plataformas",
+            "Lógica de negocio compleja",
+            "Evolución funcional continua",
+            "Soporte productivo e incidencias",
+            "Colaboración con QA, negocio y cliente",
+          ],
+          learningTitle: "Cómo aprendo y evoluciono",
+          learningIntro:
+            "Mi forma de crecer como ingeniero parte de problemas reales, no solo de aprender herramientas por separado.",
+          learningItems: [
+            {
+              title: { es: "Problemas reales primero", en: "Real problems first" },
+              body: {
+                es: "Aprendo mejor cuando tengo que entender un flujo completo, reproducir un comportamiento y encontrar una solución que no rompa lo que ya funciona.",
+                en: "I learn best when I need to understand a full flow, reproduce a behavior, and find a solution that does not break what is already working.",
+              },
+            },
+            {
+              title: { es: "Criterio antes que complejidad", en: "Judgment before complexity" },
+              body: {
+                es: "Intento elegir soluciones que sean mantenibles, entendibles por el equipo y alineadas con el contexto del producto.",
+                en: "I try to choose solutions that are maintainable, understandable by the team, and aligned with the product context.",
+              },
+            },
+            {
+              title: { es: "IA como acelerador", en: "AI as an accelerator" },
+              body: {
+                es: "Uso IA para acelerar lectura de contexto, documentación e hipótesis, pero mantengo la validación técnica y funcional bajo mi responsabilidad.",
+                en: "I use AI to accelerate context reading, documentation, and hypothesis building, while keeping technical and functional validation under my responsibility.",
+              },
+            },
+            {
+              title: { es: "Mejora continua", en: "Continuous improvement" },
+              body: {
+                es: "Me interesa automatizar tareas repetitivas, documentar mejor decisiones técnicas y mejorar la calidad del proceso además del código.",
+                en: "I care about automating repetitive tasks, documenting technical decisions better, and improving process quality alongside code quality.",
+              },
+            },
+          ],
+          outsideTitle: "Fuera del código",
+          outsideBody:
+            "Fuera del trabajo intento mantener una vida activa y equilibrada. Me gusta jugar al pádel, seguir fútbol y dedicar tiempo a proyectos personales o ideas que me ayudan a seguir aprendiendo.",
+          outsideSecondaryBody:
+            "Creo que tener intereses fuera del código ayuda a pensar con más perspectiva, colaborar mejor y tomar decisiones técnicas con más calma.",
+          technicalTitle: "Tecnologías y plataformas con las que trabajo",
+          technicalIntro:
+            "Las tecnologías y plataformas sobre las que he trabajado más tiempo y donde aporto mayor experiencia práctica.",
+          ctaTitle: "¿Encaja esta forma de trabajar con tu equipo?",
+          ctaBody:
+            "Si buscas un perfil backend orientado a producción, integraciones y colaboración con negocio, podemos hablar.",
         },
         contact: {
           eyebrow: "Contacto",
@@ -1073,9 +1175,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
       about: {
         eyebrow: "About",
-        title: "How I work when backend has context",
+        title: "How I built my profile as a Backend Engineer",
         intro:
-          "This page is not about repeating the stack. It is about how I analyze, collaborate, and make decisions when backend work affects product, business, or production.",
+          "My profile has grown around real systems: production platforms, integrations, incidents, business logic, and collaboration with technical and functional teams.",
         summaryTitle: "Working style",
         summaryBody:
           "Before implementing, I try to understand the flow, the affected data, the platform standard, and who needs a useful answer. That foundation helps me propose safer changes and communicate better with QA, business teams, and clients.",
@@ -1093,8 +1195,8 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           {
             title: { es: "Cuando hay una incidencia", en: "When there is an incident" },
             body: {
-              es: "Ordeno síntomas, logs, consultas, hipótesis y validaciones para llegar a una causa probable sin saltar demasiado pronto a una solución.",
-              en: "I organize symptoms, logs, queries, hypotheses, and validations to reach a likely cause before jumping into a fix.",
+              es: "Analizo síntomas, logs e hipótesis antes de definir una solución.",
+              en: "I analyze symptoms, logs, and hypotheses before defining a solution.",
             },
           },
           {
@@ -1107,11 +1209,95 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           {
             title: { es: "Cómo uso IA", en: "How I use AI" },
             body: {
-              es: "La uso para acelerar lectura de contexto, documentación y alternativas, pero no para sustituir análisis, pruebas ni responsabilidad técnica.",
-              en: "I use it to speed up context reading, documentation, and alternatives, but not to replace analysis, testing, or technical ownership.",
+              es: "La utilizo como acelerador, nunca como sustituto del criterio técnico.",
+              en: "I use it as an accelerator, never as a substitute for technical judgment.",
             },
           },
         ],
+        focusTitle: "Focus",
+        focusBody:
+          "I am interested in backend work that does not live in isolation: systems that connect product, business, operations, and user experience.",
+        trajectoryTitle: "My path as a backend engineer",
+        trajectoryIntro:
+          "From early Java projects to working on SAP Commerce platforms in production, I have shaped my profile around systems where backend work directly affects business, product, and operations.",
+        trajectoryItems: [
+          {
+            title: { es: "Base Java y backend", en: "Java and backend foundation" },
+            body: {
+              es: "Empecé construyendo una base sólida en Java, APIs, lógica de negocio y trabajo con bases de datos, aprendiendo a valorar la claridad del código y la mantenibilidad por encima de soluciones rápidas.",
+              en: "I started by building a solid foundation in Java, APIs, business logic, and database work, learning to value code clarity and maintainability over quick fixes.",
+            },
+          },
+          {
+            title: { es: "Plataformas enterprise", en: "Enterprise platforms" },
+            body: {
+              es: "Con SAP Commerce Cloud empecé a trabajar en entornos donde el backend no es solo código: también implica modelo de datos, Backoffice, procesos, integraciones, soporte productivo y coordinación con varios equipos.",
+              en: "With SAP Commerce Cloud I started working in environments where backend is not just code: it also involves data models, Backoffice, processes, integrations, production support, and coordination across teams.",
+            },
+          },
+          {
+            title: { es: "Producción, incidencias y evolución", en: "Production, incidents and evolution" },
+            body: {
+              es: "Mi experiencia se ha ido consolidando en sistemas vivos, donde entender una incidencia, preparar un cambio seguro o explicar impacto funcional es tan importante como implementar la solución.",
+              en: "My experience has grown around live systems, where understanding an incident, preparing a safe change, or explaining functional impact is as important as implementing the solution.",
+            },
+          },
+        ],
+        valueTitle: "Where I bring the most value",
+        valueIntro:
+          "I feel especially comfortable in contexts where backend work has a real impact on product, business, and operations.",
+        valueItems: [
+          "Systems already in production",
+          "Platform integrations",
+          "Complex business logic",
+          "Continuous functional evolution",
+          "Production support and incidents",
+          "Collaboration with QA, business, and clients",
+        ],
+        learningTitle: "How I learn and evolve",
+        learningIntro:
+          "My growth as an engineer comes from real problems, not just learning tools in isolation.",
+        learningItems: [
+          {
+            title: { es: "Problemas reales primero", en: "Real problems first" },
+            body: {
+              es: "Aprendo mejor cuando tengo que entender un flujo completo, reproducir un comportamiento y encontrar una solución que no rompa lo que ya funciona.",
+              en: "I learn best when I need to understand a full flow, reproduce a behavior, and find a solution that does not break what is already working.",
+            },
+          },
+          {
+            title: { es: "Criterio antes que complejidad", en: "Judgment before complexity" },
+            body: {
+              es: "Intento elegir soluciones que sean mantenibles, entendibles por el equipo y alineadas con el contexto del producto.",
+              en: "I try to choose solutions that are maintainable, understandable by the team, and aligned with the product context.",
+            },
+          },
+          {
+            title: { es: "IA como acelerador", en: "AI as an accelerator" },
+            body: {
+              es: "Uso IA para acelerar lectura de contexto, documentación e hipótesis, pero mantengo la validación técnica y funcional bajo mi responsabilidad.",
+              en: "I use AI to accelerate context reading, documentation, and hypothesis building, while keeping technical and functional validation under my responsibility.",
+            },
+          },
+          {
+            title: { es: "Mejora continua", en: "Continuous improvement" },
+            body: {
+              es: "Me interesa automatizar tareas repetitivas, documentar mejor decisiones técnicas y mejorar la calidad del proceso además del código.",
+              en: "I care about automating repetitive tasks, documenting technical decisions better, and improving process quality alongside code quality.",
+            },
+          },
+        ],
+        outsideTitle: "Outside code",
+        outsideBody:
+          "Outside work, I try to keep an active and balanced life. I enjoy playing padel, following football, and spending time on personal projects or ideas that help me keep learning.",
+        outsideSecondaryBody:
+          "I believe having interests outside code helps me think with more perspective, collaborate better, and make technical decisions more calmly.",
+        technicalTitle: "Technologies and platforms I work with",
+        technicalIntro:
+          "The technologies and platforms I have worked with the longest and where I bring the most practical experience.",
+        ctaTitle: "Does this way of working fit your team?",
+        ctaBody:
+          "If you are looking for a backend profile focused on production, integrations, and business collaboration, let’s talk.",
       },
       contact: {
         eyebrow: "Contact",
