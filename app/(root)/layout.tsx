@@ -30,7 +30,6 @@ export default function RedirectRootLayout({ children }: Readonly<{ children: Re
     <html lang={defaultLocale}>
       <body>
         {children}
-        <Analytics />
         <SpeedInsights />
       </body>
     </html>
