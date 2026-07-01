@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -185,8 +185,9 @@ export function MobileMenu({ locale }: MobileMenuProps) {
             </nav>
 
             <div className="flex flex-col gap-3">
-              <ButtonLink className="w-full" href={`${localizePath(locale)}/contact`} onClick={closeMenu} variant="primary">
-                {copy.ctas.contact}
+              <ButtonLink className="w-full" href={`mailto:${siteSettings.email}`} onClick={closeMenu} variant="primary">
+                <Mail className="h-4 w-4" />
+                {locale === "es" ? "Enviar email" : "Send email"}
               </ButtonLink>
               <ButtonLink className="w-full" download={cvDownloadName} href={cvHref} onClick={closeMenu} target="_blank" variant="secondary">
                 {copy.ctas.resume}

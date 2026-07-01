@@ -140,16 +140,14 @@ type SiteLocaleCopy = {
       eyebrow: string;
       title: string;
       intro: string;
-      availability: string;
-      heroCardEyebrow: string;
-      heroCardTitle: string;
-      heroCardBullets: string[];
+      fitIntro: string;
       fitTitle: string;
       fitBullets: string[];
       channelsTitle: string;
       channelsItems: Array<{ label: string; value: string; href?: string }>;
-      channelsNote: string;
-      finalNote: string;
+      locationTitle: string;
+      locationBody: string;
+      secondaryLinksTitle: string;
     };
   };
   footer: {
@@ -713,33 +711,25 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         },
         contact: {
           eyebrow: "Contacto",
-        title: "Hablemos",
-        intro: "Contacto directo para oportunidades Backend Software Engineer o Java Backend Developer.",
-        availability: "Disponible para valorar oportunidades backend con Java, Spring, SAP Commerce Cloud, integraciones y soporte productivo.",
-          heroCardEyebrow: "Disponibilidad",
-          heroCardTitle: "Disponible para valorar encaje",
-          heroCardBullets: [
-            "Java, Spring, APIs REST y lógica de producto",
-            "E-commerce B2B/B2C, integraciones y zonas sensibles del negocio",
-            "Equipos donde QA, negocio y cliente forman parte del trabajo real",
-          ],
+          title: "Hablemos de backend, integraciones y producto",
+          intro:
+            "Abierto a oportunidades Backend Software Engineer y Java Backend Developer, especialmente en entornos con Java, Spring, APIs, SQL, SAP Commerce Cloud, integraciones y soporte productivo.",
+          fitIntro: "Los entornos donde más experiencia práctica y valor suelo aportar.",
           fitTitle: "Oportunidades especialmente alineadas",
           fitBullets: [
-            "Backend/Java Developer con experiencia en lógica de producto, integraciones y APIs",
-            "Experiencia en producción, incidencias y evolución backend junto a QA, negocio y cliente",
-            "SAP Commerce Cloud como especialización fuerte, sin limitar mi perfil a consultoría SAP",
+            "Backend Java/Spring con experiencia en lógica de negocio, integraciones y APIs.",
+            "Producción, incidencias y evolución funcional junto a QA, negocio y cliente.",
+            "SAP Commerce Cloud como especialización fuerte, sin limitar mi perfil a consultoría SAP.",
           ],
-          channelsTitle: "Canales",
+          channelsTitle: "Canales de contacto",
           channelsItems: [
             { label: "Email", value: siteSettings.email, href: `mailto:${siteSettings.email}` },
-            { label: "LinkedIn", value: siteSettings.linkedin, href: siteSettings.linkedin },
-            { label: "GitHub", value: siteSettings.github, href: siteSettings.github },
-            { label: "Ubicación", value: siteSettings.location.es },
+            { label: "LinkedIn", value: "linkedin.com/in/javiersanchezlancha", href: siteSettings.linkedin },
+            { label: "CV", value: "Disponible para revisión inmediata", href: getCvFilePath("es") },
           ],
-          channelsNote:
-            "La vía más rápida es email o LinkedIn; el CV está listo para revisión inmediata.",
-          finalNote:
-            "Encaje principal: backend Java/Spring, SAP Commerce Cloud, APIs, SQL, integraciones y soporte productivo.",
+          locationTitle: "Ubicación y encaje",
+          locationBody: "Sevilla, España\n\nJava · Spring · APIs REST\nBackend orientado a producto",
+          secondaryLinksTitle: "Explorar más",
         },
     },
     footer: {
@@ -1301,35 +1291,25 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       },
       contact: {
         eyebrow: "Contact",
-        title: "Let’s talk",
-        intro: "Direct contact for Backend Software Engineer or Java Backend Developer opportunities.",
-        availability:
-          "Open to backend opportunities involving Java, Spring, SAP Commerce Cloud, integrations, and production support.",
-        heroCardEyebrow: "Availability",
-        heroCardTitle: "Available to assess fit",
-        heroCardBullets: [
-          "Java, Spring, REST APIs, and product logic",
-          "B2B/B2C commerce, integrations, and sensitive business flows",
-          "Teams where QA, business, and client collaboration are part of the real work",
-        ],
-        fitTitle: "Especially aligned opportunities",
+        title: "Let's talk about backend, integrations and product",
+        intro:
+          "Open to Backend Software Engineer and Java Backend Developer opportunities, especially in environments involving Java, Spring, APIs, SQL, SAP Commerce Cloud, integrations and production support.",
+        fitIntro: "The environments where I usually provide the most practical experience and impact.",
+        fitTitle: "Best-fit opportunities",
         fitBullets: [
-          "Backend/Java Developer roles involving product logic, integrations, and APIs",
-          "Production-facing environments where incidents, integrations, and product evolution matter",
-          "Work that involves collaboration with QA, business, and client stakeholders",
-          "Opportunities where SAP Commerce Cloud is a strong specialization, not a limitation",
+          "Java/Spring backend with experience in business logic, integrations and APIs.",
+          "Production support, incidents and feature evolution alongside QA, business and clients.",
+          "SAP Commerce Cloud as a strong specialization without limiting my profile to SAP consulting.",
         ],
-        channelsTitle: "Channels",
+        channelsTitle: "Contact channels",
         channelsItems: [
           { label: "Email", value: siteSettings.email, href: `mailto:${siteSettings.email}` },
-          { label: "LinkedIn", value: siteSettings.linkedin, href: siteSettings.linkedin },
-          { label: "GitHub", value: siteSettings.github, href: siteSettings.github },
-          { label: "Location", value: siteSettings.location.en },
+          { label: "LinkedIn", value: "linkedin.com/in/javiersanchezlancha", href: siteSettings.linkedin },
+          { label: "CV", value: "Available for immediate review", href: getCvFilePath("en") },
         ],
-        channelsNote:
-          "The fastest path is email or LinkedIn, with the resume ready for immediate review.",
-        finalNote:
-          "Primary fit: Java/Spring backend, SAP Commerce Cloud, APIs, SQL, integrations, and production support.",
+        locationTitle: "Location and fit",
+        locationBody: "Seville, Spain\n\nJava · Spring · REST APIs\nProduct-oriented backend development",
+        secondaryLinksTitle: "Explore more",
       },
     },
     footer: {
