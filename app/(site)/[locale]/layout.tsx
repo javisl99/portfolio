@@ -9,6 +9,7 @@ import "@fontsource-variable/space-grotesk";
 
 import "../../globals.css";
 
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -70,6 +71,7 @@ export default async function LocaleLayout({
           <main>{children}</main>
           <Footer locale={locale} />
         </div>
+        <Analytics />
         {shouldRenderSpeedInsights ? <SpeedInsights /> : null}
       </body>
     </html>
