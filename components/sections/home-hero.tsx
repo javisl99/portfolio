@@ -32,16 +32,16 @@ export function HomeHero({ locale }: { locale: Locale }) {
               <p className="max-w-2xl text-sm leading-6 text-slate-300 sm:text-[0.98rem] sm:leading-7">{hero.proof}</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:flex-wrap">
-              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base" href={localizePath(locale, "/projects")} variant="primary">
+            <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:flex-wrap lg:grid lg:grid-flow-col lg:auto-cols-max lg:justify-start lg:gap-3">
+              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base lg:px-6" href={localizePath(locale, "/projects")} variant="primary">
                 {copy.ctas.projects}
               </ButtonLink>
-              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base" href={localizePath(locale, "/contact")} variant="secondary">
+              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base lg:px-6" href={localizePath(locale, "/contact")} variant="secondary">
                 <Mail className="h-4 w-4" />
                 {copy.ctas.contact}
               </ButtonLink>
               <ButtonLink
-                className="px-5 text-sm sm:px-7 sm:text-base"
+                className="px-5 text-sm sm:px-7 sm:text-base lg:px-6"
                 download={cvDownloadName}
                 href={cvHref}
                 target="_blank"
@@ -50,7 +50,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 <Download className="h-4 w-4" />
                 {copy.ctas.resume}
               </ButtonLink>
-              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base" href={siteSettings.linkedin} target="_blank" variant="secondary">
+              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base lg:px-6" href={siteSettings.linkedin} target="_blank" variant="secondary">
                 <Linkedin className="h-4 w-4" />
                 LinkedIn
               </ButtonLink>
