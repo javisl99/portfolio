@@ -30,12 +30,6 @@ async function readProjectSource(locale: Locale, slug: string) {
   return fs.readFile(fullPath, "utf8");
 }
 
-export async function getProjectLastModified(locale: Locale, slug: string) {
-  const stats = await fs.stat(getProjectSourcePath(locale, slug));
-
-  return stats.mtime;
-}
-
 export const getProjects = cache(async (locale: Locale): Promise<ProjectSummary[]> => {
   const directory = path.join(projectsDirectory, locale);
   const files = (await fs.readdir(directory)).filter((file) => file.endsWith(".mdx"));

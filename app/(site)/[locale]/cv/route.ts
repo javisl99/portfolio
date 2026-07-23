@@ -11,5 +11,5 @@ export async function GET(
     return new Response("Not found", { status: 404 });
   }
 
-  return Response.redirect(new URL(getCvFilePath(locale), request.url), 307);
+  return Response.redirect(new URL(getCvFilePath(locale), request.url), 308);
 }
