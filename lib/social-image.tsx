@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 import { siteSettings } from "@/data/site";
 
-export const socialImageAlt = "Javier Sanchez Lancha | Backend Software Engineer";
+export const socialImageAlt = "Javier Sánchez Lancha | Backend Software Engineer";
 export const socialImageSize = {
   width: 1200,
   height: 630,

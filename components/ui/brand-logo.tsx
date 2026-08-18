@@ -10,10 +10,10 @@ interface BrandLogoProps {
 }
 
 const variants = {
-  full: { src: "/logo.svg", width: 240, height: 64, alt: "Javier Sanchez Lancha logo" },
-  "full-dark": { src: "/logo-dark.svg", width: 240, height: 64, alt: "Javier Sanchez Lancha logo" },
-  "full-light": { src: "/logo-light.svg", width: 240, height: 64, alt: "Javier Sanchez Lancha logo" },
-  mark: { src: "/favicon.svg", width: 40, height: 40, alt: "Javier Sanchez Lancha mark" },
+  full: { src: "/logo.svg", width: 240, height: 64, alt: "Javier Sánchez Lancha logo" },
+  "full-dark": { src: "/logo-dark.svg", width: 240, height: 64, alt: "Javier Sánchez Lancha logo" },
+  "full-light": { src: "/logo-light.svg", width: 240, height: 64, alt: "Javier Sánchez Lancha logo" },
+  mark: { src: "/favicon.svg", width: 40, height: 40, alt: "Javier Sánchez Lancha mark" },
 } as const;
 
 export function BrandLogo({ className, imageClassName, variant = "full-light", priority = false }: BrandLogoProps) {

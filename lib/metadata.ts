@@ -43,6 +43,9 @@ export function createMetadata({
     },
     description,
     keywords,
+    authors: [{ name: siteSettings.name, url: buildUrl(localizePath(defaultLocale)) }],
+    creator: siteSettings.name,
+    publisher: siteSettings.name,
     alternates: {
       canonical: buildUrl(localizedPath),
       languages: {
@@ -67,13 +70,14 @@ export function createMetadata({
   };
 }
 
-export function getPersonStructuredData(locale: Locale) {
+function getPersonEntity(locale: Locale) {
   return {
-    "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${buildUrl("/")}#person`,
     name: siteSettings.name,
+    alternateName: ["Javier Sanchez Lancha"],
     jobTitle: siteSettings.schemaRole,
-    url: buildUrl("/"),
+    url: buildUrl(localizePath(defaultLocale)),
     email: `mailto:${siteSettings.email}`,
     sameAs: [siteSettings.linkedin, siteSettings.github],
     address: {
@@ -95,15 +99,42 @@ export function getPersonStructuredData(locale: Locale) {
   };
 }
 
+export function getPersonStructuredData(locale: Locale) {
+  return {
+    "@context": "https://schema.org",
+    ...getPersonEntity(locale),
+  };
+}
+
+export function getProfilePageStructuredData(locale: Locale) {
+  const profilePath = localizePath(locale, "/about");
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${buildUrl(profilePath)}#profile`,
+    url: buildUrl(profilePath),
+    name: siteCopy[locale].metadata.pages.about.title,
+    isPartOf: {
+      "@id": `${buildUrl("/")}#website`,
+    },
+    mainEntity: getPersonEntity(locale),
+  };
+}
+
 export function getWebsiteStructuredData(locale: Locale) {
   const copy = siteCopy[locale];
 
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${buildUrl("/")}#website`,
     name: siteSettings.name,
     url: buildUrl("/"),
     inLanguage: locale,
     description: copy.metadata.defaultDescription,
+    publisher: {
+      "@id": `${buildUrl("/")}#person`,
+    },
   };
 }

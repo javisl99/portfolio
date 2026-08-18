@@ -22,6 +22,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
         <div className="grid items-start gap-7 lg:grid-cols-12 lg:gap-8">
           <div className="relative space-y-4 sm:space-y-5 lg:col-span-7 lg:space-y-7">
             <div className="space-y-3 sm:space-y-4">
+              <p className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.24em] text-[#bcd1ff]">{siteSettings.name}</p>
               <h1 className="max-w-4xl font-display text-[2.2rem] font-black leading-[0.98] tracking-tight text-ink sm:text-5xl lg:text-7xl">
                 <span className="block">{locale === "es" ? "Backend Software Engineer" : "Backend Software Engineer"}</span>
                 <span className="mt-2 block text-[0.54em] font-semibold leading-[0.98] text-[#c7d8ff] sm:mt-3">

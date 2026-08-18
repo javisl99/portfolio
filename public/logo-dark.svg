@@ -13,7 +13,7 @@
     <rect x="44" y="44" width="6" height="6" fill="#60a5fa"/>
   </g>
   <g font-family="'Manrope Variable', 'Manrope', ui-sans-serif, system-ui" fill="#071225">
-    <text x="96" y="58" font-size="28" font-weight="800" letter-spacing="-0.5">Javier Sanchez Lancha</text>
+    <text x="96" y="58" font-size="28" font-weight="800" letter-spacing="-0.5">Javier Sánchez Lancha</text>
     <text x="96" y="89" font-size="13" font-weight="700" fill="#365980" font-family="'Space Grotesk Variable', 'Space Grotesk', ui-sans-serif, system-ui" letter-spacing="1.4">backend engineer · java · spring · ai-assisted</text>
   </g>
 </svg>

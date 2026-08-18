@@ -3,7 +3,7 @@ import { getCvFilePath } from "@/lib/cv";
 import type { Locale } from "@/lib/i18n";
 
 export const siteSettings = {
-  name: "Javier Sanchez Lancha",
+  name: "Javier Sánchez Lancha",
   schemaRole: "Backend Software Engineer",
   email: "javier.sanchez.lancha99@gmail.com",
   linkedin: "https://www.linkedin.com/in/javiersanchezlancha",
@@ -165,9 +165,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       { href: pageSlugs.contact, label: "Contacto" },
     ],
     metadata: {
-      defaultTitle: "Javier Sanchez Lancha | Backend Software Engineer | Java y SAP Commerce",
+      defaultTitle: "Javier Sánchez Lancha | Backend Software Engineer | Java y SAP Commerce",
       defaultDescription:
-        "Backend Software Engineer especializado en Java, Spring y SAP Commerce Cloud. Experiencia en APIs REST, SQL, integraciones, soporte productivo y sistemas en producción.",
+        "Javier Sánchez Lancha es Backend Software Engineer especializado en Java, Spring y SAP Commerce Cloud. Experiencia en APIs REST, SQL, integraciones, soporte productivo y sistemas en producción.",
       keywords: [
         "Backend Software Engineer",
         "Java Backend Developer",
@@ -184,7 +184,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       ],
       pages: {
         experience: {
-          title: "Experiencia | Javier Sanchez Lancha",
+          title: "Experiencia | Javier Sánchez Lancha",
           description:
             "Trayectoria profesional como Backend Software Engineer trabajando con Java, Spring, SAP Commerce Cloud, APIs REST, SQL, integraciones y soporte productivo.",
           keywords: [
@@ -195,7 +195,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         projects: {
-          title: "Proyectos | Javier Sanchez Lancha",
+          title: "Proyectos | Javier Sánchez Lancha",
           description:
             "Casos reales de backend sobre SAP Commerce Cloud, Java, Spring, APIs REST, integraciones, checkout, pricing, stock y soporte productivo.",
           keywords: [
@@ -206,7 +206,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         about: {
-          title: "Sobre mí | Javier Sanchez Lancha",
+          title: "Sobre mí | Javier Sánchez Lancha",
           description:
             "Conoce cómo he construido mi perfil como Backend Engineer, orientado a sistemas en producción, integraciones, lógica de negocio y colaboración con equipos técnicos y funcionales.",
           keywords: [
@@ -217,9 +217,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         contact: {
-          title: "Contacto | Javier Sanchez Lancha",
+          title: "Contacto | Javier Sánchez Lancha",
           description:
-            "Contacta con Javier Sanchez Lancha para oportunidades Backend Software Engineer o Java Backend Developer centradas en Java, Spring, APIs, SQL, SAP Commerce Cloud e integraciones.",
+            "Contacta con Javier Sánchez Lancha para oportunidades Backend Software Engineer o Java Backend Developer centradas en Java, Spring, APIs, SQL, SAP Commerce Cloud e integraciones.",
           keywords: [
             "Backend Software Engineer contact",
             "Java Backend Developer contact",
@@ -228,7 +228,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         projectDetail: {
-          title: "Detalle de proyecto | Javier Sanchez Lancha",
+          title: "Detalle de proyecto | Javier Sánchez Lancha",
           description:
             "Caso real explicado desde el contexto, el problema, la solución técnica, el stack y lo que demuestra sobre mi perfil backend.",
           keywords: [
@@ -254,7 +254,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Backend Software Engineer",
         title: "Backend Software Engineer",
         summary:
-          "Backend Software Engineer centrado en Java y Spring sobre plataformas en producción, con SAP Commerce Cloud como especialización fuerte.",
+          "Javier Sánchez Lancha es Backend Software Engineer centrado en Java y Spring sobre plataformas en producción, con SAP Commerce Cloud como especialización fuerte.",
         proof:
           "Trabajo con APIs REST, SQL, integraciones e incidencias, coordinando cambios con QA, negocio y cliente.",
         quickFacts: [
@@ -746,9 +746,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       { href: pageSlugs.contact, label: "Contact" },
     ],
     metadata: {
-      defaultTitle: "Javier Sanchez Lancha | Backend Software Engineer | Java & SAP Commerce",
+      defaultTitle: "Javier Sánchez Lancha | Backend Software Engineer | Java & SAP Commerce",
       defaultDescription:
-        "Backend Software Engineer specialized in Java, Spring and SAP Commerce Cloud. Experience with REST APIs, SQL, integrations, production support and live systems.",
+        "Javier Sánchez Lancha is a Backend Software Engineer specialized in Java, Spring and SAP Commerce Cloud. Experience with REST APIs, SQL, integrations, production support and live systems.",
       keywords: [
         "Backend Software Engineer",
         "Java Backend Developer",
@@ -765,7 +765,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       ],
       pages: {
         experience: {
-          title: "Experience | Javier Sanchez Lancha",
+          title: "Experience | Javier Sánchez Lancha",
           description:
             "Professional experience as a Backend Software Engineer working with Java, Spring, SAP Commerce Cloud, REST APIs, SQL, integrations and production support.",
           keywords: [
@@ -776,7 +776,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         projects: {
-          title: "Projects | Javier Sanchez Lancha",
+          title: "Projects | Javier Sánchez Lancha",
           description:
             "Real backend case studies involving SAP Commerce Cloud, Java, Spring, REST APIs, integrations, checkout, pricing, stock and production support.",
           keywords: [
@@ -787,7 +787,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         about: {
-          title: "About | Javier Sanchez Lancha",
+          title: "About | Javier Sánchez Lancha",
           description:
             "Learn how I built my profile as a Backend Engineer, focused on production systems, integrations, business logic and collaboration with technical and functional teams.",
           keywords: [
@@ -798,9 +798,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         contact: {
-          title: "Contact | Javier Sanchez Lancha",
+          title: "Contact | Javier Sánchez Lancha",
           description:
-            "Contact Javier Sanchez Lancha for Backend Software Engineer or Java Backend Developer opportunities focused on Java, Spring, APIs, SQL, SAP Commerce Cloud and integrations.",
+            "Contact Javier Sánchez Lancha for Backend Software Engineer or Java Backend Developer opportunities focused on Java, Spring, APIs, SQL, SAP Commerce Cloud and integrations.",
           keywords: [
             "Backend Software Engineer contact",
             "Java Backend Developer contact",
@@ -809,7 +809,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           ],
         },
         projectDetail: {
-          title: "Project detail | Javier Sanchez Lancha",
+          title: "Project detail | Javier Sánchez Lancha",
           description:
             "A real project explained through context, problem, technical solution, stack, and what it shows about my backend profile.",
           keywords: [
@@ -835,7 +835,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Backend Software Engineer",
         title: "Backend Software Engineer",
         summary:
-          "Backend Software Engineer focused on Java and Spring across production platforms, with SAP Commerce Cloud as a strong specialization.",
+          "Javier Sánchez Lancha is a Backend Software Engineer focused on Java and Spring across production platforms, with SAP Commerce Cloud as a strong specialization.",
         proof:
           "My work combines REST APIs, SQL, integrations, incidents, and close collaboration with QA, business teams, and clients.",
         quickFacts: [

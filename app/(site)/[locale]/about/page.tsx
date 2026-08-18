@@ -7,8 +7,8 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { PageHero } from "@/components/ui/page-hero";
 import { Section } from "@/components/ui/section";
-import { siteCopy } from "@/data/site";
-import { createMetadata } from "@/lib/metadata";
+import { siteCopy, siteSettings } from "@/data/site";
+import { createMetadata, getProfilePageStructuredData } from "@/lib/metadata";
 import { isLocale, localizePath, type Locale } from "@/lib/i18n";
 
 const valueIcons = [LifeBuoy, Workflow, BriefcaseBusiness, ArrowRight, BrainCircuit, Handshake] as const;
@@ -50,11 +50,19 @@ export default async function AboutPage({
   const locale = rawLocale as Locale;
   const copy = siteCopy[locale];
   const page = copy.pages.about;
+  const profilePageStructuredData = getProfilePageStructuredData(locale);
 
   return (
     <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(profilePageStructuredData),
+        }}
+        type="application/ld+json"
+      />
       <PageHero eyebrow={page.eyebrow} intro={page.intro} title={page.title}>
         <div className="space-y-4">
+          <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">{siteSettings.name}</p>
           <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[#9fbeff]">{page.focusTitle}</p>
           <p className="text-sm leading-7 text-slate-300">{page.focusBody}</p>
         </div>
