@@ -93,7 +93,7 @@ export default async function ProjectDetailPage({
     url: buildUrl(localizePath(locale, `/projects/${project.slug}`)),
     creator: {
       "@type": "Person",
-      name: "Javier Sanchez Lancha",
+      name: "Javier Sánchez Lancha",
     },
     keywords: project.stack,
     about: [project.role, project.employer, project.client, project.domain].filter(Boolean),

@@ -36,6 +36,26 @@ await check("the root permanently redirects to the Spanish homepage", async () =
 });
 
 for (const locale of ["es", "en"]) {
+  await check(`/${locale} exposes Javier Sánchez Lancha as the page author`, async () => {
+    const response = await fetch(`${baseUrl}/${locale}`);
+    const html = await response.text();
+
+    assert.equal(response.status, 200);
+    assert.match(html, /Javier Sánchez Lancha/);
+    assert.equal(getMetaContent(html, "author"), "Javier Sánchez Lancha");
+    assert.match(html, /"@type":"Person"/);
+  });
+
+  await check(`/${locale}/about declares a profile page for Javier Sánchez Lancha`, async () => {
+    const response = await fetch(`${baseUrl}/${locale}/about`);
+    const html = await response.text();
+
+    assert.equal(response.status, 200);
+    assert.match(html, /"@type":"ProfilePage"/);
+    assert.match(html, /"mainEntity":\{"@type":"Person"/);
+    assert.match(html, /Javier Sánchez Lancha/);
+  });
+
   await check(`/${locale}/cv permanently redirects to its PDF`, async () => {
     const response = await fetchWithoutRedirect(`/${locale}/cv`);
 
