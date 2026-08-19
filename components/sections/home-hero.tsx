@@ -1,5 +1,6 @@
-import { Braces, BriefcaseBusiness, Coffee, Download, Layers3, Linkedin, Mail, MapPin, Verified } from "lucide-react";
+import { Braces, BriefcaseBusiness, Coffee, Download, Layers3, Mail, MapPin, Verified } from "lucide-react";
 
+import { LinkedinIcon } from "@/components/ui/social-icons";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { siteCopy, siteSettings } from "@/data/site";
@@ -52,7 +53,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 {copy.ctas.resume}
               </ButtonLink>
               <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base lg:px-6" href={siteSettings.linkedin} target="_blank" variant="secondary">
-                <Linkedin className="h-4 w-4" />
+                <LinkedinIcon className="h-4 w-4" />
                 LinkedIn
               </ButtonLink>
             </div>
