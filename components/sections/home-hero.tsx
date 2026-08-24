@@ -82,7 +82,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
         </div>
 
         {/* Highlights Bar */}
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 xl:grid-cols-5">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 xl:grid-cols-4">
           {hero.highlights.map((highlight, index) => {
             const Icon = highlightIcons[index % highlightIcons.length];
 
