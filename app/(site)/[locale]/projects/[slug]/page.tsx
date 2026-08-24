@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/container";
 import { PageHero } from "@/components/ui/page-hero";
 import { buildUrl, createMetadata } from "@/lib/metadata";
 import { isLocale, localizePath, type Locale } from "@/lib/i18n";
+
 import { getAllProjectPaths, getProject } from "@/lib/projects";
 
 export async function generateStaticParams() {
@@ -186,29 +187,35 @@ export default async function ProjectDetailPage({
 
       <Container className="pb-20 sm:pb-28">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
-          <article className="rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.95),rgba(7,12,24,0.99))] p-7 shadow-soft sm:p-9">
-            <div className="mb-8 grid gap-4 sm:grid-cols-3">
-              <section className="rounded-[1.4rem] bg-white/[0.03] p-4">
-                <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-[#9fbeff]">
+          <article className="rounded-[2rem] border border-white/8 bg-gradient-to-b from-[#14192b]/85 to-[#0b0e1a]/98 p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_60px_-25px_rgba(0,0,0,0.9)] sm:p-9">
+            <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <section className="rounded-xl border border-white/6 bg-white/[0.02] p-4">
+                <p className="font-mono text-[0.66rem] font-bold uppercase tracking-wider text-indigo-400">
                   {locale === "es" ? "Problema" : "Problem"}
                 </p>
-                <p className="mt-2 text-sm leading-7 text-slate-300">{project.stakes}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{project.stakes}</p>
               </section>
-              <section className="rounded-[1.4rem] bg-white/[0.03] p-4">
-                <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-[#9fbeff]">
+              <section className="rounded-xl border border-white/6 bg-white/[0.02] p-4">
+                <p className="font-mono text-[0.66rem] font-bold uppercase tracking-wider text-indigo-400">
                   {locale === "es" ? "Contribución" : "Contribution"}
                 </p>
-                <p className="mt-2 text-sm leading-7 text-slate-300">{project.contribution}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{project.contribution}</p>
               </section>
-              <section className="rounded-[1.4rem] bg-white/[0.03] p-4">
-                <p className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-[#9fbeff]">
+              <section className="rounded-xl border border-white/6 bg-white/[0.02] p-4">
+                <p className="font-mono text-[0.66rem] font-bold uppercase tracking-wider text-indigo-400">
+                  {locale === "es" ? "Resultado" : "Outcome"}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{project.outcome}</p>
+              </section>
+              <section className="rounded-xl border border-white/6 bg-white/[0.02] p-4">
+                <p className="font-mono text-[0.66rem] font-bold uppercase tracking-wider text-indigo-400">
                   {locale === "es" ? "Dominio" : "Domain"}
                 </p>
-                <p className="mt-2 text-sm leading-7 text-slate-300">{project.domain}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{project.domain}</p>
               </section>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 text-slate-200">
               {project.content}
             </div>
 
@@ -216,19 +223,18 @@ export default async function ProjectDetailPage({
           </article>
 
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-[1.8rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.92),rgba(7,12,24,0.97))] p-6 shadow-soft">
-              <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#9fbeff]">
+            <div className="rounded-[1.8rem] border border-white/8 bg-gradient-to-b from-[#14192b]/80 to-[#0c0f1c]/95 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_20px_45px_-20px_rgba(0,0,0,0.85)]">
+              <p className="font-mono text-[0.68rem] font-bold uppercase tracking-wider text-indigo-400">
                 {locale === "es" ? "Stack técnico" : "Technical stack"}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.stack.map((item) => (
-                  <span className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[0.68rem] text-slate-200" key={item}>
+                  <span className="rounded-md border border-white/8 bg-white/[0.04] px-3 py-1.5 font-mono text-[0.68rem] text-slate-200" key={item}>
                     {item}
                   </span>
                 ))}
               </div>
             </div>
-
           </aside>
         </div>
       </Container>

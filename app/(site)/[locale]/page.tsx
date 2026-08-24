@@ -7,9 +7,12 @@ import { ExperienceSnapshotGrid } from "@/components/sections/experience-snapsho
 import { HomeAboutPreview } from "@/components/sections/home-about-preview";
 import { HomeHero } from "@/components/sections/home-hero";
 import { ProjectGrid } from "@/components/sections/project-grid";
+import { ToolMarquee } from "@/components/sections/tool-marquee";
 import { ButtonLink } from "@/components/ui/button-link";
+import { CopyEmailButton } from "@/components/ui/copy-email-button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
+
 import { siteCopy } from "@/data/site";
 import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { createMetadata, getPersonStructuredData, getWebsiteStructuredData } from "@/lib/metadata";
@@ -73,6 +76,7 @@ export default async function HomePage({
         type="application/ld+json"
       />
       <HomeHero locale={locale} />
+      <ToolMarquee locale={locale} />
 
       <Section
         actions={
@@ -134,36 +138,40 @@ export default async function HomePage({
         <HomeAboutPreview items={aboutPage.principlesItems} locale={locale} />
       </Section>
 
-      <section className="pb-4 pt-8 sm:pb-5 sm:pt-4" id="contact">
+      <section className="pb-8 pt-10 sm:pb-12 sm:pt-8" id="contact">
         <Container>
-          <div className="mx-auto max-w-4xl text-center">
-            <h2 className="font-display text-4xl font-black tracking-tight text-ink sm:text-5xl">
-              {locale === "es" ? "¿Listo para hablar de backend, integraciones y producto?" : "Ready to talk about backend, integrations, and product?"}
+          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-white/8 bg-gradient-to-b from-[#14192b]/90 to-[#0c0f1d]/98 px-6 py-12 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_60px_-25px_rgba(0,0,0,0.9)] sm:px-12 sm:py-16">
+            <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-96 -translate-x-1/2 rounded-full bg-indigo-500/15 blur-3xl" />
+            <h2 className="relative font-display text-3xl font-black tracking-tight text-white sm:text-5xl">
+              {locale === "es" ? "¿Buscas un Backend Engineer para sistemas reales?" : "Looking for a Backend Engineer for real systems?"}
             </h2>
-            <p className="mx-auto mt-4 max-w-[37.5rem] text-sm leading-7 text-muted sm:text-base">
+            <p className="relative mx-auto mt-4 max-w-[38rem] text-sm leading-relaxed text-slate-300 sm:text-base">
               {locale === "es"
-                ? "Abierto a nuevas oportunidades y conversaciones relacionadas con backend, integraciones y plataformas de producto."
-                : "Open to new opportunities and conversations around backend engineering, integrations and product platforms."}
+                ? "Hablemos de Java, Spring, integraciones y cómo puedo aportar desde el primer contexto técnico."
+                : "Let’s talk about Java, Spring, integrations, and how I can contribute from the first technical context."}
             </p>
-            <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-              <ButtonLink className="justify-center px-10 py-4 text-lg" href={localizePath(locale, "/contact")} variant="primary">
-                <Mail className="h-5 w-5 shrink-0 self-center" />
-                <span className="inline-flex items-center leading-none">{locale === "es" ? "Contactar" : "Get in Touch"}</span>
+            <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <ButtonLink className="justify-center px-8 py-3.5 text-base" href={localizePath(locale, "/contact")} variant="primary">
+                <Mail className="h-4.5 w-4.5 shrink-0 self-center text-white" />
+                <span className="inline-flex items-center leading-none">{locale === "es" ? "Página de contacto" : "Contact Page"}</span>
               </ButtonLink>
+              <CopyEmailButton className="justify-center px-8 py-3.5 text-base" locale={locale} variant="secondary" />
               <ButtonLink
-                className="justify-center px-10 py-4 text-lg"
+                className="justify-center px-8 py-3.5 text-base"
                 download={cvDownloadName}
                 href={cvHref}
                 target="_blank"
                 variant="secondary"
               >
-                <Download className="h-5 w-5 shrink-0 self-center" />
+                <Download className="h-4.5 w-4.5 shrink-0 self-center text-slate-400" />
                 <span className="inline-flex items-center leading-none">{copy.ctas.resume}</span>
               </ButtonLink>
             </div>
+
           </div>
         </Container>
       </section>
+
     </>
   );
 }

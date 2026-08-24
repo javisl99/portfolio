@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Activity, ArrowRight, BrainCircuit, BriefcaseBusiness, Handshake, LifeBuoy, Workflow } from "lucide-react";
 
 import { ProfessionalValueGrid } from "@/components/sections/professional-value-grid";
+import { ArchitectureFlowDiagram } from "@/components/ui/architecture-flow-diagram";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { PageHero } from "@/components/ui/page-hero";
@@ -71,6 +72,12 @@ export default async function AboutPage({
       <Section align="center" className="py-16 sm:py-20" description={page.trajectoryIntro} eyebrow={page.eyebrow} title={page.trajectoryTitle}>
         <ProfessionalValueGrid items={page.trajectoryItems} locale={locale} />
       </Section>
+
+      <section className="py-8 sm:py-12">
+        <Container>
+          <ArchitectureFlowDiagram locale={locale} />
+        </Container>
+      </section>
 
       <Section
         align="center"

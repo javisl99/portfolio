@@ -18,6 +18,8 @@ import type { CopyCard } from "@/data/types";
 import type { Locale } from "@/lib/i18n";
 
 import { ButtonLink } from "@/components/ui/button-link";
+import { MetricCounter } from "@/components/ui/metric-counter";
+import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 import { localizePath } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -44,27 +46,28 @@ type WorkflowStep = {
 
 const tones: Record<Accent, { ring: string; border: string; text: string; soft: string; glow: string }> = {
   blue: {
-    ring: "stroke-[#4f86ff]",
-    border: "border-[#4f86ff]/28",
-    text: "text-[#74a5ff]",
-    soft: "bg-[#4f86ff]/12",
-    glow: "shadow-[0_0_0_1px_rgba(79,134,255,0.12),0_16px_34px_-26px_rgba(79,134,255,0.42)]",
+    ring: "stroke-[#6366f1]",
+    border: "border-indigo-500/30",
+    text: "text-indigo-300",
+    soft: "bg-indigo-500/10",
+    glow: "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_36px_-24px_rgba(99,102,241,0.4)]",
   },
   green: {
-    ring: "stroke-[#67e27d]",
-    border: "border-[#67e27d]/28",
-    text: "text-[#7be08f]",
-    soft: "bg-[#67e27d]/12",
-    glow: "shadow-[0_0_0_1px_rgba(103,226,125,0.1),0_16px_34px_-28px_rgba(103,226,125,0.24)]",
+    ring: "stroke-[#10b981]",
+    border: "border-emerald-500/30",
+    text: "text-emerald-300",
+    soft: "bg-emerald-500/10",
+    glow: "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_36px_-24px_rgba(16,185,129,0.35)]",
   },
   violet: {
-    ring: "stroke-[#8e71ff]",
-    border: "border-[#8e71ff]/28",
-    text: "text-[#a991ff]",
-    soft: "bg-[#8e71ff]/12",
-    glow: "shadow-[0_0_0_1px_rgba(142,113,255,0.12),0_16px_34px_-26px_rgba(142,113,255,0.36)]",
+    ring: "stroke-[#a855f7]",
+    border: "border-purple-500/30",
+    text: "text-purple-300",
+    soft: "bg-purple-500/10",
+    glow: "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_36px_-24px_rgba(168,85,247,0.35)]",
   },
 };
+
 
 const workflowCopy = {
   es: {
@@ -268,6 +271,7 @@ function WorkflowStepCard({ step, showArrow }: { step: WorkflowStep; showArrow?:
       <article
         className={cn(
           "group h-full rounded-[1.35rem] border p-4 transition duration-300 hover:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none sm:p-5",
+          `ai-animate ai-delay-${step.number}`,
           tone.border,
           tone.glow,
           tintClass,
@@ -291,7 +295,10 @@ function WorkflowStepCard({ step, showArrow }: { step: WorkflowStep; showArrow?:
 
       {showArrow ? (
         <div className="pointer-events-none absolute -right-6 top-1/2 hidden -translate-y-1/2 xl:flex">
-          <ArrowRight className={cn("h-5 w-5 animate-pulse motion-reduce:animate-none", tone.text)} />
+          <span className="relative inline-flex items-center justify-center">
+            <ArrowRight className={cn("h-5 w-5", tone.text)} />
+            <span className={cn("absolute h-1.5 w-1.5 rounded-full flow-dot", tone.text.replace("text-", "bg-"))} />
+          </span>
         </div>
       ) : null}
     </div>
@@ -312,7 +319,7 @@ function MetricRing({ accent, progress, icon: Icon }: { accent: Accent; progress
           cx="40"
           cy="40"
           r={radius}
-          className={cn(tone.ring, "transition-all duration-700 ease-out motion-reduce:transition-none")}
+          className={cn(tone.ring, "ring-animate")}
           fill="none"
           strokeLinecap="round"
           strokeWidth="8"
@@ -378,21 +385,21 @@ export function AIImpactSection({ locale, eyebrow, title, description, context, 
               <div>
                 <GroupRail accent="blue" label={copy.accelerator} />
                 <p className="mb-3 font-mono text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#74a5ff] lg:hidden">{copy.accelerator}</p>
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                <RevealOnScroll className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                   {acceleratorSteps.map((step, index) => (
                     <WorkflowStepCard key={step.number} showArrow={index < acceleratorSteps.length - 1} step={step} />
                   ))}
-                </div>
+                </RevealOnScroll>
               </div>
 
               <div>
                 <GroupRail accent="green" label={copy.validator} />
                 <p className="mb-3 font-mono text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#7be08f] lg:hidden">{copy.validator}</p>
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                <RevealOnScroll className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                   {validatorSteps.map((step, index) => (
                     <WorkflowStepCard key={step.number} showArrow={index < validatorSteps.length - 1} step={step} />
                   ))}
-                </div>
+                </RevealOnScroll>
               </div>
             </div>
           </section>
@@ -434,7 +441,7 @@ export function AIImpactSection({ locale, eyebrow, title, description, context, 
 
           <section className="pt-3 sm:pt-4">
             <p className="mb-4 font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#9fbeff]">{copy.metricsEyebrow}</p>
-            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            <RevealOnScroll className="grid gap-3 md:grid-cols-2 xl:grid-cols-3" rootMargin="0px 0px -180px 0px">
               {copy.metrics.map((metric, index) => {
                 const tone = tones[metric.accent];
                 const ringProgress = index === 0 ? 70 : undefined;
@@ -445,8 +452,9 @@ export function AIImpactSection({ locale, eyebrow, title, description, context, 
 
                 return (
                   <article
-                    className="flex h-full flex-col rounded-[1.45rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.9),rgba(7,12,24,0.96))] p-4 shadow-soft transition duration-300 hover:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none sm:p-5"
+                    className="ai-animate flex h-full flex-col rounded-[1.45rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.9),rgba(7,12,24,0.96))] p-4 shadow-soft transition duration-300 hover:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none sm:p-5"
                     key={metric.title}
+                    style={{ animationDelay: `${0.35 + index * 0.35}s` }}
                   >
                     <p className={cn("font-mono text-[0.64rem] font-bold uppercase tracking-[0.18em]", tone.text)}>{metric.title}</p>
                     <div className="mt-4 flex flex-1 flex-col items-center text-center">
@@ -454,7 +462,17 @@ export function AIImpactSection({ locale, eyebrow, title, description, context, 
                         <MetricRing accent={metric.accent} icon={MetricIcon} progress={ringProgress} />
                       </div>
                       <div className="flex h-24 flex-col items-center justify-center">
-                        <p className={cn("font-black leading-none tracking-tight", tone.text, valueClassName)}>{metric.value}</p>
+                        <p className={cn("value-appear font-black leading-none tracking-tight", tone.text, valueClassName)}>
+                          {index === 0 ? (
+                            <>
+                              ~<MetricCounter className="inline-block min-w-[2ch] tabular-nums" target={70} />%
+                            </>
+                          ) : index === 1 ? (
+                            <>
+                              {"< "}<MetricCounter className="inline-block min-w-[2ch] text-left tabular-nums" randomMax={70} target={1} />
+                            </>
+                          ) : metric.value}
+                        </p>
                         {metric.label ? <p className={cn("mt-1 font-bold tracking-tight text-white", labelClassName)}>{metric.label}</p> : null}
                       </div>
                       <p className="mt-3 flex-1 max-w-[17rem] text-sm leading-6 text-slate-300">{metric.body}</p>
@@ -462,7 +480,7 @@ export function AIImpactSection({ locale, eyebrow, title, description, context, 
                   </article>
                 );
               })}
-            </div>
+            </RevealOnScroll>
           </section>
         </div>
       </div>
