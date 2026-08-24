@@ -295,14 +295,14 @@ export function InteractiveTerminalConsole({ locale, className }: InteractiveTer
 
       {/* Input */}
       <div className="space-y-3 border-t border-white/8 bg-black/30 p-3 font-mono sm:p-4">
-        <form className="flex items-center gap-2" onSubmit={handleSubmit}>
+        <form className="flex min-w-0 items-center gap-2" onSubmit={handleSubmit}>
           <span className="shrink-0 select-none text-xs font-bold text-emerald-400">❯</span>
           <input
             aria-label="Terminal command input"
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"
-            className="flex-1 bg-transparent text-xs text-white placeholder:text-slate-600 focus:outline-none"
+            className="min-w-0 flex-1 bg-transparent text-base leading-6 text-white placeholder:text-slate-600 focus:outline-none sm:text-xs sm:leading-normal"
             onChange={(e) => setInputVal(e.target.value)}
             placeholder={locale === "es" ? "help, stack, email, cv…" : "help, stack, email, cv…"}
             ref={inputRef}
