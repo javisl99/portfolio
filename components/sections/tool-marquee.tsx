@@ -55,8 +55,8 @@ export function ToolMarquee({ locale }: { locale: "es" | "en" }) {
       <p className="sr-only">
         {locale === "es" ? `Tecnologías utilizadas: ${tools.map((tool) => tool.name).join(", ")}.` : `Technologies used: ${tools.map((tool) => tool.name).join(", ")}.`}
       </p>
-      <ul aria-hidden="true" className="tool-marquee-track flex w-max items-center">
-        {[...tools, ...tools].map((tool, index) => (
+      <ul aria-hidden="true" className="tool-marquee-track m-0 flex w-max list-none items-center p-0">
+        {[...tools, ...tools, ...tools, ...tools].map((tool, index) => (
           <li key={`${tool.slug}-${index}`}>
             <ToolItem {...tool} />
           </li>
