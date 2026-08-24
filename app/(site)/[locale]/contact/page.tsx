@@ -16,6 +16,16 @@ import { isLocale, localizePath, type Locale } from "@/lib/i18n";
 
 const channelIcons = [Mail, LinkedinIcon, FileDown] as const;
 const fitIcons = [ServerCog, ShieldCheck, Blocks] as const;
+const channelAccentStyles = [
+  "border-sky-400/25 bg-sky-500/10 text-sky-300",
+  "border-blue-400/25 bg-blue-500/10 text-blue-300",
+  "border-amber-400/25 bg-amber-500/10 text-amber-300",
+] as const;
+const fitAccentStyles = [
+  "border-emerald-400/25 bg-emerald-500/10 text-emerald-300",
+  "border-purple-400/25 bg-purple-500/10 text-purple-300",
+  "border-sky-400/25 bg-sky-500/10 text-sky-300",
+] as const;
 
 export async function generateMetadata({
   params,
@@ -145,7 +155,7 @@ export default async function ContactPage({
                 key={item.label}
               >
                 <div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-indigo-300 transition duration-300 group-hover:border-indigo-400/30 group-hover:bg-indigo-500/15 group-hover:text-white motion-reduce:transition-none">
+                  <div className={`flex h-11 w-11 items-center justify-center rounded-xl border transition duration-300 group-hover:brightness-125 motion-reduce:transition-none ${channelAccentStyles[index % channelAccentStyles.length]}`}>
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="flex flex-1 flex-col">
@@ -209,7 +219,7 @@ export default async function ContactPage({
                 className="group rounded-2xl border border-white/8 bg-gradient-to-b from-[#14192b]/80 to-[#0c0f1c]/95 p-5 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_20px_45px_-20px_rgba(0,0,0,0.85)] transition duration-300 hover:-translate-y-1 hover:border-indigo-400/35 hover:shadow-[0_20px_50px_-20px_rgba(99,102,241,0.25)] motion-reduce:transform-none motion-reduce:transition-none"
                 key={card.title}
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/8 bg-white/[0.04] text-indigo-300 transition duration-300 group-hover:border-indigo-400/30 group-hover:bg-indigo-500/15 group-hover:text-white motion-reduce:transition-none">
+                <div className={`flex h-10 w-10 items-center justify-center rounded-xl border transition duration-300 group-hover:brightness-125 motion-reduce:transition-none ${fitAccentStyles[index % fitAccentStyles.length]}`}>
                   <Icon className="h-4 w-4" />
                 </div>
                 <h3 className="mt-4 text-base font-black tracking-tight text-white">{card.title}</h3>
@@ -248,4 +258,3 @@ export default async function ContactPage({
     </>
   );
 }
-

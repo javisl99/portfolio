@@ -9,7 +9,6 @@ interface ButtonLinkProps extends ComponentPropsWithoutRef<"a"> {
   href: string;
   variant?: Variant;
 }
-
 const variants: Record<Variant, string> = {
   primary:
     "cursor-pointer border border-indigo-400/35 bg-gradient-to-r from-blue-600 via-indigo-600 to-indigo-500 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_16px_36px_-14px_rgba(99,102,241,0.6)] hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_20px_44px_-16px_rgba(99,102,241,0.75)] hover:brightness-110 active:translate-y-0",
@@ -35,4 +34,3 @@ export function ButtonLink({ className, href, target, rel, variant = "primary", 
 
   return <Link className={sharedClassName} href={href} {...props} />;
 }
-

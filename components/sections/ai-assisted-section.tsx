@@ -5,6 +5,12 @@ import type { CopyCard } from "@/data/types";
 import type { Locale } from "@/lib/i18n";
 
 const icons = [Search, Wrench, FileText, Bot];
+const accentStyles = [
+  "border-sky-400/25 bg-sky-500/10 text-sky-300",
+  "border-emerald-400/25 bg-emerald-500/10 text-emerald-300",
+  "border-purple-400/25 bg-purple-500/10 text-purple-300",
+  "border-amber-400/25 bg-amber-500/10 text-amber-300",
+] as const;
 
 interface AIAssistedSectionProps {
   locale: Locale;
@@ -65,7 +71,7 @@ export function AIAssistedSection({ locale, eyebrow, title, description, items }
                   className="rounded-[1.6rem] border border-line bg-[linear-gradient(180deg,rgba(10,16,31,0.92),rgba(8,13,26,0.96))] p-6 shadow-soft transition duration-200 hover:-translate-y-1 hover:border-accent-soft/35"
                   key={item.title.en}
                 >
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/8 bg-[linear-gradient(180deg,rgba(96,165,250,0.18),rgba(129,140,248,0.12))] text-[#d5e2ff]">
+                  <div className={`mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border ${accentStyles[index % accentStyles.length]}`}>
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mb-3 text-lg font-black tracking-tight text-ink">{item.title[locale]}</h3>

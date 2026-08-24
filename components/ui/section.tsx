@@ -13,7 +13,6 @@ interface SectionProps {
   align?: "start" | "center";
   children: ReactNode;
 }
-
 export function Section({ eyebrow, title, description, id, className, actions, align = "start", children }: SectionProps) {
   const isCentered = align === "center";
 
@@ -39,4 +38,3 @@ export function Section({ eyebrow, title, description, id, className, actions, a
     </section>
   );
 }
-

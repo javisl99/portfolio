@@ -143,12 +143,12 @@ export default async function HomePage({
           <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-white/8 bg-gradient-to-b from-[#14192b]/90 to-[#0c0f1d]/98 px-6 py-12 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_60px_-25px_rgba(0,0,0,0.9)] sm:px-12 sm:py-16">
             <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-96 -translate-x-1/2 rounded-full bg-indigo-500/15 blur-3xl" />
             <h2 className="relative font-display text-3xl font-black tracking-tight text-white sm:text-5xl">
-              {locale === "es" ? "¿Listo para hablar de backend, integraciones y producto?" : "Ready to talk about backend, integrations, and product?"}
+              {locale === "es" ? "¿Buscas un Backend Engineer para sistemas reales?" : "Looking for a Backend Engineer for real systems?"}
             </h2>
             <p className="relative mx-auto mt-4 max-w-[38rem] text-sm leading-relaxed text-slate-300 sm:text-base">
               {locale === "es"
-                ? "Abierto a nuevas oportunidades y conversaciones técnicas sobre arquitecturas backend, integraciones empresariales y plataformas de producto."
-                : "Open to new opportunities and technical conversations around backend architecture, enterprise integrations, and product platforms."}
+                ? "Hablemos de Java, Spring, integraciones y cómo puedo aportar desde el primer contexto técnico."
+                : "Let’s talk about Java, Spring, integrations, and how I can contribute from the first technical context."}
             </p>
             <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <ButtonLink className="justify-center px-8 py-3.5 text-base" href={localizePath(locale, "/contact")} variant="primary">

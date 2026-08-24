@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { ArchitectureFlowDiagram } from "@/components/ui/architecture-flow-diagram";
-import { Container } from "@/components/ui/container";
+import { ProjectEvidenceMap } from "@/components/sections/project-evidence-map";
 import { ProjectGrid } from "@/components/sections/project-grid";
 import { PageHero } from "@/components/ui/page-hero";
 import { RecruiterScanCard } from "@/components/ui/recruiter-scan-card";
@@ -65,11 +64,7 @@ export default async function ProjectsPage({
         <RecruiterScanCard bullets={page.scanBullets} description={page.scanBody} eyebrow={page.scanTitle} title={locale === "es" ? "Qué vas a encontrar" : "What you will find"} />
       </PageHero>
 
-      <section className="py-8 sm:py-12">
-        <Container>
-          <ArchitectureFlowDiagram locale={locale} />
-        </Container>
-      </section>
+      <ProjectEvidenceMap locale={locale} />
 
       <Section
         align="center"
@@ -86,4 +81,3 @@ export default async function ProjectsPage({
     </>
   );
 }
-

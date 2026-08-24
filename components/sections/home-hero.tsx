@@ -76,13 +76,13 @@ export function HomeHero({ locale }: { locale: Locale }) {
           </div>
 
           {/* Right Column: Live Backend Telemetry & Architecture Window */}
-          <div className="lg:col-span-6 xl:col-span-6">
+          <div className="min-w-0 lg:col-span-6 xl:col-span-6">
             <BackendTelemetryWidget locale={locale} />
           </div>
         </div>
 
         {/* Highlights Bar */}
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 xl:grid-cols-5">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 xl:grid-cols-4">
           {hero.highlights.map((highlight, index) => {
             const Icon = highlightIcons[index % highlightIcons.length];
 

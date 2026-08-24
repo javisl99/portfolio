@@ -31,7 +31,6 @@ interface HomeAboutPreviewProps {
   items: CopyCard[];
   locale: Locale;
 }
-
 export function HomeAboutPreview({ items, locale }: HomeAboutPreviewProps) {
   return (
     <div className="relative mx-auto -mt-2 grid max-w-[55rem] gap-4 md:grid-cols-2 md:gap-5">
@@ -63,4 +62,3 @@ export function HomeAboutPreview({ items, locale }: HomeAboutPreviewProps) {
     </div>
   );
 }
-

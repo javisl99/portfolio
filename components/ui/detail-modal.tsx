@@ -19,7 +19,6 @@ interface DetailModalProps {
   children: ReactNode;
   widthClassName?: string;
 }
-
 export function DetailModal({
   open,
   visible,
@@ -151,4 +150,3 @@ export function DetailModal({
     </div>
   );
 }
-

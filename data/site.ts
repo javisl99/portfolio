@@ -164,9 +164,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       { href: pageSlugs.contact, label: "Contacto" },
     ],
     metadata: {
-      defaultTitle: "Javier Sánchez Lancha | Backend Software Engineer | Java y SAP Commerce",
+      defaultTitle: "Javier Sánchez Lancha | Software Engineer",
       defaultDescription:
-        "Javier Sánchez Lancha es Backend Software Engineer especializado en Java, Spring y SAP Commerce Cloud. Experiencia en APIs REST, SQL, integraciones, soporte productivo y sistemas en producción.",
+        "Javier Sánchez Lancha es Software Engineer especializado en Java, Spring y SAP Commerce Cloud. Desarrollo APIs, integraciones y backend para sistemas en producción.",
       keywords: [
         "Backend Software Engineer",
         "Java Backend Developer",
@@ -721,9 +721,9 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
       { href: pageSlugs.contact, label: "Contact" },
     ],
     metadata: {
-      defaultTitle: "Javier Sánchez Lancha | Backend Software Engineer | Java & SAP Commerce",
+      defaultTitle: "Javier Sánchez Lancha | Software Engineer",
       defaultDescription:
-        "Javier Sánchez Lancha is a Backend Software Engineer specialized in Java, Spring and SAP Commerce Cloud. Experience with REST APIs, SQL, integrations, production support and live systems.",
+        "Javier Sánchez Lancha is a Software Engineer focused on Java, Spring, and SAP Commerce Cloud. I build APIs, integrations, and backend solutions for production systems.",
       keywords: [
         "Backend Software Engineer",
         "Java Backend Developer",

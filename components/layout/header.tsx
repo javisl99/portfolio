@@ -15,7 +15,6 @@ import type { Locale } from "@/lib/i18n";
 interface HeaderProps {
   locale: Locale;
 }
-
 export function Header({ locale }: HeaderProps) {
   const copy = siteCopy[locale];
 
@@ -55,4 +54,3 @@ export function Header({ locale }: HeaderProps) {
     </header>
   );
 }
-

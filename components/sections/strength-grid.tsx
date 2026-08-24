@@ -5,6 +5,13 @@ import type { Locale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 const icons = [ShieldCheck, Wrench, MessagesSquare, Blocks, BriefcaseBusiness];
+const accentStyles = [
+  "border-sky-400/25 bg-sky-500/10 text-sky-300",
+  "border-emerald-400/25 bg-emerald-500/10 text-emerald-300",
+  "border-purple-400/25 bg-purple-500/10 text-purple-300",
+  "border-amber-400/25 bg-amber-500/10 text-amber-300",
+  "border-blue-400/25 bg-blue-500/10 text-blue-300",
+] as const;
 
 export function StrengthGrid({ items, locale }: { items: CopyCard[]; locale: Locale }) {
   return (
@@ -23,7 +30,7 @@ export function StrengthGrid({ items, locale }: { items: CopyCard[]; locale: Loc
             )}
             key={item.title.en}
           >
-            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/8 bg-[linear-gradient(180deg,rgba(96,165,250,0.18),rgba(129,140,248,0.12))] text-[#d5e2ff]">
+            <div className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border ${accentStyles[index % accentStyles.length]}`}>
               <Icon className="h-5 w-5" />
             </div>
             <h3 className="mb-3 text-xl font-black tracking-tight text-ink">{item.title[locale]}</h3>

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ProjectDetailCta } from "@/components/sections/project-detail-cta";
-import { ArchitectureFlowDiagram } from "@/components/ui/architecture-flow-diagram";
 import { Container } from "@/components/ui/container";
 import { PageHero } from "@/components/ui/page-hero";
 import { buildUrl, createMetadata } from "@/lib/metadata";
@@ -218,11 +217,6 @@ export default async function ProjectDetailPage({
 
             <div className="space-y-6 text-slate-200">
               {project.content}
-            </div>
-
-            {/* Architecture Flow Diagram */}
-            <div className="mt-10">
-              <ArchitectureFlowDiagram locale={locale} />
             </div>
 
             <ProjectDetailCta className="mt-10" locale={locale} />

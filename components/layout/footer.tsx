@@ -25,7 +25,7 @@ export function Footer({ locale }: FooterProps) {
           <div className="flex items-center gap-6">
             <a
               aria-label="LinkedIn"
-              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white/[0.03] transition hover:border-accent-soft/30 hover:bg-accent/10 hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white/[0.03] transition hover:border-accent-soft/30 hover:bg-accent/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent"
               href={siteSettings.linkedin}
               rel="noreferrer"
               target="_blank"
@@ -34,7 +34,7 @@ export function Footer({ locale }: FooterProps) {
             </a>
             <a
               aria-label="GitHub"
-              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white/[0.03] transition hover:border-accent-soft/30 hover:bg-accent/10 hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white/[0.03] transition hover:border-accent-soft/30 hover:bg-accent/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent"
               href={siteSettings.github}
               rel="noreferrer"
               target="_blank"
