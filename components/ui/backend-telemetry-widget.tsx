@@ -37,7 +37,7 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
   return (
     <aside
       aria-label="Backend Profile & Activity Inspector"
-      className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-gradient-to-b from-[#14192b]/95 via-[#0f1322]/98 to-[#090c16] shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_30px_70px_-30px_rgba(0,0,0,0.95)]"
+      className="relative min-w-0 overflow-hidden rounded-[1.6rem] border border-white/10 bg-gradient-to-b from-[#14192b]/95 via-[#0f1322]/98 to-[#090c16] shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_30px_70px_-30px_rgba(0,0,0,0.95)]"
     >
       {/* Top Window Bar */}
       <div className="flex items-center justify-between border-b border-white/8 bg-white/[0.03] px-4 py-3 sm:px-5">
@@ -62,8 +62,8 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
       </div>
 
       {/* Tabs Navigation */}
-      <div aria-label={locale === "es" ? "Vistas del perfil" : "Profile views"} className="flex items-center border-b border-white/8 bg-white/[0.015] px-3 pt-2 sm:px-4" role="tablist">
-        <div className="flex gap-1">
+      <div aria-label={locale === "es" ? "Vistas del perfil" : "Profile views"} className="overflow-x-auto border-b border-white/8 bg-white/[0.015] px-3 pt-2 sm:px-4" role="tablist">
+        <div className="flex min-w-max gap-1">
           <button
             aria-controls="profile-panel"
             aria-selected={activeTab === "architecture"}
@@ -121,7 +121,7 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
       </div>
 
       {/* Tab Content Panels */}
-      <div className="h-[20.5rem] overflow-y-auto p-4 sm:p-5">
+      <div className="h-[20.5rem] min-w-0 overflow-x-hidden overflow-y-auto p-4 sm:p-5">
         {activeTab === "architecture" && (
           <div aria-labelledby="profile-tab" className="space-y-3 font-mono text-[0.76rem] leading-relaxed" id="profile-panel" role="tabpanel" tabIndex={0}>
             <div className="rounded-xl border border-white/6 bg-black/40 p-3.5 text-slate-300">
@@ -245,9 +245,9 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
 
         {activeTab === "logs" && (
           <div aria-labelledby="logs-tab" className="space-y-3 font-mono" id="logs-panel" role="tabpanel" tabIndex={0}>
-            <div className="h-44 overflow-y-auto rounded-xl border border-white/6 bg-black/60 p-3 text-[0.72rem] leading-relaxed text-slate-300">
+            <div className="h-44 overflow-x-hidden overflow-y-auto rounded-xl border border-white/6 bg-black/60 p-3 text-[0.72rem] leading-relaxed text-slate-300">
               {logs.map((item, idx) => (
-                <div className="flex items-start gap-2 py-0.5" key={idx}>
+                <div className="grid min-w-0 grid-cols-[auto_auto_minmax(0,1fr)] items-start gap-2 py-0.5" key={idx}>
                   <span className="shrink-0 text-slate-500">{item.time}</span>
                   <span
                     className={cn(
@@ -259,17 +259,17 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
                   >
                     {item.level}
                   </span>
-                  <span className="truncate text-slate-200">{item.message}</span>
+                  <span className="min-w-0 break-words whitespace-normal text-slate-200">{item.message}</span>
                 </div>
               ))}
             </div>
 
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
               <span className="text-[0.68rem] text-slate-400">
                 {locale === "es" ? "Event stream en tiempo real" : "Real-time event stream active"}
               </span>
               <button
-                className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-indigo-400/30 bg-indigo-500/15 px-2.5 py-1 text-[0.7rem] font-bold text-indigo-300 transition hover:bg-indigo-500/25 hover:text-white"
+                className="flex cursor-pointer items-center justify-center gap-1.5 rounded-lg border border-indigo-400/30 bg-indigo-500/15 px-2.5 py-1 text-[0.7rem] font-bold text-indigo-300 transition hover:bg-indigo-500/25 hover:text-white sm:shrink-0"
                 onClick={triggerTestRequest}
                 type="button"
               >

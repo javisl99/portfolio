@@ -76,7 +76,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
           </div>
 
           {/* Right Column: Live Backend Telemetry & Architecture Window */}
-          <div className="lg:col-span-6 xl:col-span-6">
+          <div className="min-w-0 lg:col-span-6 xl:col-span-6">
             <BackendTelemetryWidget locale={locale} />
           </div>
         </div>
