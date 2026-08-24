@@ -4,7 +4,6 @@ interface RecruiterScanCardProps {
   description: string;
   bullets: string[];
 }
-
 export function RecruiterScanCard({ eyebrow, title, description, bullets }: RecruiterScanCardProps) {
   return (
     <div className="space-y-4">
@@ -24,4 +23,3 @@ export function RecruiterScanCard({ eyebrow, title, description, bullets }: Recr
     </div>
   );
 }
-

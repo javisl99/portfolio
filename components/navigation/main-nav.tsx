@@ -10,7 +10,6 @@ interface MainNavProps {
   locale: Locale;
   items: Array<{ href: string; label: string }>;
 }
-
 export function MainNav({ locale, items }: MainNavProps) {
   const pathname = usePathname();
 
@@ -38,4 +37,3 @@ export function MainNav({ locale, items }: MainNavProps) {
     </nav>
   );
 }
-

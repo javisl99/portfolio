@@ -14,7 +14,6 @@ interface PageHeroProps {
   introClassName?: string;
   panelLayout?: "side" | "below";
 }
-
 export function PageHero({ eyebrow, title, intro, children, className, panelClassName, titleClassName, introClassName, panelLayout = "side" }: PageHeroProps) {
   const hasBelowPanel = children && panelLayout === "below";
 
@@ -50,4 +49,3 @@ export function PageHero({ eyebrow, title, intro, children, className, panelClas
     </section>
   );
 }
-
