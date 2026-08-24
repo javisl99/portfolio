@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Cpu, Database, Globe, Layers, Radio, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, Bug, FileSearch, ShieldCheck, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/lib/i18n";
 
@@ -14,70 +14,75 @@ interface ArchNode {
   id: string;
   name: { es: string; en: string };
   category: { es: string; en: string };
-  icon: typeof Globe;
+  icon: typeof FileSearch;
   tech: string[];
   patterns: string[];
   description: { es: string; en: string };
   metrics: { es: string; en: string };
+  accent: string;
 }
 
 const archNodes: ArchNode[] = [
   {
-    id: "gateway",
-    name: { es: "OCC API Gateway & Ingress", en: "OCC API Gateway & Ingress" },
-    category: { es: "Capa de Entrada", en: "Ingress Layer" },
-    icon: Globe,
-    tech: ["Spring Security", "OAuth2 / JWT", "Rate Limiting", "OCC REST"],
-    patterns: ["API Gateway Pattern", "Token Validation", "Reverse Proxy"],
+    id: "context",
+    name: { es: "Entender el flujo y el impacto", en: "Understand the flow and impact" },
+    category: { es: "Contexto", en: "Context" },
+    icon: FileSearch,
+    tech: ["Logs y trazas", "Reglas de negocio", "Datos afectados", "Criterios funcionales"],
+    patterns: ["Context mapping", "Impact analysis", "Functional alignment"],
     description: {
-      es: "Enruta el tráfico entrante de clientes web/móviles, valida tokens de autorización y aplica políticas de rate limiting.",
-      en: "Routes inbound traffic from web/mobile clients, verifies auth tokens, and enforces rate limiting policies.",
+      es: "Antes de tocar código, acoto el flujo, los datos afectados y el riesgo funcional para entender qué necesita realmente el sistema.",
+      en: "Before touching code, I map the flow, affected data, and functional risk to understand what the system actually needs.",
     },
-    metrics: { es: "Latencia ~12ms · 99.99% Uptime", en: "~12ms Latency · 99.99% Uptime" },
+    metrics: { es: "Contexto acotado · Riesgo visible", en: "Bounded context · Visible risk" },
+    accent: "border-sky-400/35 bg-sky-500/15 text-sky-300",
   },
   {
-    id: "core-domain",
-    name: { es: "Lógica de Dominio & Interceptors", en: "Domain Core & Interceptors" },
-    category: { es: "Lógica de Negocio", en: "Business Logic" },
-    icon: Layers,
-    tech: ["Java 17+", "Spring Boot", "SAP Commerce Extensions", "Custom Validators"],
-    patterns: ["Domain-Driven Design (DDD)", "Interceptor Pattern", "Hexagonal Architecture"],
+    id: "investigate",
+    name: { es: "Analizar síntomas e hipótesis", en: "Analyze symptoms and hypotheses" },
+    category: { es: "Investigación técnica", en: "Technical investigation" },
+    icon: Bug,
+    tech: ["Logs", "SQL / FlexibleSearch", "Debugger", "Comparativa estándar"],
+    patterns: ["Root cause analysis", "Evidence-first debugging", "Hypothesis contrast"],
     description: {
-      es: "Ejecuta las reglas de negocio críticas: cálculo de precios, motor de checkout, validaciones de stock y enriquecimiento de pedidos.",
-      en: "Executes mission-critical business rules: pricing engines, checkout flows, inventory validation, and order enrichment.",
+      es: "Comparo síntomas, evidencias y comportamiento esperado antes de elegir una causa raíz o proponer un cambio.",
+      en: "I compare symptoms, evidence, and expected behavior before choosing a root cause or proposing a change.",
     },
-    metrics: { es: "Zero-Downtime · SLA óptimo", en: "Zero-Downtime · Optimal SLA" },
+    metrics: { es: "Hipótesis contrastadas", en: "Hypotheses contrasted" },
+    accent: "border-purple-400/35 bg-purple-500/15 text-purple-300",
   },
   {
-    id: "persistence",
-    name: { es: "Capa de Datos & FlexibleSearch", en: "Data Layer & FlexibleSearch" },
-    category: { es: "Persistencia", en: "Persistence" },
-    icon: Database,
-    tech: ["Oracle DB", "FlexibleSearch", "Redis L2 Cache", "Solr Indexer"],
-    patterns: ["CQRS", "L2 Distributed Caching", "Optimistic Locking"],
+    id: "decide",
+    name: { es: "Elegir la solución más segura", en: "Choose the safest solution" },
+    category: { es: "Decisión e implementación", en: "Decision and implementation" },
+    icon: Wrench,
+    tech: ["Java", "Spring", "SAP Commerce", "APIs REST"],
+    patterns: ["Standard before customization", "Small safe changes", "Separation of concerns"],
     description: {
-      es: "Gestión de persistencia relacional optimizada con consultas SQL indexadas, caché de segundo nivel y sincronización de catálogos.",
-      en: "Optimized relational persistence with indexed SQL queries, second-level caching, and catalog synchronization.",
+      es: "Implemento el cambio con el menor acoplamiento posible, respetando el estándar y dejando una solución que el equipo pueda mantener.",
+      en: "I implement the change with as little coupling as possible, respecting the standard and leaving a maintainable solution.",
     },
-    metrics: { es: "99.4% Cache Hit · Consultas sub-5ms", en: "99.4% Cache Hit · Sub-5ms Queries" },
+    metrics: { es: "Cambio acotado · Decisión trazable", en: "Bounded change · Traceable decision" },
+    accent: "border-amber-400/35 bg-amber-500/15 text-amber-300",
   },
   {
-    id: "async-jobs",
-    name: { es: "Event Streams & Batch Jobs", en: "Event Streams & Batch Jobs" },
-    category: { es: "Integraciones Asíncronas", en: "Async Integrations" },
-    icon: Zap,
-    tech: ["CronJobs", "Spring Events", "Kafka / Webhooks", "ERP Connectors"],
-    patterns: ["Event-Driven Architecture", "Publish-Subscribe", "Idempotent Consumers"],
+    id: "validate",
+    name: { es: "Validar y entregar con confianza", en: "Validate and deliver with confidence" },
+    category: { es: "Validación y entrega", en: "Validation and delivery" },
+    icon: ShieldCheck,
+    tech: ["Pruebas locales", "QA", "Documentación", "Seguimiento"],
+    patterns: ["Regression checks", "QA handoff", "Production readiness"],
     description: {
-      es: "Procesa sincronizaciones masivas de productos, exportación de pedidos hacia ERPs y procesamiento asíncrono desacoplado.",
-      en: "Handles bulk product syncs, outbound ERP order exports, and decoupled event processing.",
+      es: "Reviso pruebas locales, edge cases e impacto antes de pasar el cambio a QA o coordinar su entrega.",
+      en: "I review local tests, edge cases, and impact before handing the change to QA or coordinating delivery.",
     },
-    metrics: { es: "Procesamiento en segundo plano tolerante a fallos", en: "Fault-tolerant background processing" },
+    metrics: { es: "Cambio validado · Entrega trazable", en: "Validated change · Traceable delivery" },
+    accent: "border-emerald-400/35 bg-emerald-500/15 text-emerald-300",
   },
 ];
 
 export function ArchitectureFlowDiagram({ locale, className }: ArchitectureFlowDiagramProps) {
-  const [selectedNodeId, setSelectedNodeId] = useState<string>("core-domain");
+  const [selectedNodeId, setSelectedNodeId] = useState<string>("investigate");
   const selectedNode = archNodes.find((n) => n.id === selectedNodeId) ?? archNodes[0];
 
   return (
@@ -91,10 +96,10 @@ export function ArchitectureFlowDiagram({ locale, className }: ArchitectureFlowD
       <div className="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-center border-b border-white/8 pb-4">
         <div>
           <p className="font-mono text-[0.68rem] font-bold uppercase tracking-widest text-indigo-400">
-            {locale === "es" ? "Diagrama Interactivo de Arquitectura" : "Interactive Architecture Blueprint"}
+            {locale === "es" ? "Flujo interactivo de trabajo backend" : "Interactive backend workflow"}
           </p>
           <h3 className="text-xl font-black tracking-tight text-white sm:text-2xl">
-            {locale === "es" ? "Pipeline Backend Distribuido" : "Distributed Backend Pipeline"}
+            {locale === "es" ? "Del contexto a una entrega segura" : "From context to a safe delivery"}
           </h3>
         </div>
         <div className="flex items-center gap-2">
@@ -103,7 +108,7 @@ export function ArchitectureFlowDiagram({ locale, className }: ArchitectureFlowD
             <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-500" />
           </span>
           <span className="font-mono text-xs text-slate-400">
-            {locale === "es" ? "Pulsa en un nodo para inspeccionar" : "Click node to inspect"}
+            {locale === "es" ? "Pulsa en una etapa para inspeccionarla" : "Click a stage to inspect it"}
           </span>
         </div>
       </div>
@@ -132,8 +137,8 @@ export function ArchitectureFlowDiagram({ locale, className }: ArchitectureFlowD
                     className={cn(
                       "flex h-9 w-9 items-center justify-center rounded-lg border",
                       isSelected
-                        ? "border-indigo-400/40 bg-indigo-500/30 text-white"
-                        : "border-white/10 bg-white/[0.04] text-slate-300 group-hover:text-white",
+                        ? node.accent
+                        : "border-white/10 bg-white/[0.04] text-slate-300 group-hover:border-white/20 group-hover:text-white",
                     )}
                   >
                     <Icon className="h-4.5 w-4.5" />
@@ -161,7 +166,7 @@ export function ArchitectureFlowDiagram({ locale, className }: ArchitectureFlowD
       <div className="mt-6 rounded-xl border border-white/8 bg-black/40 p-5 sm:p-6 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/8 pb-3">
           <div>
-            <span className="font-mono text-xs text-indigo-400">Node Inspector // {selectedNode.category[locale]}</span>
+          <span className="font-mono text-xs text-indigo-400">Workflow Inspector // {selectedNode.category[locale]}</span>
             <h4 className="text-lg font-bold text-white">{selectedNode.name[locale]}</h4>
           </div>
           <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-semibold text-emerald-300">
