@@ -68,7 +68,7 @@ export default async function LocaleLayout({
       <body>
         <Header locale={locale} />
         <div className="content-shell pt-[4.25rem] sm:pt-20">
-          <main>{children}</main>
+          <main className="pb-24 md:pb-0">{children}</main>
           <Footer locale={locale} />
         </div>
         <Analytics />

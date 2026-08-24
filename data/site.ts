@@ -1,4 +1,4 @@
-import type { AiImpactMetric, CopyCard, HighlightPill, QuickFact, SkillCategory } from "@/data/types";
+import type { AiImpactMetric, CopyCard, HighlightPill, SkillCategory } from "@/data/types";
 import { getCvFilePath } from "@/lib/cv";
 import type { Locale } from "@/lib/i18n";
 
@@ -55,7 +55,6 @@ type SiteLocaleCopy = {
       title: string;
       summary: string;
       proof: string;
-      quickFacts: QuickFact[];
       highlights: HighlightPill[];
       supportLinks: Array<{ href: string; label: string; external?: boolean }>;
     };
@@ -257,30 +256,6 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           "Javier Sánchez Lancha es Backend Software Engineer centrado en Java y Spring sobre plataformas en producción, con SAP Commerce Cloud como especialización fuerte.",
         proof:
           "Trabajo con APIs REST, SQL, integraciones e incidencias, coordinando cambios con QA, negocio y cliente.",
-        quickFacts: [
-          {
-            label: { es: "Foco", en: "Focus" },
-            value: { es: "Java backend, Spring, APIs REST y SQL", en: "Java backend, Spring, REST APIs, and SQL" },
-          },
-          {
-            label: { es: "Especialidad", en: "Specialty" },
-            value: {
-              es: "SAP Commerce Cloud sobre e-commerce B2B/B2C y plataformas de negocio",
-              en: "SAP Commerce Cloud across B2B/B2C commerce and business platforms",
-            },
-          },
-          {
-            label: { es: "Producción", en: "Production" },
-            value: {
-              es: "Integraciones, incidencias, soporte productivo y evolución funcional",
-              en: "Integrations, incidents, production support, and product evolution",
-            },
-          },
-          {
-            label: { es: "Ubicación", en: "Location" },
-            value: { es: siteSettings.location.es, en: siteSettings.location.en },
-          },
-        ],
         highlights: [
           {
             label: { es: "4+ años experiencia", en: "4+ years experience" },
@@ -345,7 +320,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Experiencia",
         title: "Trayectoria backend sobre sistemas reales",
         description:
-          "De una base en SAP y B2B a un perfil backend más sólido en Java, Spring, integraciones, incidencias y soporte productivo.",
+          "De una base en SAP y B2B a un perfil backend más sólido en Java, Spring y plataformas donde cada cambio tiene contexto funcional.",
       },
       value: {
         eyebrow: "Valor profesional",
@@ -386,7 +361,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Casos destacados",
         title: "Casos concretos de backend",
         description:
-          "Tres casos para ver trabajo real sobre producción, checkout, pricing, stock, integraciones y soporte técnico.",
+          "Tres casos para entender el problema, la decisión técnica y el impacto de cada intervención.",
       },
       ai: {
         eyebrow: "IA aplicada al trabajo técnico",
@@ -394,7 +369,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         description:
           "Desde mi etapa actual en Stratesys utilizo IA generativa para acelerar análisis técnico, debugging y preparación de cambios, manteniendo siempre la decisión técnica, las pruebas locales y la validación previa a QA bajo mi responsabilidad.",
         context:
-          "La utilizo como herramienta de apoyo en análisis técnico, debugging, documentación y preparación de cambios sobre SAP Commerce Cloud.",
+          "La utilizo como apoyo para llegar antes al contexto, contrastar hipótesis y preparar cambios sobre SAP Commerce Cloud.",
         metricsNote:
           "Estimaciones basadas en métricas propias de tareas comparables realizadas antes y después de incorporar IA generativa a mi flujo de trabajo. No representan benchmarks universales, sino impacto observado en mi contexto profesional.",
         note:
@@ -838,27 +813,6 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
           "Javier Sánchez Lancha is a Backend Software Engineer focused on Java and Spring across production platforms, with SAP Commerce Cloud as a strong specialization.",
         proof:
           "My work combines REST APIs, SQL, integrations, incidents, and close collaboration with QA, business teams, and clients.",
-        quickFacts: [
-          {
-            label: { es: "Foco", en: "Focus" },
-            value: { es: "Java backend, Spring, APIs REST y SQL", en: "Java backend, Spring, REST APIs, and SQL" },
-          },
-          {
-            label: { es: "Especialidad", en: "Specialty" },
-            value: {
-              es: "SAP Commerce Cloud y e-commerce B2B/B2C, sin quedar limitado a consultoría SAP",
-              en: "SAP Commerce Cloud across B2B/B2C commerce and business platforms",
-            },
-          },
-          {
-            label: { es: "Producción", en: "Production" },
-            value: { es: "Integraciones, incidencias y soporte productivo", en: "Integrations, incidents, and production support" },
-          },
-          {
-            label: { es: "Ubicación", en: "Location" },
-            value: { es: siteSettings.location.es, en: siteSettings.location.en },
-          },
-        ],
         highlights: [
           {
             label: { es: "4+ años experiencia", en: "4+ years experience" },
@@ -923,7 +877,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Experience",
         title: "Professional growth with a clear backend and production direction",
         description:
-          "From SAP and B2B foundations to a stronger Java and Spring backend profile shaped by integrations, incidents, and production ownership.",
+          "From SAP and B2B foundations to a stronger Java and Spring backend profile shaped by context, integrations, and product decisions.",
       },
       value: {
         eyebrow: "Professional value",
@@ -964,7 +918,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "Featured work",
         title: "Work presented through problem, solution, and impact",
         description:
-          "Three concrete cases covering production, checkout, pricing, stock, integrations, and support work.",
+          "Three concrete cases showing the problem, the technical decision, and the impact of each intervention.",
       },
       ai: {
         eyebrow: "AI applied to technical work",
@@ -972,7 +926,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         description:
           "Since my current stage at Stratesys, I use generative AI to accelerate technical analysis, debugging, and change preparation while keeping technical decisions, local testing, and pre-QA validation under my own responsibility.",
         context:
-          "I use it as a support tool for technical analysis, debugging, documentation, and change preparation on SAP Commerce Cloud.",
+          "I use it to reach useful context sooner, contrast hypotheses, and prepare changes on SAP Commerce Cloud.",
         metricsNote:
           "Estimates based on my own metrics from comparable tasks completed before and after introducing generative AI into my workflow. They are not universal benchmarks, but observed impact in my professional context.",
         note:
