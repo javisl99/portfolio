@@ -13,7 +13,7 @@ const accentStyles = [
 
 export function ProfessionalValueGrid({ items, locale }: { items: CopyCard[]; locale: Locale }) {
   return (
-    <div className="grid gap-5 md:grid-cols-2">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),1fr))] gap-5">
       {items.map((item, index) => {
         const Icon = icons[index % icons.length];
 
