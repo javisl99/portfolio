@@ -1,9 +1,8 @@
 "use client";
 
-import { Github, Linkedin } from "lucide-react";
-
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { Container } from "@/components/ui/container";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/social-icons";
 import { siteSettings } from "@/data/site";
 import type { Locale } from "@/lib/i18n";
 
@@ -31,7 +30,7 @@ export function Footer({ locale }: FooterProps) {
               rel="noreferrer"
               target="_blank"
             >
-              <Linkedin className="h-5 w-5" />
+              <LinkedinIcon className="h-5 w-5" />
             </a>
             <a
               aria-label="GitHub"
@@ -40,7 +39,7 @@ export function Footer({ locale }: FooterProps) {
               rel="noreferrer"
               target="_blank"
             >
-              <Github className="h-5 w-5" />
+              <GithubIcon className="h-5 w-5" />
             </a>
           </div>
         </div>

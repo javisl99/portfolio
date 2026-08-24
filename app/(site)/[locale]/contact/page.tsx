@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Blocks, ExternalLink, FileDown, FolderOpen, Github, Linkedin, Mail, ServerCog, ShieldCheck } from "lucide-react";
+import { Blocks, ExternalLink, FileDown, FolderOpen, Mail, ServerCog, ShieldCheck } from "lucide-react";
 
+import { GithubIcon, LinkedinIcon } from "@/components/ui/social-icons";
 import { ButtonLink } from "@/components/ui/button-link";
 import { CopyEmailButton } from "@/components/ui/copy-email-button";
 import { Container } from "@/components/ui/container";
@@ -13,7 +14,7 @@ import { getCvDownloadName, getCvFilePath } from "@/lib/cv";
 import { createMetadata } from "@/lib/metadata";
 import { isLocale, localizePath, type Locale } from "@/lib/i18n";
 
-const channelIcons = [Mail, Linkedin, FileDown] as const;
+const channelIcons = [Mail, LinkedinIcon, FileDown] as const;
 const fitIcons = [ServerCog, ShieldCheck, Blocks] as const;
 
 export async function generateMetadata({
@@ -65,7 +66,7 @@ export default async function ContactPage({
     {
       href: siteSettings.github,
       label: "GitHub",
-      icon: Github,
+      icon: GithubIcon,
       external: true,
     },
   ];
