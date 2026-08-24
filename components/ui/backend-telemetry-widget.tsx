@@ -62,14 +62,14 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
       </div>
 
       {/* Tabs Navigation */}
-      <div aria-label={locale === "es" ? "Vistas del perfil" : "Profile views"} className="overflow-x-auto border-b border-white/8 bg-white/[0.015] px-3 pt-2 sm:px-4" role="tablist">
-        <div className="flex min-w-max gap-1">
+      <div aria-label={locale === "es" ? "Vistas del perfil" : "Profile views"} className="overflow-hidden border-b border-white/8 bg-white/[0.015] px-2 pt-2 sm:px-4" role="tablist">
+        <div className="flex w-full gap-1">
           <button
             aria-controls="profile-panel"
             aria-selected={activeTab === "architecture"}
             id="profile-tab"
             className={cn(
-              "flex items-center gap-2 rounded-t-lg px-3 py-2 font-mono text-xs font-semibold transition",
+              "flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-t-lg px-2 py-2 font-mono text-[0.68rem] font-semibold transition sm:gap-2 sm:px-3 sm:text-xs",
               activeTab === "architecture"
                 ? "border-b-2 border-indigo-400 bg-white/[0.06] text-white"
                 : "text-slate-400 hover:bg-white/[0.03] hover:text-slate-200",
@@ -79,7 +79,7 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
             type="button"
           >
             <Code2 className="h-3.5 w-3.5 text-indigo-400" />
-                <span>Profile.json</span>
+                <span className="whitespace-nowrap">Profile.json</span>
           </button>
 
           <button
@@ -87,7 +87,7 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
             aria-selected={activeTab === "telemetry"}
             id="telemetry-tab"
             className={cn(
-              "flex items-center gap-2 rounded-t-lg px-3 py-2 font-mono text-xs font-semibold transition",
+              "flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-t-lg px-2 py-2 font-mono text-[0.68rem] font-semibold transition sm:gap-2 sm:px-3 sm:text-xs",
               activeTab === "telemetry"
                 ? "border-b-2 border-indigo-400 bg-white/[0.06] text-white"
                 : "text-slate-400 hover:bg-white/[0.03] hover:text-slate-200",
@@ -97,7 +97,7 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
             type="button"
           >
             <Activity className="h-3.5 w-3.5 text-indigo-400" />
-            <span>Telemetry</span>
+            <span className="whitespace-nowrap">Telemetry</span>
           </button>
 
           <button
@@ -105,7 +105,7 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
             aria-selected={activeTab === "logs"}
             id="logs-tab"
             className={cn(
-              "flex items-center gap-2 rounded-t-lg px-3 py-2 font-mono text-xs font-semibold transition",
+              "flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-t-lg px-2 py-2 font-mono text-[0.68rem] font-semibold transition sm:gap-2 sm:px-3 sm:text-xs",
               activeTab === "logs"
                 ? "border-b-2 border-indigo-400 bg-white/[0.06] text-white"
                 : "text-slate-400 hover:bg-white/[0.03] hover:text-slate-200",
@@ -115,13 +115,13 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
             type="button"
           >
             <Terminal className="h-3.5 w-3.5 text-indigo-400" />
-            <span>Live Logs</span>
+            <span className="whitespace-nowrap">Live Logs</span>
           </button>
         </div>
       </div>
 
       {/* Tab Content Panels */}
-      <div className="h-[20.5rem] min-w-0 overflow-x-hidden overflow-y-auto p-4 sm:p-5">
+      <div className="h-[18rem] min-w-0 overflow-x-hidden overflow-y-auto p-4 sm:h-[20.5rem] sm:p-5">
         {activeTab === "architecture" && (
           <div aria-labelledby="profile-tab" className="space-y-3 font-mono text-[0.76rem] leading-relaxed" id="profile-panel" role="tabpanel" tabIndex={0}>
             <div className="rounded-xl border border-white/6 bg-black/40 p-3.5 text-slate-300">
