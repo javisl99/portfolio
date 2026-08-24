@@ -13,11 +13,6 @@ export interface ExperienceInsight {
   body: LocalizedString;
 }
 
-export interface QuickFact {
-  label: LocalizedString;
-  value: LocalizedString;
-}
-
 export interface HighlightPill {
   label: LocalizedString;
   shortLabel?: LocalizedString;
@@ -72,6 +67,7 @@ export interface ProjectFrontmatter {
   stack: string[];
   stakes: string;
   contribution: string;
+  outcome: string;
   signal: string;
   year: string;
   featured: boolean;

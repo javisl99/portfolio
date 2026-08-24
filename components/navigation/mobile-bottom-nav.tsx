@@ -28,7 +28,7 @@ export function MobileBottomNav({ locale }: MobileBottomNavProps) {
   ] as const;
 
   return (
-    <nav className="fixed bottom-4 left-4 right-4 z-50 flex rounded-[1.75rem] border border-line bg-[rgba(3,7,18,0.9)] px-3 py-2 shadow-[0_24px_60px_-32px_rgba(2,6,23,0.95)] backdrop-blur-xl md:hidden">
+    <nav className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-4 right-4 z-50 flex rounded-[1.75rem] border border-line bg-[rgba(3,7,18,0.9)] px-3 py-2 shadow-[0_24px_60px_-32px_rgba(2,6,23,0.95)] backdrop-blur-xl md:hidden">
       {items.map((item) => {
         const href = localizePath(locale, item.href);
         const Icon = iconMap[item.key];
@@ -42,6 +42,7 @@ export function MobileBottomNav({ locale }: MobileBottomNavProps) {
             )}
             href={href}
             key={item.key}
+            aria-current={isActive ? "page" : undefined}
           >
             <Icon className="h-4 w-4" />
             <span className="text-[10px] font-medium uppercase tracking-wider">{item.label}</span>

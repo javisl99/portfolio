@@ -1,6 +1,6 @@
-import { Braces, BriefcaseBusiness, Coffee, Download, Layers3, Mail, MapPin, Verified } from "lucide-react";
+import { Coffee, Download, Layers3, Mail, Sparkles, Terminal, Verified } from "lucide-react";
 
-import { LinkedinIcon } from "@/components/ui/social-icons";
+import { BackendTelemetryWidget } from "@/components/ui/backend-telemetry-widget";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { siteCopy, siteSettings } from "@/data/site";
@@ -10,130 +10,92 @@ import { localizePath, type Locale } from "@/lib/i18n";
 export function HomeHero({ locale }: { locale: Locale }) {
   const copy = siteCopy[locale];
   const hero = copy.home.hero;
-  const snapshotIcons = [Braces, Verified, BriefcaseBusiness, MapPin];
   const cvHref = getCvFilePath(locale);
   const cvDownloadName = getCvDownloadName(locale);
-  const highlightIcons = [Verified, Coffee, BriefcaseBusiness, Layers3, Verified];
-  const heroTitleSecondary = locale === "es" ? "Java, Spring y SAP Commerce Cloud" : "Java, Spring, and SAP Commerce Cloud";
+  const highlightIcons = [Verified, Coffee, Layers3, Sparkles, Verified];
+  const heroTitleSecondary = locale === "es" ? "Java, Spring & SAP Commerce Cloud" : "Java, Spring & SAP Commerce Cloud";
 
   return (
-    <section className="relative overflow-hidden py-6 sm:py-9 lg:pb-16 lg:pt-22" id="top">
-      <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,rgba(96,165,250,0.28),transparent_38%),radial-gradient(circle_at_82%_18%,rgba(37,99,235,0.24),transparent_32%)]" />
+    <section className="relative overflow-hidden pb-12 pt-8 sm:pb-16 sm:pt-12 lg:pb-20 lg:pt-24" id="top">
+      {/* Ambient background glows */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[40rem] bg-[radial-gradient(circle_at_20%_0%,rgba(99,102,241,0.18),transparent_40%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.14),transparent_35%)]" />
+
       <Container>
-        <div className="grid items-start gap-7 lg:grid-cols-12 lg:gap-8">
-          <div className="relative space-y-4 sm:space-y-5 lg:col-span-7 lg:space-y-7">
-            <div className="space-y-3 sm:space-y-4">
-              <p className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.24em] text-[#bcd1ff]">{siteSettings.name}</p>
-              <h1 className="max-w-4xl font-display text-[2.2rem] font-black leading-[0.98] tracking-tight text-ink sm:text-5xl lg:text-7xl">
-                <span className="block">{locale === "es" ? "Backend Software Engineer" : "Backend Software Engineer"}</span>
-                <span className="mt-2 block text-[0.54em] font-semibold leading-[0.98] text-[#c7d8ff] sm:mt-3">
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+          {/* Left Column: Value Proposition */}
+          <div className="relative space-y-6 lg:col-span-6 xl:col-span-6">
+            {/* Engineering Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/25 bg-indigo-500/10 px-3.5 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+              <Terminal className="h-3.5 w-3.5 text-indigo-400" />
+              <span className="font-mono text-xs font-semibold text-indigo-300">
+                {siteSettings.name} · {locale === "es" ? "Backend Engineer" : "Backend Engineer"}
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <div className="space-y-4">
+              <h1 className="font-display text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-6xl xl:text-7xl">
+                <span className="block text-gradient-silver">
+                  {locale === "es" ? "Backend Software Engineer" : "Backend Software Engineer"}
+                </span>
+                <span className="mt-2 block text-2xl font-bold tracking-tight text-gradient-electric sm:text-3xl lg:text-4xl">
                   {heroTitleSecondary}
                 </span>
               </h1>
-              <p className="max-w-3xl text-[0.98rem] leading-7 text-muted sm:text-[1.1rem] sm:leading-8">{hero.summary}</p>
-              <p className="max-w-2xl text-sm leading-6 text-slate-300 sm:text-[0.98rem] sm:leading-7">{hero.proof}</p>
+
+              <p className="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+                {hero.summary}
+              </p>
+
+              <p className="max-w-xl text-sm leading-relaxed text-slate-400">
+                {hero.proof}
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:flex-wrap lg:grid lg:grid-flow-col lg:auto-cols-max lg:justify-start lg:gap-3">
-              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base lg:px-6" href={localizePath(locale, "/projects")} variant="primary">
+            {/* Primary actions */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <ButtonLink className="px-6 py-3.5 text-sm sm:text-base" href={localizePath(locale, "/projects")} variant="primary">
                 {copy.ctas.projects}
               </ButtonLink>
-              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base lg:px-6" href={localizePath(locale, "/contact")} variant="secondary">
-                <Mail className="h-4 w-4" />
+              <ButtonLink className="px-5 py-3.5 text-sm sm:text-base" href={localizePath(locale, "/contact")} variant="secondary">
+                <Mail className="h-4 w-4 text-indigo-400" />
                 {copy.ctas.contact}
               </ButtonLink>
               <ButtonLink
-                className="px-5 text-sm sm:px-7 sm:text-base lg:px-6"
+                className="px-4 py-3.5 text-sm sm:text-base"
                 download={cvDownloadName}
                 href={cvHref}
                 target="_blank"
                 variant="secondary"
               >
-                <Download className="h-4 w-4" />
+                <Download className="h-4 w-4 text-slate-400" />
                 {copy.ctas.resume}
               </ButtonLink>
-              <ButtonLink className="px-5 text-sm sm:px-7 sm:text-base lg:px-6" href={siteSettings.linkedin} target="_blank" variant="secondary">
-                <LinkedinIcon className="h-4 w-4" />
-                LinkedIn
-              </ButtonLink>
             </div>
+
           </div>
 
-          <div className="lg:col-span-5">
-            <aside className="group relative mx-auto w-full max-w-[80vw] overflow-hidden rounded-[1.6rem] border border-white/8 bg-[linear-gradient(160deg,rgba(11,18,32,0.92),rgba(6,10,22,0.97))] p-4 shadow-[0_42px_100px_-52px_rgba(2,6,23,0.92)] sm:max-w-none sm:rounded-[2rem] sm:p-5 lg:max-w-[25rem] lg:p-6">
-              <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 rounded-full bg-[#60a5fa]/12 blur-3xl transition-colors group-hover:bg-[#2563eb]/20" />
-              <div className="relative">
-                <h2 className="mb-2 flex items-center gap-2 text-base font-bold text-white sm:mb-2.5 sm:text-lg">
-                  <Layers3 className="h-4 w-4 text-[#bcd1ff] sm:h-5 sm:w-5" />
-                  {locale === "es" ? "Resumen para recruiters" : "Recruiter snapshot"}
-                </h2>
-                <p className="mb-4 hidden text-sm leading-6 text-slate-300 sm:block">
-                  {locale === "es"
-                    ? "Lectura rápida del perfil: foco backend, especialidad, tipo de entorno y ubicación."
-                    : "Quick profile read: backend focus, specialization, working environment, and location."}
-                </p>
-                <ul className="grid gap-1 sm:gap-2">
-                  {hero.quickFacts.map((fact, index) => {
-                    const Icon = snapshotIcons[index % snapshotIcons.length];
-
-                    return (
-                      <li className="flex items-start gap-3 rounded-[1.15rem] px-2 py-2 transition-colors duration-200 hover:bg-white/[0.025]" key={fact.label.en}>
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] text-[#bcd1ff] sm:h-9 sm:w-9">
-                          <Icon className="h-4 w-4" />
-                        </div>
-                        <div className="border-b border-white/7 pb-2 last:border-b-0 last:pb-0">
-                          <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-400">{fact.label[locale]}</p>
-                          <p className="mt-1 text-sm font-semibold leading-5 text-white">{fact.value[locale]}</p>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <div className="mt-5 hidden border-t border-white/8 pt-5 sm:mt-5 sm:block sm:pt-5">
-                  <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#9fbeff]">
-                    {locale === "es" ? "Lo que mejor representa mi valor" : "What best represents my value"}
-                  </p>
-                  <ul className="mt-3 grid gap-2.5 text-sm leading-6 text-slate-300">
-                    <li className="flex gap-3">
-                      <span className="mt-2 h-2 w-2 rounded-full bg-[#818cf8]" />
-                      <span>
-                        {locale === "es"
-                          ? "Trabajo sobre incidencias, integraciones y lógica de negocio que ya está en uso"
-                          : "Work across incidents, integrations, and business logic already in use"}
-                      </span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-2 h-2 w-2 rounded-full bg-[#60a5fa]" />
-                      <span>
-                        {locale === "es"
-                          ? "Colaboración con QA, negocio y cliente; IA solo como apoyo táctico de análisis"
-                          : "Collaboration with QA, business, and clients; AI only as tactical analysis support"}
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </aside>
+          {/* Right Column: Live Backend Telemetry & Architecture Window */}
+          <div className="lg:col-span-6 xl:col-span-6">
+            <BackendTelemetryWidget locale={locale} />
           </div>
         </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-9 sm:gap-3 xl:grid-cols-5">
+        {/* Highlights Bar */}
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 xl:grid-cols-5">
           {hero.highlights.map((highlight, index) => {
             const Icon = highlightIcons[index % highlightIcons.length];
 
             return (
               <div
-                className="group flex h-full min-w-0 items-center gap-2 rounded-[1.05rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.82),rgba(7,12,24,0.9))] px-3 py-2 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent-soft/30 sm:gap-2.5 sm:rounded-[1.25rem] sm:px-3.5 sm:py-2.5"
+                className="group flex h-full min-w-0 items-center gap-3 rounded-2xl border border-white/8 bg-gradient-to-b from-[#14192b]/70 to-[#0c0f1d]/90 p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-300 hover:-translate-y-1 hover:border-indigo-400/35 hover:shadow-[0_12px_30px_-15px_rgba(99,102,241,0.3)]"
                 key={highlight.label.en}
               >
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] text-[#bcd1ff] transition duration-300 group-hover:bg-white/[0.06] group-hover:text-white sm:h-8 sm:w-8 sm:rounded-[0.95rem]">
-                  <Icon className="h-3.5 w-3.5 sm:h-[0.95rem] sm:w-[0.95rem]" />
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/8 bg-white/[0.04] text-indigo-300 transition duration-300 group-hover:border-indigo-400/30 group-hover:bg-indigo-500/15 group-hover:text-white">
+                  <Icon className="h-4 w-4" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[0.9rem] font-semibold leading-5 text-slate-100 transition duration-300 group-hover:text-white sm:hidden">
-                    {highlight.shortLabel?.[locale] ?? highlight.label[locale]}
-                  </p>
-                  <p className="hidden text-[0.95rem] font-semibold leading-5 text-slate-100 transition duration-300 group-hover:text-white sm:block">
+                  <p className="text-xs font-bold leading-snug text-slate-200 transition duration-300 group-hover:text-white sm:text-sm">
                     {highlight.label[locale]}
                   </p>
                 </div>
