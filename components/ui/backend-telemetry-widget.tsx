@@ -121,14 +121,18 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
       </div>
 
       {/* Tab Content Panels */}
-      <div
-        className={cn(
-          "min-w-0 overflow-x-hidden p-4 sm:p-5",
-          activeTab === "architecture" ? "overflow-y-hidden" : "h-[18rem] overflow-y-auto sm:h-[20.5rem]",
-        )}
-      >
-        {activeTab === "architecture" && (
-          <div aria-labelledby="profile-tab" className="space-y-3 font-mono text-[0.76rem] leading-relaxed" id="profile-panel" role="tabpanel" tabIndex={0}>
+      <div className="grid min-w-0 overflow-x-hidden p-4 sm:p-5">
+          <div
+            aria-hidden={activeTab !== "architecture"}
+            aria-labelledby="profile-tab"
+            className={cn(
+              "col-start-1 row-start-1 min-w-0 space-y-3 font-mono text-[0.76rem] leading-relaxed",
+              activeTab === "architecture" ? "visible" : "invisible pointer-events-none",
+            )}
+            id="profile-panel"
+            role="tabpanel"
+            tabIndex={activeTab === "architecture" ? 0 : -1}
+          >
             <div className="rounded-xl border border-white/6 bg-black/40 p-3.5 text-slate-300">
               <p className="text-slate-500">{"// Backend profile + delivery evidence"}</p>
               <p>
@@ -184,10 +188,18 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
               </span>
             </div>
           </div>
-        )}
 
-        {activeTab === "telemetry" && (
-          <div aria-labelledby="telemetry-tab" className="space-y-3" id="telemetry-panel" role="tabpanel" tabIndex={0}>
+          <div
+            aria-hidden={activeTab !== "telemetry"}
+            aria-labelledby="telemetry-tab"
+            className={cn(
+              "col-start-1 row-start-1 flex min-w-0 flex-col justify-between gap-3",
+              activeTab === "telemetry" ? "visible" : "invisible pointer-events-none",
+            )}
+            id="telemetry-panel"
+            role="tabpanel"
+            tabIndex={activeTab === "telemetry" ? 0 : -1}
+          >
             <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               <div className="rounded-xl border border-white/6 bg-black/40 p-3">
                 <div className="flex items-center gap-1.5 text-slate-400">
@@ -246,10 +258,18 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
               </div>
             </div>
           </div>
-        )}
 
-        {activeTab === "logs" && (
-          <div aria-labelledby="logs-tab" className="space-y-3 font-mono" id="logs-panel" role="tabpanel" tabIndex={0}>
+          <div
+            aria-hidden={activeTab !== "logs"}
+            aria-labelledby="logs-tab"
+            className={cn(
+              "col-start-1 row-start-1 flex min-w-0 flex-col justify-between gap-3 font-mono",
+              activeTab === "logs" ? "visible" : "invisible pointer-events-none",
+            )}
+            id="logs-panel"
+            role="tabpanel"
+            tabIndex={activeTab === "logs" ? 0 : -1}
+          >
             <div className="h-44 overflow-x-hidden overflow-y-auto rounded-xl border border-white/6 bg-black/60 p-3 text-[0.72rem] leading-relaxed text-slate-300">
               {logs.map((item, idx) => (
                 <div className="grid min-w-0 grid-cols-[auto_auto_minmax(0,1fr)] items-start gap-2 py-0.5" key={idx}>
@@ -283,7 +303,6 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
               </button>
             </div>
           </div>
-        )}
       </div>
     </aside>
   );
