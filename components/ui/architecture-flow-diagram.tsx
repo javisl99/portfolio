@@ -82,7 +82,7 @@ const archNodes: ArchNode[] = [
 ];
 
 export function ArchitectureFlowDiagram({ locale, className }: ArchitectureFlowDiagramProps) {
-  const [selectedNodeId, setSelectedNodeId] = useState<string>("investigate");
+  const [selectedNodeId, setSelectedNodeId] = useState<string>("context");
   const selectedNode = archNodes.find((n) => n.id === selectedNodeId) ?? archNodes[0];
 
   return (
