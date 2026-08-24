@@ -121,7 +121,12 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
       </div>
 
       {/* Tab Content Panels */}
-      <div className="h-[18rem] min-w-0 overflow-x-hidden overflow-y-auto p-4 sm:h-[20.5rem] sm:p-5">
+      <div
+        className={cn(
+          "min-w-0 overflow-x-hidden p-4 sm:p-5",
+          activeTab === "architecture" ? "overflow-y-hidden" : "h-[18rem] overflow-y-auto sm:h-[20.5rem]",
+        )}
+      >
         {activeTab === "architecture" && (
           <div aria-labelledby="profile-tab" className="space-y-3 font-mono text-[0.76rem] leading-relaxed" id="profile-panel" role="tabpanel" tabIndex={0}>
             <div className="rounded-xl border border-white/6 bg-black/40 p-3.5 text-slate-300">
