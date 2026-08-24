@@ -173,21 +173,11 @@ button {
   background-size: 24px 24px;
 }
 
-@keyframes tool-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
 .tool-marquee-track {
-  animation: tool-marquee 34s linear infinite;
   contain: layout paint;
+  touch-action: pan-y;
+  user-select: none;
   will-change: transform;
-}
-
-@media (max-width: 640px) {
-  .tool-marquee-track {
-    animation-duration: 42s;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
