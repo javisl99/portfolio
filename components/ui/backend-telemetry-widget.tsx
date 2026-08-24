@@ -270,7 +270,7 @@ export function BackendTelemetryWidget({ locale }: BackendTelemetryWidgetProps) 
             role="tabpanel"
             tabIndex={activeTab === "logs" ? 0 : -1}
           >
-            <div className="h-44 overflow-x-hidden overflow-y-auto rounded-xl border border-white/6 bg-black/60 p-3 text-[0.72rem] leading-relaxed text-slate-300">
+            <div className="h-52 overflow-x-hidden overflow-y-auto rounded-xl border border-white/6 bg-black/60 p-3 text-[0.78rem] leading-relaxed text-slate-300 sm:h-44 sm:text-[0.72rem]">
               {logs.map((item, idx) => (
                 <div className="grid min-w-0 grid-cols-[auto_auto_minmax(0,1fr)] items-start gap-2 py-0.5" key={idx}>
                   <span className="shrink-0 text-slate-500">{item.time}</span>
