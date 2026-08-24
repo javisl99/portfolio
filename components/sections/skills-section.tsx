@@ -6,6 +6,13 @@ import type { Locale } from "@/lib/i18n";
 
 const icons = [Braces, Cpu, Cloud, Sparkles, Users];
 const aiIcons = [Search, Wrench, FileText, Bot];
+const accentStyles = [
+  "border-sky-400/25 bg-sky-500/10 text-sky-300",
+  "border-emerald-400/25 bg-emerald-500/10 text-emerald-300",
+  "border-purple-400/25 bg-purple-500/10 text-purple-300",
+  "border-amber-400/25 bg-amber-500/10 text-amber-300",
+  "border-blue-400/25 bg-blue-500/10 text-blue-300",
+] as const;
 
 interface SkillsSectionProps {
   locale: Locale;
@@ -69,7 +76,7 @@ export function SkillsSection({ locale, eyebrow, title, description, categories,
                     className="rounded-[1.6rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.94),rgba(7,12,24,0.98))] p-6 shadow-soft transition duration-200 hover:-translate-y-1 hover:border-accent-soft/35"
                     key={item.title.en}
                   >
-                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-[linear-gradient(180deg,rgba(96,165,250,0.18),rgba(37,99,235,0.14))] text-[#d5e2ff]">
+                    <div className={`mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border ${accentStyles[index % accentStyles.length]}`}>
                       <Icon className="h-5 w-5" />
                     </div>
                     <h4 className="mb-3 text-lg font-black tracking-tight text-ink">{item.title[locale]}</h4>
@@ -90,7 +97,7 @@ export function SkillsSection({ locale, eyebrow, title, description, categories,
                 className="rounded-[1.6rem] border border-line bg-[linear-gradient(180deg,rgba(11,18,32,0.94),rgba(7,12,24,0.98))] p-6 shadow-soft transition duration-200 hover:-translate-y-1 hover:border-accent-soft/35"
                 key={category.title.en}
               >
-                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-[linear-gradient(180deg,rgba(96,165,250,0.18),rgba(37,99,235,0.14))] text-[#d5e2ff]">
+                <div className={`mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border ${accentStyles[index % accentStyles.length]}`}>
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mb-4 text-lg font-black tracking-tight text-ink">{category.title[locale]}</h3>

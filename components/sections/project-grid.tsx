@@ -3,6 +3,7 @@ import { ArrowRight, Blocks, Building2, ShoppingCart } from "lucide-react";
 
 import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 import type { ProjectSummary } from "@/lib/projects";
 
 interface ProjectGridProps {
@@ -12,9 +13,9 @@ interface ProjectGridProps {
 }
 
 const visuals = [
-  { icon: ShoppingCart, gradient: "from-accent/24 via-accent/7 to-transparent" },
-  { icon: Blocks, gradient: "from-accent/20 via-accent/6 to-transparent" },
-  { icon: Building2, gradient: "from-accent/28 via-accent/8 to-transparent" },
+  { icon: ShoppingCart, gradient: "from-sky-500/24 via-sky-500/7 to-transparent", iconColor: "text-sky-300" },
+  { icon: Blocks, gradient: "from-purple-500/20 via-purple-500/6 to-transparent", iconColor: "text-purple-300" },
+  { icon: Building2, gradient: "from-emerald-500/28 via-emerald-500/8 to-transparent", iconColor: "text-emerald-300" },
 ];
 
 export function ProjectGrid({ locale, projects, variant = "full" }: ProjectGridProps) {
@@ -112,7 +113,7 @@ export function ProjectGrid({ locale, projects, variant = "full" }: ProjectGridP
               <div className="absolute inset-0 tech-grid-bg opacity-30" />
 
               <div className="absolute inset-0 flex items-center justify-center">
-                <VisualIcon className="h-20 w-20 text-indigo-400/20 transition duration-300 group-hover:scale-110 group-hover:text-indigo-400/30 motion-reduce:transform-none motion-reduce:transition-none" />
+                <VisualIcon className={cn("h-20 w-20 opacity-70 transition duration-300 group-hover:scale-110 group-hover:opacity-100 motion-reduce:transform-none motion-reduce:transition-none", visuals[index % visuals.length].iconColor)} />
               </div>
 
               <div className="relative z-10 flex flex-wrap gap-2">

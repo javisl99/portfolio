@@ -8,11 +8,20 @@ import { DetailModal } from "@/components/ui/detail-modal";
 import { experienceEntries } from "@/data/experience";
 import type { ExperienceEntry } from "@/data/types";
 import { localizePath, type Locale } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 interface ExperienceSnapshotGridProps {
   locale: Locale;
   variant?: "compact" | "full";
 }
+
+const experienceIcons = [Building2, Layers3, BriefcaseBusiness, CalendarDays] as const;
+const experienceAccentStyles = [
+  "border-sky-400/25 bg-sky-500/10 text-sky-300",
+  "border-emerald-400/25 bg-emerald-500/10 text-emerald-300",
+  "border-purple-400/25 bg-purple-500/10 text-purple-300",
+  "border-amber-400/25 bg-amber-500/10 text-amber-300",
+] as const;
 
 export function ExperienceSnapshotGrid({ locale, variant = "full" }: ExperienceSnapshotGridProps) {
   const [activeEntry, setActiveEntry] = useState<ExperienceEntry | null>(null);
@@ -57,8 +66,10 @@ export function ExperienceSnapshotGrid({ locale, variant = "full" }: ExperienceS
   if (variant === "compact") {
     return (
       <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {experienceEntries.map((entry) => {
+        {experienceEntries.map((entry, index) => {
           const stageSignals = getStageSignals(entry).slice(0, 3);
+          const Icon = experienceIcons[index % experienceIcons.length];
+          const accent = experienceAccentStyles[index % experienceAccentStyles.length];
 
           return (
             <Link
@@ -71,7 +82,12 @@ export function ExperienceSnapshotGrid({ locale, variant = "full" }: ExperienceS
                   <p className="font-mono text-[0.65rem] font-bold uppercase tracking-wider text-indigo-300">{entry.badge[locale]}</p>
                   <span className="text-xs font-semibold text-slate-400">{entry.period[locale]}</span>
                 </div>
-                <h3 className="text-lg font-black leading-tight tracking-tight text-white group-hover:text-indigo-200">{entry.company}</h3>
+                <div className="flex items-center gap-3">
+                  <span className={cn("flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border", accent)}>
+                    <Icon className="h-4 w-4" />
+                  </span>
+                  <h3 className="text-lg font-black leading-tight tracking-tight text-white group-hover:text-indigo-200">{entry.company}</h3>
+                </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-300">{entry.cardImpact[locale]}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {stageSignals.map((item) => (
@@ -95,8 +111,10 @@ export function ExperienceSnapshotGrid({ locale, variant = "full" }: ExperienceS
   return (
     <>
       <div className="grid gap-6 md:grid-cols-2">
-        {experienceEntries.map((entry) => {
+        {experienceEntries.map((entry, index) => {
           const stageSignals = getStageSignals(entry).slice(0, 3);
+          const Icon = experienceIcons[index % experienceIcons.length];
+          const accent = experienceAccentStyles[index % experienceAccentStyles.length];
 
           return (
             <article
@@ -111,7 +129,12 @@ export function ExperienceSnapshotGrid({ locale, variant = "full" }: ExperienceS
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-xl font-black tracking-tight text-white">{entry.title[locale]}</h3>
+                <div className="flex items-start gap-3">
+                  <span className={cn("mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border", accent)}>
+                    <Icon className="h-4.5 w-4.5" />
+                  </span>
+                  <h3 className="text-xl font-black tracking-tight text-white">{entry.title[locale]}</h3>
+                </div>
                 <p className="text-sm font-semibold uppercase tracking-wider text-slate-200">{entry.company}</p>
                 <p className="text-sm text-slate-400">{entry.subtitle[locale]}</p>
               </div>
