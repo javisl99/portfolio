@@ -1,4 +1,4 @@
-import { Coffee, Download, Layers3, Mail, Sparkles, Terminal, Verified } from "lucide-react";
+import { ArrowDown, Coffee, Download, Layers3, Mail, Sparkles, Terminal, Verified } from "lucide-react";
 
 import { BackendTelemetryWidget } from "@/components/ui/backend-telemetry-widget";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -53,22 +53,23 @@ export function HomeHero({ locale }: { locale: Locale }) {
             </div>
 
             {/* Primary actions */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <ButtonLink className="px-6 py-3.5 text-sm sm:text-base" href={localizePath(locale, "/projects")} variant="primary">
-                {copy.ctas.projects}
+            <div className="grid grid-cols-3 gap-2 pt-2 sm:flex sm:flex-wrap sm:gap-3 lg:flex-nowrap">
+              <ButtonLink className="w-full min-w-0 px-2 py-3.5 text-[0.68rem] sm:w-auto sm:px-4 sm:text-base" href={localizePath(locale, "/projects")} variant="primary">
+                <ArrowDown className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" />
+                <span>{locale === "es" ? "Proyectos" : "Projects"}</span>
               </ButtonLink>
-              <ButtonLink className="px-5 py-3.5 text-sm sm:text-base" href={localizePath(locale, "/contact")} variant="secondary">
-                <Mail className="h-4 w-4 text-indigo-400" />
+              <ButtonLink className="w-full min-w-0 px-2 py-3.5 text-[0.68rem] sm:w-auto sm:px-4 sm:text-base" href={localizePath(locale, "/contact")} variant="secondary">
+                <Mail className="h-3.5 w-3.5 shrink-0 text-indigo-400 sm:h-4 sm:w-4" />
                 {copy.ctas.contact}
               </ButtonLink>
               <ButtonLink
-                className="px-4 py-3.5 text-sm sm:text-base"
+                className="w-full min-w-0 px-2 py-3.5 text-[0.68rem] sm:w-auto sm:px-4 sm:text-base"
                 download={cvDownloadName}
                 href={cvHref}
                 target="_blank"
                 variant="secondary"
               >
-                <Download className="h-4 w-4 text-slate-400" />
+                <Download className="h-3.5 w-3.5 shrink-0 text-slate-400 sm:h-4 sm:w-4" />
                 {copy.ctas.resume}
               </ButtonLink>
             </div>
