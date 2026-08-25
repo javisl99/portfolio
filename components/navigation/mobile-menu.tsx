@@ -171,14 +171,14 @@ export function MobileMenu({ locale }: MobileMenuProps) {
         <>
           <div
             aria-hidden="true"
-            className={`fixed inset-x-0 bottom-0 top-[4.5rem] z-30 bg-[rgba(2,6,18,0.62)] backdrop-blur-md transition-opacity duration-180 motion-reduce:transition-none ${
+            className={`fixed inset-x-0 bottom-0 top-[4.25rem] z-30 bg-[rgba(2,6,18,0.68)] backdrop-blur-xl transition-opacity duration-180 motion-reduce:transition-none ${
               open ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           />
           <div
             aria-hidden={!open}
             aria-modal="true"
-            className={`fixed inset-x-0 top-[4.25rem] z-40 border-b border-white/10 bg-[rgba(4,9,20,0.97)] px-5 pb-5 pt-2 shadow-[0_30px_70px_-32px_rgba(2,6,23,0.98)] backdrop-blur-3xl transition-all duration-180 motion-reduce:transition-none ${
+            className={`fixed inset-x-0 top-[4.25rem] z-40 border-b border-white/10 bg-[rgba(4,9,20,0.92)] px-5 pb-5 pt-2 shadow-[0_30px_70px_-32px_rgba(2,6,23,0.98)] backdrop-blur-3xl transition-all duration-180 motion-reduce:transition-none ${
               open ? "translate-y-0 scale-100 opacity-100 ease-out" : "pointer-events-none -translate-y-2 scale-[0.985] opacity-0 ease-in"
             }`}
             id="mobile-nav-panel"
