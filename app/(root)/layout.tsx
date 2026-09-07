@@ -1,10 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
-// @ts-ignore: font packages may not have type declarations for side-effect imports
-import "@fontsource-variable/manrope";
-// @ts-ignore: font packages may not have type declarations for side-effect imports
-import "@fontsource-variable/space-grotesk";
+import { manrope, spaceGrotesk } from "@/lib/fonts";
 
 import "../globals.css";
 
@@ -27,7 +24,7 @@ export const viewport: Viewport = {
 
 export default function RedirectRootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang={defaultLocale}>
+    <html className={`${manrope.variable} ${spaceGrotesk.variable}`} lang={defaultLocale}>
       <body>
         {children}
         <SpeedInsights />
