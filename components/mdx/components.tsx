@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 
+import { ProjectShowcase } from "@/components/mdx/project-showcase";
 import { cn } from "@/lib/utils";
 
 export const mdxComponents = {
+  ProjectShowcase,
   h2: (props: ComponentPropsWithoutRef<"h2">) => (
     <div className="mt-12 flex items-center gap-4">
       <h2 className="text-2xl font-black tracking-tight text-ink" {...props} />
