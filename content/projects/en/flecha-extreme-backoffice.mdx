@@ -1,0 +1,64 @@
+---
+title: "Flecha Extreme: the operational CRM for a watersports school"
+summary: "A personal full-stack project that digitizes the real operations of a watersports school, bringing customers, bookings, payments, resources, and accounting into one system."
+role: "Full-stack Developer | Product Engineering"
+employer: "Collaborative personal project"
+client: "Flecha Extreme"
+category: "personal"
+domain: "Vertical CRM and back office for a watersports school: bookings, customers, payments, accounting, employees, documents, parking, and retail"
+stack:
+  - "Next.js"
+  - "React"
+  - "TypeScript"
+  - "Supabase"
+  - "PostgreSQL"
+  - "Tailwind CSS"
+  - "Netlify"
+stakes: "Replacing scattered processes with a reliable system where a booking, its payment, and its accounting record share one consistent state without exposing personal data or disrupting daily operations."
+contribution: "I have evolved the product end to end: customer CRM, configurable accounting, payment flows, responsive UX, repository security, and PostgreSQL automation."
+outcome: "The school has a connected, traceable operational workspace where every confirmed payment can be followed from booking to accounting movement."
+signal: "Demonstrates full-stack product development in a real domain: relational modelling, authentication and roles, RLS, database automation, responsive UI, and continuous delivery."
+year: "2026"
+featured: true
+locale: "en"
+---
+
+## Context
+
+Flecha Extreme began as a personal project to help a friend digitize the management of his watersports school. What started as an internal tool grew into a vertical CRM and back office covering bookings, customers, payments, accounting, employees, documents, parking, and retail.
+
+It is not a mock-up detached from the business: it is built collaboratively around real operational needs. The interface uses Next.js, while Supabase provides authentication and persistence. As its modules grew, the challenge moved beyond building separate screens: data, permissions, and state needed to retain the same meaning throughout the workflow.
+
+<ProjectShowcase locale="en" />
+
+## Problem
+
+A booking can group services and participants, generate one or more payments, and eventually produce an accounting movement. If any step confirms an operation the database did not perform, the interface presents an inaccurate view of the business.
+
+The same principle applies to customers, documents, and accounting configuration: each module needs a clear experience as well as coherent data contracts, permissions, and relationships.
+
+## My contribution
+
+- Built and evolved the customer CRM, including loading, filtering, sorting, creation, editing, and validation.
+- Contributed to the movement-based accounting system with configurable accounts, banks, daily balances, and payment methods.
+- Worked on responsive behavior so operational modules remained usable on mobile and tablet.
+- Hardened email and stock flows, repository configuration, and automated checks.
+- Fixed payment state confirmation so the interface changes only when Supabase returns the updated row.
+
+The result combines product thinking, frontend, backend, and data work. It does more than present screens: it resolves relationships between modules, user roles, and rules that must hold regardless of where an operation begins.
+
+## Highlighted technical decision
+
+Accounting synchronization lives in PostgreSQL. A trigger observes relevant payment changes: when a payment is completed, it creates or updates a related accounting movement through a unique identifier; when the payment is no longer completed, it removes that automatic movement.
+
+This keeps the rule close to the data and prevents every screen from having to reproduce the same operation. The interface remains responsible for communicating the real outcome to the user, including an update that affected no rows.
+
+## Delivery and security
+
+The repository uses development and production branches, Pull Requests, CI, CodeQL, Dependabot, and Netlify previews. Credentials stay outside the repository, while data access depends on authentication, roles, and Supabase RLS policies.
+
+The [Flecha Extreme source code](https://github.com/javisl99/flecha-extreme) makes the architecture, migrations, and product evolution available for review.
+
+## What this shows about my profile
+
+This project shows that I can turn a problem close to home into a serious technical product and keep it maintainable as its scope grows. It connects interface decisions with hooks, TypeScript contracts, Supabase queries, PostgreSQL rules, and delivery controls. It also reflects collaborative work on an application driven by operational needs rather than a collection of isolated screens.

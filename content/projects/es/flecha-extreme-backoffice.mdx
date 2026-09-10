@@ -1,0 +1,64 @@
+---
+title: "Flecha Extreme: el CRM operativo de una escuela náutica"
+summary: "Proyecto personal full-stack para digitalizar la operativa real de una escuela de actividades náuticas: clientes, reservas, cobros, recursos y contabilidad en un único sistema."
+role: "Full-stack Developer | Product Engineering"
+employer: "Proyecto personal colaborativo"
+client: "Flecha Extreme"
+category: "personal"
+domain: "CRM y back-office vertical para una escuela de actividades náuticas: reservas, clientes, pagos, contabilidad, empleados, documentos, parking y tienda"
+stack:
+  - "Next.js"
+  - "React"
+  - "TypeScript"
+  - "Supabase"
+  - "PostgreSQL"
+  - "Tailwind CSS"
+  - "Netlify"
+stakes: "Sustituir procesos dispersos por un sistema fiable donde una reserva, su cobro y su reflejo contable mantengan el mismo estado, sin exponer datos personales ni romper la operativa diaria."
+contribution: "He evolucionado el producto de extremo a extremo: CRM de clientes, contabilidad configurable, flujos de pago, experiencia responsive, seguridad del repositorio y automatizaciones PostgreSQL."
+outcome: "La escuela dispone de un espacio operativo conectado y trazable; cada cobro confirmado puede seguirse desde la reserva hasta su movimiento contable."
+signal: "Demuestra desarrollo de producto full-stack sobre un dominio real: modelado relacional, autenticación y roles, RLS, automatización en base de datos, UI responsive y entrega continua."
+year: "2026"
+featured: true
+locale: "es"
+---
+
+## Contexto
+
+Flecha Extreme nació como un proyecto personal para ayudar a un amigo a digitalizar la gestión de su escuela de actividades náuticas. Lo que empezó como una herramienta interna creció hasta convertirse en un CRM y back-office vertical con reservas, clientes, pagos, contabilidad, empleados, documentos, parking y tienda.
+
+No es una maqueta desconectada del negocio: se construye de forma colaborativa alrededor de necesidades operativas reales. La interfaz utiliza Next.js y Supabase aporta autenticación y persistencia. A medida que crecieron los módulos, el reto dejó de ser construir pantallas independientes: los datos, los permisos y los estados tenían que conservar el mismo significado a lo largo de todo el recorrido.
+
+<ProjectShowcase locale="es" />
+
+## Problema
+
+Una reserva puede agrupar servicios y participantes, generar uno o varios cobros y terminar produciendo un movimiento contable. Si cualquiera de esos pasos confirma una operación que la base de datos no ha realizado, la interfaz ofrece una imagen incorrecta del negocio.
+
+El mismo principio se aplica a clientes, documentos o configuración contable: cada módulo necesita una experiencia clara, pero también contratos de datos, permisos y relaciones coherentes.
+
+## Mi contribución
+
+- Desarrollé y evolucioné el CRM de clientes, incluyendo carga, filtros, ordenación, creación, edición y validaciones.
+- Participé en el sistema contable basado en movimientos, cuentas, bancos, saldos diarios y métodos de pago configurables.
+- Trabajé en la adaptación responsive para que los módulos operativos siguieran siendo utilizables en móvil y tablet.
+- Reforcé los flujos de correo y stock, la configuración segura del repositorio y sus comprobaciones automáticas.
+- Corregí la confirmación de estados de pago para que la interfaz solo cambie cuando Supabase devuelve realmente la fila actualizada.
+
+El resultado combina producto, frontend, backend y datos: no se limita a enseñar pantallas, sino que resuelve relaciones entre módulos, roles de usuario y reglas que deben cumplirse aunque la operación se inicie desde puntos distintos.
+
+## Decisión técnica destacada
+
+La sincronización contable vive en PostgreSQL. Un trigger observa los cambios relevantes de un pago: cuando queda completado, crea o actualiza un movimiento contable relacionado mediante un identificador único; si deja de estar completado, elimina ese movimiento automático.
+
+Esta decisión mantiene la regla cerca de los datos y evita depender de que cada pantalla recuerde reproducir la misma operación. La interfaz sigue siendo responsable de comunicar el resultado real al usuario, incluida una actualización que no haya afectado a ninguna fila.
+
+## Entrega y seguridad
+
+El repositorio utiliza ramas de desarrollo y producción, Pull Requests, CI, CodeQL, Dependabot y previews de Netlify. Las credenciales quedan fuera del repositorio y el acceso a los datos depende de autenticación, roles y políticas RLS en Supabase.
+
+El [código fuente de Flecha Extreme](https://github.com/javisl99/flecha-extreme) permite revisar la arquitectura, las migraciones y la evolución del producto.
+
+## Qué demuestra sobre mi perfil
+
+Este proyecto muestra que puedo convertir un problema cercano en un producto técnico serio y mantenerlo a medida que gana alcance. Relaciona decisiones de interfaz con hooks, contratos TypeScript, consultas Supabase, reglas PostgreSQL y controles de entrega. También refleja trabajo colaborativo sobre una aplicación que evoluciona por necesidades operativas, no como una colección de pantallas aisladas.
