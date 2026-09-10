@@ -44,6 +44,7 @@ export function ProjectShowcase({ locale }: ProjectShowcaseProps) {
             alt={content.desktopAlt}
             className="h-auto w-full"
             height={960}
+            loading="eager"
             sizes="(min-width: 1024px) 720px, 90vw"
             src="/images/projects/flecha-extreme/payments-desktop.png"
             width={1440}
