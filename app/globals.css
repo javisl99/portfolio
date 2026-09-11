@@ -9,8 +9,8 @@
 @source "../lib/**/*.{js,ts,jsx,tsx,mdx}";
 
 @theme inline {
-  --font-sans: "Manrope Variable", sans-serif;
-  --font-display: "Space Grotesk Variable", sans-serif;
+  --font-sans: var(--font-manrope), sans-serif;
+  --font-display: var(--font-space-grotesk), sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
   --color-bg: var(--background);
   --color-surface: var(--surface);

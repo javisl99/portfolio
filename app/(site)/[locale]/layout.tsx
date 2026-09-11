@@ -2,10 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
-// @ts-ignore: font packages may not have type declarations for side-effect imports
-import "@fontsource-variable/manrope";
-// @ts-ignore: font packages may not have type declarations for side-effect imports
-import "@fontsource-variable/space-grotesk";
+import { manrope, spaceGrotesk } from "@/lib/fonts";
 
 import "../../globals.css";
 
@@ -64,7 +61,7 @@ export default async function LocaleLayout({
 
   const locale = rawLocale as Locale;
   return (
-    <html lang={locale}>
+    <html className={`${manrope.variable} ${spaceGrotesk.variable}`} lang={locale}>
       <body>
         <Header locale={locale} />
         <div className="content-shell pt-[4.25rem] sm:pt-20">
