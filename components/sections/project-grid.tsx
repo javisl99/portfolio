@@ -30,9 +30,6 @@ export function ProjectGrid({ locale, projects, variant = "full" }: ProjectGridP
       { es: "Greenfield", en: "Greenfield", match: ["greenfield", "desde cero", "from scratch"] },
       { es: "SQL", en: "SQL", match: ["sql", "oracle"] },
       { es: "FlexibleSearch", en: "FlexibleSearch", match: ["flexiblesearch"] },
-      { es: "CRM", en: "CRM", match: ["crm"] },
-      { es: "PostgreSQL", en: "PostgreSQL", match: ["postgresql"] },
-      { es: "Seguridad", en: "Security", match: ["rls", "autenticación", "authentication"] },
     ];
 
     return catalog.filter((item) => item.match.some((keyword) => source.includes(keyword))).slice(0, 3).map((item) => item[locale]);
