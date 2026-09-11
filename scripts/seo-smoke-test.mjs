@@ -83,6 +83,25 @@ for (const locale of ["es", "en"]) {
   });
 }
 
+for (const locale of ["es", "en"]) {
+  await check(`/${locale} serves a localized, non-indexable 404`, async () => {
+    const response = await fetch(`${baseUrl}/${locale}/missing-page`);
+    const html = await response.text();
+
+    assert.equal(response.status, 404);
+    assert.match(html, /<meta name="robots" content="noindex"/i);
+  });
+}
+
+await check("an unmatched root path serves the branded global 404", async () => {
+  const response = await fetch(`${baseUrl}/missing-page`);
+  const html = await response.text();
+
+  assert.equal(response.status, 404);
+  assert.match(html, /Este enlace no lleva a ninguna parte\./);
+  assert.match(html, /<meta name="robots" content="noindex"/i);
+});
+
 await check("the sitemap declares language alternates without unreliable lastmod values", async () => {
   const response = await fetch(`${baseUrl}/sitemap.xml`);
   const sitemap = await response.text();
@@ -95,12 +114,12 @@ await check("the sitemap declares language alternates without unreliable lastmod
   assert.doesNotMatch(sitemap, /<lastmod>/);
 
   sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  assert.equal(sitemapUrls.length, 16);
+  assert.equal(sitemapUrls.length, 18);
 });
 
 await check("every sitemap page is indexable and self-canonical", async () => {
   for (const url of sitemapUrls) {
-    const response = await fetch(url);
+    const response = await fetch(new URL(new URL(url).pathname, baseUrl));
     const html = await response.text();
     const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
 
