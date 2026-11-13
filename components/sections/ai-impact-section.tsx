@@ -18,7 +18,6 @@ import type { CopyCard } from "@/data/types";
 import type { Locale } from "@/lib/i18n";
 
 import { ButtonLink } from "@/components/ui/button-link";
-import { MetricCounter } from "@/components/ui/metric-counter";
 import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 import { localizePath } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -127,22 +126,22 @@ const workflowCopy = {
     metrics: [
       {
         title: "Cambios complejos",
-        value: "~70%",
-        label: "menos tiempo",
-        body: "En análisis y preparación inicial de cambios complejos cuando el contexto es comparable.",
+        value: "Contexto útil",
+        label: "para preparar cambios",
+        body: "Ayuda a revisar el contexto y localizar código cuando las tareas son comparables.",
         accent: "violet",
       },
       {
-        title: "Tareas de 1-2 jornadas",
-        value: "< 1",
-        label: "jornada",
-        body: "Cuando el contexto está acotado y la validación sigue siendo propia.",
+        title: "Tareas con contexto acotado",
+        value: "Trabajo repetitivo",
+        label: "con revisión propia",
+        body: "La IA apoya partes repetitivas y de análisis; la implementación y validación final siguen siendo mías.",
         accent: "blue",
       },
       {
         title: "Incidencias",
-        value: "minutos",
-        label: "primera hipótesis",
+        value: "Posibles causas",
+        label: "para validar",
         body: "Para localizar posibles causas antes de depurar y validar.",
         accent: "green",
       },
@@ -205,22 +204,22 @@ const workflowCopy = {
     metrics: [
       {
         title: "Complex changes",
-        value: "~70%",
-        label: "less time",
-        body: "On analysis and initial preparation of complex changes when the context is comparable.",
+        value: "Useful context",
+        label: "to prepare changes",
+        body: "It helps review context and locate code when preparing changes in comparable tasks.",
         accent: "violet",
       },
       {
-        title: "1-2 day tasks",
-        value: "< 1",
-        label: "day",
-        body: "When the context is bounded and validation still remains mine.",
+        title: "Tasks with bounded context",
+        value: "Repetitive work",
+        label: "with my own review",
+        body: "AI supports repetitive and analysis work; final implementation and validation remain mine.",
         accent: "blue",
       },
       {
         title: "Incidents",
-        value: "minutes",
-        label: "first hypothesis",
+        value: "Possible causes",
+        label: "to validate",
         body: "To locate likely causes before debugging and validating.",
         accent: "green",
       },
@@ -305,11 +304,11 @@ function WorkflowStepCard({ step, showArrow }: { step: WorkflowStep; showArrow?:
   );
 }
 
-function MetricRing({ accent, progress, icon: Icon }: { accent: Accent; progress?: number; icon?: LucideIcon }) {
+function MetricRing({ accent, icon: Icon }: { accent: Accent; icon?: LucideIcon }) {
   const tone = tones[accent];
   const radius = 30;
   const circumference = 2 * Math.PI * radius;
-  const dashoffset = progress == null ? circumference * 0.18 : circumference - (circumference * progress) / 100;
+  const dashoffset = circumference * 0.18;
 
   return (
     <div className="relative h-20 w-20 shrink-0">
@@ -444,10 +443,7 @@ export function AIImpactSection({ locale, eyebrow, title, description, context, 
             <RevealOnScroll className="grid gap-3 md:grid-cols-2 xl:grid-cols-3" rootMargin="0px 0px -180px 0px">
               {copy.metrics.map((metric, index) => {
                 const tone = tones[metric.accent];
-                const ringProgress = index === 0 ? 70 : undefined;
                 const MetricIcon = metricIcons[index];
-                const isMinutesMetric = metric.value.toLowerCase() === "minutos" || metric.value.toLowerCase() === "minutes";
-                const valueClassName = isMinutesMetric ? "text-[1.65rem] sm:text-[1.78rem]" : "text-[1.95rem] sm:text-[2.05rem]";
                 const labelClassName = "text-lg";
 
                 return (
@@ -459,20 +455,10 @@ export function AIImpactSection({ locale, eyebrow, title, description, context, 
                     <p className={cn("font-mono text-[0.64rem] font-bold uppercase tracking-[0.18em]", tone.text)}>{metric.title}</p>
                     <div className="mt-4 flex flex-1 flex-col items-center text-center">
                       <div className="flex h-20 items-center justify-center">
-                        <MetricRing accent={metric.accent} icon={MetricIcon} progress={ringProgress} />
+                        <MetricRing accent={metric.accent} icon={MetricIcon} />
                       </div>
                       <div className="flex h-24 flex-col items-center justify-center">
-                        <p className={cn("value-appear font-black leading-none tracking-tight", tone.text, valueClassName)}>
-                          {index === 0 ? (
-                            <>
-                              ~<MetricCounter className="inline-block min-w-[2ch] tabular-nums" target={70} />%
-                            </>
-                          ) : index === 1 ? (
-                            <>
-                              {"< "}<MetricCounter className="inline-block min-w-[2ch] text-left tabular-nums" randomMax={70} target={1} />
-                            </>
-                          ) : metric.value}
-                        </p>
+                        <p className={cn("value-appear font-black leading-none tracking-tight text-[1.45rem] sm:text-[1.65rem]", tone.text)}>{metric.value}</p>
                         {metric.label ? <p className={cn("mt-1 font-bold tracking-tight text-white", labelClassName)}>{metric.label}</p> : null}
                       </div>
                       <p className="mt-3 flex-1 max-w-[17rem] text-sm leading-6 text-slate-300">{metric.body}</p>
