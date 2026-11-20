@@ -8,8 +8,8 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Current experience",
     },
     period: {
-      es: "2024 - Actualidad",
-      en: "2024 - Present",
+      es: "Junio 2024 - Actualidad",
+      en: "June 2024 - Present",
     },
     company: "Stratesys",
     title: {
@@ -80,8 +80,8 @@ export const experienceEntries: ExperienceEntry[] = [
         en: "Participation in batch processes, workflows, Backoffice development and complex business logic implementation.",
       },
       {
-        es: "Desde 2026, uso IA generativa como acelerador de análisis técnico, debugging y preparación de cambios, manteniendo la validación final en mis manos.",
-        en: "Since 2026, I use generative AI as an accelerator for technical analysis, debugging, and change preparation, while keeping final validation in my own hands.",
+        es: "Empecé a utilizar IA generativa en todas mis tareas entre febrero y marzo de 2026, como apoyo para el análisis técnico, la depuración y la preparación de cambios; mantengo la validación final en mis manos.",
+        en: "I began using generative AI across all my tasks between February and March 2026 to support technical analysis, debugging, and change preparation, while keeping final validation in my own hands.",
       },
     ],
     stack: [
@@ -117,8 +117,8 @@ export const experienceEntries: ExperienceEntry[] = [
           en: "Recruiter signal",
         },
         body: {
-          es: "No es solo desarrollo de features: demuestra análisis de causa raíz, coordinación con QA, cliente y negocio, y desde 2026 una forma de trabajar más rápida apoyada por IA sin delegar criterio técnico.",
-          en: "Not just feature delivery: it shows root cause analysis, coordination with QA, client, and business teams, and since 2026 a faster workflow supported by AI without delegating technical judgment.",
+          es: "No es solo desarrollo de features: demuestra análisis de causa raíz, coordinación con QA, cliente y negocio, y el uso de IA como apoyo desde febrero-marzo de 2026 sin delegar criterio técnico.",
+          en: "Not just feature delivery: it shows root cause analysis, coordination with QA, client, and business teams, and the use of AI as support since February–March 2026 without delegating technical judgment.",
         },
       },
     ],
@@ -131,8 +131,8 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Recent experience",
     },
     period: {
-      es: "2024",
-      en: "2024",
+      es: "Enero 2024 - Junio 2024",
+      en: "January 2024 - June 2024",
     },
     company: "Minsait",
     title: {
@@ -242,8 +242,8 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Professional foundation",
     },
     period: {
-      es: "2023 - 2024",
-      en: "2023 - 2024",
+      es: "Marzo 2023 - Diciembre 2023",
+      en: "March 2023 - December 2023",
     },
     company: "Stratesys",
     title: {
@@ -349,8 +349,8 @@ export const experienceEntries: ExperienceEntry[] = [
       en: "Early experience",
     },
     period: {
-      es: "2022 - 2023",
-      en: "2022 - 2023",
+      es: "Julio 2022 - Marzo 2023",
+      en: "July 2022 - March 2023",
     },
     company: "Accenture",
     title: {
