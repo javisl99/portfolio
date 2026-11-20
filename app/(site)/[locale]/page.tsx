@@ -116,6 +116,7 @@ export default async function HomePage({
           eyebrow={copy.home.ai.eyebrow}
           items={copy.home.ai.items}
           locale={locale}
+          metrics={copy.home.ai.metrics}
           metricsNote={copy.home.ai.metricsNote}
           note={copy.home.ai.note}
           title={copy.home.ai.title}

@@ -7,14 +7,12 @@ import {
   Gauge,
   Info,
   Rocket,
-  Search,
   ShieldCheck,
-  Sparkles,
   SquareTerminal,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-import type { CopyCard } from "@/data/types";
+import type { AiImpactMetric, CopyCard } from "@/data/types";
 import type { Locale } from "@/lib/i18n";
 
 import { ButtonLink } from "@/components/ui/button-link";
@@ -28,6 +26,7 @@ interface AIImpactSectionProps {
   title: string;
   description: string;
   context: string;
+  metrics: AiImpactMetric[];
   metricsNote: string;
   note: string;
   items: CopyCard[];
@@ -43,23 +42,20 @@ type WorkflowStep = {
   accent: Accent;
 };
 
-const tones: Record<Accent, { ring: string; border: string; text: string; soft: string; glow: string }> = {
+const tones: Record<Accent, { border: string; text: string; soft: string; glow: string }> = {
   blue: {
-    ring: "stroke-[#6366f1]",
     border: "border-indigo-500/30",
     text: "text-indigo-300",
     soft: "bg-indigo-500/10",
     glow: "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_36px_-24px_rgba(99,102,241,0.4)]",
   },
   green: {
-    ring: "stroke-[#10b981]",
     border: "border-emerald-500/30",
     text: "text-emerald-300",
     soft: "bg-emerald-500/10",
     glow: "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_36px_-24px_rgba(16,185,129,0.35)]",
   },
   violet: {
-    ring: "stroke-[#a855f7]",
     border: "border-purple-500/30",
     text: "text-purple-300",
     soft: "bg-purple-500/10",
@@ -118,34 +114,11 @@ const workflowCopy = {
     ] satisfies WorkflowStep[],
     acceleratorTitle: "IA = Acelerador",
     acceleratorBody:
-      "Acelera el análisis, la búsqueda de información y la generación de opciones para ahorrar tiempo en tareas cognitivas y repetitivas.",
+      "Apoya el análisis, la búsqueda de información y la generación de opciones en tareas cognitivas y repetitivas.",
     ownerTitle: "Yo = Responsable",
     ownerBody:
       "Decido, valido, pruebo y asumo la responsabilidad técnica y del impacto en producción.",
     metricsEyebrow: "Impacto en el día a día",
-    metrics: [
-      {
-        title: "Cambios complejos",
-        value: "Contexto útil",
-        label: "para preparar cambios",
-        body: "Ayuda a revisar el contexto y localizar código cuando las tareas son comparables.",
-        accent: "violet",
-      },
-      {
-        title: "Tareas con contexto acotado",
-        value: "Trabajo repetitivo",
-        label: "con revisión propia",
-        body: "La IA apoya partes repetitivas y de análisis; la implementación y validación final siguen siendo mías.",
-        accent: "blue",
-      },
-      {
-        title: "Incidencias",
-        value: "Posibles causas",
-        label: "para validar",
-        body: "Para localizar posibles causas antes de depurar y validar.",
-        accent: "green",
-      },
-    ] as const,
   },
   en: {
     accelerator: "AI as accelerator",
@@ -196,34 +169,11 @@ const workflowCopy = {
     ] satisfies WorkflowStep[],
     acceleratorTitle: "AI = Accelerator",
     acceleratorBody:
-      "It speeds up analysis, information lookup, and option generation to save time on cognitive and repetitive tasks.",
+      "It supports analysis, information lookup, and option generation across cognitive and repetitive tasks.",
     ownerTitle: "I = Responsible",
     ownerBody:
       "I decide, validate, test, and own the technical outcome and the production impact.",
     metricsEyebrow: "Day-to-day impact",
-    metrics: [
-      {
-        title: "Complex changes",
-        value: "Useful context",
-        label: "to prepare changes",
-        body: "It helps review context and locate code when preparing changes in comparable tasks.",
-        accent: "violet",
-      },
-      {
-        title: "Tasks with bounded context",
-        value: "Repetitive work",
-        label: "with my own review",
-        body: "AI supports repetitive and analysis work; final implementation and validation remain mine.",
-        accent: "blue",
-      },
-      {
-        title: "Incidents",
-        value: "Possible causes",
-        label: "to validate",
-        body: "To locate likely causes before debugging and validating.",
-        accent: "green",
-      },
-    ] as const,
   },
 } as const;
 
@@ -304,43 +254,13 @@ function WorkflowStepCard({ step, showArrow }: { step: WorkflowStep; showArrow?:
   );
 }
 
-function MetricRing({ accent, icon: Icon }: { accent: Accent; icon?: LucideIcon }) {
-  const tone = tones[accent];
-  const radius = 30;
-  const circumference = 2 * Math.PI * radius;
-  const dashoffset = circumference * 0.18;
-
-  return (
-    <div className="relative h-20 w-20 shrink-0">
-      <svg aria-hidden="true" className="h-20 w-20 -rotate-90" viewBox="0 0 80 80">
-        <circle cx="40" cy="40" r={radius} className="stroke-white/10" fill="none" strokeWidth="8" />
-        <circle
-          cx="40"
-          cy="40"
-          r={radius}
-          className={cn(tone.ring, "ring-animate")}
-          fill="none"
-          strokeLinecap="round"
-          strokeWidth="8"
-          strokeDasharray={circumference}
-          strokeDashoffset={dashoffset}
-        />
-      </svg>
-      <div className="absolute inset-0 flex items-center justify-center rounded-full bg-[radial-gradient(circle,rgba(7,12,24,0.88),rgba(7,12,24,0.55))]">
-        {Icon ? <Icon className={cn("h-7 w-7", tone.text)} strokeWidth={2} /> : null}
-      </div>
-    </div>
-  );
-}
-
-export function AIImpactSection({ locale, eyebrow, title, description, context, metricsNote, note, items }: AIImpactSectionProps) {
+export function AIImpactSection({ locale, eyebrow, title, description, context, metrics, metricsNote, note, items }: AIImpactSectionProps) {
   const copy = workflowCopy[locale];
   const acceleratorSteps = copy.steps.slice(0, 3);
   const validatorSteps = copy.steps.slice(3);
   const supportLines = (items[0]?.body[locale] ?? "").split("\n").filter(Boolean);
   const validationLines = (items[1]?.body[locale] ?? "").split("\n").filter(Boolean);
   const contextTitle = locale === "es" ? "Contexto de uso" : "Usage context";
-  const metricIcons = [Gauge, Search, Sparkles] as const;
 
   return (
     <div className="mx-auto max-w-6xl">
@@ -440,32 +360,34 @@ export function AIImpactSection({ locale, eyebrow, title, description, context, 
 
           <section className="pt-3 sm:pt-4">
             <p className="mb-4 font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#9fbeff]">{copy.metricsEyebrow}</p>
-            <RevealOnScroll className="grid gap-3 md:grid-cols-2 xl:grid-cols-3" rootMargin="0px 0px -180px 0px">
-              {copy.metrics.map((metric, index) => {
-                const tone = tones[metric.accent];
-                const MetricIcon = metricIcons[index];
-                const labelClassName = "text-lg";
-
-                return (
-                  <article
-                    className="ai-animate flex h-full flex-col rounded-[1.45rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.9),rgba(7,12,24,0.96))] p-4 shadow-soft transition duration-300 hover:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none sm:p-5"
-                    key={metric.title}
-                    style={{ animationDelay: `${0.35 + index * 0.35}s` }}
-                  >
-                    <p className={cn("font-mono text-[0.64rem] font-bold uppercase tracking-[0.18em]", tone.text)}>{metric.title}</p>
-                    <div className="mt-4 flex flex-1 flex-col items-center text-center">
-                      <div className="flex h-20 items-center justify-center">
-                        <MetricRing accent={metric.accent} icon={MetricIcon} />
-                      </div>
-                      <div className="flex h-24 flex-col items-center justify-center">
-                        <p className={cn("value-appear font-black leading-none tracking-tight text-[1.45rem] sm:text-[1.65rem]", tone.text)}>{metric.value}</p>
-                        {metric.label ? <p className={cn("mt-1 font-bold tracking-tight text-white", labelClassName)}>{metric.label}</p> : null}
-                      </div>
-                      <p className="mt-3 flex-1 max-w-[17rem] text-sm leading-6 text-slate-300">{metric.body}</p>
+            <RevealOnScroll className="grid gap-3" rootMargin="0px 0px -180px 0px">
+              {metrics.map((metric) => (
+                <article
+                  className="rounded-[1.45rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.9),rgba(7,12,24,0.96))] p-5 shadow-soft sm:p-6"
+                  key={metric.title[locale]}
+                >
+                  <div className="grid gap-6 lg:grid-cols-[minmax(15rem,0.85fr)_minmax(0,1.15fr)] lg:items-center">
+                    <div>
+                      <p className="font-mono text-[0.64rem] font-bold uppercase tracking-[0.18em] text-purple-300">{metric.title[locale]}</p>
+                      <h3 className="mt-3 text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl">{metric.highlight[locale]}</h3>
+                      <p className="mt-3 text-sm leading-6 text-slate-300">{metric.description[locale]}</p>
                     </div>
-                  </article>
-                );
-              })}
+
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="rounded-xl border border-white/8 bg-white/[0.025] p-4 sm:p-5">
+                        <p className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400">{metric.beforeLabel[locale]}</p>
+                        <p className="mt-3 text-3xl font-black tabular-nums tracking-tight text-slate-100">{metric.beforeValue[locale]}</p>
+                        <p className="mt-1 text-sm text-slate-400">{metric.beforeDetail[locale]}</p>
+                      </div>
+                      <div className="rounded-xl border border-indigo-400/20 bg-indigo-500/[0.06] p-4 sm:p-5">
+                        <p className="font-mono text-xs font-bold uppercase tracking-wider text-indigo-200">{metric.afterLabel[locale]}</p>
+                        <p className="mt-3 text-3xl font-black tabular-nums tracking-tight text-white">{metric.afterValue[locale]}</p>
+                        <p className="mt-1 text-sm text-slate-300">{metric.afterDetail[locale]}</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </RevealOnScroll>
           </section>
         </div>
