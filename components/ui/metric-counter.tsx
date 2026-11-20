@@ -2,18 +2,28 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import type { Locale } from "@/lib/i18n";
+
 interface MetricCounterProps {
   className?: string;
+  decimals?: number;
   delayMs?: number;
   durationMs?: number;
-  randomMax?: number;
+  locale: Locale;
   target: number;
 }
 
-export function MetricCounter({ className, delayMs = 450, durationMs = 1500, randomMax, target }: MetricCounterProps) {
+/**
+ * Renders the final value on the server and on the first client render.
+ * The count-up only starts after the containing reveal enters the viewport.
+ */
+export function MetricCounter({ className, decimals = 0, delayMs = 450, durationMs = 1400, locale, target }: MetricCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [value, setValue] = useState(0);
-  const randomLimit = randomMax ?? target;
+  const [value, setValue] = useState(target);
+  const formatter = new Intl.NumberFormat(locale === "es" ? "es-ES" : "en-GB", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
 
   useEffect(() => {
     const element = ref.current;
@@ -27,23 +37,23 @@ export function MetricCounter({ className, delayMs = 450, durationMs = 1500, ran
       if (hasStarted) return;
       hasStarted = true;
 
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setValue(target);
+        return;
+      }
+
       timeoutId = window.setTimeout(() => {
         const startedAt = performance.now();
-        let lastValueUpdate = startedAt;
+        const precision = 10 ** decimals;
+        setValue(0);
 
         const tick = (now: number) => {
           const progress = Math.min((now - startedAt) / durationMs, 1);
+          const easedProgress = 1 - (1 - progress) ** 3;
+          const nextValue = Math.round(target * easedProgress * precision) / precision;
 
-          if (progress >= 1) {
-            setValue(target);
-            return;
-          }
-
-          if (now - lastValueUpdate >= 90) {
-            setValue(Math.floor(Math.random() * (randomLimit + 1)));
-            lastValueUpdate = now;
-          }
-          frameId = window.requestAnimationFrame(tick);
+          setValue(progress >= 1 ? target : nextValue);
+          if (progress < 1) frameId = window.requestAnimationFrame(tick);
         };
 
         frameId = window.requestAnimationFrame(tick);
@@ -53,18 +63,15 @@ export function MetricCounter({ className, delayMs = 450, durationMs = 1500, ran
     const revealRoot = element.closest<HTMLElement>("[data-reveal-on-scroll]");
     let revealObserver: MutationObserver | null = null;
 
-    if (revealRoot) {
-      revealObserver = new MutationObserver(() => {
-          if (revealRoot.classList.contains("is-visible")) {
-            start();
-            revealObserver?.disconnect();
-          }
-        });
-    }
-
     if (revealRoot?.classList.contains("is-visible")) {
       start();
-    } else if (revealRoot && revealObserver) {
+    } else if (revealRoot) {
+      revealObserver = new MutationObserver(() => {
+        if (revealRoot.classList.contains("is-visible")) {
+          start();
+          revealObserver?.disconnect();
+        }
+      });
       revealObserver.observe(revealRoot, { attributes: true, attributeFilter: ["class"] });
     } else {
       start();
@@ -75,7 +82,14 @@ export function MetricCounter({ className, delayMs = 450, durationMs = 1500, ran
       window.clearTimeout(timeoutId);
       window.cancelAnimationFrame(frameId);
     };
-  }, [delayMs, durationMs, randomLimit, target]);
+  }, [decimals, delayMs, durationMs, target]);
 
-  return <span ref={ref} className={className}>{value}</span>;
+  const percentLabel = locale === "es" ? "por ciento" : "percent";
+  const suffix = locale === "es" ? " %" : "%";
+
+  return (
+    <span ref={ref} className={className} aria-label={`${formatter.format(target)} ${percentLabel}`}>
+      {formatter.format(value)}{suffix}
+    </span>
+  );
 }

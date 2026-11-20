@@ -367,13 +367,13 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "IA aplicada al trabajo técnico",
         title: "IA como acelerador de análisis, no como sustituto del criterio técnico",
         description:
-          "Desde mi etapa actual en Stratesys utilizo IA generativa para acelerar análisis técnico, debugging y preparación de cambios, manteniendo siempre la decisión técnica, las pruebas locales y la validación previa a QA bajo mi responsabilidad.",
+          "Empecé a utilizar IA en todas mis tareas entre febrero y marzo de 2026. La uso como apoyo para el análisis técnico, la depuración y la preparación de cambios, manteniendo bajo mi responsabilidad las decisiones técnicas, las pruebas locales y la validación previa a QA.",
         context:
           "La utilizo como apoyo para llegar antes al contexto, contrastar hipótesis y preparar cambios sobre SAP Commerce Cloud.",
         metricsNote:
-          "Estimaciones basadas en métricas propias de tareas comparables realizadas antes y después de incorporar IA generativa a mi flujo de trabajo. No representan benchmarks universales, sino impacto observado en mi contexto profesional.",
+          "Señal observada en worklogs personales.",
         note:
-          "La IA no sustituye experiencia ni criterio técnico. Su mayor valor está en llegar antes al contexto útil, reducir trabajo repetitivo y dedicar más tiempo a resolver problemas complejos y tomar mejores decisiones de ingeniería.",
+          "La IA no sustituye experiencia ni criterio técnico. Aporta contexto y opciones, mientras que las decisiones, la implementación, las pruebas y la validación final siguen bajo mi responsabilidad.",
         items: [
           {
             title: { es: "Dónde aporta más valor", en: "Where it adds the most value" },
@@ -392,64 +392,14 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         ],
         metrics: [
           {
-            title: { es: "Preparación y análisis de cambios complejos", en: "Preparation and analysis of complex changes" },
-            highlight: { es: "Hasta ~70% menos tiempo en tareas comparables", en: "Up to ~70% less time in comparable tasks" },
-            beforeLabel: { es: "Antes", en: "Before" },
-            beforeValue: {
-              es: "Lectura manual completa del contexto, identificación del código afectado y preparación inicial del cambio.",
-              en: "Full manual context reading, identification of the affected code, and initial change preparation.",
-            },
-            afterLabel: { es: "Ahora", en: "Now" },
-            afterValue: {
-              es: "Hipótesis iniciales, localización del código afectado y preparación del cambio en menos tiempo, manteniendo revisión técnica propia.",
-              en: "Initial hypotheses, affected code localization, and change preparation in less time while keeping my own technical review.",
-            },
-            note: {
-              es: "Especialmente útil en evolutivos con lógica de negocio compleja, integraciones o impacto en varios módulos.",
-              en: "Especially useful in evolutions involving complex business logic, integrations, or impact across multiple modules.",
-            },
-            beforeRatio: 100,
-            afterRatio: 35,
-          },
-          {
-            title: { es: "Implementación de tareas de 1 a 2 jornadas", en: "Implementation of 1- to 2-day tasks" },
-            highlight: { es: "Ahora en menos de 1 jornada cuando el contexto está acotado", en: "Now in less than 1 day when the context is bounded" },
-            beforeLabel: { es: "Antes", en: "Before" },
-            beforeValue: {
-              es: "Implementación manual completa, pruebas locales y repaso previo a QA.",
-              en: "Full manual implementation, local testing, and final review before QA.",
-            },
-            afterLabel: { es: "Ahora", en: "Now" },
-            afterValue: {
-              es: "Generación inicial de estructura, apoyo en edge cases y documentación técnica, con revisión y pruebas locales propias.",
-              en: "Initial structure generation, support on edge cases, and technical documentation, with my own review and local testing.",
-            },
-            note: {
-              es: "La IA acelera partes repetitivas y de análisis, pero la implementación final, validación y responsabilidad siguen siendo mías.",
-              en: "AI accelerates repetitive and analysis-heavy parts, but final implementation, validation, and responsibility remain mine.",
-            },
-            beforeRatio: 100,
-            afterRatio: 45,
-          },
-          {
-            title: { es: "Investigación inicial de incidencias", en: "Initial incident investigation" },
-            highlight: { es: "De horas o hasta 1 jornada a una primera hipótesis en minutos", en: "From hours or up to a full day to a first hypothesis in minutes" },
-            beforeLabel: { es: "Antes", en: "Before" },
-            beforeValue: {
-              es: "Lectura manual de logs, trazas, código afectado y posibles caminos de ejecución.",
-              en: "Manual reading of logs, traces, affected code, and possible execution paths.",
-            },
-            afterLabel: { es: "Ahora", en: "Now" },
-            afterValue: {
-              es: "Resumen de contexto, comparación de hipótesis y localización inicial de posibles causas raíz.",
-              en: "Context summary, hypothesis comparison, and initial localization of possible root causes.",
-            },
-            note: {
-              es: "La resolución final sigue dependiendo de depuración real, pruebas, revisión del estándar y validación funcional.",
-              en: "Final resolution still depends on real debugging, testing, standard review, and functional validation.",
-            },
-            beforeRatio: 100,
-            afterRatio: 6,
+            title: { es: "Tarjetas cerradas >8 h · estimación estable", en: "Closed tickets >8 h · stable estimates" },
+            highlight: { es: "menos de estimación consumida", en: "less of the estimate used" },
+            beforeLabel: { es: "Antes del 1 de febrero de 2026", en: "Before 1 February 2026" },
+            beforeValue: 66.9,
+            beforeCount: 12,
+            afterLabel: { es: "Desde el 1 de marzo de 2026 · con IA", en: "From 1 March 2026 · with AI" },
+            afterValue: 47.2,
+            afterCount: 36,
           },
         ],
       },
@@ -924,13 +874,13 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         eyebrow: "AI applied to technical work",
         title: "AI as an analysis accelerator, not a substitute for technical judgment",
         description:
-          "Since my current stage at Stratesys, I use generative AI to accelerate technical analysis, debugging, and change preparation while keeping technical decisions, local testing, and pre-QA validation under my own responsibility.",
+          "I began using AI across all my tasks between February and March 2026. I use it to support technical analysis, debugging, and change preparation, while keeping technical decisions, local testing, and pre-QA validation under my own responsibility.",
         context:
           "I use it to reach useful context sooner, contrast hypotheses, and prepare changes on SAP Commerce Cloud.",
         metricsNote:
-          "Estimates based on my own metrics from comparable tasks completed before and after introducing generative AI into my workflow. They are not universal benchmarks, but observed impact in my professional context.",
+          "Observed signal in personal Jira worklogs.",
         note:
-          "AI does not replace experience or technical judgment. Its greatest value is getting to useful context sooner, reducing repetitive work, and leaving more time to solve complex problems and make better engineering decisions.",
+          "AI does not replace experience or technical judgment. It provides context and options, while technical decisions, implementation, testing, and final validation remain my responsibility.",
         items: [
           {
             title: { es: "Dónde aporta más valor", en: "Where it adds the most value" },
@@ -949,64 +899,14 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         ],
         metrics: [
           {
-            title: { es: "Preparación y análisis de cambios complejos", en: "Preparation and analysis of complex changes" },
-            highlight: { es: "Hasta ~70% menos tiempo en tareas comparables", en: "Up to ~70% less time in comparable tasks" },
-            beforeLabel: { es: "Antes", en: "Before" },
-            beforeValue: {
-              es: "Lectura manual completa del contexto, identificación del código afectado y preparación inicial del cambio.",
-              en: "Full manual context reading, identification of the affected code, and initial change preparation.",
-            },
-            afterLabel: { es: "Ahora", en: "Now" },
-            afterValue: {
-              es: "Hipótesis iniciales, localización del código afectado y preparación del cambio en menos tiempo, manteniendo revisión técnica propia.",
-              en: "Initial hypotheses, affected code localization, and change preparation in less time while keeping my own technical review.",
-            },
-            note: {
-              es: "Especialmente útil en evolutivos con lógica de negocio compleja, integraciones o impacto en varios módulos.",
-              en: "Especially useful in evolutions involving complex business logic, integrations, or impact across multiple modules.",
-            },
-            beforeRatio: 100,
-            afterRatio: 35,
-          },
-          {
-            title: { es: "Implementación de tareas de 1 a 2 jornadas", en: "Implementation of 1- to 2-day tasks" },
-            highlight: { es: "Ahora en menos de 1 jornada cuando el contexto está acotado", en: "Now in less than 1 day when the context is bounded" },
-            beforeLabel: { es: "Antes", en: "Before" },
-            beforeValue: {
-              es: "Implementación manual completa, pruebas locales y repaso previo a QA.",
-              en: "Full manual implementation, local testing, and final review before QA.",
-            },
-            afterLabel: { es: "Ahora", en: "Now" },
-            afterValue: {
-              es: "Generación inicial de estructura, apoyo en edge cases y documentación técnica, con revisión y pruebas locales propias.",
-              en: "Initial structure generation, support on edge cases, and technical documentation, with my own review and local testing.",
-            },
-            note: {
-              es: "La IA acelera partes repetitivas y de análisis, pero la implementación final, validación y responsabilidad siguen siendo mías.",
-              en: "AI accelerates repetitive and analysis-heavy parts, but final implementation, validation, and responsibility remain mine.",
-            },
-            beforeRatio: 100,
-            afterRatio: 45,
-          },
-          {
-            title: { es: "Investigación inicial de incidencias", en: "Initial incident investigation" },
-            highlight: { es: "De horas o hasta 1 jornada a una primera hipótesis en minutos", en: "From hours or up to a full day to a first hypothesis in minutes" },
-            beforeLabel: { es: "Antes", en: "Before" },
-            beforeValue: {
-              es: "Lectura manual de logs, trazas, código afectado y posibles caminos de ejecución.",
-              en: "Manual reading of logs, traces, affected code, and possible execution paths.",
-            },
-            afterLabel: { es: "Ahora", en: "Now" },
-            afterValue: {
-              es: "Resumen de contexto, comparación de hipótesis y localización inicial de posibles causas raíz.",
-              en: "Context summary, hypothesis comparison, and initial localization of possible root causes.",
-            },
-            note: {
-              es: "La resolución final sigue dependiendo de depuración real, pruebas, revisión del estándar y validación funcional.",
-              en: "Final resolution still depends on real debugging, testing, standard review, and functional validation.",
-            },
-            beforeRatio: 100,
-            afterRatio: 6,
+            title: { es: "Tarjetas cerradas >8 h · estimación estable", en: "Closed tickets >8 h · stable estimates" },
+            highlight: { es: "menos de estimación consumida", en: "less of the estimate used" },
+            beforeLabel: { es: "Antes del 1 de febrero de 2026", en: "Before 1 February 2026" },
+            beforeValue: 66.9,
+            beforeCount: 12,
+            afterLabel: { es: "Desde el 1 de marzo de 2026 · con IA", en: "From 1 March 2026 · with AI" },
+            afterValue: 47.2,
+            afterCount: 36,
           },
         ],
       },

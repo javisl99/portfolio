@@ -27,12 +27,11 @@ export interface AiImpactMetric {
   title: LocalizedString;
   highlight: LocalizedString;
   beforeLabel: LocalizedString;
-  beforeValue: LocalizedString;
+  beforeValue: number;
+  beforeCount: number;
   afterLabel: LocalizedString;
-  afterValue: LocalizedString;
-  note: LocalizedString;
-  beforeRatio: number;
-  afterRatio: number;
+  afterValue: number;
+  afterCount: number;
 }
 
 export interface ExperienceEntry {
