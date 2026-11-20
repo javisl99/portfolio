@@ -25,14 +25,13 @@ export interface SkillCategory {
 
 export interface AiImpactMetric {
   title: LocalizedString;
-  description: LocalizedString;
   highlight: LocalizedString;
   beforeLabel: LocalizedString;
-  beforeValue: LocalizedString;
-  beforeDetail: LocalizedString;
+  beforeValue: number;
+  beforeCount: number;
   afterLabel: LocalizedString;
-  afterValue: LocalizedString;
-  afterDetail: LocalizedString;
+  afterValue: number;
+  afterCount: number;
 }
 
 export interface ExperienceEntry {

@@ -238,7 +238,21 @@ button {
   animation: ring-draw 1.5s 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* ── Metric value count-up flicker ── */
+/* Keep the audited percentages in the markup while the comparison bars draw in. */
+.metric-progress-fill {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+@keyframes metric-progress-draw {
+  to { transform: scaleX(1); }
+}
+
+.is-visible .metric-progress-fill {
+  animation: metric-progress-draw 1.2s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Metric value reveal flicker ── */
 @keyframes value-flicker {
   0%   { opacity: 0.2; }
   40%  { opacity: 1; }
@@ -259,7 +273,9 @@ button {
   .is-visible .ai-animate,
   .is-visible .flow-dot,
   .is-visible .ring-animate,
-  .is-visible .value-appear {
+  .is-visible .value-appear,
+  .is-visible .metric-progress-fill {
     animation: none !important;
   }
+  .metric-progress-fill { transform: scaleX(1); }
 }
