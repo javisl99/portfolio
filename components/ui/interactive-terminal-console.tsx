@@ -180,7 +180,7 @@ export function InteractiveTerminalConsole({ locale, className }: InteractiveTer
               <div>
                 <div className="flex flex-wrap items-baseline gap-x-2">
                   <span className="font-bold text-white">Stratesys</span>
-                  <span className="text-slate-500 text-[0.65rem]">{locale === "es" ? "2024 – Actualidad" : "2024 – Present"}</span>
+                  <span className="text-slate-500 text-[0.65rem]">{locale === "es" ? "Jun 2024 – Actualidad" : "Jun 2024 – Present"}</span>
                   <span className="rounded-sm bg-emerald-500/20 px-1 py-0.5 text-[0.6rem] font-bold text-emerald-300">{locale === "es" ? "ACTUAL" : "CURRENT"}</span>
                 </div>
                 <p className="text-slate-400">{locale === "es" ? "Backend Software Engineer | SAP Commerce Cloud · Real Estate" : "Backend Software Engineer | SAP Commerce Cloud · Real Estate"}</p>
