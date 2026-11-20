@@ -371,7 +371,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         context:
           "La utilizo como apoyo para llegar antes al contexto, contrastar hipótesis y preparar cambios sobre SAP Commerce Cloud.",
         metricsNote:
-          "Comparación observacional de worklogs personales frente a las estimaciones originales de Jira; febrero de 2026 se considera un periodo de transición. Se excluyeron 58 de 245 tarjetas con cambios de estimación posteriores al primer worklog. El ajuste global por tipo de tarjeta y estimación no demuestra una reducción general, y esta señal no mide un ahorro causado por la IA.",
+          "Señal observada en worklogs personales.",
         note:
           "La IA no sustituye experiencia ni criterio técnico. Aporta contexto y opciones, mientras que las decisiones, la implementación, las pruebas y la validación final siguen bajo mi responsabilidad.",
         items: [
@@ -392,15 +392,14 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         ],
         metrics: [
           {
-            title: { es: "Tarjetas cerradas con estimación original superior a 8 h", en: "Closed tickets with an original estimate above 8 h" },
-            description: { es: "Media de horas personales registradas respecto a la estimación original", en: "Average personal worklog hours as a share of the original estimate" },
-            highlight: { es: "29 % menos de estimación consumida", en: "29% less of the original estimate consumed" },
+            title: { es: "Tarjetas cerradas >8 h · estimación estable", en: "Closed tickets >8 h · stable estimates" },
+            highlight: { es: "menos de estimación consumida", en: "less of the estimate used" },
             beforeLabel: { es: "Antes del 1 de febrero de 2026", en: "Before 1 February 2026" },
-            beforeValue: { es: "66,9 %", en: "66.9%" },
-            beforeDetail: { es: "n = 12 tarjetas", en: "n = 12 tickets" },
+            beforeValue: 66.9,
+            beforeCount: 12,
             afterLabel: { es: "Desde el 1 de marzo de 2026 · con IA", en: "From 1 March 2026 · with AI" },
-            afterValue: { es: "47,2 %", en: "47.2%" },
-            afterDetail: { es: "n = 36 tarjetas", en: "n = 36 tickets" },
+            afterValue: 47.2,
+            afterCount: 36,
           },
         ],
       },
@@ -879,7 +878,7 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         context:
           "I use it to reach useful context sooner, contrast hypotheses, and prepare changes on SAP Commerce Cloud.",
         metricsNote:
-          "Observational comparison of personal worklogs against original Jira estimates; February 2026 is treated as a transition period. The analysis excluded 58 of 245 tickets whose estimates changed after the first worklog. After adjusting overall results by ticket type and estimate, the data do not show a conclusive general reduction, and this signal is not a causal measure of AI time savings.",
+          "Observed signal in personal Jira worklogs.",
         note:
           "AI does not replace experience or technical judgment. It provides context and options, while technical decisions, implementation, testing, and final validation remain my responsibility.",
         items: [
@@ -900,15 +899,14 @@ export const siteCopy: Record<Locale, SiteLocaleCopy> = {
         ],
         metrics: [
           {
-            title: { es: "Tarjetas cerradas con estimación original superior a 8 h", en: "Closed tickets with an original estimate above 8 h" },
-            description: { es: "Media de horas personales registradas respecto a la estimación original", en: "Average personal worklog hours as a share of the original estimate" },
-            highlight: { es: "29 % menos de estimación consumida", en: "29% less of the original estimate consumed" },
+            title: { es: "Tarjetas cerradas >8 h · estimación estable", en: "Closed tickets >8 h · stable estimates" },
+            highlight: { es: "menos de estimación consumida", en: "less of the estimate used" },
             beforeLabel: { es: "Antes del 1 de febrero de 2026", en: "Before 1 February 2026" },
-            beforeValue: { es: "66,9 %", en: "66.9%" },
-            beforeDetail: { es: "n = 12 tarjetas", en: "n = 12 tickets" },
+            beforeValue: 66.9,
+            beforeCount: 12,
             afterLabel: { es: "Desde el 1 de marzo de 2026 · con IA", en: "From 1 March 2026 · with AI" },
-            afterValue: { es: "47,2 %", en: "47.2%" },
-            afterDetail: { es: "n = 36 tarjetas", en: "n = 36 tickets" },
+            afterValue: 47.2,
+            afterCount: 36,
           },
         ],
       },

@@ -5,7 +5,6 @@ import {
   FileSearch,
   FileText,
   Gauge,
-  Info,
   Rocket,
   ShieldCheck,
   SquareTerminal,
@@ -16,6 +15,8 @@ import type { AiImpactMetric, CopyCard } from "@/data/types";
 import type { Locale } from "@/lib/i18n";
 
 import { ButtonLink } from "@/components/ui/button-link";
+import { InfoDisclaimer } from "@/components/ui/info-disclaimer";
+import { MetricCounter } from "@/components/ui/metric-counter";
 import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 import { localizePath } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -42,24 +43,27 @@ type WorkflowStep = {
   accent: Accent;
 };
 
-const tones: Record<Accent, { border: string; text: string; soft: string; glow: string }> = {
+const tones: Record<Accent, { border: string; text: string; soft: string; glow: string; ring: string }> = {
   blue: {
     border: "border-indigo-500/30",
     text: "text-indigo-300",
     soft: "bg-indigo-500/10",
     glow: "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_36px_-24px_rgba(99,102,241,0.4)]",
+    ring: "stroke-[#6366f1]",
   },
   green: {
     border: "border-emerald-500/30",
     text: "text-emerald-300",
     soft: "bg-emerald-500/10",
     glow: "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_36px_-24px_rgba(16,185,129,0.35)]",
+    ring: "stroke-[#10b981]",
   },
   violet: {
     border: "border-purple-500/30",
     text: "text-purple-300",
     soft: "bg-purple-500/10",
     glow: "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_36px_-24px_rgba(168,85,247,0.35)]",
+    ring: "stroke-[#a855f7]",
   },
 };
 
@@ -254,6 +258,39 @@ function WorkflowStepCard({ step, showArrow }: { step: WorkflowStep; showArrow?:
   );
 }
 
+function MetricRing({ accent, progress, icon: Icon }: { accent: Accent; progress: number; icon: LucideIcon }) {
+  const tone = tones[accent];
+  const radius = 30;
+  const circumference = 2 * Math.PI * radius;
+  const dashoffset = circumference - (circumference * progress) / 100;
+
+  return (
+    <div aria-hidden="true" className="relative h-20 w-20 shrink-0">
+      <svg className="h-20 w-20 -rotate-90" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r={radius} className="stroke-white/10" fill="none" strokeWidth="8" />
+        <circle
+          cx="40"
+          cy="40"
+          r={radius}
+          className={cn(tone.ring, "ring-animate")}
+          fill="none"
+          strokeLinecap="round"
+          strokeWidth="8"
+          strokeDasharray={circumference}
+          strokeDashoffset={dashoffset}
+        />
+      </svg>
+      <div className="absolute inset-0 flex items-center justify-center rounded-full bg-[radial-gradient(circle,rgba(7,12,24,0.88),rgba(7,12,24,0.55))]">
+        <Icon className={cn("h-7 w-7", tone.text)} strokeWidth={2} />
+      </div>
+    </div>
+  );
+}
+
+function getRelativeReduction(before: number, after: number) {
+  return Math.round(((before - after) / before) * 100);
+}
+
 export function AIImpactSection({ locale, eyebrow, title, description, context, metrics, metricsNote, note, items }: AIImpactSectionProps) {
   const copy = workflowCopy[locale];
   const acceleratorSteps = copy.steps.slice(0, 3);
@@ -350,53 +387,59 @@ export function AIImpactSection({ locale, eyebrow, title, description, context, 
               </div>
             </div>
 
-            <div className="border-t border-white/8 px-5 py-3.5">
-              <div className="flex items-start gap-3">
-                <Info className="mt-0.5 h-4.5 w-4.5 shrink-0 text-[#74a5ff]" strokeWidth={2} />
-                <p className="text-sm leading-6 text-slate-300">{note}</p>
-              </div>
+            <div className="border-t border-white/8 px-5 py-3.5 sm:px-6">
+              <InfoDisclaimer>{note}</InfoDisclaimer>
             </div>
           </section>
 
           <section className="pt-3 sm:pt-4">
             <p className="mb-4 font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#9fbeff]">{copy.metricsEyebrow}</p>
             <RevealOnScroll className="grid gap-3" rootMargin="0px 0px -180px 0px">
-              {metrics.map((metric) => (
-                <article
-                  className="rounded-[1.45rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.9),rgba(7,12,24,0.96))] p-5 shadow-soft sm:p-6"
-                  key={metric.title[locale]}
-                >
-                  <div className="grid gap-6 lg:grid-cols-[minmax(15rem,0.85fr)_minmax(0,1.15fr)] lg:items-center">
-                    <div>
-                      <p className="font-mono text-[0.64rem] font-bold uppercase tracking-[0.18em] text-purple-300">{metric.title[locale]}</p>
-                      <h3 className="mt-3 text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl">{metric.highlight[locale]}</h3>
-                      <p className="mt-3 text-sm leading-6 text-slate-300">{metric.description[locale]}</p>
-                    </div>
+              <article className="ai-animate overflow-hidden rounded-[1.45rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.9),rgba(7,12,24,0.96))] shadow-soft transition duration-300 hover:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none">
+                {metrics.map((metric) => {
+                  const relativeReduction = getRelativeReduction(metric.beforeValue, metric.afterValue);
 
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      <div className="rounded-xl border border-white/8 bg-white/[0.025] p-4 sm:p-5">
-                        <p className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400">{metric.beforeLabel[locale]}</p>
-                        <p className="mt-3 text-3xl font-black tabular-nums tracking-tight text-slate-100">{metric.beforeValue[locale]}</p>
-                        <p className="mt-1 text-sm text-slate-400">{metric.beforeDetail[locale]}</p>
+                  return (
+                    <div className="grid gap-6 p-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center sm:p-6" key={metric.title[locale]}>
+                      <div className="flex items-center gap-4 sm:gap-5">
+                        <MetricRing accent="violet" icon={Gauge} progress={relativeReduction} />
+                        <div>
+                          <p className="font-mono text-[0.64rem] font-bold uppercase tracking-[0.18em] text-purple-300">{metric.title[locale]}</p>
+                          <h3 className="value-appear mt-2 text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl">
+                            <MetricCounter className="inline-block tabular-nums" locale={locale} target={relativeReduction} />{" "}{metric.highlight[locale]}
+                          </h3>
+                        </div>
                       </div>
-                      <div className="rounded-xl border border-indigo-400/20 bg-indigo-500/[0.06] p-4 sm:p-5">
-                        <p className="font-mono text-xs font-bold uppercase tracking-wider text-indigo-200">{metric.afterLabel[locale]}</p>
-                        <p className="mt-3 text-3xl font-black tabular-nums tracking-tight text-white">{metric.afterValue[locale]}</p>
-                        <p className="mt-1 text-sm text-slate-300">{metric.afterDetail[locale]}</p>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div className="ai-animate rounded-xl border border-white/8 bg-white/[0.025] p-4 sm:p-5" style={{ animationDelay: "0.2s" }}>
+                          <p className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400">{metric.beforeLabel[locale]}</p>
+                          <MetricCounter className="value-appear mt-3 block text-3xl font-black tabular-nums tracking-tight text-slate-100" decimals={1} locale={locale} target={metric.beforeValue} />
+                          <p className="mt-1 text-xs text-slate-400">{locale === "es" ? "de la estimación original" : "of the original estimate"}</p>
+                          <p className="mt-1 text-sm text-slate-400">n = {metric.beforeCount} {locale === "es" ? "tarjetas" : "tickets"}</p>
+                          <div aria-hidden="true" className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/10">
+                            <span className="metric-progress-fill block h-full rounded-full bg-slate-400" style={{ width: `${metric.beforeValue}%` }} />
+                          </div>
+                        </div>
+                        <div className="ai-animate rounded-xl border border-indigo-400/20 bg-indigo-500/[0.06] p-4 sm:p-5" style={{ animationDelay: "0.4s" }}>
+                          <p className="font-mono text-xs font-bold uppercase tracking-wider text-indigo-200">{metric.afterLabel[locale]}</p>
+                          <MetricCounter className="value-appear mt-3 block text-3xl font-black tabular-nums tracking-tight text-white" decimals={1} locale={locale} target={metric.afterValue} />
+                          <p className="mt-1 text-xs text-slate-300">{locale === "es" ? "de la estimación original" : "of the original estimate"}</p>
+                          <p className="mt-1 text-sm text-slate-300">n = {metric.afterCount} {locale === "es" ? "tarjetas" : "tickets"}</p>
+                          <div aria-hidden="true" className="mt-4 h-1.5 overflow-hidden rounded-full bg-indigo-200/10">
+                            <span className="metric-progress-fill block h-full rounded-full bg-indigo-300" style={{ width: `${metric.afterValue}%` }} />
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </article>
-              ))}
+                  );
+                })}
+                <div className="border-t border-white/8 px-5 py-3.5 sm:px-6">
+                  <InfoDisclaimer>{metricsNote}</InfoDisclaimer>
+                </div>
+              </article>
             </RevealOnScroll>
           </section>
-        </div>
-      </div>
-
-      <div className="mt-4 rounded-[1.35rem] border border-white/8 bg-[linear-gradient(180deg,rgba(11,18,32,0.88),rgba(7,12,24,0.94))] px-4 py-3.5 sm:px-5">
-        <div className="flex items-start gap-4">
-          <Info className="mt-0.5 h-4.5 w-4.5 shrink-0 text-[#74a5ff]" strokeWidth={2} />
-          <p className="text-sm leading-6 text-slate-400">{metricsNote}</p>
         </div>
       </div>
     </div>

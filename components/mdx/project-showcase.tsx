@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { InfoDisclaimer } from "@/components/ui/info-disclaimer";
+
 interface ProjectShowcaseProps {
   locale: "es" | "en";
 }
@@ -63,7 +65,9 @@ export function ProjectShowcase({ locale }: ProjectShowcaseProps) {
         </div>
       </div>
 
-      <p className="mt-1 text-center font-mono text-[0.65rem] text-slate-500">{content.note}</p>
+      <div className="mt-4 border-t border-white/8 pt-3.5">
+        <InfoDisclaimer>{content.note}</InfoDisclaimer>
+      </div>
     </figure>
   );
 }
