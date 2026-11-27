@@ -15,7 +15,7 @@ interface ArchNode {
   name: { es: string; en: string };
   category: { es: string; en: string };
   icon: typeof FileSearch;
-  tech: string[];
+  tech: { es: string[]; en: string[] };
   patterns: string[];
   description: { es: string; en: string };
   metrics: { es: string; en: string };
@@ -28,7 +28,10 @@ const archNodes: ArchNode[] = [
     name: { es: "Entender el flujo y el impacto", en: "Understand the flow and impact" },
     category: { es: "Contexto", en: "Context" },
     icon: FileSearch,
-    tech: ["Logs y trazas", "Reglas de negocio", "Datos afectados", "Criterios funcionales"],
+    tech: {
+      es: ["Logs y trazas", "Reglas de negocio", "Datos afectados", "Criterios funcionales"],
+      en: ["Logs and traces", "Business rules", "Affected data", "Functional criteria"],
+    },
     patterns: ["Context mapping", "Impact analysis", "Functional alignment"],
     description: {
       es: "Antes de tocar código, acoto el flujo, los datos afectados y el riesgo funcional para entender qué necesita realmente el sistema.",
@@ -42,7 +45,10 @@ const archNodes: ArchNode[] = [
     name: { es: "Analizar síntomas e hipótesis", en: "Analyze symptoms and hypotheses" },
     category: { es: "Investigación técnica", en: "Technical investigation" },
     icon: Bug,
-    tech: ["Logs", "SQL / FlexibleSearch", "Debugger", "Comparativa estándar"],
+    tech: {
+      es: ["Logs", "SQL / FlexibleSearch", "Debugger", "Comparativa estándar"],
+      en: ["Logs", "SQL / FlexibleSearch", "Debugger", "Standard behavior comparison"],
+    },
     patterns: ["Root cause analysis", "Evidence-first debugging", "Hypothesis contrast"],
     description: {
       es: "Comparo síntomas, evidencias y comportamiento esperado antes de elegir una causa raíz o proponer un cambio.",
@@ -56,7 +62,10 @@ const archNodes: ArchNode[] = [
     name: { es: "Elegir la solución más segura", en: "Choose the safest solution" },
     category: { es: "Decisión e implementación", en: "Decision and implementation" },
     icon: Wrench,
-    tech: ["Java", "Spring", "SAP Commerce", "APIs REST"],
+    tech: {
+      es: ["Java", "Spring", "SAP Commerce", "APIs REST"],
+      en: ["Java", "Spring", "SAP Commerce", "REST APIs"],
+    },
     patterns: ["Standard before customization", "Small safe changes", "Separation of concerns"],
     description: {
       es: "Implemento el cambio con el menor acoplamiento posible, respetando el estándar y dejando una solución que el equipo pueda mantener.",
@@ -70,7 +79,10 @@ const archNodes: ArchNode[] = [
     name: { es: "Validar y entregar con confianza", en: "Validate and deliver with confidence" },
     category: { es: "Validación y entrega", en: "Validation and delivery" },
     icon: ShieldCheck,
-    tech: ["Pruebas locales", "QA", "Documentación", "Seguimiento"],
+    tech: {
+      es: ["Pruebas locales", "QA", "Documentación", "Seguimiento"],
+      en: ["Local testing", "QA", "Documentation", "Follow-up"],
+    },
     patterns: ["Regression checks", "QA handoff", "Production readiness"],
     description: {
       es: "Reviso pruebas locales, edge cases e impacto antes de pasar el cambio a QA o coordinar su entrega.",
@@ -182,7 +194,7 @@ export function ArchitectureFlowDiagram({ locale, className }: ArchitectureFlowD
               {locale === "es" ? "Tecnologías Clave" : "Key Technologies"}
             </p>
             <div className="flex flex-wrap gap-1.5">
-              {selectedNode.tech.map((t) => (
+              {selectedNode.tech[locale].map((t) => (
                 <span
                   className="rounded-md border border-white/8 bg-white/[0.04] px-2.5 py-1 font-mono text-[0.68rem] text-slate-200"
                   key={t}
